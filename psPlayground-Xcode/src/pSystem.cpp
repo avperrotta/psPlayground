@@ -202,6 +202,7 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
                 for(int i=0; i<numParticles; i++){
                     (*particles)[i]->setSizeLimits(argc - 1, argv + 1);
                 }
+                /*
                 post("size limits set for %s system:", name.c_str(), argv);
                 postatom(argv + 1);
                 postatom(argv + 2);
@@ -209,6 +210,7 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
                 postatom(argv + 4);
                 postatom(argv + 5);
                 postatom(argv + 6);
+                */
                 
             }
         }
@@ -223,14 +225,14 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
                 for(int i=0; i<numParticles; i++){
                     (*particles)[i]->setSpeed(ofVec3f(atom_getfloat(argv + 1), atom_getfloat(argv + 1), atom_getfloat(argv + 1)));
                 }
-                post("setting speed for %s: %lf", name.c_str(), atom_getfloat(argv + 1));
+                //post("setting speed for %s: %lf", name.c_str(), atom_getfloat(argv + 1));
             }
         }
         else if(argc == 4){
             for(int i=0; i<numParticles; i++){
                 (*particles)[i]->setSpeed(ofVec3f(atom_getfloat(argv + 1), atom_getfloat(argv + 2), atom_getfloat(argv + 3)));
             }
-            post("setting speed for %s: %lf %lf %lf", name.c_str(), atom_getfloat(argv + 1), atom_getfloat(argv + 2), atom_getfloat(argv + 3));
+            //post("setting speed for %s: %lf %lf %lf", name.c_str(), atom_getfloat(argv + 1), atom_getfloat(argv + 2), atom_getfloat(argv + 3));
         }
         
         return JIT_ERR_NONE;
@@ -242,14 +244,14 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
                 for(int i=0; i<numParticles; i++){
                     (*particles)[i]->setInitialSpeed(ofVec3f(atom_getfloat(argv + 1), atom_getfloat(argv + 1), atom_getfloat(argv + 1)));
                 }
-                post("setting speed for %s: %lf", name.c_str(), atom_getfloat(argv + 1));
+                //post("setting speed for %s: %lf", name.c_str(), atom_getfloat(argv + 1));
             }
         }
         else if(argc == 4){
             for(int i=0; i<numParticles; i++){
                 (*particles)[i]->setInitialSpeed(ofVec3f(atom_getfloat(argv + 1), atom_getfloat(argv + 2), atom_getfloat(argv + 3)));
             }
-            post("setting speed for %s: %lf %lf %lf", name.c_str(), atom_getfloat(argv + 1), atom_getfloat(argv + 2), atom_getfloat(argv + 3));
+            //post("setting speed for %s: %lf %lf %lf", name.c_str(), atom_getfloat(argv + 1), atom_getfloat(argv + 2), atom_getfloat(argv + 3));
         }
         
         return JIT_ERR_NONE;
@@ -260,7 +262,7 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
                 for(int i=0; i<numParticles; i++){
                     (*particles)[i]->setOffset(argc - 1, argv + 1);
                 }
-                post("setting offset for %s", name.c_str());
+                //post("setting offset for %s", name.c_str());
             }
         }
         return JIT_ERR_NONE;
@@ -272,7 +274,7 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
                 for(int i=0; i<numParticles; i++){
                     (*particles)[i]->setRadius(argv + 1);
                 }
-                post("setting radius for %s: %lf", name.c_str(), atom_getfloat(argv + 1));
+                //post("setting radius for %s: %lf", name.c_str(), atom_getfloat(argv + 1));
             }
         }
         return JIT_ERR_NONE;
@@ -284,7 +286,7 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
                 for(int i=0; i<numParticles; i++){
                     (*particles)[i]->setTheta(argv + 1);
                 }
-                post("setting Theta for %s: %lf", name.c_str(), atom_getfloat(argv + 1));
+                //post("setting Theta for %s: %lf", name.c_str(), atom_getfloat(argv + 1));
             }
         }
         return JIT_ERR_NONE;
@@ -296,7 +298,7 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
                 for(int i=0; i<numParticles; i++){
                     (*particles)[i]->setPhi(argv + 1);
                 }
-                post("setting Phi for %s: %lf", name.c_str(), atom_getfloat(argv + 1));
+                //post("setting Phi for %s: %lf", name.c_str(), atom_getfloat(argv + 1));
             }
         }
         return JIT_ERR_NONE;
@@ -308,7 +310,7 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
                 for(int i=0; i<numParticles; i++){
                     (*particles)[i]->setRadiusSpeed(argv + 1);
                 }
-                post("setting radius speed for %s: %lf", name.c_str(), atom_getfloat(argv + 1));
+                //post("setting radius speed for %s: %lf", name.c_str(), atom_getfloat(argv + 1));
             }
         }
         return JIT_ERR_NONE;
@@ -320,7 +322,7 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
                 for(int i=0; i<numParticles; i++){
                     (*particles)[i]->setThetaSpeed(argv + 1);
                 }
-                post("setting Theta speed for %s: %lf", name.c_str(), atom_getfloat(argv + 1));
+                //post("setting Theta speed for %s: %lf", name.c_str(), atom_getfloat(argv + 1));
             }
         }
         return JIT_ERR_NONE;
@@ -332,7 +334,7 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
                 for(int i=0; i<numParticles; i++){
                     (*particles)[i]->setPhiSpeed(argv + 1);
                 }
-                post("setting Phi speed for %s: %lf", name.c_str(), atom_getfloat(argv + 1));
+                //post("setting Phi speed for %s: %lf", name.c_str(), atom_getfloat(argv + 1));
             }
         }
         return JIT_ERR_NONE;
@@ -345,7 +347,7 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
                 for(int i=0; i<numParticles; i++){
                     (*particles)[i]->setRandomness(atom_getfloat(argv + 1));
                 }
-                post("setting randomness for %s: %lf", name.c_str(), atom_getfloat(argv + 1));
+                //post("setting randomness for %s: %lf", name.c_str(), atom_getfloat(argv + 1));
             }
         }
         return JIT_ERR_NONE;

@@ -72,6 +72,7 @@ void psPlaygroundManager::update(){
         pSystems_it->second->update();
     }
     
+    outlet_bang(updateOutlet);
     
 }
 void psPlaygroundManager::draw(){
@@ -91,12 +92,15 @@ t_jit_err psPlaygroundManager::messageControl(long argc, t_atom *argv){
     std::string task;
     task = jit_atom_getsym(argv)->s_name;
     
+    
+    /*
     if(task == "updateSystems"){
         update();
     }
+    */
     
     
-    else if(task == "setAbsPath"){
+    if(task == "setAbsPath"){
         if(argc == 2){
             if(argv){
                 concertRoom->setFilesPath(atom_getsym(argv + 1)->s_name);

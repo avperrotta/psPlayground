@@ -54,6 +54,7 @@ typedef struct _max_psPlayground
     void* m_outlet2;
     void* m_outlet3;
     void* m_outlet4;
+    void* m_updateOutlet;
 	void* obex;
 } t_max_psPlayground;
 
@@ -152,9 +153,15 @@ void *max_psPlayground_new(t_symbol *s, long argc, t_atom *argv)
 			// set internal jitter object instance
 			max_jit_obex_jitob_set(x, jit_ob);
 			
+            
+            // add the update outlet (rightmost)
+            x->m_updateOutlet = outlet_new(x, NULL);
+            updateOutlet = x->m_updateOutlet;
+			max_jit_obex_dumpout_set(x, x->m_updateOutlet);
+            
+            
             x->m_outlet1 = outlet_new(x, NULL);
             superOutlet1 = x->m_outlet1;
-			// add a general purpose outlet (rightmost)
 			max_jit_obex_dumpout_set(x, x->m_outlet1);
             
             x->m_outlet2 = outlet_new(x, NULL);

@@ -43,6 +43,9 @@
 
 #include "jit.common.h"
 #include "jit.gl.h"
+#include "ext.h"
+#include "ext_obex.h"
+#include "ext_systhread.h"
 #include "testClass.h"
 #include "psPlaygroundManager.h"
 #include "pspGlobals.h"
@@ -73,6 +76,10 @@ t_jit_err psPlayground_dest_changed(t_psPlayground *x);
 t_jit_err build_simple_chunk(t_psPlayground *x);
 t_jit_err psPlayground_pspMngMessageControl(t_psPlayground *x, void *attr, long argc, t_atom *argv);
 t_jit_err psPlayground_update(t_psPlayground *x);
+
+
+
+
 END_USING_C_LINKAGE
 
 // --------------------------------------------------------------------------------
@@ -153,6 +160,7 @@ t_psPlayground *psPlayground_new(t_symbol * dest_name)
 	// make jit object
 	if (x = (t_psPlayground *)jit_object_alloc(_psPlayground_class)) 
 	{
+        
 		selfRef = x;
         // create and attach ob3d
 		jit_ob3d_new(x, dest_name);
@@ -169,6 +177,7 @@ t_psPlayground *psPlayground_new(t_symbol * dest_name)
 
 void psPlayground_free(t_psPlayground *x)
 {
+    
     
 	delete x->pspMng;
     
@@ -192,19 +201,16 @@ t_jit_err psPlayground_dest_changed(t_psPlayground *x)
 t_jit_err psPlayground_update(t_psPlayground *x){
     
     
-    //x->pspMng->update();
+    x->pspMng->update();
     
     return JIT_ERR_NONE;
     
 }
 
-
-
-
 t_jit_err psPlayground_draw(t_psPlayground *x)
 {
 
-    //psPlayground_update(x);
+    psPlayground_update(x);
     x->pspMng->draw();
     
     

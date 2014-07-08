@@ -99,7 +99,7 @@ t_jit_err RainSystem::messageControl(long argc, t_atom *argv){
                 for(int i=0; i<numParticles; i++){
                     static_cast<RainParticle*>((*particles)[i])->setDirection(atom_getlong(argv + 1));
                 }
-                post("direction set for %s system: %d", name.c_str(), atom_getlong(argv + 1));
+                //post("direction set for %s system: %d", name.c_str(), atom_getlong(argv + 1));
             }
         }
         
@@ -111,7 +111,7 @@ t_jit_err RainSystem::messageControl(long argc, t_atom *argv){
                 for(int i=0; i<numParticles; i++){
                     static_cast<RainParticle*>((*particles)[i])->setAvgLife(atom_getfloat(argv + 1));
                 }
-                post("average life set for %s system: %lf", name.c_str(), atom_getfloat(argv + 1));
+                //post("average life set for %s system: %lf", name.c_str(), atom_getfloat(argv + 1));
             }
         }
         
@@ -123,7 +123,7 @@ t_jit_err RainSystem::messageControl(long argc, t_atom *argv){
                 for(int i=0; i<numParticles; i++){
                     static_cast<RainParticle*>((*particles)[i])->setDirectionalSpeed(atom_getfloat(argv + 1));
                 }
-                post("directional speed set for %s system: %lf", name.c_str(), atom_getfloat(argv + 1));
+                //post("directional speed set for %s system: %lf", name.c_str(), atom_getfloat(argv + 1));
             }
         }
         
@@ -135,7 +135,7 @@ t_jit_err RainSystem::messageControl(long argc, t_atom *argv){
                 for(int i=0; i<numParticles; i++){
                     static_cast<RainParticle*>((*particles)[i])->setLateralSpeed(atom_getfloat(argv + 1));
                 }
-                post("lateral speed set for %s system: %lf", name.c_str(), atom_getfloat(argv + 1));
+                //post("lateral speed set for %s system: %lf", name.c_str(), atom_getfloat(argv + 1));
             }
         }
         

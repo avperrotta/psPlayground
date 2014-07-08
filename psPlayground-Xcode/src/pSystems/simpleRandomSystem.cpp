@@ -98,6 +98,7 @@ t_jit_err SimpleRandomSystem::messageControl(long argc, t_atom *argv){
                 for(int i=0; i<numParticles; i++){
                     (*particles)[i]->setSpeedLimits(argc - 1, argv + 1);
                 }
+                /*
                 post("speed limits set for %s system:", name.c_str());
                 postatom(argv + 1);
                 postatom(argv + 2);
@@ -105,6 +106,7 @@ t_jit_err SimpleRandomSystem::messageControl(long argc, t_atom *argv){
                 postatom(argv + 4);
                 postatom(argv + 5);
                 postatom(argv + 6);
+                */
             }
         }
         
