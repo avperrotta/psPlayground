@@ -192,7 +192,7 @@ t_jit_err psPlayground_dest_changed(t_psPlayground *x)
 t_jit_err psPlayground_update(t_psPlayground *x){
     
     
-    x->pspMng->update();
+    //x->pspMng->update();
     
     return JIT_ERR_NONE;
     
@@ -204,7 +204,7 @@ t_jit_err psPlayground_update(t_psPlayground *x){
 t_jit_err psPlayground_draw(t_psPlayground *x)
 {
 
-    psPlayground_update(x);
+    //psPlayground_update(x);
     x->pspMng->draw();
     
     
