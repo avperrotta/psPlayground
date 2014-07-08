@@ -1,0 +1,471 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		22301F4A10D7BC6C00C1989F /* JitterAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22301F4910D7BC6C00C1989F /* JitterAPI.framework */; };
+		2282B5C510D90D3900D827D3 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2282B5C410D90D3900D827D3 /* OpenGL.framework */; };
+		416E56F51955885C006668FC /* manualMovementSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 416E56F31955885C006668FC /* manualMovementSystem.cpp */; };
+		416E56F61955885C006668FC /* manualMovementSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 416E56F41955885C006668FC /* manualMovementSystem.h */; };
+		41D61BF719563DE1003BAF63 /* manualMovementParticle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 41D61BF519563DE1003BAF63 /* manualMovementParticle.cpp */; };
+		41D61BF819563DE1003BAF63 /* manualMovementParticle.h in Headers */ = {isa = PBXBuildFile; fileRef = 41D61BF619563DE1003BAF63 /* manualMovementParticle.h */; };
+		A74EBD09192F9E1E007508C9 /* maxmspsdk.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A74EBD08192F9E1E007508C9 /* maxmspsdk.xcconfig */; };
+		A74EBD601934BA27007508C9 /* ofConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = A74EBD5A1934BA27007508C9 /* ofConstants.h */; };
+		A74EBD611934BA27007508C9 /* ofVec2f.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A74EBD5B1934BA27007508C9 /* ofVec2f.cpp */; };
+		A74EBD621934BA27007508C9 /* ofVec2f.h in Headers */ = {isa = PBXBuildFile; fileRef = A74EBD5C1934BA27007508C9 /* ofVec2f.h */; };
+		A74EBD631934BA27007508C9 /* ofVec3f.h in Headers */ = {isa = PBXBuildFile; fileRef = A74EBD5D1934BA27007508C9 /* ofVec3f.h */; };
+		A74EBD641934BA27007508C9 /* ofVec4f.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A74EBD5E1934BA27007508C9 /* ofVec4f.cpp */; };
+		A74EBD651934BA27007508C9 /* ofVec4f.h in Headers */ = {isa = PBXBuildFile; fileRef = A74EBD5F1934BA27007508C9 /* ofVec4f.h */; };
+		A74EBD671934BB8F007508C9 /* ofVectorMath.h in Headers */ = {isa = PBXBuildFile; fileRef = A74EBD661934BB8F007508C9 /* ofVectorMath.h */; };
+		A7B4269E1935F89F00E35E49 /* ConcertRoom.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7B4268B1935F89F00E35E49 /* ConcertRoom.cpp */; };
+		A7B4269F1935F89F00E35E49 /* ConcertRoom.h in Headers */ = {isa = PBXBuildFile; fileRef = A7B4268C1935F89F00E35E49 /* ConcertRoom.h */; };
+		A7B426A01935F89F00E35E49 /* pspObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7B4268D1935F89F00E35E49 /* pspObject.cpp */; };
+		A7B426A11935F89F00E35E49 /* psPlaygroundManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7B4268E1935F89F00E35E49 /* psPlaygroundManager.cpp */; };
+		A7B426A21935F89F00E35E49 /* psPlaygroundManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A7B4268F1935F89F00E35E49 /* psPlaygroundManager.h */; };
+		A7B426A31935F89F00E35E49 /* mathUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7B426901935F89F00E35E49 /* mathUtils.cpp */; };
+		A7B426A41935F89F00E35E49 /* mathUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = A7B426911935F89F00E35E49 /* mathUtils.h */; };
+		A7B426A51935F89F00E35E49 /* max.pspObject.c in Sources */ = {isa = PBXBuildFile; fileRef = A7B426921935F89F00E35E49 /* max.pspObject.c */; };
+		A7B426A61935F89F00E35E49 /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7B426931935F89F00E35E49 /* Particle.cpp */; };
+		A7B426A71935F89F00E35E49 /* Particle.h in Headers */ = {isa = PBXBuildFile; fileRef = A7B426941935F89F00E35E49 /* Particle.h */; };
+		A7B426A81935F89F00E35E49 /* psPlayground.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7B426951935F89F00E35E49 /* psPlayground.cpp */; };
+		A7B426A91935F89F00E35E49 /* psPlayground.h in Headers */ = {isa = PBXBuildFile; fileRef = A7B426961935F89F00E35E49 /* psPlayground.h */; };
+		A7B426AA1935F89F00E35E49 /* pSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7B426971935F89F00E35E49 /* pSystem.cpp */; };
+		A7B426AB1935F89F00E35E49 /* pSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = A7B426981935F89F00E35E49 /* pSystem.h */; };
+		A7B426AC1935F89F00E35E49 /* Speaker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7B4269A1935F89F00E35E49 /* Speaker.cpp */; };
+		A7B426AD1935F89F00E35E49 /* Speaker.h in Headers */ = {isa = PBXBuildFile; fileRef = A7B4269B1935F89F00E35E49 /* Speaker.h */; };
+		A7B426AE1935F89F00E35E49 /* testClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7B4269C1935F89F00E35E49 /* testClass.cpp */; };
+		A7B426AF1935F89F00E35E49 /* testClass.h in Headers */ = {isa = PBXBuildFile; fileRef = A7B4269D1935F89F00E35E49 /* testClass.h */; };
+		A7B426B219360D1400E35E49 /* simpleRandomSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7B426B019360D1400E35E49 /* simpleRandomSystem.cpp */; };
+		A7B426B319360D1400E35E49 /* simpleRandomSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = A7B426B119360D1400E35E49 /* simpleRandomSystem.h */; };
+		A7B426B619360F5E00E35E49 /* simpleRandomParticle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7B426B419360F5E00E35E49 /* simpleRandomParticle.cpp */; };
+		A7B426B719360F5E00E35E49 /* simpleRandomParticle.h in Headers */ = {isa = PBXBuildFile; fileRef = A7B426B519360F5E00E35E49 /* simpleRandomParticle.h */; };
+		A7B426BA1936588D00E35E49 /* pspGlobals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7B426B81936588D00E35E49 /* pspGlobals.cpp */; };
+		A7B426BB1936588D00E35E49 /* pspGlobals.h in Headers */ = {isa = PBXBuildFile; fileRef = A7B426B91936588D00E35E49 /* pspGlobals.h */; };
+		A7B426BE193760C100E35E49 /* dbap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7B426BC193760C100E35E49 /* dbap.cpp */; };
+		A7B426BF193760C100E35E49 /* dbap.h in Headers */ = {isa = PBXBuildFile; fileRef = A7B426BD193760C100E35E49 /* dbap.h */; };
+		A7BCEE87195ADC450003C5E3 /* sphericalMovementSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BCEE85195ADC450003C5E3 /* sphericalMovementSystem.cpp */; };
+		A7BCEE88195ADC450003C5E3 /* sphericalMovementSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = A7BCEE86195ADC450003C5E3 /* sphericalMovementSystem.h */; };
+		A7BCEE8B195ADC560003C5E3 /* sphericalMovementParticle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BCEE89195ADC560003C5E3 /* sphericalMovementParticle.cpp */; };
+		A7BCEE8C195ADC560003C5E3 /* sphericalMovementParticle.h in Headers */ = {isa = PBXBuildFile; fileRef = A7BCEE8A195ADC560003C5E3 /* sphericalMovementParticle.h */; };
+		A7BCEE921961AA840003C5E3 /* farfalharSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BCEE901961AA840003C5E3 /* farfalharSystem.cpp */; };
+		A7BCEE931961AA840003C5E3 /* farfalharSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = A7BCEE911961AA840003C5E3 /* farfalharSystem.h */; };
+		A7BCEE961961AA920003C5E3 /* farfalharParticle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BCEE941961AA920003C5E3 /* farfalharParticle.cpp */; };
+		A7BCEE971961AA920003C5E3 /* farfalharParticle.h in Headers */ = {isa = PBXBuildFile; fileRef = A7BCEE951961AA920003C5E3 /* farfalharParticle.h */; };
+		A7C33DD319519E7500BEEAFB /* MaxAudioAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7C33DD219519E7500BEEAFB /* MaxAudioAPI.framework */; };
+		A7C33DD6195326CD00BEEAFB /* spatCalibrationSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7C33DD4195326CD00BEEAFB /* spatCalibrationSystem.cpp */; };
+		A7C33DD7195326CD00BEEAFB /* spatCalibrationSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = A7C33DD5195326CD00BEEAFB /* spatCalibrationSystem.h */; };
+		A7C33DDA195327C500BEEAFB /* spatCalibrationParticle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7C33DD8195327C500BEEAFB /* spatCalibrationParticle.cpp */; };
+		A7C33DDB195327C500BEEAFB /* spatCalibrationParticle.h in Headers */ = {isa = PBXBuildFile; fileRef = A7C33DD9195327C500BEEAFB /* spatCalibrationParticle.h */; };
+		A7C33DDE19543CAA00BEEAFB /* rainSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7C33DDC19543CAA00BEEAFB /* rainSystem.cpp */; };
+		A7C33DDF19543CAA00BEEAFB /* rainSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = A7C33DDD19543CAA00BEEAFB /* rainSystem.h */; };
+		A7C33DE21954432C00BEEAFB /* rainParticle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7C33DE01954432C00BEEAFB /* rainParticle.cpp */; };
+		A7C33DE31954432C00BEEAFB /* rainParticle.h in Headers */ = {isa = PBXBuildFile; fileRef = A7C33DE11954432C00BEEAFB /* rainParticle.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		22301F4910D7BC6C00C1989F /* JitterAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JitterAPI.framework; path = "../../c74support/jit-includes/JitterAPI.framework"; sourceTree = SOURCE_ROOT; };
+		2282B5C410D90D3900D827D3 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
+		2FBBEAE508F335360078DB84 /* psPlayground.mxo */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = psPlayground.mxo; sourceTree = BUILT_PRODUCTS_DIR; };
+		416E56F31955885C006668FC /* manualMovementSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = manualMovementSystem.cpp; sourceTree = "<group>"; };
+		416E56F41955885C006668FC /* manualMovementSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = manualMovementSystem.h; sourceTree = "<group>"; };
+		41D61BF519563DE1003BAF63 /* manualMovementParticle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = manualMovementParticle.cpp; sourceTree = "<group>"; };
+		41D61BF619563DE1003BAF63 /* manualMovementParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = manualMovementParticle.h; sourceTree = "<group>"; };
+		A74EBD08192F9E1E007508C9 /* maxmspsdk.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = maxmspsdk.xcconfig; sourceTree = "<group>"; };
+		A74EBD5A1934BA27007508C9 /* ofConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofConstants.h; sourceTree = "<group>"; };
+		A74EBD5B1934BA27007508C9 /* ofVec2f.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofVec2f.cpp; sourceTree = "<group>"; };
+		A74EBD5C1934BA27007508C9 /* ofVec2f.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofVec2f.h; sourceTree = "<group>"; };
+		A74EBD5D1934BA27007508C9 /* ofVec3f.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofVec3f.h; sourceTree = "<group>"; };
+		A74EBD5E1934BA27007508C9 /* ofVec4f.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofVec4f.cpp; sourceTree = "<group>"; };
+		A74EBD5F1934BA27007508C9 /* ofVec4f.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofVec4f.h; sourceTree = "<group>"; };
+		A74EBD661934BB8F007508C9 /* ofVectorMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofVectorMath.h; sourceTree = "<group>"; };
+		A7B4268B1935F89F00E35E49 /* ConcertRoom.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConcertRoom.cpp; sourceTree = "<group>"; };
+		A7B4268C1935F89F00E35E49 /* ConcertRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConcertRoom.h; sourceTree = "<group>"; };
+		A7B4268D1935F89F00E35E49 /* pspObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pspObject.cpp; sourceTree = "<group>"; };
+		A7B4268E1935F89F00E35E49 /* psPlaygroundManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = psPlaygroundManager.cpp; sourceTree = "<group>"; };
+		A7B4268F1935F89F00E35E49 /* psPlaygroundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = psPlaygroundManager.h; sourceTree = "<group>"; };
+		A7B426901935F89F00E35E49 /* mathUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mathUtils.cpp; sourceTree = "<group>"; };
+		A7B426911935F89F00E35E49 /* mathUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mathUtils.h; sourceTree = "<group>"; };
+		A7B426921935F89F00E35E49 /* max.pspObject.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = max.pspObject.c; sourceTree = "<group>"; };
+		A7B426931935F89F00E35E49 /* Particle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Particle.cpp; sourceTree = "<group>"; };
+		A7B426941935F89F00E35E49 /* Particle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Particle.h; sourceTree = "<group>"; };
+		A7B426951935F89F00E35E49 /* psPlayground.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = psPlayground.cpp; sourceTree = "<group>"; };
+		A7B426961935F89F00E35E49 /* psPlayground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = psPlayground.h; sourceTree = "<group>"; };
+		A7B426971935F89F00E35E49 /* pSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pSystem.cpp; sourceTree = "<group>"; };
+		A7B426981935F89F00E35E49 /* pSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pSystem.h; sourceTree = "<group>"; };
+		A7B4269A1935F89F00E35E49 /* Speaker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Speaker.cpp; sourceTree = "<group>"; };
+		A7B4269B1935F89F00E35E49 /* Speaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Speaker.h; sourceTree = "<group>"; };
+		A7B4269C1935F89F00E35E49 /* testClass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = testClass.cpp; sourceTree = "<group>"; };
+		A7B4269D1935F89F00E35E49 /* testClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testClass.h; sourceTree = "<group>"; };
+		A7B426B019360D1400E35E49 /* simpleRandomSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = simpleRandomSystem.cpp; sourceTree = "<group>"; };
+		A7B426B119360D1400E35E49 /* simpleRandomSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = simpleRandomSystem.h; sourceTree = "<group>"; };
+		A7B426B419360F5E00E35E49 /* simpleRandomParticle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = simpleRandomParticle.cpp; sourceTree = "<group>"; };
+		A7B426B519360F5E00E35E49 /* simpleRandomParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = simpleRandomParticle.h; sourceTree = "<group>"; };
+		A7B426B81936588D00E35E49 /* pspGlobals.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pspGlobals.cpp; sourceTree = "<group>"; };
+		A7B426B91936588D00E35E49 /* pspGlobals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pspGlobals.h; sourceTree = "<group>"; };
+		A7B426BC193760C100E35E49 /* dbap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dbap.cpp; sourceTree = "<group>"; };
+		A7B426BD193760C100E35E49 /* dbap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dbap.h; sourceTree = "<group>"; };
+		A7BCEE85195ADC450003C5E3 /* sphericalMovementSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sphericalMovementSystem.cpp; sourceTree = "<group>"; };
+		A7BCEE86195ADC450003C5E3 /* sphericalMovementSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sphericalMovementSystem.h; sourceTree = "<group>"; };
+		A7BCEE89195ADC560003C5E3 /* sphericalMovementParticle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sphericalMovementParticle.cpp; sourceTree = "<group>"; };
+		A7BCEE8A195ADC560003C5E3 /* sphericalMovementParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sphericalMovementParticle.h; sourceTree = "<group>"; };
+		A7BCEE901961AA840003C5E3 /* farfalharSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = farfalharSystem.cpp; sourceTree = "<group>"; };
+		A7BCEE911961AA840003C5E3 /* farfalharSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = farfalharSystem.h; sourceTree = "<group>"; };
+		A7BCEE941961AA920003C5E3 /* farfalharParticle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = farfalharParticle.cpp; sourceTree = "<group>"; };
+		A7BCEE951961AA920003C5E3 /* farfalharParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = farfalharParticle.h; sourceTree = "<group>"; };
+		A7C33DD219519E7500BEEAFB /* MaxAudioAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MaxAudioAPI.framework; path = "../../c74support/msp-includes/MaxAudioAPI.framework"; sourceTree = "<group>"; };
+		A7C33DD4195326CD00BEEAFB /* spatCalibrationSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = spatCalibrationSystem.cpp; sourceTree = "<group>"; };
+		A7C33DD5195326CD00BEEAFB /* spatCalibrationSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = spatCalibrationSystem.h; sourceTree = "<group>"; };
+		A7C33DD8195327C500BEEAFB /* spatCalibrationParticle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = spatCalibrationParticle.cpp; sourceTree = "<group>"; };
+		A7C33DD9195327C500BEEAFB /* spatCalibrationParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = spatCalibrationParticle.h; sourceTree = "<group>"; };
+		A7C33DDC19543CAA00BEEAFB /* rainSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rainSystem.cpp; sourceTree = "<group>"; };
+		A7C33DDD19543CAA00BEEAFB /* rainSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rainSystem.h; sourceTree = "<group>"; };
+		A7C33DE01954432C00BEEAFB /* rainParticle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rainParticle.cpp; sourceTree = "<group>"; };
+		A7C33DE11954432C00BEEAFB /* rainParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rainParticle.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2FBBEADC08F335360078DB84 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7C33DD319519E7500BEEAFB /* MaxAudioAPI.framework in Frameworks */,
+				22301F4A10D7BC6C00C1989F /* JitterAPI.framework in Frameworks */,
+				2282B5C510D90D3900D827D3 /* OpenGL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		089C166AFE841209C02AAC07 /* iterator */ = {
+			isa = PBXGroup;
+			children = (
+				A74EBD08192F9E1E007508C9 /* maxmspsdk.xcconfig */,
+				08FB77ADFE841716C02AAC07 /* Source */,
+				089C1671FE841209C02AAC07 /* External Frameworks and Libraries */,
+				19C28FB4FE9D528D11CA2CBB /* Products */,
+			);
+			name = iterator;
+			sourceTree = "<group>";
+		};
+		089C1671FE841209C02AAC07 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				A7C33DD219519E7500BEEAFB /* MaxAudioAPI.framework */,
+				2282B5C410D90D3900D827D3 /* OpenGL.framework */,
+				22301F4910D7BC6C00C1989F /* JitterAPI.framework */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		08FB77ADFE841716C02AAC07 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				A7B4268A1935F89F00E35E49 /* src */,
+				A74EBD591934BA27007508C9 /* ofExtras */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		19C28FB4FE9D528D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2FBBEAE508F335360078DB84 /* psPlayground.mxo */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A74EBD591934BA27007508C9 /* ofExtras */ = {
+			isa = PBXGroup;
+			children = (
+				A74EBD661934BB8F007508C9 /* ofVectorMath.h */,
+				A74EBD5A1934BA27007508C9 /* ofConstants.h */,
+				A74EBD5B1934BA27007508C9 /* ofVec2f.cpp */,
+				A74EBD5C1934BA27007508C9 /* ofVec2f.h */,
+				A74EBD5D1934BA27007508C9 /* ofVec3f.h */,
+				A74EBD5E1934BA27007508C9 /* ofVec4f.cpp */,
+				A74EBD5F1934BA27007508C9 /* ofVec4f.h */,
+			);
+			path = ofExtras;
+			sourceTree = "<group>";
+		};
+		A7B4268A1935F89F00E35E49 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				A7B4268D1935F89F00E35E49 /* pspObject.cpp */,
+				A7B426921935F89F00E35E49 /* max.pspObject.c */,
+				A7B4268B1935F89F00E35E49 /* ConcertRoom.cpp */,
+				A7B4268C1935F89F00E35E49 /* ConcertRoom.h */,
+				A7B4268E1935F89F00E35E49 /* psPlaygroundManager.cpp */,
+				A7B4268F1935F89F00E35E49 /* psPlaygroundManager.h */,
+				A7B426901935F89F00E35E49 /* mathUtils.cpp */,
+				A7B426911935F89F00E35E49 /* mathUtils.h */,
+				A7B426931935F89F00E35E49 /* Particle.cpp */,
+				A7B426941935F89F00E35E49 /* Particle.h */,
+				A7B426951935F89F00E35E49 /* psPlayground.cpp */,
+				A7B426961935F89F00E35E49 /* psPlayground.h */,
+				A7B426971935F89F00E35E49 /* pSystem.cpp */,
+				A7B426981935F89F00E35E49 /* pSystem.h */,
+				A7B426991935F89F00E35E49 /* pSystems */,
+				A7B4269A1935F89F00E35E49 /* Speaker.cpp */,
+				A7B4269B1935F89F00E35E49 /* Speaker.h */,
+				A7B4269C1935F89F00E35E49 /* testClass.cpp */,
+				A7B4269D1935F89F00E35E49 /* testClass.h */,
+				A7B426B81936588D00E35E49 /* pspGlobals.cpp */,
+				A7B426B91936588D00E35E49 /* pspGlobals.h */,
+				A7B426BC193760C100E35E49 /* dbap.cpp */,
+				A7B426BD193760C100E35E49 /* dbap.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		A7B426991935F89F00E35E49 /* pSystems */ = {
+			isa = PBXGroup;
+			children = (
+				A7B426B019360D1400E35E49 /* simpleRandomSystem.cpp */,
+				A7B426B119360D1400E35E49 /* simpleRandomSystem.h */,
+				A7B426B419360F5E00E35E49 /* simpleRandomParticle.cpp */,
+				A7B426B519360F5E00E35E49 /* simpleRandomParticle.h */,
+				A7C33DD4195326CD00BEEAFB /* spatCalibrationSystem.cpp */,
+				A7C33DD5195326CD00BEEAFB /* spatCalibrationSystem.h */,
+				A7C33DD8195327C500BEEAFB /* spatCalibrationParticle.cpp */,
+				A7C33DD9195327C500BEEAFB /* spatCalibrationParticle.h */,
+				A7C33DDC19543CAA00BEEAFB /* rainSystem.cpp */,
+				A7C33DDD19543CAA00BEEAFB /* rainSystem.h */,
+				A7C33DE01954432C00BEEAFB /* rainParticle.cpp */,
+				A7C33DE11954432C00BEEAFB /* rainParticle.h */,
+				416E56F31955885C006668FC /* manualMovementSystem.cpp */,
+				416E56F41955885C006668FC /* manualMovementSystem.h */,
+				41D61BF519563DE1003BAF63 /* manualMovementParticle.cpp */,
+				41D61BF619563DE1003BAF63 /* manualMovementParticle.h */,
+				A7BCEE85195ADC450003C5E3 /* sphericalMovementSystem.cpp */,
+				A7BCEE86195ADC450003C5E3 /* sphericalMovementSystem.h */,
+				A7BCEE89195ADC560003C5E3 /* sphericalMovementParticle.cpp */,
+				A7BCEE8A195ADC560003C5E3 /* sphericalMovementParticle.h */,
+				A7BCEE901961AA840003C5E3 /* farfalharSystem.cpp */,
+				A7BCEE911961AA840003C5E3 /* farfalharSystem.h */,
+				A7BCEE941961AA920003C5E3 /* farfalharParticle.cpp */,
+				A7BCEE951961AA920003C5E3 /* farfalharParticle.h */,
+			);
+			path = pSystems;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		2FBBEAD708F335360078DB84 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7B426A91935F89F00E35E49 /* psPlayground.h in Headers */,
+				A7B426AB1935F89F00E35E49 /* pSystem.h in Headers */,
+				A7C33DD7195326CD00BEEAFB /* spatCalibrationSystem.h in Headers */,
+				A7BCEE971961AA920003C5E3 /* farfalharParticle.h in Headers */,
+				A7B426AD1935F89F00E35E49 /* Speaker.h in Headers */,
+				A74EBD601934BA27007508C9 /* ofConstants.h in Headers */,
+				A7B426A71935F89F00E35E49 /* Particle.h in Headers */,
+				A74EBD631934BA27007508C9 /* ofVec3f.h in Headers */,
+				A7BCEE931961AA840003C5E3 /* farfalharSystem.h in Headers */,
+				A74EBD651934BA27007508C9 /* ofVec4f.h in Headers */,
+				A74EBD671934BB8F007508C9 /* ofVectorMath.h in Headers */,
+				A7C33DDF19543CAA00BEEAFB /* rainSystem.h in Headers */,
+				A7BCEE88195ADC450003C5E3 /* sphericalMovementSystem.h in Headers */,
+				A7B426BF193760C100E35E49 /* dbap.h in Headers */,
+				A7B426A41935F89F00E35E49 /* mathUtils.h in Headers */,
+				A7B4269F1935F89F00E35E49 /* ConcertRoom.h in Headers */,
+				A7B426B719360F5E00E35E49 /* simpleRandomParticle.h in Headers */,
+				A7BCEE8C195ADC560003C5E3 /* sphericalMovementParticle.h in Headers */,
+				A7B426B319360D1400E35E49 /* simpleRandomSystem.h in Headers */,
+				A7B426A21935F89F00E35E49 /* psPlaygroundManager.h in Headers */,
+				A7B426AF1935F89F00E35E49 /* testClass.h in Headers */,
+				A74EBD621934BA27007508C9 /* ofVec2f.h in Headers */,
+				41D61BF819563DE1003BAF63 /* manualMovementParticle.h in Headers */,
+				A7C33DE31954432C00BEEAFB /* rainParticle.h in Headers */,
+				416E56F61955885C006668FC /* manualMovementSystem.h in Headers */,
+				A7B426BB1936588D00E35E49 /* pspGlobals.h in Headers */,
+				A7C33DDB195327C500BEEAFB /* spatCalibrationParticle.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		2FBBEAD608F335360078DB84 /* max-external */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2FBBEAE008F335360078DB84 /* Build configuration list for PBXNativeTarget "max-external" */;
+			buildPhases = (
+				2FBBEAD708F335360078DB84 /* Headers */,
+				2FBBEAD808F335360078DB84 /* Resources */,
+				2FBBEADA08F335360078DB84 /* Sources */,
+				2FBBEADC08F335360078DB84 /* Frameworks */,
+				2FBBEADF08F335360078DB84 /* Rez */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "max-external";
+			productName = iterator;
+			productReference = 2FBBEAE508F335360078DB84 /* psPlayground.mxo */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		089C1669FE841209C02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+			};
+			buildConfigurationList = 2FBBEACF08F335010078DB84 /* Build configuration list for PBXProject "psPlayground" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 089C166AFE841209C02AAC07 /* iterator */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2FBBEAD608F335360078DB84 /* max-external */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2FBBEAD808F335360078DB84 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A74EBD09192F9E1E007508C9 /* maxmspsdk.xcconfig in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		2FBBEADF08F335360078DB84 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2FBBEADA08F335360078DB84 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7BCEE921961AA840003C5E3 /* farfalharSystem.cpp in Sources */,
+				A7BCEE8B195ADC560003C5E3 /* sphericalMovementParticle.cpp in Sources */,
+				A7B426BE193760C100E35E49 /* dbap.cpp in Sources */,
+				A7C33DD6195326CD00BEEAFB /* spatCalibrationSystem.cpp in Sources */,
+				41D61BF719563DE1003BAF63 /* manualMovementParticle.cpp in Sources */,
+				A7B426A51935F89F00E35E49 /* max.pspObject.c in Sources */,
+				A7B426A61935F89F00E35E49 /* Particle.cpp in Sources */,
+				A7BCEE87195ADC450003C5E3 /* sphericalMovementSystem.cpp in Sources */,
+				A7B426B619360F5E00E35E49 /* simpleRandomParticle.cpp in Sources */,
+				A74EBD611934BA27007508C9 /* ofVec2f.cpp in Sources */,
+				A7B426BA1936588D00E35E49 /* pspGlobals.cpp in Sources */,
+				A7C33DDE19543CAA00BEEAFB /* rainSystem.cpp in Sources */,
+				A7B426A11935F89F00E35E49 /* psPlaygroundManager.cpp in Sources */,
+				A7C33DDA195327C500BEEAFB /* spatCalibrationParticle.cpp in Sources */,
+				A7B426B219360D1400E35E49 /* simpleRandomSystem.cpp in Sources */,
+				A7C33DE21954432C00BEEAFB /* rainParticle.cpp in Sources */,
+				A7B4269E1935F89F00E35E49 /* ConcertRoom.cpp in Sources */,
+				A7B426A01935F89F00E35E49 /* pspObject.cpp in Sources */,
+				A74EBD641934BA27007508C9 /* ofVec4f.cpp in Sources */,
+				A7B426A31935F89F00E35E49 /* mathUtils.cpp in Sources */,
+				416E56F51955885C006668FC /* manualMovementSystem.cpp in Sources */,
+				A7BCEE961961AA920003C5E3 /* farfalharParticle.cpp in Sources */,
+				A7B426AE1935F89F00E35E49 /* testClass.cpp in Sources */,
+				A7B426A81935F89F00E35E49 /* psPlayground.cpp in Sources */,
+				A7B426AC1935F89F00E35E49 /* Speaker.cpp in Sources */,
+				A7B426AA1935F89F00E35E49 /* pSystem.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		2FBBEAD008F335010078DB84 /* Development */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A74EBD08192F9E1E007508C9 /* maxmspsdk.xcconfig */;
+			buildSettings = {
+			};
+			name = Development;
+		};
+		2FBBEAD108F335010078DB84 /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A74EBD08192F9E1E007508C9 /* maxmspsdk.xcconfig */;
+			buildSettings = {
+			};
+			name = Deployment;
+		};
+		2FBBEAE108F335360078DB84 /* Development */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A74EBD08192F9E1E007508C9 /* maxmspsdk.xcconfig */;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../c74support/jit-includes\"",
+					"$(SYSTEM_APPS_DIR)/Programming/MaxSDK-6.1.4/c74support/msp-includes",
+				);
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = "$(C74SUPPORT)/max-includes/macho-gl-prefix.pch";
+				OTHER_LDFLAGS = "$(C74_SYM_LINKER_FLAGS)";
+				PRODUCT_NAME = psPlayground;
+			};
+			name = Development;
+		};
+		2FBBEAE208F335360078DB84 /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A74EBD08192F9E1E007508C9 /* maxmspsdk.xcconfig */;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../c74support/jit-includes\"",
+					"$(SYSTEM_APPS_DIR)/Programming/MaxSDK-6.1.4/c74support/msp-includes",
+				);
+				GCC_PREFIX_HEADER = "$(C74SUPPORT)/max-includes/macho-gl-prefix.pch";
+				OTHER_LDFLAGS = "$(C74_SYM_LINKER_FLAGS)";
+				PRODUCT_NAME = psPlayground;
+			};
+			name = Deployment;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2FBBEACF08F335010078DB84 /* Build configuration list for PBXProject "psPlayground" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FBBEAD008F335010078DB84 /* Development */,
+				2FBBEAD108F335010078DB84 /* Deployment */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Development;
+		};
+		2FBBEAE008F335360078DB84 /* Build configuration list for PBXNativeTarget "max-external" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FBBEAE108F335360078DB84 /* Development */,
+				2FBBEAE208F335360078DB84 /* Deployment */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Development;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 089C1669FE841209C02AAC07 /* Project object */;
+}
