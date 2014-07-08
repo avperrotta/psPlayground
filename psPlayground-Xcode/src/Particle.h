@@ -112,8 +112,10 @@ public:
     ofVec3f speedIni;
     ofVec3f speed;
 	
+    //virtual void setPosCarIni(long argc, t_atom* argv);
 	virtual void setPosCar(long argc, t_atom* argv);
 	virtual void setPosRad(long argc, t_atom* argv);
+    //virtual void setPosRadIni(long argc, t_atom* argv);
     
     virtual void setRadius(t_atom* argv);
     virtual void setTheta(t_atom* argv);
