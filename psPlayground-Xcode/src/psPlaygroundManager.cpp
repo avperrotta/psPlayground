@@ -141,15 +141,12 @@ t_jit_err psPlaygroundManager::messageControl(long argc, t_atom *argv){
     }
     
     else if(task == "addParticleSystem"){
-		//post("entrei");
         addPSystem(argc, argv);
         return JIT_ERR_NONE;
     }
     
     else if(task == "deleteParticleSystem"){
-        masterLock = true;
         deletePSystem(argc, argv);
-        masterLock = false;
         return JIT_ERR_NONE;
     }
     
@@ -160,9 +157,18 @@ t_jit_err psPlaygroundManager::messageControl(long argc, t_atom *argv){
             pSystems[systemName]->messageControl(argc - 2, argv + 2);
             return JIT_ERR_NONE;
         }
-        
     }
     
+    /*
+    else if(task == "particleAccess"){
+        std::string systemName;
+        systemName = jit_atom_getsym(argv + 1)->s_name;
+        if(pSystems.find(systemName) != pSystems.end()){
+            pSystems[systemName]->messageControl(argc - 2, argv + 2);
+            return JIT_ERR_NONE;
+        }
+    }
+    */
     
     return JIT_ERR_INVALID_INPUT;
 }

@@ -435,7 +435,7 @@ void Particle::setRecMode(long argc, t_atom* argv){
 			}
 			
 		}
-		post("setting recmode = %d", recMode);
+		//post("setting recmode = %d", recMode);
 	}
 }
 
@@ -451,7 +451,7 @@ void Particle::setPlayRec(long argc, t_atom* argv){
 				playRecHead = 0;
 			}
 		}
-		post("setting playRec = %d", playRec);
+		//post("setting playRec = %d", playRec);
 	}
 }
 

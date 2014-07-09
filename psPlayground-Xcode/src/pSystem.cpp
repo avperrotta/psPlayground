@@ -154,7 +154,6 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
         return JIT_ERR_NONE;
     }
     else if(task == "recMode"){
-		post("argc = %d", argc);
 		if(argc == 3){
 			if(argv){
 				int pi = atom_getlong(argv+1) - 1;
