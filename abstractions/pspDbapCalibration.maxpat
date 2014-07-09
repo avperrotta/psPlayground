@@ -32,6 +32,36 @@
 					"fontname" : "Arial",
 					"fontsize" : 12.0,
 					"hidden" : 1,
+					"id" : "obj-31",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 840.0, 750.0, 48.0, 18.0 ],
+					"text" : "closing"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"hidden" : 1,
+					"id" : "obj-29",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"patching_rect" : [ 840.0, 720.0, 65.0, 20.0 ],
+					"text" : "closebang"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"hidden" : 1,
 					"id" : "obj-19",
 					"maxclass" : "message",
 					"numinlets" : 2,
@@ -1083,7 +1113,7 @@
 			}
 , 			{
 				"box" : 				{
-					"addpoints" : [ 0.0, 0.0, 0, 0.486, 0.6, 0, 1.134, 0.85, 0, 3.464102, 1.0, 0 ],
+					"addpoints" : [ 0.0, 0.0, 0, 0.27, 0.55, 0, 0.648, 0.8, 0, 1.35, 0.95, 0, 3.464102, 1.0, 0 ],
 					"bgcolor" : [ 1.0, 1.0, 0.7, 1.0 ],
 					"bordercolor" : [ 0.0, 0.4, 0.0, 1.0 ],
 					"cursorcolor" : [ 0.3, 0.3, 1.0, 1.0 ],
@@ -1247,7 +1277,7 @@
 			}
 , 			{
 				"box" : 				{
-					"addpoints" : [ 0.0, -100.0, 0, 0.55, -43.399998, 0, 0.9, -18.599998, 0, 1.2, -6.2, 0, 3.45, 0.0, 0 ],
+					"addpoints" : [ 0.0, -100.0, 0, 0.4, -24.799999, 0, 0.85, -6.2, 0, 1.2, 0.0, 0, 3.45, 0.0, 0 ],
 					"bgcolor" : [ 1.0, 1.0, 0.7, 1.0 ],
 					"bordercolor" : [ 0.0, 0.4, 0.0, 1.0 ],
 					"cursorcolor" : [ 0.3, 0.3, 1.0, 1.0 ],
@@ -1564,11 +1594,30 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-31", 0 ],
+					"disabled" : 0,
+					"hidden" : 1,
+					"source" : [ "obj-29", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-2", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
 					"midpoints" : [ 69.5, 135.0, 69.5, 135.0 ],
 					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-16", 0 ],
+					"disabled" : 0,
+					"hidden" : 1,
+					"midpoints" : [ 849.5, 768.0, 759.0, 768.0, 759.0, 615.0, 62.25, 615.0 ],
+					"source" : [ "obj-31", 0 ]
 				}
 
 			}
