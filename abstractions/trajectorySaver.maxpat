@@ -90,12 +90,11 @@
 					"fontname" : "Arial",
 					"fontsize" : 14.0,
 					"id" : "obj-22",
-					"linecount" : 2,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 297.0, 270.0, 420.0, 36.0 ],
+					"patching_rect" : [ 297.0, 270.0, 513.0, 20.0 ],
 					"text" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/tutorials/garoa-2.txt"
 				}
 
@@ -299,7 +298,7 @@
 					"destination" : [ "obj-22", 1 ],
 					"disabled" : 0,
 					"hidden" : 0,
-					"midpoints" : [ 489.5, 258.0, 707.5, 258.0 ],
+					"midpoints" : [ 489.5, 258.0, 800.5, 258.0 ],
 					"source" : [ "obj-20", 0 ]
 				}
 
@@ -337,7 +336,7 @@
 					"destination" : [ "obj-22", 1 ],
 					"disabled" : 0,
 					"hidden" : 0,
-					"midpoints" : [ 774.5, 255.0, 707.5, 255.0 ],
+					"midpoints" : [ 774.5, 255.0, 800.5, 255.0 ],
 					"source" : [ "obj-33", 0 ]
 				}
 

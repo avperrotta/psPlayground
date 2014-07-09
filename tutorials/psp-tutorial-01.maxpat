@@ -32,6 +32,20 @@
 				"box" : 				{
 					"fontname" : "Arial",
 					"fontsize" : 12.0,
+					"id" : "obj-32",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 88.5, 240.0, 105.0, 20.0 ],
+					"text" : "r tutorial-01.toPsp"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
 					"id" : "obj-61",
 					"maxclass" : "message",
 					"numinlets" : 2,
@@ -1623,7 +1637,7 @@
 							"architecture" : "x86"
 						}
 ,
-						"rect" : [ 5.0, 70.0, 1464.0, 919.0 ],
+						"rect" : [ 0.0, 26.0, 1464.0, 919.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -2687,7 +2701,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 30.5, 285.0, 186.0, 20.0 ],
-					"text" : "psp tutorial-01 @numSpeakers 0"
+					"text" : "psp tutorial-01 @numSpeakers 2"
 				}
 
 			}
@@ -2829,6 +2843,16 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-1", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"midpoints" : [ 98.0, 270.0, 40.0, 270.0 ],
+					"source" : [ "obj-32", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-2", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
@@ -2930,15 +2954,15 @@
 			}
  ],
 		"parameters" : 		{
+			"obj-1::obj-1::obj-128::obj-16::obj-7::obj-21::obj-6" : [ "live.tab[3]", "live.tab[1]", 0 ],
 			"obj-29::obj-32::obj-32" : [ "[12]", "[2]", 0 ],
-			"obj-29::obj-10::obj-21::obj-6" : [ "live.tab[3]", "live.tab[1]", 0 ],
-			"obj-1::obj-1::obj-7::obj-21::obj-6" : [ "live.tab[1]", "live.tab[1]", 0 ],
-			"obj-1::obj-1::obj-7::obj-32" : [ "[10]", "[2]", 0 ],
-			"obj-29::obj-10::obj-35" : [ "[5]", "Level", 0 ],
-			"obj-29::obj-10::obj-32" : [ "[8]", "[2]", 0 ],
+			"obj-29::obj-10::obj-35" : [ "[9]", "Level", 0 ],
+			"obj-29::obj-10::obj-21::obj-6" : [ "live.tab[1]", "live.tab[1]", 0 ],
+			"obj-1::obj-1::obj-128::obj-16::obj-7::obj-35" : [ "[5]", "Level", 0 ],
+			"obj-29::obj-10::obj-32" : [ "[10]", "[2]", 0 ],
+			"obj-1::obj-1::obj-128::obj-16::obj-7::obj-32" : [ "[8]", "[2]", 0 ],
 			"obj-29::obj-32::obj-21::obj-6" : [ "live.tab[4]", "live.tab[1]", 0 ],
-			"obj-29::obj-32::obj-35" : [ "[11]", "Level", 0 ],
-			"obj-1::obj-1::obj-7::obj-35" : [ "[9]", "Level", 0 ]
+			"obj-29::obj-32::obj-35" : [ "[11]", "Level", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{
@@ -2963,6 +2987,13 @@
 				"implicit" : 1
 			}
 , 			{
+				"name" : "pspSpeakerSetup.maxpat",
+				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
+				"patcherrelativepath" : "../abstractions",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
 				"name" : "speakerPosition.maxpat",
 				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
 				"patcherrelativepath" : "../abstractions",
@@ -2970,10 +3001,31 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "tutorial-01-speakersPosition.txt",
-				"bootpath" : "/Applications/Programming/Max 6.1/patches/extras",
-				"patcherrelativepath" : "../../../Max 6.1/patches/extras",
+				"name" : "stereo-speakerSetup.txt",
+				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/tutorials",
+				"patcherrelativepath" : ".",
 				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "pspGetParentPatcherPath.js",
+				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
+				"patcherrelativepath" : "../abstractions",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "pspDbapCalibration.maxpat",
+				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
+				"patcherrelativepath" : "../abstractions",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "pspDbapCalibrationTestAudio.maxpat",
+				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
+				"patcherrelativepath" : "../abstractions",
+				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
@@ -3044,6 +3096,13 @@
 				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
 				"patcherrelativepath" : "../abstractions",
 				"type" : "gDSP",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "pspDynamicDac~.maxpat",
+				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
+				"patcherrelativepath" : "../abstractions",
+				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{

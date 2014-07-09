@@ -346,8 +346,7 @@
 					"id" : "obj-1",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
+					"numoutlets" : 0,
 					"patching_rect" : [ 675.0, 330.0, 187.0, 20.0 ],
 					"text" : "pspSpatCalibration #1 #3"
 				}
@@ -369,20 +368,9 @@
  ],
 		"lines" : [ 			{
 				"patchline" : 				{
-					"destination" : [ "obj-2", 0 ],
-					"disabled" : 0,
-					"hidden" : 0,
-					"midpoints" : [ 684.5, 368.0, 18.0, 368.0, 18.0, 237.0, 39.5, 237.0 ],
-					"source" : [ "obj-1", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
-					"midpoints" : [ 684.5, 321.0, 684.5, 321.0 ],
 					"source" : [ "obj-12", 0 ]
 				}
 
@@ -479,16 +467,6 @@
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-2", 1 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-1", 0 ],
-					"disabled" : 0,
-					"hidden" : 0,
-					"midpoints" : [ 789.5, 225.0, 660.0, 225.0, 660.0, 327.0, 684.5, 327.0 ],
-					"source" : [ "obj-20", 0 ]
 				}
 
 			}
