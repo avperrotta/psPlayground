@@ -1647,6 +1647,75 @@
 								"box" : 								{
 									"fontname" : "Arial",
 									"fontsize" : 12.0,
+									"id" : "obj-119",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 892.5, 324.0, 49.0, 18.0 ],
+									"text" : "saveas"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Arial",
+									"fontsize" : 12.0,
+									"id" : "obj-120",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 807.0, 399.0, 51.0, 20.0 ],
+									"text" : "s toPsp"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Arial",
+									"fontsize" : 12.0,
+									"id" : "obj-121",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 837.0, 324.0, 36.0, 18.0 ],
+									"text" : "save"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Arial",
+									"fontsize" : 12.0,
+									"id" : "obj-122",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 792.0, 324.0, 33.0, 18.0 ],
+									"text" : "load"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Arial",
+									"fontsize" : 12.0,
+									"id" : "obj-123",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 807.0, 369.0, 135.0, 20.0 ],
+									"text" : "trajectorySaver garoa 2"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Arial",
+									"fontsize" : 12.0,
 									"frgb" : 0.0,
 									"id" : "obj-116",
 									"maxclass" : "comment",
@@ -1683,75 +1752,6 @@
 									"numoutlets" : 0,
 									"patching_rect" : [ 765.0, 195.0, 150.0, 100.0 ],
 									"text" : "load/save/save as trajectory\n\nfirst time use saveas\n\nalways save with .txt file extension"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"fontname" : "Arial",
-									"fontsize" : 12.0,
-									"id" : "obj-119",
-									"maxclass" : "message",
-									"numinlets" : 2,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"patching_rect" : [ 877.5, 309.0, 49.0, 18.0 ],
-									"text" : "saveas"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"fontname" : "Arial",
-									"fontsize" : 12.0,
-									"id" : "obj-120",
-									"maxclass" : "newobj",
-									"numinlets" : 1,
-									"numoutlets" : 0,
-									"patching_rect" : [ 792.0, 384.0, 51.0, 20.0 ],
-									"text" : "s toPsp"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"fontname" : "Arial",
-									"fontsize" : 12.0,
-									"id" : "obj-121",
-									"maxclass" : "message",
-									"numinlets" : 2,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"patching_rect" : [ 822.0, 309.0, 36.0, 18.0 ],
-									"text" : "save"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"fontname" : "Arial",
-									"fontsize" : 12.0,
-									"id" : "obj-122",
-									"maxclass" : "message",
-									"numinlets" : 2,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"patching_rect" : [ 777.0, 309.0, 33.0, 18.0 ],
-									"text" : "load"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"fontname" : "Arial",
-									"fontsize" : 12.0,
-									"id" : "obj-123",
-									"maxclass" : "newobj",
-									"numinlets" : 1,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"patching_rect" : [ 792.0, 354.0, 135.0, 20.0 ],
-									"text" : "trajectorySaver garoa 2"
 								}
 
 							}
@@ -2077,7 +2077,7 @@
 									"destination" : [ "obj-123", 0 ],
 									"disabled" : 0,
 									"hidden" : 0,
-									"midpoints" : [ 887.0, 339.0, 801.5, 339.0 ],
+									"midpoints" : [ 902.0, 354.0, 816.5, 354.0 ],
 									"source" : [ "obj-119", 0 ]
 								}
 
@@ -2087,7 +2087,7 @@
 									"destination" : [ "obj-123", 0 ],
 									"disabled" : 0,
 									"hidden" : 0,
-									"midpoints" : [ 831.5, 339.0, 801.5, 339.0 ],
+									"midpoints" : [ 846.5, 354.0, 816.5, 354.0 ],
 									"source" : [ "obj-121", 0 ]
 								}
 
@@ -2097,7 +2097,7 @@
 									"destination" : [ "obj-123", 0 ],
 									"disabled" : 0,
 									"hidden" : 0,
-									"midpoints" : [ 786.5, 339.0, 801.5, 339.0 ],
+									"midpoints" : [ 801.5, 354.0, 816.5, 354.0 ],
 									"source" : [ "obj-122", 0 ]
 								}
 
@@ -2107,7 +2107,7 @@
 									"destination" : [ "obj-120", 0 ],
 									"disabled" : 0,
 									"hidden" : 0,
-									"midpoints" : [ 801.5, 375.0, 801.5, 375.0 ],
+									"midpoints" : [ 816.5, 390.0, 816.5, 390.0 ],
 									"source" : [ "obj-123", 0 ]
 								}
 
@@ -2687,7 +2687,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 30.5, 285.0, 186.0, 20.0 ],
-					"text" : "psp tutorial-01 @numSpeakers 2"
+					"text" : "psp tutorial-01 @numSpeakers 0"
 				}
 
 			}
@@ -2930,15 +2930,15 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-1::obj-1::obj-7::obj-35" : [ "[9]", "Level", 0 ],
-			"obj-29::obj-32::obj-21::obj-6" : [ "live.tab[4]", "live.tab[1]", 0 ],
-			"obj-29::obj-10::obj-35" : [ "[5]", "Level", 0 ],
-			"obj-1::obj-1::obj-7::obj-32" : [ "[10]", "[2]", 0 ],
-			"obj-29::obj-10::obj-21::obj-6" : [ "live.tab[3]", "live.tab[1]", 0 ],
 			"obj-29::obj-32::obj-32" : [ "[12]", "[2]", 0 ],
-			"obj-29::obj-10::obj-32" : [ "[8]", "[2]", 0 ],
+			"obj-29::obj-10::obj-21::obj-6" : [ "live.tab[3]", "live.tab[1]", 0 ],
 			"obj-1::obj-1::obj-7::obj-21::obj-6" : [ "live.tab[1]", "live.tab[1]", 0 ],
-			"obj-29::obj-32::obj-35" : [ "[11]", "Level", 0 ]
+			"obj-1::obj-1::obj-7::obj-32" : [ "[10]", "[2]", 0 ],
+			"obj-29::obj-10::obj-35" : [ "[5]", "Level", 0 ],
+			"obj-29::obj-10::obj-32" : [ "[8]", "[2]", 0 ],
+			"obj-29::obj-32::obj-21::obj-6" : [ "live.tab[4]", "live.tab[1]", 0 ],
+			"obj-29::obj-32::obj-35" : [ "[11]", "Level", 0 ],
+			"obj-1::obj-1::obj-7::obj-35" : [ "[9]", "Level", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{
@@ -2967,6 +2967,13 @@
 				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
 				"patcherrelativepath" : "../abstractions",
 				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "tutorial-01-speakersPosition.txt",
+				"bootpath" : "/Applications/Programming/Max 6.1/patches/extras",
+				"patcherrelativepath" : "../../../Max 6.1/patches/extras",
+				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
@@ -3058,6 +3065,13 @@
 				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
 				"patcherrelativepath" : "../abstractions",
 				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "pspTrajectorySaverFileNameScript.js",
+				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
+				"patcherrelativepath" : "../abstractions",
+				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
