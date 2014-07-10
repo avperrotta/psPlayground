@@ -8,7 +8,7 @@
 			"architecture" : "x86"
 		}
 ,
-		"rect" : [ 5.0, 44.0, 1464.0, 945.0 ],
+		"rect" : [ 108.0, 44.0, 1464.0, 945.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -29,6 +29,18 @@
 		"tags" : "",
 		"showontab" : 1,
 		"boxes" : [ 			{
+				"box" : 				{
+					"args" : [ "tutorial-01" ],
+					"id" : "obj-34",
+					"maxclass" : "bpatcher",
+					"name" : "pspDynamicDacGui.maxpat",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 285.0, 705.0, 495.0, 195.0 ]
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"fontname" : "Arial",
 					"fontsize" : 12.0,
@@ -171,7 +183,7 @@
 							"architecture" : "x86"
 						}
 ,
-						"rect" : [ 5.0, 70.0, 1464.0, 919.0 ],
+						"rect" : [ 0.0, 26.0, 1464.0, 919.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -774,8 +786,8 @@
 									"maxclass" : "newobj",
 									"numinlets" : 2,
 									"numoutlets" : 0,
-									"patching_rect" : [ 27.5, 750.0, 387.0, 20.0 ],
-									"text" : "pspSingleTrajectoryParser tutorial-01 srs-pa 1 2 100 @useReverb true"
+									"patching_rect" : [ 27.5, 750.0, 362.0, 20.0 ],
+									"text" : "pspSingleTrajectoryParser tutorial-01 st 1 8 100 @useReverb true"
 								}
 
 							}
@@ -940,7 +952,7 @@
 									"destination" : [ "obj-17", 1 ],
 									"disabled" : 0,
 									"hidden" : 0,
-									"midpoints" : [ 171.0, 828.0, 12.0, 828.0, 12.0, 735.0, 327.0, 735.0, 327.0, 744.0, 405.0, 744.0 ],
+									"midpoints" : [ 171.0, 828.0, 12.0, 828.0, 12.0, 735.0, 327.0, 735.0, 327.0, 744.0, 380.0, 744.0 ],
 									"source" : [ "obj-29", 0 ]
 								}
 
@@ -3001,6 +3013,13 @@
 				"implicit" : 1
 			}
 , 			{
+				"name" : "octo-speakerSetup.txt",
+				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/tutorials",
+				"patcherrelativepath" : ".",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
 				"name" : "pspGetParentPatcherPath.js",
 				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
 				"patcherrelativepath" : "../abstractions",
@@ -3057,7 +3076,7 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "singleParticleParser.maxpat",
+				"name" : "pspSingleTrajectoryParser.maxpat",
 				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
 				"patcherrelativepath" : "../abstractions",
 				"type" : "JSON",
@@ -3089,6 +3108,13 @@
 				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
 				"patcherrelativepath" : "../abstractions",
 				"type" : "gDSP",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "pspDynamicDacGui.maxpat",
+				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
+				"patcherrelativepath" : "../abstractions",
+				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
@@ -3124,13 +3150,6 @@
 				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
 				"patcherrelativepath" : "../abstractions",
 				"type" : "TEXT",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "pspSingleTrajectoryParser.maxpat",
-				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
-				"patcherrelativepath" : "../abstractions",
-				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
