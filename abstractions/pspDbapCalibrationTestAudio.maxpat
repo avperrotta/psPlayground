@@ -356,11 +356,12 @@
 					"fontsize" : 12.0,
 					"hidden" : 1,
 					"id" : "obj-32",
+					"linecount" : 2,
 					"maxclass" : "newobj",
 					"numinlets" : 2,
 					"numoutlets" : 0,
 					"patching_rect" : [ 82.0, 315.0, 418.0, 20.0 ],
-					"text" : "singleParticleParser #1 calibrationMan 1 2 100 @useReverb true"
+					"text" : "pspSingleTrajectoryParser #1 calibrationMan 1 2 100 @useReverb true"
 				}
 
 			}
@@ -756,8 +757,8 @@
 					"maxclass" : "newobj",
 					"numinlets" : 2,
 					"numoutlets" : 0,
-					"patching_rect" : [ 30.0, 277.0, 392.0, 20.0 ],
-					"text" : "singleParticleParser #1 calibrationStS 1 2 100 @useReverb true"
+					"patching_rect" : [ 30.0, 277.0, 426.0, 20.0 ],
+					"text" : "pspSingleTrajectoryParser #1 calibrationStS 1 2 100 @useReverb true"
 				}
 
 			}
@@ -822,7 +823,7 @@
 					"destination" : [ "obj-17", 1 ],
 					"disabled" : 0,
 					"hidden" : 1,
-					"midpoints" : [ 144.5, 264.0, 412.5, 264.0 ],
+					"midpoints" : [ 144.5, 264.0, 446.5, 264.0 ],
 					"source" : [ "obj-118", 0 ]
 				}
 

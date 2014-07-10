@@ -171,7 +171,7 @@
 							"architecture" : "x86"
 						}
 ,
-						"rect" : [ 0.0, 26.0, 1464.0, 919.0 ],
+						"rect" : [ 5.0, 70.0, 1464.0, 919.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -225,8 +225,8 @@
 									"maxclass" : "newobj",
 									"numinlets" : 2,
 									"numoutlets" : 0,
-									"patching_rect" : [ 642.5, 578.0, 333.0, 20.0 ],
-									"text" : "multiParticleParser tutorial-01 mt 30 2 100 @useReverb true"
+									"patching_rect" : [ 642.5, 578.0, 380.0, 20.0 ],
+									"text" : "pspMultiTrajectoryParser tutorial-01 mt 30 2 100 @useReverb true"
 								}
 
 							}
@@ -466,7 +466,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 1005.0, 590.0, 51.0, 20.0 ],
+									"patching_rect" : [ 1065.0, 600.0, 51.0, 20.0 ],
 									"text" : "s toPsp"
 								}
 
@@ -480,7 +480,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 1005.0, 560.0, 140.0, 18.0 ],
+									"patching_rect" : [ 1065.0, 570.0, 140.0, 18.0 ],
 									"text" : "deleteParticleSystem mt"
 								}
 
@@ -774,8 +774,8 @@
 									"maxclass" : "newobj",
 									"numinlets" : 2,
 									"numoutlets" : 0,
-									"patching_rect" : [ 27.5, 750.0, 353.0, 20.0 ],
-									"text" : "singleParticleParser tutorial-01 srs-pa 1 2 100 @useReverb true"
+									"patching_rect" : [ 27.5, 750.0, 387.0, 20.0 ],
+									"text" : "pspSingleTrajectoryParser tutorial-01 srs-pa 1 2 100 @useReverb true"
 								}
 
 							}
@@ -940,7 +940,7 @@
 									"destination" : [ "obj-17", 1 ],
 									"disabled" : 0,
 									"hidden" : 0,
-									"midpoints" : [ 171.0, 828.0, 12.0, 828.0, 12.0, 735.0, 327.0, 735.0, 327.0, 744.0, 371.0, 744.0 ],
+									"midpoints" : [ 171.0, 828.0, 12.0, 828.0, 12.0, 735.0, 327.0, 735.0, 327.0, 744.0, 405.0, 744.0 ],
 									"source" : [ "obj-29", 0 ]
 								}
 
@@ -2954,15 +2954,15 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-1::obj-1::obj-128::obj-16::obj-7::obj-21::obj-6" : [ "live.tab[3]", "live.tab[1]", 0 ],
-			"obj-29::obj-32::obj-32" : [ "[12]", "[2]", 0 ],
-			"obj-29::obj-10::obj-35" : [ "[9]", "Level", 0 ],
+			"obj-29::obj-32::obj-21::obj-6" : [ "live.tab[4]", "live.tab[1]", 0 ],
 			"obj-29::obj-10::obj-21::obj-6" : [ "live.tab[1]", "live.tab[1]", 0 ],
 			"obj-1::obj-1::obj-128::obj-16::obj-7::obj-35" : [ "[5]", "Level", 0 ],
-			"obj-29::obj-10::obj-32" : [ "[10]", "[2]", 0 ],
+			"obj-29::obj-32::obj-32" : [ "[12]", "[2]", 0 ],
 			"obj-1::obj-1::obj-128::obj-16::obj-7::obj-32" : [ "[8]", "[2]", 0 ],
-			"obj-29::obj-32::obj-21::obj-6" : [ "live.tab[4]", "live.tab[1]", 0 ],
-			"obj-29::obj-32::obj-35" : [ "[11]", "Level", 0 ]
+			"obj-29::obj-32::obj-35" : [ "[11]", "Level", 0 ],
+			"obj-29::obj-10::obj-32" : [ "[10]", "[2]", 0 ],
+			"obj-1::obj-1::obj-128::obj-16::obj-7::obj-21::obj-6" : [ "live.tab[3]", "live.tab[1]", 0 ],
+			"obj-29::obj-10::obj-35" : [ "[9]", "Level", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{
@@ -2998,13 +2998,6 @@
 				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
 				"patcherrelativepath" : "../abstractions",
 				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "stereo-speakerSetup.txt",
-				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/tutorials",
-				"patcherrelativepath" : ".",
-				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
@@ -3134,7 +3127,14 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "multiParticleParser.maxpat",
+				"name" : "pspSingleTrajectoryParser.maxpat",
+				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
+				"patcherrelativepath" : "../abstractions",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "pspMultiTrajectoryParser.maxpat",
 				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
 				"patcherrelativepath" : "../abstractions",
 				"type" : "JSON",
