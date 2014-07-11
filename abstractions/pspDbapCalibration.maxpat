@@ -8,7 +8,7 @@
 			"architecture" : "x86"
 		}
 ,
-		"rect" : [ 155.0, 49.0, 1199.0, 874.0 ],
+		"rect" : [ 17.0, 44.0, 1431.0, 963.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -199,7 +199,7 @@
 					"name" : "pspDbapCalibrationTestAudio.maxpat",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 22.75, 615.0, 1162.25, 248.0 ]
+					"patching_rect" : [ 22.75, 615.0, 1192.25, 255.0 ]
 				}
 
 			}
@@ -984,7 +984,7 @@
 					"patching_rect" : [ 60.0, 60.0, 315.75, 30.0 ],
 					"preset_data" : [ 						{
 							"number" : 1,
-							"data" : [ 4, "obj-2", "function", "clear", 7, "obj-2", "function", "add", 0.0, 0.0, 0, 7, "obj-2", "function", "add", 1.768, -24.799999, 0, 7, "obj-2", "function", "add", 3.458, -55.799999, 0, 5, "obj-2", "function", "domain", 3.464102, 6, "obj-2", "function", "range", -100.0, 12.0, 5, "obj-2", "function", "mode", 0, 5, "obj-35", "flonum", "float", 0.026, 5, "obj-36", "flonum", "float", 6.2, 5, "<invalid>", "flonum", "float", 1.0, 5, "obj-29", "flonum", "float", 1.0, 5, "obj-31", "flonum", "float", 1.0, 5, "<invalid>", "flonum", "float", 1.732051, 4, "obj-60", "function", "clear", 7, "obj-60", "function", "add", 0.0, -100.0, 0, 7, "obj-60", "function", "add", 0.55, -43.399998, 0, 7, "obj-60", "function", "add", 0.9, -18.599998, 0, 7, "obj-60", "function", "add", 1.2, -6.2, 0, 7, "obj-60", "function", "add", 3.45, 0.0, 0, 5, "obj-60", "function", "domain", 3.464102, 6, "obj-60", "function", "range", -100.0, 12.0, 5, "obj-60", "function", "mode", 0, 5, "obj-42", "flonum", "float", 0.05, 5, "obj-38", "flonum", "float", 6.2, 4, "obj-76", "function", "clear", 7, "obj-76", "function", "add", 0.0, 0.0, 0, 7, "obj-76", "function", "add", 0.486, 0.6, 0, 7, "obj-76", "function", "add", 1.134, 0.85, 0, 7, "obj-76", "function", "add", 3.464102, 1.0, 0, 5, "obj-76", "function", "domain", 3.464102, 6, "obj-76", "function", "range", 0.0, 1.0, 5, "obj-76", "function", "mode", 0, 5, "obj-73", "flonum", "float", 0.054, 5, "obj-70", "flonum", "float", 0.05, 5, "obj-13", "incdec", "float", 2.0, 5, "<invalid>", "flonum", "float", 0.022, 5, "<invalid>", "number", "int", 2 ]
+							"data" : [ 4, "obj-2", "function", "clear", 7, "obj-2", "function", "add", 0.0, 0.0, 0, 7, "obj-2", "function", "add", 1.768, -24.799999, 0, 7, "obj-2", "function", "add", 3.458, -55.799999, 0, 5, "obj-2", "function", "domain", 3.464102, 6, "obj-2", "function", "range", -100.0, 12.0, 5, "obj-2", "function", "mode", 0, 5, "obj-35", "flonum", "float", 0.026, 5, "obj-36", "flonum", "float", 6.2, 5, "<invalid>", "flonum", "float", 1.0, 5, "obj-29", "flonum", "float", 1.0, 5, "obj-31", "flonum", "float", 1.0, 5, "obj-34", "flonum", "float", 1.732051, 4, "obj-60", "function", "clear", 7, "obj-60", "function", "add", 0.0, -100.0, 0, 7, "obj-60", "function", "add", 0.55, -43.399998, 0, 7, "obj-60", "function", "add", 0.9, -18.599998, 0, 7, "obj-60", "function", "add", 1.2, -6.2, 0, 7, "obj-60", "function", "add", 3.45, 0.0, 0, 5, "obj-60", "function", "domain", 3.464102, 6, "obj-60", "function", "range", -100.0, 12.0, 5, "obj-60", "function", "mode", 0, 5, "obj-42", "flonum", "float", 0.05, 5, "obj-38", "flonum", "float", 6.2, 4, "obj-76", "function", "clear", 7, "obj-76", "function", "add", 0.0, 0.0, 0, 7, "obj-76", "function", "add", 0.486, 0.6, 0, 7, "obj-76", "function", "add", 1.134, 0.85, 0, 7, "obj-76", "function", "add", 3.464102, 1.0, 0, 5, "obj-76", "function", "domain", 3.464102, 6, "obj-76", "function", "range", 0.0, 1.0, 5, "obj-76", "function", "mode", 0, 5, "obj-73", "flonum", "float", 0.054, 5, "obj-70", "flonum", "float", 0.05, 5, "obj-13", "incdec", "float", 2.0, 5, "<invalid>", "flonum", "float", 0.022, 5, "<invalid>", "number", "int", 2 ]
 						}
  ],
 					"showtrack" : 0,
@@ -1212,11 +1212,11 @@
 			}
 , 			{
 				"box" : 				{
-					"addpoints" : [ 0.0, 0.0, 0, 0.396817, 0.6, 0, 0.925907, 0.85, 0, 2.828427, 1.0, 0 ],
+					"addpoints" : [ 0.0, 0.0, 0, 0.486, 0.6, 0, 1.134, 0.85, 0, 3.464102, 1.0, 0 ],
 					"bgcolor" : [ 1.0, 1.0, 0.7, 1.0 ],
 					"bordercolor" : [ 0.0, 0.4, 0.0, 1.0 ],
 					"cursorcolor" : [ 0.3, 0.3, 1.0, 1.0 ],
-					"domain" : 2.828427,
+					"domain" : 3.464102,
 					"grid" : 3,
 					"gridcolor" : [ 0.044134, 0.0, 0.0, 1.0 ],
 					"gridstep_x" : 0.054,
@@ -1376,11 +1376,11 @@
 			}
 , 			{
 				"box" : 				{
-					"addpoints" : [ 0.0, -100.0, 0, 0.449073, -43.399998, 0, 0.734847, -18.599998, 0, 0.979796, -6.2, 0, 2.816913, 0.0, 0 ],
+					"addpoints" : [ 0.0, -100.0, 0, 0.55, -43.399998, 0, 0.9, -18.599998, 0, 1.2, -6.2, 0, 3.45, 0.0, 0 ],
 					"bgcolor" : [ 1.0, 1.0, 0.7, 1.0 ],
 					"bordercolor" : [ 0.0, 0.4, 0.0, 1.0 ],
 					"cursorcolor" : [ 0.3, 0.3, 1.0, 1.0 ],
-					"domain" : 2.828427,
+					"domain" : 3.464102,
 					"grid" : 3,
 					"gridcolor" : [ 0.044134, 0.0, 0.0, 1.0 ],
 					"gridstep_x" : 0.05,
@@ -1540,11 +1540,11 @@
 			}
 , 			{
 				"box" : 				{
-					"addpoints" : [ 0.0, 0.0, 0, 1.443566, -24.799999, 0, 2.823445, -55.799999, 0 ],
+					"addpoints" : [ 0.0, 0.0, 0, 1.768, -24.799999, 0, 3.458, -55.799999, 0 ],
 					"bgcolor" : [ 1.0, 1.0, 0.7, 1.0 ],
 					"bordercolor" : [ 0.0, 0.4, 0.0, 1.0 ],
 					"cursorcolor" : [ 0.3, 0.3, 1.0, 1.0 ],
-					"domain" : 2.828427,
+					"domain" : 3.464102,
 					"grid" : 3,
 					"gridcolor" : [ 0.044134, 0.0, 0.0, 1.0 ],
 					"gridstep_x" : 0.026,

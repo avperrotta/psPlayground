@@ -45,39 +45,9 @@
 
 ConcertRoom::ConcertRoom(){
     
-    
-    createColorsVec();
-    currentColorIndex = 0;
-    
-    roomBounds = new double[3];
-    soundLimits = new double[3];
+    setup();
     
     
-    speakers = new vector<Speaker*>();
-    reverbGain = new vector<ofVec2f*>();
-    reverbSize = new vector<ofVec2f*>();
-    
-    speakers->push_back(new Speaker(1, 0., 0., 0.));
-    numSpeakers = 1;
-    
-    for(int i=0; i<10; i++){
-        reverbGain->push_back(new ofVec2f(i, -120.));
-        reverbSize->push_back(new ofVec2f(i, 0.));
-    }
-    
-    roomBounds[0] = 1.;
-    roomBounds[1] = 1.;
-    roomBounds[2] = 1.;
-    
-    roomWidth = roomBounds[0];
-    roomHeight = roomBounds[1];
-    roomLength = roomBounds[2];
-    
-    roomDiagonal = sqrt(roomBounds[0]*roomBounds[0] + roomBounds[1]*roomBounds[1] + roomBounds[2]*roomBounds[2]);
-    
-    soundLimits[0] = 2.*SOUND_LIMIT*roomDiagonal/sqrt(2.) + roomBounds[0];
-    soundLimits[1] = roomBounds[1];
-    soundLimits[2] = 2.*SOUND_LIMIT*roomDiagonal/sqrt(2.) + roomBounds[2];
     
 }
 ConcertRoom::~ConcertRoom(){
@@ -123,6 +93,43 @@ ConcertRoom::~ConcertRoom(){
 }
 
 void ConcertRoom::setup(){
+    createColorsVec();
+    currentColorIndex = 0;
+    
+    roomBounds = new double[3];
+    soundLimits = new double[3];
+    
+    roomBounds[0] = 1.;
+    roomBounds[1] = 1.;
+    roomBounds[2] = 1.;
+    
+    roomWidth = roomBounds[0];
+    roomHeight = roomBounds[1];
+    roomLength = roomBounds[2];
+    
+    roomDiagonal = sqrt(roomBounds[0]*roomBounds[0] + roomBounds[1]*roomBounds[1] + roomBounds[2]*roomBounds[2]);
+    
+    soundLimits[0] = 2.*SOUND_LIMIT*roomDiagonal/sqrt(2.) + roomBounds[0];
+    soundLimits[1] = roomBounds[1];
+    soundLimits[2] = 2.*SOUND_LIMIT*roomDiagonal/sqrt(2.) + roomBounds[2];
+    
+    speakers = new vector<Speaker*>();
+    reverbGain = new vector<ofVec2f*>();
+    reverbSize = new vector<ofVec2f*>();
+    
+    speakers->push_back(new Speaker(1, -0.5, 0., -0.5));
+    speakers->push_back(new Speaker(2, 0.5, 0., -0.5));
+    numSpeakers = 2;
+    
+    for(int i=0; i<speakers->size(); i++){
+        (*speakers)[i]->scalePosition(getBounds());
+    }
+    
+    for(int i=0; i<10; i++){
+        reverbGain->push_back(new ofVec2f(i, -120.));
+        reverbSize->push_back(new ofVec2f(i, 0.));
+    }
+    
     
 }
 

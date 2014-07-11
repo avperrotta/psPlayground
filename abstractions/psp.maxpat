@@ -145,7 +145,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 62.75, 435.0, 104.0, 20.0 ],
+					"patching_rect" : [ 56.200001, 450.0, 104.0, 20.0 ],
 					"text" : "s #1.effect"
 				}
 
@@ -172,7 +172,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 285.0, 300.0, 110.0, 20.0 ],
+					"patching_rect" : [ 135.0, 315.0, 110.0, 20.0 ],
 					"text" : "s #1.gain"
 				}
 
@@ -185,7 +185,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 95.5, 390.0, 114.0, 20.0 ],
+					"patching_rect" : [ 82.400002, 405.0, 114.0, 20.0 ],
 					"text" : "s #1.dbap"
 				}
 
@@ -226,7 +226,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 128.25, 300.0, 116.666656, 20.0 ],
+					"patching_rect" : [ 108.599998, 360.0, 116.666656, 20.0 ],
 					"text" : "s #1.raw"
 				}
 
@@ -360,7 +360,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 0,
 					"numoutlets" : 0,
-					"patching_rect" : [ 35.0, 165.0, 177.0, 20.0 ],
+					"patching_rect" : [ 35.0, 150.0, 177.0, 20.0 ],
 					"text" : "pspOpenGlRender #1"
 				}
 
@@ -427,7 +427,7 @@
 					"destination" : [ "obj-11", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
-					"midpoints" : [ 144.300003, 288.0, 294.5, 288.0 ],
+					"midpoints" : [ 144.300003, 288.0, 144.5, 288.0 ],
 					"source" : [ "obj-2", 4 ]
 				}
 

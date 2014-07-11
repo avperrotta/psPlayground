@@ -2492,8 +2492,8 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 30.5, 75.0, 410.0, 47.0 ],
-					"text" : "The pSystemPlaygroun is a collection of max and msp objects designed to facilitate the use of particle systems for modelling and mapping parameters of audio processes."
+					"patching_rect" : [ 30.5, 75.0, 452.0, 47.0 ],
+					"text" : "The pSystemPlaygroun is a collection of objects and abstractions designed to facilitate the use of particle systems for modelling and mapping parameters of audio processes."
 				}
 
 			}
@@ -2713,7 +2713,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 30.5, 285.0, 186.0, 20.0 ],
-					"text" : "psp tutorial-01 @numSpeakers 2"
+					"text" : "psp tutorial-01"
 				}
 
 			}
@@ -2968,13 +2968,13 @@
 		"parameters" : 		{
 			"obj-29::obj-32::obj-21::obj-6" : [ "live.tab[4]", "live.tab[1]", 0 ],
 			"obj-29::obj-10::obj-21::obj-6" : [ "live.tab[1]", "live.tab[1]", 0 ],
-			"obj-1::obj-1::obj-128::obj-16::obj-7::obj-35" : [ "[5]", "Level", 0 ],
-			"obj-29::obj-32::obj-32" : [ "[12]", "[2]", 0 ],
-			"obj-1::obj-1::obj-128::obj-16::obj-7::obj-32" : [ "[8]", "[2]", 0 ],
 			"obj-29::obj-32::obj-35" : [ "[11]", "Level", 0 ],
+			"obj-29::obj-10::obj-35" : [ "[9]", "Level", 0 ],
+			"obj-29::obj-32::obj-32" : [ "[12]", "[2]", 0 ],
+			"obj-1::obj-1::obj-128::obj-16::obj-7::obj-35" : [ "[5]", "Level", 0 ],
 			"obj-29::obj-10::obj-32" : [ "[10]", "[2]", 0 ],
-			"obj-1::obj-1::obj-128::obj-16::obj-7::obj-21::obj-6" : [ "live.tab[3]", "live.tab[1]", 0 ],
-			"obj-29::obj-10::obj-35" : [ "[9]", "Level", 0 ]
+			"obj-1::obj-1::obj-128::obj-16::obj-7::obj-32" : [ "[8]", "[2]", 0 ],
+			"obj-1::obj-1::obj-128::obj-16::obj-7::obj-21::obj-6" : [ "live.tab[3]", "live.tab[1]", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{
@@ -3010,13 +3010,6 @@
 				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
 				"patcherrelativepath" : "../abstractions",
 				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "octo-speakerSetup.txt",
-				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/tutorials",
-				"patcherrelativepath" : ".",
-				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
