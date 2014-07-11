@@ -8,7 +8,7 @@
 			"architecture" : "x86"
 		}
 ,
-		"rect" : [ 51.0, 97.0, 1208.0, 265.0 ],
+		"rect" : [ 51.0, 97.0, 1253.0, 289.0 ],
 		"bgcolor" : [ 1.0, 1.0, 1.0, 0.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
@@ -530,7 +530,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 963.0, 525.0, 195.0, 20.0 ],
-					"text" : "s #1.toPsp"
+					"text" : "s #1.universal"
 				}
 
 			}

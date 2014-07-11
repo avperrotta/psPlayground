@@ -148,8 +148,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 540.0, 410.0, 124.0, 20.0 ],
-					"text" : "route windowPosition"
+					"patching_rect" : [ 540.0, 410.0, 144.0, 20.0 ],
+					"text" : "route setWindowPosition"
 				}
 
 			}

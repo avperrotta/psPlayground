@@ -264,7 +264,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 30.0, 465.0, 395.0, 116.0 ],
+									"patching_rect" : [ 30.0, 465.0, 398.0, 116.0 ],
 									"text" : "Speakers position:\n\nThe speakers position is set by percentage values of the room dimensions.\n\nThe center of the room represents the position (0., 0., 0.) and therefore the range of the position values are: -0.5 to 0.5"
 								}
 
