@@ -2504,6 +2504,7 @@
 						"digest" : "",
 						"tags" : "",
 						"showontab" : 0,
+						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"fontname" : "Arial",
@@ -3115,10 +3116,10 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-1", 0 ],
+									"destination" : [ "obj-49", 0 ],
 									"disabled" : 0,
 									"hidden" : 1,
-									"midpoints" : [ 879.5, 584.5, 414.5, 584.5 ],
+									"midpoints" : [ 879.5, 573.0, 786.0, 573.0, 786.0, 564.0, 612.0, 564.0, 612.0, 627.0, 414.5, 627.0 ],
 									"source" : [ "obj-15", 0 ]
 								}
 
@@ -3757,18 +3758,18 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-39::obj-9::obj-21::obj-6" : [ "live.tab[3]", "live.tab[1]", 0 ],
+			"obj-11::obj-1::obj-128::obj-16::obj-7::obj-32" : [ "[10]", "[2]", 0 ],
+			"obj-39::obj-18::obj-21::obj-6" : [ "live.tab[5]", "live.tab[1]", 0 ],
 			"obj-39::obj-18::obj-35" : [ "[13]", "Level", 0 ],
-			"obj-11::obj-1::obj-128::obj-16::obj-7::obj-21::obj-6" : [ "live.tab[1]", "live.tab[1]", 0 ],
 			"obj-39::obj-10::obj-21::obj-6" : [ "live.tab[4]", "live.tab[1]", 0 ],
 			"obj-39::obj-18::obj-32" : [ "[14]", "[2]", 0 ],
 			"obj-11::obj-1::obj-128::obj-16::obj-7::obj-35" : [ "[9]", "Level", 0 ],
-			"obj-39::obj-10::obj-35" : [ "[11]", "Level", 0 ],
-			"obj-39::obj-9::obj-32" : [ "[8]", "[2]", 0 ],
-			"obj-39::obj-9::obj-35" : [ "[5]", "Level", 0 ],
 			"obj-39::obj-10::obj-32" : [ "[12]", "[2]", 0 ],
-			"obj-11::obj-1::obj-128::obj-16::obj-7::obj-32" : [ "[10]", "[2]", 0 ],
-			"obj-39::obj-18::obj-21::obj-6" : [ "live.tab[5]", "live.tab[1]", 0 ]
+			"obj-39::obj-9::obj-35" : [ "[5]", "Level", 0 ],
+			"obj-39::obj-9::obj-21::obj-6" : [ "live.tab[3]", "live.tab[1]", 0 ],
+			"obj-39::obj-10::obj-35" : [ "[11]", "Level", 0 ],
+			"obj-11::obj-1::obj-128::obj-16::obj-7::obj-21::obj-6" : [ "live.tab[1]", "live.tab[1]", 0 ],
+			"obj-39::obj-9::obj-32" : [ "[8]", "[2]", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{
