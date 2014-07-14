@@ -29,6 +29,21 @@
 		"tags" : "",
 		"boxes" : [ 			{
 				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"frgb" : 0.0,
+					"id" : "obj-18",
+					"linecount" : 7,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 660.0, 810.0, 154.0, 100.0 ],
+					"text" : "<- this is a bpatcher with the patch: pspDynamicDacGui\n\nusing the name: acousmatic as an argument"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-10",
 					"maxclass" : "toggle",
 					"numinlets" : 1,
@@ -85,7 +100,7 @@
 							"architecture" : "x86"
 						}
 ,
-						"rect" : [ 25.0, 69.0, 843.0, 654.0 ],
+						"rect" : [ 197.0, 163.0, 1094.0, 785.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -104,9 +119,300 @@
 						"description" : "",
 						"digest" : "",
 						"tags" : "",
-						"visible" : 1,
-						"boxes" : [  ],
-						"lines" : [  ]
+						"boxes" : [ 							{
+								"box" : 								{
+									"fontname" : "Arial",
+									"fontsize" : 12.0,
+									"frgb" : 0.0,
+									"id" : "obj-19",
+									"linecount" : 4,
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 495.0, 15.0, 375.0, 60.0 ],
+									"text" : "using data from a TUIO sender (can be any app that sends out tuio data)\nTo try it out you can download the tuio simulator app from:\nhttp://www.tuio.org/?software\n"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Arial",
+									"fontsize" : 12.0,
+									"id" : "obj-17",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 495.0, 105.0, 99.0, 20.0 ],
+									"text" : "udpreceive 3333"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Arial",
+									"fontsize" : 12.0,
+									"frgb" : 0.0,
+									"id" : "obj-12",
+									"linecount" : 3,
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 40.0, 495.0, 180.0, 47.0 ],
+									"text" : "notice that this controller uses only the x and z coordinates, y is always = 0.0"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Arial",
+									"fontsize" : 12.0,
+									"hidden" : 1,
+									"id" : "obj-9",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 285.0, 75.0, 75.0, 20.0 ],
+									"text" : "loadmess 1."
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Arial",
+									"fontsize" : 12.0,
+									"hidden" : 1,
+									"id" : "obj-7",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 270.0, 45.0, 72.0, 20.0 ],
+									"text" : "loadmess 2"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Arial",
+									"fontsize" : 12.0,
+									"id" : "obj-5",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 45.0, 405.0, 195.0, 18.0 ],
+									"text" : "2 -0.528205 0 -0.035897"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Arial",
+									"fontsize" : 12.0,
+									"id" : "obj-73",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 45.0, 465.0, 133.0, 20.0 ],
+									"text" : "s acousmatic.universal"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Arial",
+									"fontsize" : 12.0,
+									"id" : "obj-74",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 45.0, 435.0, 248.0, 20.0 ],
+									"text" : "prepend pSystemAccess manual setPosition"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Arial",
+									"fontsize" : 12.0,
+									"frgb" : 0.0,
+									"id" : "obj-2",
+									"linecount" : 2,
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 45.0, 45.0, 210.0, 33.0 ],
+									"text" : "using the pspMultiple2DTrajectoryController"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Arial",
+									"fontsize" : 12.0,
+									"id" : "obj-27",
+									"maxclass" : "flonum",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "float", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 165.0, 90.0, 50.0, 20.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Arial",
+									"fontsize" : 12.0,
+									"id" : "obj-25",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 165.0, 120.0, 55.0, 18.0 ],
+									"text" : "scale $1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Arial",
+									"fontsize" : 12.0,
+									"id" : "obj-10",
+									"maxclass" : "number",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "int", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 45.0, 90.0, 50.0, 20.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Arial",
+									"fontsize" : 12.0,
+									"id" : "obj-8",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 45.0, 120.0, 113.0, 18.0 ],
+									"text" : "numTrajectories $1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"filename" : "pspMultiple2DTrajectoryController.js",
+									"id" : "obj-6",
+									"maxclass" : "jsui",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 45.0, 180.0, 225.0, 195.0 ]
+								}
+
+							}
+ ],
+						"lines" : [ 							{
+								"patchline" : 								{
+									"destination" : [ "obj-8", 0 ],
+									"disabled" : 0,
+									"hidden" : 0,
+									"source" : [ "obj-10", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-6", 0 ],
+									"disabled" : 0,
+									"hidden" : 0,
+									"midpoints" : [ 174.5, 165.0, 54.5, 165.0 ],
+									"source" : [ "obj-25", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-25", 0 ],
+									"disabled" : 0,
+									"hidden" : 0,
+									"source" : [ "obj-27", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-74", 0 ],
+									"disabled" : 0,
+									"hidden" : 0,
+									"source" : [ "obj-5", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-5", 1 ],
+									"disabled" : 0,
+									"hidden" : 0,
+									"source" : [ "obj-6", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-5", 0 ],
+									"disabled" : 0,
+									"hidden" : 0,
+									"source" : [ "obj-6", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-10", 0 ],
+									"disabled" : 0,
+									"hidden" : 1,
+									"midpoints" : [ 279.5, 90.0, 216.0, 90.0, 216.0, 87.0, 54.5, 87.0 ],
+									"source" : [ "obj-7", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-73", 0 ],
+									"disabled" : 0,
+									"hidden" : 0,
+									"source" : [ "obj-74", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-6", 0 ],
+									"disabled" : 0,
+									"hidden" : 0,
+									"source" : [ "obj-8", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-27", 0 ],
+									"disabled" : 0,
+									"hidden" : 1,
+									"midpoints" : [ 294.5, 96.0, 225.0, 96.0, 225.0, 87.0, 174.5, 87.0 ],
+									"source" : [ "obj-9", 0 ]
+								}
+
+							}
+ ]
 					}
 ,
 					"patching_rect" : [ 765.0, 558.5, 121.0, 20.0 ],
@@ -123,7 +429,7 @@
 						"tags" : ""
 					}
 ,
-					"text" : "p other control forms"
+					"text" : "p other-control-forms"
 				}
 
 			}
@@ -570,6 +876,7 @@
 , 			{
 				"box" : 				{
 					"args" : [ "acousmatic" ],
+					"border" : 1,
 					"id" : "obj-9",
 					"maxclass" : "bpatcher",
 					"name" : "pspDynamicDacGui.maxpat",
@@ -846,11 +1153,11 @@
 			}
  ],
 		"parameters" : 		{
+			"obj-7::obj-1::obj-128::obj-16::obj-7::obj-32" : [ "[8]", "[2]", 0 ],
+			"obj-30::obj-50" : [ "Scripting name[1]", "Scripting name", 0 ],
 			"obj-7::obj-1::obj-128::obj-16::obj-7::obj-21::obj-6" : [ "live.tab[3]", "live.tab[1]", 0 ],
 			"obj-25::obj-50" : [ "Scripting name", "Scripting name", 0 ],
-			"obj-7::obj-1::obj-128::obj-16::obj-7::obj-32" : [ "[8]", "[2]", 0 ],
-			"obj-7::obj-1::obj-128::obj-16::obj-7::obj-35" : [ "[5]", "Level", 0 ],
-			"obj-30::obj-50" : [ "Scripting name[1]", "Scripting name", 0 ]
+			"obj-7::obj-1::obj-128::obj-16::obj-7::obj-35" : [ "[5]", "Level", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{
@@ -886,13 +1193,6 @@
 				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
 				"patcherrelativepath" : "../abstractions",
 				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "stereo-speakerSetup.txt",
-				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/presets",
-				"patcherrelativepath" : "../presets",
-				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
@@ -1019,6 +1319,13 @@
 				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
 				"patcherrelativepath" : "../abstractions",
 				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "pspMultiple2DTrajectoryController.js",
+				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
+				"patcherrelativepath" : "../abstractions",
+				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
