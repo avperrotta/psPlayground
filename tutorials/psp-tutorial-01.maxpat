@@ -3821,6 +3821,13 @@
 				"implicit" : 1
 			}
 , 			{
+				"name" : "stereo-speakerSetup.txt",
+				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/presets",
+				"patcherrelativepath" : "../presets",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
 				"name" : "pspGetParentPatcherPath.js",
 				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
 				"patcherrelativepath" : "../abstractions",
