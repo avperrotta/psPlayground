@@ -130,6 +130,20 @@
 						"boxes" : [ 							{
 								"box" : 								{
 									"fontname" : "Arial",
+									"fontsize" : 12.0,
+									"frgb" : 0.0,
+									"id" : "obj-50",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 825.0, 689.0, 238.0, 20.0 ],
+									"text" : "use this to control the manual trajectory"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Arial",
 									"fontsize" : 10.0,
 									"frgb" : 0.0,
 									"id" : "obj-46",
@@ -2504,7 +2518,6 @@
 						"digest" : "",
 						"tags" : "",
 						"showontab" : 0,
-						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"fontname" : "Arial",
@@ -3436,8 +3449,8 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 60.0, 15.0, 975.0, 851.0 ],
-									"text" : "The psp window is programmed to show the virtual environment for your particle systems.\n\nSince this toolkit was designed focused on comtemporary music necessities, the environment is designed to be analogous to a concert room.\n\nBy default, when you instantiate the \"psp.maxpat\" abstraction the graphics window will initialize by showing a red cube with two small blue cubes placed on the corners.\n\nThe red (big) cube represents the concert room.\nThe blue cubes represent the speakers in your concert room.\n\nLater we will see how to calibrate the room dimensions and the number and position of the speakers.\n\nThis virtual concert room environment is 3D and the default view that you see is a \"TOP\" view of the concert room, just as if you had the camera on a helicopter flying above the concert room.\n\nIn this top view we can start to understand our coordinate system that will be used for everything we do in the psp toolkit.\n\nIn the top view, the coordinate system is as follows:\n\nThe center of the room is also the center of our coordinate system, therefore it has the values:\n\nx = 0.\ny = 0.\nz = 0.\n\nThe direction of the axis (x, y, z) are (in Top view perspective):\n\nx = the room width, going from left to right\ny = the room height, going from inside the screen to the outside (top view)\nz = the room lenght, going from the bottom of the scree to the top of the screen.\n\nNow let's interact with our window so that we change the view perspective and zoom.\n\n1st: \nby clicking on the \"z\" key, we will see that the zoom changes and a yellow square outline is displayed.\nThis yellow outline is calculated so that the distance of the corner of the room to the respective corner of the yellow outline is approximately 2 x the room diagonal. This will be important when we calibrate our DBAP spatialization algorithm.\n\n2nd:\nby clickiing on the keys: \"r\" and \"t\", we get frontal and top view respectively.\n\nWhen in frontal view, the direction of the axis are:\n\nx = the room width, going from left to right\ny = the room height, going from the bottom of the screen to the top of the screen\nz = the room lenght, going from inside the screen to the outside of the screen.\n\n\n3rd:\nBy clicking and draging on the graphics window we can position the virtual room in any perspective.\n\n4th:\nThe escape \"esc\" key, goes in and out of fullscreen mode.\n\n"
+									"patching_rect" : [ 60.0, 15.0, 975.0, 867.0 ],
+									"text" : "The psp window is programmed to show the virtual environment of your particle systems.\n\nSince this toolkit was designed focused on comtemporary music necessities, the environment is designed to be analogous to a concert room.\n\nBy default, when you instantiate the \"psp.maxpat\" abstraction the graphics window will initialize by showing a red cube with two small blue cubes placed on the corners.\n\nThe red (big) cube represents the concert room.\nThe blue cubes represent the speakers in your concert room.\n\nLater we will see how to calibrate the room dimensions and the number and position of the speakers.\n\nThis virtual concert room environment is 3D and the default view that you see is a \"TOP\" view of the concert room, just as if you had the camera on a helicopter flying above the concert room.\n\nIn this top view we can start to understand the coordinate system that will be used for everything we do in the psp toolkit.\n\nIn the top view, the coordinate system is as follows:\n\nThe center of the room is also the center of our coordinate system, therefore it has the values:\n\nx = 0.\ny = 0.\nz = 0.\n\nThe direction of the axis (x, y, z) are (in Top view perspective):\n\nx = the room width, going from left to right\ny = the room height, going from inside the screen to the outside (top view)\nz = the room lenght, going from the bottom of the scree to the top of the screen.\n\nNow let's interact with our window so that we change the view perspective and zoom.\n\n1st: \nby clicking on the \"z\" key, we will see that the zoom changes and a yellow square outline is displayed.\nThis yellow outline is calculated so that the distance of the corner of the room to the respective corner of the yellow outline is approximately 2 x the room diagonal. This will be important when we calibrate our DBAP spatialization algorithm.\n\n2nd:\nby clickiing on the keys: \"r\" and \"t\", we get frontal and top view respectively.\n\nWhen in frontal view, the direction of the axis are:\n\nx = the room width, going from left to right\ny = the room height, going from the bottom of the screen to the top of the screen\nz = the room lenght, going from inside the screen to the outside of the screen.\n\n\n3rd:\nBy clicking and draging on the graphics window we can position the virtual room in any perspective.\n\n4th:\nThe escape \"esc\" key, goes in and out of fullscreen mode.\n\n"
 								}
 
 							}
@@ -3487,7 +3500,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 210.0, 435.0, 643.0, 210.0 ],
-					"text" : "<- The starting point for using the psp toolkit in any project is by adding the \"psp.maxpat\" abstraction to your patch with a unique name as an argument (this name must be unique and will be used for many tasks throughout the tutorials).\n\nHere we are initializing the \"psp.maxpat\" abstraction with the name: tutorial-01\nYou will notice that we also have a \"floating\" window with the name \"tutorial-01\". This window is generated by the \"psp.maxpat\" abstraction, so if you delete the apbstraction you will also delete the window.\n\nobs: in max you don't need to write the .maxpat extension when instantiating an abstraction patcher.\n\nobs: if you wan't to learn more about subpatchers and abstractions you can take a look at Max tutorials: Encapsulation, Abstractions.",
+					"text" : "<- The starting point for using the psp toolkit in any project is by adding the \"psp.maxpat\" abstraction to your patch with a unique name as an argument (this name must be unique and will be used for many tasks throughout this tutorial).\n\nHere we are initializing the \"psp.maxpat\" abstraction with the name: tutorial-01\nYou will notice that we also have a \"floating\" window with the name \"tutorial-01\". This window is generated by the \"psp.maxpat\" abstraction, so if you delete the apbstraction you will also delete the window.\n\nobs: in max you don't need to write the .maxpat extension when instantiating an abstraction patcher.\n\nobs: if you wan't to learn more about subpatchers and abstractions you can take a look at Max tutorials: Encapsulation, Abstractions.",
 					"textcolor" : [ 0.0, 0.207635, 1.0, 1.0 ]
 				}
 
