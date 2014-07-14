@@ -102,20 +102,25 @@ public:
     ofVec3f posCarIniMin;
     ofVec3f posCarIniMax;
     ofVec3f posCarIni;
+	ofVec3f posCarFinal;
     ofVec3f posRadIniMin;
     ofVec3f posRadIniMax;
     ofVec3f posRadIni;
+	ofVec3f posRadFinal;
     ofVec3f posCar;
     ofVec3f posRad;
     ofVec3f speedIniMin;
     ofVec3f speedIniMax;
     ofVec3f speedIni;
+	ofVec3f speedFinal;
     ofVec3f speed;
 	
-    //virtual void setPosCarIni(long argc, t_atom* argv);
-	virtual void setPosCar(long argc, t_atom* argv);
-	virtual void setPosRad(long argc, t_atom* argv);
-    //virtual void setPosRadIni(long argc, t_atom* argv);
+    virtual void setPosCarIni(t_atom* argv);
+	virtual void setPosCar(t_atom* argv);
+	virtual void setPosCarFinal(t_atom* argv);
+	virtual void setPosRad(t_atom* argv);
+    virtual void setPosRadIni(t_atom* argv);
+	virtual void setPosRadFinal(t_atom* argv);
     
     virtual void setRadius(t_atom* argv);
     virtual void setTheta(t_atom* argv);
@@ -141,7 +146,7 @@ public:
     ofVec3f posOffsetSpeedIniMin;
     ofVec3f posOffsetSpeedIniMax;
     
-    virtual void setOffset(long argc, t_atom* argv);
+    virtual void setOffset(t_atom* argv);
     
     ofVec3f accelIniMin;
     ofVec3f accelIniMax;
@@ -167,14 +172,14 @@ public:
     limits limits_y;
     limits limits_z;
     virtual void setSizeLimits(double x1, double x2, double y1, double y2, double z1, double z2);
-    virtual void setSizeLimits(long argc, t_atom* argv);
+    virtual void setSizeLimits(t_atom* argv);
     
     
     limits limits_vx;
     limits limits_vy;
     limits limits_vz;
     virtual void setSpeedLimits(double x1, double x2, double y1, double y2, double z1, double z2);
-    virtual void setSpeedLimits(long argc, t_atom* argv);
+    virtual void setSpeedLimits(t_atom* argv);
     virtual void setSpeed(ofVec3f sv);
     virtual void setInitialSpeed(ofVec3f sv);
     

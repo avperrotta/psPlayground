@@ -786,6 +786,7 @@
 , 							{
 								"box" : 								{
 									"comment" : "",
+									"hidden" : 1,
 									"id" : "obj-1",
 									"maxclass" : "inlet",
 									"numinlets" : 0,
@@ -3449,7 +3450,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 60.0, 15.0, 975.0, 867.0 ],
+									"patching_rect" : [ 60.0, 15.0, 975.0, 851.0 ],
 									"text" : "The psp window is programmed to show the virtual environment of your particle systems.\n\nSince this toolkit was designed focused on comtemporary music necessities, the environment is designed to be analogous to a concert room.\n\nBy default, when you instantiate the \"psp.maxpat\" abstraction the graphics window will initialize by showing a red cube with two small blue cubes placed on the corners.\n\nThe red (big) cube represents the concert room.\nThe blue cubes represent the speakers in your concert room.\n\nLater we will see how to calibrate the room dimensions and the number and position of the speakers.\n\nThis virtual concert room environment is 3D and the default view that you see is a \"TOP\" view of the concert room, just as if you had the camera on a helicopter flying above the concert room.\n\nIn this top view we can start to understand the coordinate system that will be used for everything we do in the psp toolkit.\n\nIn the top view, the coordinate system is as follows:\n\nThe center of the room is also the center of our coordinate system, therefore it has the values:\n\nx = 0.\ny = 0.\nz = 0.\n\nThe direction of the axis (x, y, z) are (in Top view perspective):\n\nx = the room width, going from left to right\ny = the room height, going from inside the screen to the outside (top view)\nz = the room lenght, going from the bottom of the scree to the top of the screen.\n\nNow let's interact with our window so that we change the view perspective and zoom.\n\n1st: \nby clicking on the \"z\" key, we will see that the zoom changes and a yellow square outline is displayed.\nThis yellow outline is calculated so that the distance of the corner of the room to the respective corner of the yellow outline is approximately 2 x the room diagonal. This will be important when we calibrate our DBAP spatialization algorithm.\n\n2nd:\nby clickiing on the keys: \"r\" and \"t\", we get frontal and top view respectively.\n\nWhen in frontal view, the direction of the axis are:\n\nx = the room width, going from left to right\ny = the room height, going from the bottom of the screen to the top of the screen\nz = the room lenght, going from inside the screen to the outside of the screen.\n\n\n3rd:\nBy clicking and draging on the graphics window we can position the virtual room in any perspective.\n\n4th:\nThe escape \"esc\" key, goes in and out of fullscreen mode.\n\n"
 								}
 
@@ -3771,18 +3772,18 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-11::obj-1::obj-128::obj-16::obj-7::obj-32" : [ "[10]", "[2]", 0 ],
-			"obj-39::obj-18::obj-21::obj-6" : [ "live.tab[5]", "live.tab[1]", 0 ],
-			"obj-39::obj-18::obj-35" : [ "[13]", "Level", 0 ],
-			"obj-39::obj-10::obj-21::obj-6" : [ "live.tab[4]", "live.tab[1]", 0 ],
-			"obj-39::obj-18::obj-32" : [ "[14]", "[2]", 0 ],
-			"obj-11::obj-1::obj-128::obj-16::obj-7::obj-35" : [ "[9]", "Level", 0 ],
-			"obj-39::obj-10::obj-32" : [ "[12]", "[2]", 0 ],
 			"obj-39::obj-9::obj-35" : [ "[5]", "Level", 0 ],
+			"obj-39::obj-18::obj-32" : [ "[14]", "[2]", 0 ],
+			"obj-39::obj-10::obj-21::obj-6" : [ "live.tab[4]", "live.tab[1]", 0 ],
+			"obj-39::obj-9::obj-32" : [ "[8]", "[2]", 0 ],
+			"obj-39::obj-18::obj-35" : [ "[13]", "Level", 0 ],
 			"obj-39::obj-9::obj-21::obj-6" : [ "live.tab[3]", "live.tab[1]", 0 ],
+			"obj-11::obj-1::obj-128::obj-16::obj-7::obj-32" : [ "[10]", "[2]", 0 ],
 			"obj-39::obj-10::obj-35" : [ "[11]", "Level", 0 ],
 			"obj-11::obj-1::obj-128::obj-16::obj-7::obj-21::obj-6" : [ "live.tab[1]", "live.tab[1]", 0 ],
-			"obj-39::obj-9::obj-32" : [ "[8]", "[2]", 0 ]
+			"obj-11::obj-1::obj-128::obj-16::obj-7::obj-35" : [ "[9]", "Level", 0 ],
+			"obj-39::obj-10::obj-32" : [ "[12]", "[2]", 0 ],
+			"obj-39::obj-18::obj-21::obj-6" : [ "live.tab[5]", "live.tab[1]", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{
@@ -3818,13 +3819,6 @@
 				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
 				"patcherrelativepath" : "../abstractions",
 				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "stereo-speakerSetup.txt",
-				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/presets",
-				"patcherrelativepath" : "../presets",
-				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{

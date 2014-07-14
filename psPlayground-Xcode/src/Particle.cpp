@@ -132,7 +132,7 @@ void Particle::setup(pSystem* sys, int ind){
 	recFileName = mySystem->recFilesPath + mySystem->getName() + ofToString(index) + ".txt";
 	//post("recFileName = %s", recFileName.c_str());
 	//loadRec(recFileName);
-
+	
     customSetup();
     
 }
@@ -281,41 +281,41 @@ void Particle::draw(){
 void Particle::setSizeLimits(double x1, double x2, double y1, double y2, double z1, double z2){
     
 }
-void Particle::setSizeLimits(long argc, t_atom* argv){
-    if(argc == 6){
-        if(argv){
-            limits_x.min = atom_getfloat(argv + 0);
-            limits_x.max = atom_getfloat(argv + 1);
-            limits_y.min = atom_getfloat(argv + 2);
-            limits_y.max = atom_getfloat(argv + 3);
-            limits_z.min = atom_getfloat(argv + 4);
-            limits_z.max = atom_getfloat(argv + 5);
-        }
-    }
+void Particle::setSizeLimits(t_atom* argv){
+    
+	if(argv){
+		limits_x.min = atom_getfloat(argv + 0);
+		limits_x.max = atom_getfloat(argv + 1);
+		limits_y.min = atom_getfloat(argv + 2);
+		limits_y.max = atom_getfloat(argv + 3);
+		limits_z.min = atom_getfloat(argv + 4);
+		limits_z.max = atom_getfloat(argv + 5);
+	}
+    
     
 }
 
 void Particle::setSpeedLimits(double x1, double x2, double y1, double y2, double z1, double z2){
     
 }
-void Particle::setSpeedLimits(long argc, t_atom* argv){
-    if(argc == 6){
-        if(argv){
-            limits_vx.min = atom_getfloat(argv + 0);
-            limits_vx.max = atom_getfloat(argv + 1);
-            limits_vy.min = atom_getfloat(argv + 2);
-            limits_vy.max = atom_getfloat(argv + 3);
-            limits_vz.min = atom_getfloat(argv + 4);
-            limits_vz.max = atom_getfloat(argv + 5);
-            
-            easingLimits_x.min = crop(atom_getfloat(argv + 0), 0.005, 0.9);
-            easingLimits_x.max = crop(atom_getfloat(argv + 1), 0.005, 0.9);
-            easingLimits_y.min = crop(atom_getfloat(argv + 2), 0.005, 0.9);
-            easingLimits_y.max = crop(atom_getfloat(argv + 3), 0.005, 0.9);
-            easingLimits_z.min = crop(atom_getfloat(argv + 4), 0.005, 0.9);
-            easingLimits_z.max = crop(atom_getfloat(argv + 5), 0.005, 0.9);
-        }
-    }
+void Particle::setSpeedLimits(t_atom* argv){
+    
+	if(argv){
+		limits_vx.min = atom_getfloat(argv + 0);
+		limits_vx.max = atom_getfloat(argv + 1);
+		limits_vy.min = atom_getfloat(argv + 2);
+		limits_vy.max = atom_getfloat(argv + 3);
+		limits_vz.min = atom_getfloat(argv + 4);
+		limits_vz.max = atom_getfloat(argv + 5);
+		
+		easingLimits_x.min = crop(atom_getfloat(argv + 0), 0.005, 0.9);
+		easingLimits_x.max = crop(atom_getfloat(argv + 1), 0.005, 0.9);
+		easingLimits_y.min = crop(atom_getfloat(argv + 2), 0.005, 0.9);
+		easingLimits_y.max = crop(atom_getfloat(argv + 3), 0.005, 0.9);
+		easingLimits_z.min = crop(atom_getfloat(argv + 4), 0.005, 0.9);
+		easingLimits_z.max = crop(atom_getfloat(argv + 5), 0.005, 0.9);
+	}
+    
     
     
 }
@@ -328,21 +328,49 @@ void Particle::restart(){
     
 }
 
-void Particle::setPosCar(long argc, t_atom* argv){
-	if(argc == 3){
-		if(argv){
-			posCar = ofVec3f(atom_getfloat(argv), atom_getfloat(argv+1), atom_getfloat(argv+2));
-		}
+void Particle::setPosCar(t_atom* argv){
+	
+	if(argv){
+		posCar = ofVec3f(atom_getfloat(argv), atom_getfloat(argv+1), atom_getfloat(argv+2));
+	}
+}
+
+void Particle::setPosCarIni(t_atom* argv){
+	
+	if(argv){
+		posCarIni = ofVec3f(atom_getfloat(argv), atom_getfloat(argv+1), atom_getfloat(argv+2));
+	}
+}
+
+void Particle::setPosCarFinal(t_atom* argv){
+	
+	if(argv){
+		posCarFinal = ofVec3f(atom_getfloat(argv), atom_getfloat(argv+1), atom_getfloat(argv+2));
+	}
+}
+
+void Particle::setPosRad(t_atom* argv){
+	
+	if(argv){
+		posRad = ofVec3f(atom_getfloat(argv), atom_getfloat(argv+1), atom_getfloat(argv+2));
 	}
 	
 }
 
-void Particle::setPosRad(long argc, t_atom* argv){
-	if(argc == 3){
-		if(argv){
-			posRad = ofVec3f(atom_getfloat(argv), atom_getfloat(argv+1), atom_getfloat(argv+2));
-		}
+void Particle::setPosRadIni(t_atom* argv){
+	
+	if(argv){
+		posRadIni = ofVec3f(atom_getfloat(argv), atom_getfloat(argv+1), atom_getfloat(argv+2));
 	}
+	
+}
+
+void Particle::setPosRadFinal(t_atom* argv){
+	
+	if(argv){
+		posRadFinal = ofVec3f(atom_getfloat(argv), atom_getfloat(argv+1), atom_getfloat(argv+2));
+	}
+	
 }
 
 void Particle::setSpeed(ofVec3f sv){
@@ -376,21 +404,20 @@ void Particle::setPhiSpeed(t_atom* argv){
     
 }
 
-void Particle::setOffset(long argc, t_atom* argv){
-    if(argc == 3){
-        if(argv){
-            posOffset = ofVec3f(atom_getfloat(argv), atom_getfloat(argv + 1), atom_getfloat(argv + 2));
-        }
-    }
+void Particle::setOffset(t_atom* argv){
+	if(argv){
+		posOffset = ofVec3f(atom_getfloat(argv), atom_getfloat(argv + 1), atom_getfloat(argv + 2));
+	}
+    
 }
 
 void Particle::loadRec(std::string fn){
     
     /*
-	if(recFile){
-		fclose(recFile);
-	}
-    */
+	 if(recFile){
+	 fclose(recFile);
+	 }
+	 */
 	
 	recFile = fopen(fn.c_str(), "r");
 	if(recFile != NULL){

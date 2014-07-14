@@ -77,9 +77,8 @@ t_jit_err ManualMovementSystem::messageControl(long argc, t_atom* argv){
         if(argc == 5){
             if(argv){
                 int pi = atom_getlong(argv + 1) - 1;
-                
 				if(pi >= 0 && pi < numParticles){
-					(*particles)[pi]->setPosCar(argc - 2, argv + 2);
+					(*particles)[pi]->setPosCar(argv + 2);
 				}
             }
         }

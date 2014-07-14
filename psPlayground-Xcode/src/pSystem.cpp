@@ -199,7 +199,7 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
             if(argv){
                 setLimits(argc - 1, argv + 1);
                 for(int i=0; i<numParticles; i++){
-                    (*particles)[i]->setSizeLimits(argc - 1, argv + 1);
+                    (*particles)[i]->setSizeLimits(argv + 1);
                 }
                 /*
                 post("size limits set for %s system:", name.c_str(), argv);
@@ -259,7 +259,7 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
         if(argc == 4){
             if(argv){
                 for(int i=0; i<numParticles; i++){
-                    (*particles)[i]->setOffset(argc - 1, argv + 1);
+                    (*particles)[i]->setOffset(argv + 1);
                 }
                 //post("setting offset for %s", name.c_str());
             }

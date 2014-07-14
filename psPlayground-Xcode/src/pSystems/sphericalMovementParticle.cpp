@@ -124,8 +124,8 @@ void SphericalMovementParticle::setPhiSpeed(t_atom* argv){
 }
 
 
-void SphericalMovementParticle::setSizeLimits(long argc, t_atom* argv){
-    if(argc == 6){
+void SphericalMovementParticle::setSizeLimits(t_atom* argv){
+    
         if(argv){
             limits_x.min = atom_getfloat(argv + 0);
             limits_x.max = atom_getfloat(argv + 1);
@@ -138,7 +138,7 @@ void SphericalMovementParticle::setSizeLimits(long argc, t_atom* argv){
                              (limits_y.min - limits_y.max)*(limits_y.min - limits_y.max) +
                              (limits_z.min - limits_z.max)*(limits_z.min - limits_z.max));
         }
-    }
+    
     
 }
 

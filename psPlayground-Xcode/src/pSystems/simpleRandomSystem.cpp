@@ -96,17 +96,8 @@ t_jit_err SimpleRandomSystem::messageControl(long argc, t_atom *argv){
         if(argc == 7){
             if(argv){
                 for(int i=0; i<numParticles; i++){
-                    (*particles)[i]->setSpeedLimits(argc - 1, argv + 1);
+                    (*particles)[i]->setSpeedLimits(argv + 1);
                 }
-                /*
-                post("speed limits set for %s system:", name.c_str());
-                postatom(argv + 1);
-                postatom(argv + 2);
-                postatom(argv + 3);
-                postatom(argv + 4);
-                postatom(argv + 5);
-                postatom(argv + 6);
-                */
             }
         }
         
