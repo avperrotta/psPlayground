@@ -187,7 +187,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 56.200001, 450.0, 104.0, 20.0 ],
+					"patching_rect" : [ 82.5, 450.0, 104.0, 20.0 ],
 					"text" : "s #1.effect"
 				}
 
@@ -200,7 +200,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 135.0, 315.0, 110.0, 20.0 ],
+					"patching_rect" : [ 180.0, 315.0, 110.0, 20.0 ],
 					"text" : "s #1.gain"
 				}
 
@@ -213,7 +213,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 82.400002, 405.0, 114.0, 20.0 ],
+					"patching_rect" : [ 105.0, 405.0, 114.0, 20.0 ],
 					"text" : "s #1.dbap"
 				}
 
@@ -225,8 +225,8 @@
 					"id" : "obj-2",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
-					"numoutlets" : 6,
-					"outlettype" : [ "jit_matrix", "", "", "", "", "" ],
+					"numoutlets" : 5,
+					"outlettype" : [ "jit_matrix", "", "", "", "" ],
 					"patching_rect" : [ 30.0, 257.0, 150.0, 20.0 ],
 					"text" : " psPlayground #1"
 				}
@@ -240,7 +240,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 108.599998, 360.0, 116.666656, 20.0 ],
+					"patching_rect" : [ 135.0, 360.0, 116.666656, 20.0 ],
 					"text" : "s #1.raw"
 				}
 
@@ -340,7 +340,7 @@
 					"destination" : [ "obj-11", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
-					"midpoints" : [ 144.300003, 288.0, 144.5, 288.0 ],
+					"midpoints" : [ 170.5, 288.0, 189.5, 288.0 ],
 					"source" : [ "obj-2", 4 ]
 				}
 
@@ -351,26 +351,6 @@
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-2", 3 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-35", 1 ],
-					"disabled" : 0,
-					"hidden" : 0,
-					"midpoints" : [ 170.5, 279.0, 477.0, 279.0, 477.0, 480.0, 532.5, 480.0 ],
-					"source" : [ "obj-2", 5 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-35", 0 ],
-					"disabled" : 0,
-					"hidden" : 0,
-					"midpoints" : [ 170.5, 279.0, 477.0, 279.0, 477.0, 480.0, 514.5, 480.0 ],
-					"source" : [ "obj-2", 5 ]
 				}
 
 			}

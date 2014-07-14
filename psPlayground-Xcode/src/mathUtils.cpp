@@ -132,3 +132,33 @@ double crop(double x, double x_min, double x_max){
     return x;
 }
 
+
+ofVec3f generateRandomVec3f(double randomness, ofVec3f v){
+	ofVec3f out;
+	
+	out.x = rangedRandom(v.x - randomness*v.x, v.x + randomness*v.x);
+	out.y = rangedRandom(v.y - randomness*v.y, v.y + randomness*v.y);
+	out.z = rangedRandom(v.z - randomness*v.z, v.z + randomness*v.z);
+	
+	return out;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

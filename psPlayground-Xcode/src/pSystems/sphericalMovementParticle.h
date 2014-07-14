@@ -72,6 +72,8 @@ public:
     double maxRadius;
     
     void restart();
+	
+	void timedUpdate();
     
 };
 

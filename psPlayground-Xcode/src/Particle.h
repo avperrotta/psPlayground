@@ -90,6 +90,8 @@ public:
     double lifeTime;
     double timeToLive;
     virtual void updateTime();
+	virtual void timedUpdate();
+	bool updateByTime;
     
     int trigger;
     
@@ -180,8 +182,8 @@ public:
     limits limits_vz;
     virtual void setSpeedLimits(double x1, double x2, double y1, double y2, double z1, double z2);
     virtual void setSpeedLimits(t_atom* argv);
-    virtual void setSpeed(ofVec3f sv);
-    virtual void setInitialSpeed(ofVec3f sv);
+    virtual void setSpeed(long argc, t_atom* argv);
+    virtual void setInitialSpeed(long argc, t_atom* argv);
     
     limits limits_ax;
     limits limits_ay;

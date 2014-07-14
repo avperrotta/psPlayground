@@ -55,12 +55,14 @@ SphericalMovementParticle::~SphericalMovementParticle(){
 
 void SphericalMovementParticle::customSetup(){
     
-    posOffsetIni = ofVec3f(-0.5, -0.5, -0.5);
+    posOffsetIni = generateRandomVec3f(randomness, ofVec3f(0., 0., 0.));
     posOffset = posOffsetIni;
-    posRadIni = ofVec3f(0.25, 0., 0.);
+	
+    posRadIni = generateRandomVec3f(randomness, ofVec3f(0.25, 0., 0.));
+	posRadFinal = generateRandomVec3f(randomness, ofVec3f(0.5, 0., 0.));
     posRad = posRadIni;
     
-    speedIni = ofVec3f(0., 0.1, 0.1);
+    speedIni = generateRandomVec3f(randomness, ofVec3f(0., 0.1, 0.1));
     speed = speedIni;
     
     maxRadius = sqrt((limits_x.min - limits_x.max)*(limits_x.min - limits_x.max) +
@@ -72,27 +74,38 @@ void SphericalMovementParticle::customSetup(){
 
 void SphericalMovementParticle::customUpdate(){
     
-    posRad += speed;
-    /*
-    if(posRad.y > M_PI){
-        posRad.y = posRad.y - M_PI;
-    }
-    if(posRad.z > 2.*M_PI){
-        posRad.z = posRad.z - 2*M_PI;
-    }
-    */
-	posCar.z = posRad.x*sin(posRad.y)*cos(posRad.z) + posOffset.z;
-    posCar.x = posRad.x*sin(posRad.y)*sin(posRad.z) + posOffset.x;
-    posCar.y = posRad.x*cos(posRad.y) + posOffset.y;
+	if(updateByTime){
+		timedUpdate();
+	}
+	else{
+		posRad += speed;
+		/*
+		 if(posRad.y > M_PI){
+		 posRad.y = posRad.y - M_PI;
+		 }
+		 if(posRad.z > 2.*M_PI){
+		 posRad.z = posRad.z - 2*M_PI;
+		 }
+		 */
+		posCar.z = posRad.x*sin(posRad.y)*cos(posRad.z) + posOffset.z;
+		posCar.x = posRad.x*sin(posRad.y)*sin(posRad.z) + posOffset.x;
+		posCar.y = posRad.x*cos(posRad.y) + posOffset.y;
+		
+		if(posRad.x > maxRadius){
+			posRad.x = maxRadius;
+			speed.x *= -1.;
+		}
+		if(posRad.x < 0.0){
+			posRad.x = 0.0;
+			speed.x *= -1.;
+		}
+	}
+	
     
-    if(posRad.x > maxRadius){
-        posRad.x = maxRadius;
-        speed.x *= -1.;
-    }
-    if(posRad.x < 0.0){
-        posRad.x = 0.0;
-        speed.x *= -1.;
-    }
+}
+
+void SphericalMovementParticle::timedUpdate(){
+	
 }
 
 void SphericalMovementParticle::restart(){

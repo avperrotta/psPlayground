@@ -75,6 +75,7 @@ void Particle::setup(pSystem* sys, int ind){
     initialTime = gettime();
     currentTime = gettime();
     previousTime = currentTime;
+	updateByTime = false;
     dTime = 0;
     lifeTime = 0;
     
@@ -133,12 +134,19 @@ void Particle::setup(pSystem* sys, int ind){
 	//post("recFileName = %s", recFileName.c_str());
 	//loadRec(recFileName);
 	
+	
+	randomness = 0.2;
+	
     customSetup();
     
 }
 
 void Particle::customSetup(){
     
+}
+
+void Particle::timedUpdate(){
+	
 }
 
 
@@ -338,14 +346,14 @@ void Particle::setPosCar(t_atom* argv){
 void Particle::setPosCarIni(t_atom* argv){
 	
 	if(argv){
-		posCarIni = ofVec3f(atom_getfloat(argv), atom_getfloat(argv+1), atom_getfloat(argv+2));
+		posCarIni = generateRandomVec3f(randomness, ofVec3f(atom_getfloat(argv), atom_getfloat(argv+1), atom_getfloat(argv+2)));
 	}
 }
 
 void Particle::setPosCarFinal(t_atom* argv){
 	
 	if(argv){
-		posCarFinal = ofVec3f(atom_getfloat(argv), atom_getfloat(argv+1), atom_getfloat(argv+2));
+		posCarFinal = generateRandomVec3f(randomness, ofVec3f(atom_getfloat(argv), atom_getfloat(argv+1), atom_getfloat(argv+2)));
 	}
 }
 
@@ -360,7 +368,7 @@ void Particle::setPosRad(t_atom* argv){
 void Particle::setPosRadIni(t_atom* argv){
 	
 	if(argv){
-		posRadIni = ofVec3f(atom_getfloat(argv), atom_getfloat(argv+1), atom_getfloat(argv+2));
+		posRadIni = generateRandomVec3f(randomness, ofVec3f(atom_getfloat(argv), atom_getfloat(argv+1), atom_getfloat(argv+2)));
 	}
 	
 }
@@ -368,17 +376,31 @@ void Particle::setPosRadIni(t_atom* argv){
 void Particle::setPosRadFinal(t_atom* argv){
 	
 	if(argv){
-		posRadFinal = ofVec3f(atom_getfloat(argv), atom_getfloat(argv+1), atom_getfloat(argv+2));
+		posRadFinal = generateRandomVec3f(randomness, ofVec3f(atom_getfloat(argv), atom_getfloat(argv+1), atom_getfloat(argv+2)));
 	}
 	
 }
 
-void Particle::setSpeed(ofVec3f sv){
-    speed = sv;
+void Particle::setSpeed(long argc, t_atom* argv){
+    if(argc == 1){
+		if(argv){
+			speed = ofVec3f(atom_getfloat(argv), atom_getfloat(argv), atom_getfloat(argv));
+		}
+	}
+	else if(argc == 3){
+		speed = ofVec3f(atom_getfloat(argv), atom_getfloat(argv + 1), atom_getfloat(argv + 2));
+	}
 }
 
-void Particle::setInitialSpeed(ofVec3f sv){
-    speed = sv;
+void Particle::setInitialSpeed(long argc, t_atom* argv){
+    if(argc == 1){
+		if(argv){
+			speed = ofVec3f(atom_getfloat(argv), atom_getfloat(argv), atom_getfloat(argv));
+		}
+	}
+	else if(argc == 3){
+		speed = ofVec3f(atom_getfloat(argv), atom_getfloat(argv + 1), atom_getfloat(argv + 2));
+	}
 }
 
 void Particle::setRandomness(double r){

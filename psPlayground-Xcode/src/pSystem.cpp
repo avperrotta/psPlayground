@@ -216,20 +216,56 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
         
         return JIT_ERR_NONE;
     }
+	else if(task == "setInitialPositionCartezian"){
+		if(argc == 4){
+			if(argv){
+				for(int i=0; i<numParticles; i++){
+					(*particles)[i]->setPosCarIni(argv + 1);
+				}
+			}
+		}
+	}
+	else if(task == "setFinalPositionCartezian"){
+		if(argc == 4){
+			if(argv){
+				for(int i=0; i<numParticles; i++){
+					(*particles)[i]->setPosCarFinal(argv + 1);
+				}
+			}
+		}
+	}
+	else if(task == "setInitialPositionPolar"){
+		if(argc == 4){
+			if(argv){
+				for(int i=0; i<numParticles; i++){
+					(*particles)[i]->setPosRadIni(argv + 1);
+				}
+			}
+		}
+	}
+	else if(task == "setFinalPositionPolar"){
+		if(argc == 4){
+			if(argv){
+				for(int i=0; i<numParticles; i++){
+					(*particles)[i]->setPosRadFinal(argv + 1);
+				}
+			}
+		}
+	}
     
     else if(task == "setSpeed"){
         if(argc == 2){
             if(argv){
                 
                 for(int i=0; i<numParticles; i++){
-                    (*particles)[i]->setSpeed(ofVec3f(atom_getfloat(argv + 1), atom_getfloat(argv + 1), atom_getfloat(argv + 1)));
+                    (*particles)[i]->setSpeed(argc - 1, argv + 1);
                 }
                 //post("setting speed for %s: %lf", name.c_str(), atom_getfloat(argv + 1));
             }
         }
         else if(argc == 4){
             for(int i=0; i<numParticles; i++){
-                (*particles)[i]->setSpeed(ofVec3f(atom_getfloat(argv + 1), atom_getfloat(argv + 2), atom_getfloat(argv + 3)));
+                (*particles)[i]->setSpeed(argc - 1, argv + 1);
             }
             //post("setting speed for %s: %lf %lf %lf", name.c_str(), atom_getfloat(argv + 1), atom_getfloat(argv + 2), atom_getfloat(argv + 3));
         }
@@ -241,14 +277,14 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
             if(argv){
                 
                 for(int i=0; i<numParticles; i++){
-                    (*particles)[i]->setInitialSpeed(ofVec3f(atom_getfloat(argv + 1), atom_getfloat(argv + 1), atom_getfloat(argv + 1)));
+                    (*particles)[i]->setInitialSpeed(argc - 1, argv + 1);
                 }
                 //post("setting speed for %s: %lf", name.c_str(), atom_getfloat(argv + 1));
             }
         }
         else if(argc == 4){
             for(int i=0; i<numParticles; i++){
-                (*particles)[i]->setInitialSpeed(ofVec3f(atom_getfloat(argv + 1), atom_getfloat(argv + 2), atom_getfloat(argv + 3)));
+                (*particles)[i]->setInitialSpeed(argc - 1, argv + 1);
             }
             //post("setting speed for %s: %lf %lf %lf", name.c_str(), atom_getfloat(argv + 1), atom_getfloat(argv + 2), atom_getfloat(argv + 3));
         }

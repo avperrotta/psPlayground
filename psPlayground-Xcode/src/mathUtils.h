@@ -64,7 +64,7 @@ double getInterpolatedFromOfVec2fVector(vector<ofVec2f*>* v, double x);
 double interpolate(ofVec2f v0, ofVec2f v1, double x);
 double crop(double x, double x_min, double x_max);
 double getHannGain(double x, double ws);
-
+ofVec3f generateRandomVec3f(double randomness, ofVec3f v);
 
 //util classes
 class limits{
