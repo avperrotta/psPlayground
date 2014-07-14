@@ -1161,7 +1161,7 @@
 					"patching_rect" : [ 60.0, 60.0, 315.75, 30.0 ],
 					"preset_data" : [ 						{
 							"number" : 1,
-							"data" : [ 4, "obj-2", "function", "clear", 7, "obj-2", "function", "add", 0.0, 0.0, 0, 7, "obj-2", "function", "add", 1.768, -24.799999, 0, 7, "obj-2", "function", "add", 3.458, -55.799999, 0, 5, "obj-2", "function", "domain", 3.464102, 6, "obj-2", "function", "range", -100.0, 12.0, 5, "obj-2", "function", "mode", 0, 5, "obj-35", "flonum", "float", 0.026, 5, "obj-36", "flonum", "float", 6.2, 5, "<invalid>", "flonum", "float", 1.0, 5, "obj-29", "flonum", "float", 1.0, 5, "obj-31", "flonum", "float", 1.0, 5, "obj-34", "flonum", "float", 1.732051, 4, "obj-60", "function", "clear", 7, "obj-60", "function", "add", 0.0, -100.0, 0, 7, "obj-60", "function", "add", 0.55, -43.399998, 0, 7, "obj-60", "function", "add", 0.9, -18.599998, 0, 7, "obj-60", "function", "add", 1.2, -6.2, 0, 7, "obj-60", "function", "add", 3.45, 0.0, 0, 5, "obj-60", "function", "domain", 3.464102, 6, "obj-60", "function", "range", -100.0, 12.0, 5, "obj-60", "function", "mode", 0, 5, "obj-42", "flonum", "float", 0.05, 5, "obj-38", "flonum", "float", 6.2, 4, "obj-76", "function", "clear", 7, "obj-76", "function", "add", 0.0, 0.0, 0, 7, "obj-76", "function", "add", 0.486, 0.6, 0, 7, "obj-76", "function", "add", 1.134, 0.85, 0, 7, "obj-76", "function", "add", 3.464102, 1.0, 0, 5, "obj-76", "function", "domain", 3.464102, 6, "obj-76", "function", "range", 0.0, 1.0, 5, "obj-76", "function", "mode", 0, 5, "obj-73", "flonum", "float", 0.054, 5, "obj-70", "flonum", "float", 0.05, 5, "obj-13", "incdec", "float", 2.0, 5, "<invalid>", "flonum", "float", 0.022, 5, "<invalid>", "number", "int", 2 ]
+							"data" : [ 4, "obj-2", "function", "clear", 7, "obj-2", "function", "add", 0.0, 0.0, 0, 7, "obj-2", "function", "add", 1.768, -24.799999, 0, 7, "obj-2", "function", "add", 3.458, -55.799999, 0, 5, "obj-2", "function", "domain", 3.464102, 6, "obj-2", "function", "range", -100.0, 12.0, 5, "obj-2", "function", "mode", 0, 5, "obj-35", "flonum", "float", 0.026, 5, "obj-36", "flonum", "float", 6.2, 5, "obj-24", "flonum", "float", 1.0, 5, "obj-29", "flonum", "float", 1.0, 5, "obj-31", "flonum", "float", 1.0, 5, "obj-34", "flonum", "float", 1.732051, 4, "obj-60", "function", "clear", 7, "obj-60", "function", "add", 0.0, -100.0, 0, 7, "obj-60", "function", "add", 0.55, -43.399998, 0, 7, "obj-60", "function", "add", 0.9, -18.599998, 0, 7, "obj-60", "function", "add", 1.2, -6.2, 0, 7, "obj-60", "function", "add", 3.45, 0.0, 0, 5, "obj-60", "function", "domain", 3.464102, 6, "obj-60", "function", "range", -100.0, 12.0, 5, "obj-60", "function", "mode", 0, 5, "obj-42", "flonum", "float", 0.05, 5, "obj-38", "flonum", "float", 6.2, 4, "obj-76", "function", "clear", 7, "obj-76", "function", "add", 0.0, 0.0, 0, 7, "obj-76", "function", "add", 0.486, 0.6, 0, 7, "obj-76", "function", "add", 1.134, 0.85, 0, 7, "obj-76", "function", "add", 3.464102, 1.0, 0, 5, "obj-76", "function", "domain", 3.464102, 6, "obj-76", "function", "range", 0.0, 1.0, 5, "obj-76", "function", "mode", 0, 5, "obj-73", "flonum", "float", 0.054, 5, "obj-70", "flonum", "float", 0.05, 5, "obj-13", "incdec", "float", 2.0, 5, "obj-12", "flonum", "float", 0.022, 5, "<invalid>", "number", "int", 2 ]
 						}
  ],
 					"showtrack" : 0,
@@ -1255,8 +1255,8 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 680.0, 383.0, 336.0, 20.0 ],
-					"text" : "reverberation (0 - 1.) x source distance from room center"
+					"patching_rect" : [ 692.0, 383.0, 313.0, 20.0 ],
+					"text" : "source distance from room center x reverberation (0 - 1.) "
 				}
 
 			}
@@ -1419,8 +1419,8 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 165.0, 383.0, 316.0, 20.0 ],
-					"text" : "reverb wet/dry (dB) x source distance from room center"
+					"patching_rect" : [ 176.75, 383.0, 315.0, 20.0 ],
+					"text" : "source distance from room center x reverb wet/dry (dB)"
 				}
 
 			}
@@ -1612,8 +1612,8 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 735.0, 135.0, 270.0, 20.0 ],
-					"text" : "amplitude (dB) x source to speaker distance"
+					"patching_rect" : [ 750.0, 135.0, 270.0, 20.0 ],
+					"text" : "source to speaker distance x amplitude (dB) "
 				}
 
 			}
