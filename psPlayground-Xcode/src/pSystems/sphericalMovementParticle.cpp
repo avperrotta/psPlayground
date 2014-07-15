@@ -55,63 +55,74 @@ SphericalMovementParticle::~SphericalMovementParticle(){
 
 void SphericalMovementParticle::customSetup(){
     
-    posOffsetIni = generateRandomVec3f(randomness, ofVec3f(0., 0., 0.));
-    posOffset = posOffsetIni;
+	posOffsetIni = generateRandomVec3f(randomness, ofVec3f(0., 0., 0.));
+	posRadIni = generateRandomVec3f(randomness, ofVec3f(0.25, 0., 0.));
+	posRadFinal = generateRandomVec3f(randomness, ofVec3f(0.75, 0., 0.));
 	
-    posRadIni = generateRandomVec3f(randomness, ofVec3f(0.25, 0., 0.));
-	posRadFinal = generateRandomVec3f(randomness, ofVec3f(0.5, 0., 0.));
-    posRad = posRadIni;
-    
-    speedIni = generateRandomVec3f(randomness, ofVec3f(0., 0.1, 0.1));
-    speed = speedIni;
-    
-    maxRadius = sqrt((limits_x.min - limits_x.max)*(limits_x.min - limits_x.max) +
+	speedIni = generateRandomVec3f(randomness, ofVec3f(0., 0.1, 0.1));
+	
+	maxRadius = sqrt((limits_x.min - limits_x.max)*(limits_x.min - limits_x.max) +
                      (limits_y.min - limits_y.max)*(limits_y.min - limits_y.max) +
                      (limits_z.min - limits_z.max)*(limits_z.min - limits_z.max));
-    
+
+	
 	restart();
 }
 
+void SphericalMovementParticle::customRestart(){
+	
+	
+    posOffset = posOffsetIni;
+	posRad = posRadIni;
+    speed = speedIni;
+    
+    
+}
+
+
 void SphericalMovementParticle::customUpdate(){
     
-	if(updateByTime){
-		timedUpdate();
+	posRad += speed;
+	/*
+	 if(posRad.y > M_PI){
+	 posRad.y = posRad.y - M_PI;
+	 }
+	 if(posRad.z > 2.*M_PI){
+	 posRad.z = posRad.z - 2*M_PI;
+	 }
+	 */
+	posCar.z = posRad.x*sin(posRad.y)*cos(posRad.z) + posOffset.z;
+	posCar.x = posRad.x*sin(posRad.y)*sin(posRad.z) + posOffset.x;
+	posCar.y = posRad.x*cos(posRad.y) + posOffset.y;
+	
+	if(posRad.x > maxRadius){
+		posRad.x = maxRadius;
+		speed.x *= -1.;
 	}
-	else{
-		posRad += speed;
-		/*
-		 if(posRad.y > M_PI){
-		 posRad.y = posRad.y - M_PI;
-		 }
-		 if(posRad.z > 2.*M_PI){
-		 posRad.z = posRad.z - 2*M_PI;
-		 }
-		 */
-		posCar.z = posRad.x*sin(posRad.y)*cos(posRad.z) + posOffset.z;
-		posCar.x = posRad.x*sin(posRad.y)*sin(posRad.z) + posOffset.x;
-		posCar.y = posRad.x*cos(posRad.y) + posOffset.y;
-		
-		if(posRad.x > maxRadius){
-			posRad.x = maxRadius;
-			speed.x *= -1.;
-		}
-		if(posRad.x < 0.0){
-			posRad.x = 0.0;
-			speed.x *= -1.;
-		}
+	if(posRad.x < 0.0){
+		posRad.x = 0.0;
+		speed.x *= -1.;
 	}
+	
 	
     
 }
 
 void SphericalMovementParticle::timedUpdate(){
+	posRad.x = posRadIni.x + (posRadFinal.x - posRadIni.x)*lifeTime/timeToLive;
+	posRad.y = posRadIni.y + (posRadFinal.y - posRadIni.y)*lifeTime/timeToLive;
+	posRad.z = posRadIni.z + (posRadFinal.z - posRadIni.z)*lifeTime/timeToLive;
 	
+	
+	posCar.z = posRad.x*sin(posRad.y)*cos(posRad.z) + posOffset.z;
+	posCar.x = posRad.x*sin(posRad.y)*sin(posRad.z) + posOffset.x;
+	posCar.y = posRad.x*cos(posRad.y) + posOffset.y;
+
+	
+	post("posRad = %lf %lf %lf", posRad.x, posRad.y, posRad.z);
 }
 
-void SphericalMovementParticle::restart(){
-	
-	
-}
+
 
 
 void SphericalMovementParticle::setRadius(t_atom* argv){
@@ -139,18 +150,18 @@ void SphericalMovementParticle::setPhiSpeed(t_atom* argv){
 
 void SphericalMovementParticle::setSizeLimits(t_atom* argv){
     
-        if(argv){
-            limits_x.min = atom_getfloat(argv + 0);
-            limits_x.max = atom_getfloat(argv + 1);
-            limits_y.min = atom_getfloat(argv + 2);
-            limits_y.max = atom_getfloat(argv + 3);
-            limits_z.min = atom_getfloat(argv + 4);
-            limits_z.max = atom_getfloat(argv + 5);
-            
-            maxRadius = sqrt((limits_x.min - limits_x.max)*(limits_x.min - limits_x.max) +
-                             (limits_y.min - limits_y.max)*(limits_y.min - limits_y.max) +
-                             (limits_z.min - limits_z.max)*(limits_z.min - limits_z.max));
-        }
+	if(argv){
+		limits_x.min = atom_getfloat(argv + 0);
+		limits_x.max = atom_getfloat(argv + 1);
+		limits_y.min = atom_getfloat(argv + 2);
+		limits_y.max = atom_getfloat(argv + 3);
+		limits_z.min = atom_getfloat(argv + 4);
+		limits_z.max = atom_getfloat(argv + 5);
+		
+		maxRadius = sqrt((limits_x.min - limits_x.max)*(limits_x.min - limits_x.max) +
+						 (limits_y.min - limits_y.max)*(limits_y.min - limits_y.max) +
+						 (limits_z.min - limits_z.max)*(limits_z.min - limits_z.max));
+	}
     
     
 }

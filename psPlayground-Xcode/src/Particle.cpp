@@ -72,19 +72,14 @@ void Particle::setup(){
 }
 
 void Particle::setup(pSystem* sys, int ind){
-    initialTime = gettime();
-    currentTime = gettime();
-    previousTime = currentTime;
-	updateByTime = false;
-    dTime = 0;
-    lifeTime = 0;
     
-    
+		
     mySystem = sys;
     concertRoom = mySystem->getConcertRoom();
     systemName = mySystem->getName();
     index = ind;
     
+	updateByTime = false;
     
     useDbap = false;
     outputDbap = false;
@@ -145,6 +140,23 @@ void Particle::customSetup(){
     
 }
 
+void Particle::restart(){
+    resetTime();
+	customRestart();
+}
+
+void Particle::customRestart(){
+	
+}
+
+void Particle::resetTime(){
+	initialTime = (double)gettime();
+    currentTime = (double)gettime();
+    previousTime = currentTime;
+    dTime = 0;
+    lifeTime = 0;
+}
+
 void Particle::timedUpdate(){
 	
 }
@@ -159,7 +171,17 @@ void Particle::update(){
 		recUpdate();
 	}
 	else{
-		customUpdate();
+		if(updateByTime){
+			timedUpdate();
+			if(lifeTime >= timeToLive){
+				//updateByTime = false;
+				restart();
+			}
+		}
+		else{
+			customUpdate();
+		}
+		
 	}
     
 	
@@ -179,11 +201,11 @@ void Particle::update(){
 }
 
 void Particle::updateTime(){
-    dTime = gettime() - previousTime;
-    lifeTime = gettime() - initialTime;
+    dTime = (double)gettime() - previousTime;
+    lifeTime = (double)gettime() - initialTime;
     previousTime = currentTime;
-    currentTime = gettime();
-    //post("lifeTime = %d", lifeTime);
+    currentTime = (double)gettime();
+	//post("lifeTime = %lf", lifeTime);
 }
 
 void Particle::createOutput(){
@@ -286,6 +308,18 @@ void Particle::draw(){
 }
 
 
+
+void Particle::triggerTrajectory(t_atom *argv){
+	if(argv){
+		timeToLive = atom_getfloat(argv);
+		updateByTime = true;
+		restart();
+	}
+	
+	
+}
+
+
 void Particle::setSizeLimits(double x1, double x2, double y1, double y2, double z1, double z2){
     
 }
@@ -332,9 +366,6 @@ void Particle::setColor(ofVec4f c){
     color = c;
 }
 
-void Particle::restart(){
-    
-}
 
 void Particle::setPosCar(t_atom* argv){
 	
@@ -369,6 +400,7 @@ void Particle::setPosRadIni(t_atom* argv){
 	
 	if(argv){
 		posRadIni = generateRandomVec3f(randomness, ofVec3f(atom_getfloat(argv), atom_getfloat(argv+1), atom_getfloat(argv+2)));
+		post("posRadIni = %lf, %lf, %lf", posRadIni.x, posRadIni.y, posRadIni.z);
 	}
 	
 }
@@ -377,6 +409,7 @@ void Particle::setPosRadFinal(t_atom* argv){
 	
 	if(argv){
 		posRadFinal = generateRandomVec3f(randomness, ofVec3f(atom_getfloat(argv), atom_getfloat(argv+1), atom_getfloat(argv+2)));
+		post("posRadFinal = %lf, %lf, %lf", posRadFinal.x, posRadFinal.y, posRadFinal.z);
 	}
 	
 }

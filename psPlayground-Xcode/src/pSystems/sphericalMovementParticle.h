@@ -71,7 +71,7 @@ public:
     void setSizeLimits(t_atom* argv);
     double maxRadius;
     
-    void restart();
+    void customRestart();
 	
 	void timedUpdate();
     

@@ -71,6 +71,7 @@ public:
     virtual void update();
     virtual void draw();
     virtual void restart();
+	virtual void customRestart();
 
     virtual void customUpdate();
     std::string systemName;
@@ -89,9 +90,12 @@ public:
     double dTime;
     double lifeTime;
     double timeToLive;
-    virtual void updateTime();
+    void resetTime();
+	virtual void updateTime();
 	virtual void timedUpdate();
 	bool updateByTime;
+	virtual void triggerTrajectory(t_atom* argv);
+	
     
     int trigger;
     
