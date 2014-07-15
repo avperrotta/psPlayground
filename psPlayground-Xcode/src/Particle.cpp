@@ -73,13 +73,14 @@ void Particle::setup(){
 
 void Particle::setup(pSystem* sys, int ind){
     
-		
     mySystem = sys;
     concertRoom = mySystem->getConcertRoom();
     systemName = mySystem->getName();
     index = ind;
     
 	updateByTime = false;
+    trajectoryFinished = false;
+    trajectoryLoopType = 2;
     
     useDbap = false;
     outputDbap = false;
@@ -172,11 +173,19 @@ void Particle::update(){
 	}
 	else{
 		if(updateByTime){
-			timedUpdate();
 			if(lifeTime >= timeToLive){
-				//updateByTime = false;
-				restart();
+                if(!trajectoryFinished){
+                    outputTrajectoryTriggerTriggers();
+                }
+                trajectoryFinished = true;
+                if(trajectoryLoopType > 0){
+                    restart();
+                }
+				
 			}
+            if(!trajectoryFinished){
+                timedUpdate();
+            }
 		}
 		else{
 			customUpdate();
@@ -214,7 +223,7 @@ void Particle::createOutput(){
     outputEnvRoutine();
     outputRawRoutine();
     outputDbapRoutine();
-    //outputSpecificRoutine();
+    outputSpecificRoutine();
 }
 
 void Particle::outputDbapRoutine(){
@@ -291,6 +300,21 @@ void Particle::outputSpecificRoutine(){
     
 }
 
+void Particle::outputTrajectoryTriggerTriggers(){
+    t_atom* aux;
+    aux = new t_atom[3];
+    atom_setsym(aux, gensym(systemName.c_str()));
+    atom_setlong(aux + 1, index);
+    atom_setsym(aux + 2, gensym("trajectoryFinished"));
+    
+    if(superOutlet5 && aux){
+        outlet_list(superOutlet5, 0L, 3, aux);
+    }
+    
+    
+    delete[] aux;
+}
+
 void Particle::customUpdate(){
     
 }
@@ -313,12 +337,19 @@ void Particle::triggerTrajectory(t_atom *argv){
 	if(argv){
 		timeToLive = atom_getfloat(argv);
 		updateByTime = true;
+        trajectoryFinished = false;
 		restart();
 	}
 	
 	
 }
 
+void Particle::setTrajectoryLoopType(t_atom *argv){
+    if(argv){
+        int tlt = (int)crop(atom_getfloat(argv), 0, 2);
+        trajectoryLoopType = tlt;
+    }
+}
 
 void Particle::setSizeLimits(double x1, double x2, double y1, double y2, double z1, double z2){
     
@@ -400,7 +431,7 @@ void Particle::setPosRadIni(t_atom* argv){
 	
 	if(argv){
 		posRadIni = generateRandomVec3f(randomness, ofVec3f(atom_getfloat(argv), atom_getfloat(argv+1), atom_getfloat(argv+2)));
-		post("posRadIni = %lf, %lf, %lf", posRadIni.x, posRadIni.y, posRadIni.z);
+		//post("posRadIni = %lf, %lf, %lf", posRadIni.x, posRadIni.y, posRadIni.z);
 	}
 	
 }
@@ -409,7 +440,7 @@ void Particle::setPosRadFinal(t_atom* argv){
 	
 	if(argv){
 		posRadFinal = generateRandomVec3f(randomness, ofVec3f(atom_getfloat(argv), atom_getfloat(argv+1), atom_getfloat(argv+2)));
-		post("posRadFinal = %lf, %lf, %lf", posRadFinal.x, posRadFinal.y, posRadFinal.z);
+		//post("posRadFinal = %lf, %lf, %lf", posRadFinal.x, posRadFinal.y, posRadFinal.z);
 	}
 	
 }

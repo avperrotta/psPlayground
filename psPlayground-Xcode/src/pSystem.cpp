@@ -203,6 +203,15 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
 			}
 		}
 	}
+    else if(task == "setTrajectoryLoopType"){
+        if(argc == 2){
+            if(argv){
+                for(int i=0; i<numParticles; i++){
+                    (*particles)[i]->setTrajectoryLoopType(argv + 1);
+                }
+            }
+        }
+    }
     else if(task == "setLimits"){
         if(argc == 7){
             if(argv){

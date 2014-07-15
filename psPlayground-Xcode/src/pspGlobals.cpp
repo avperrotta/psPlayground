@@ -48,6 +48,7 @@ void* superOutlet1;
 void* superOutlet2;
 void* superOutlet3;
 void* superOutlet4;
+void* superOutlet5;
 void* updateOutlet;
 
 bool masterLock;

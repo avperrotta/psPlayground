@@ -64,7 +64,7 @@ void SphericalMovementParticle::customSetup(){
 	maxRadius = sqrt((limits_x.min - limits_x.max)*(limits_x.min - limits_x.max) +
                      (limits_y.min - limits_y.max)*(limits_y.min - limits_y.max) +
                      (limits_z.min - limits_z.max)*(limits_z.min - limits_z.max));
-
+    
 	
 	restart();
 }
@@ -75,6 +75,25 @@ void SphericalMovementParticle::customRestart(){
     posOffset = posOffsetIni;
 	posRad = posRadIni;
     speed = speedIni;
+    
+    if(updateByTime){
+        if(trajectoryFinished){
+            if(trajectoryLoopType == 0){
+                
+            }
+            else if(trajectoryLoopType == 1){
+                trajectoryFinished = false;
+            }
+            else if(trajectoryLoopType == 2){
+                trajectoryFinished = false;
+                ofVec3f aux;
+                aux = posRadIni;
+                posRadIni = posRadFinal;
+                posRadFinal = aux;
+                posRad = posRadIni;
+            }
+        }
+    }
     
     
 }
@@ -109,17 +128,17 @@ void SphericalMovementParticle::customUpdate(){
 }
 
 void SphericalMovementParticle::timedUpdate(){
-	posRad.x = posRadIni.x + (posRadFinal.x - posRadIni.x)*lifeTime/timeToLive;
-	posRad.y = posRadIni.y + (posRadFinal.y - posRadIni.y)*lifeTime/timeToLive;
-	posRad.z = posRadIni.z + (posRadFinal.z - posRadIni.z)*lifeTime/timeToLive;
-	
-	
-	posCar.z = posRad.x*sin(posRad.y)*cos(posRad.z) + posOffset.z;
-	posCar.x = posRad.x*sin(posRad.y)*sin(posRad.z) + posOffset.x;
-	posCar.y = posRad.x*cos(posRad.y) + posOffset.y;
-
-	
-	post("posRad = %lf %lf %lf", posRad.x, posRad.y, posRad.z);
+    
+    
+    posRad.x = posRadIni.x + (posRadFinal.x - posRadIni.x)*lifeTime/timeToLive;
+    posRad.y = posRadIni.y + (posRadFinal.y - posRadIni.y)*lifeTime/timeToLive;
+    posRad.z = posRadIni.z + (posRadFinal.z - posRadIni.z)*lifeTime/timeToLive;
+    
+    posCar.z = posRad.x*sin(posRad.y)*cos(posRad.z) + posOffset.z;
+    posCar.x = posRad.x*sin(posRad.y)*sin(posRad.z) + posOffset.x;
+    posCar.y = posRad.x*cos(posRad.y) + posOffset.y;
+    
+	//post("posRad = %lf %lf %lf", posRad.x, posRad.y, posRad.z);
 }
 
 

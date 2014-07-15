@@ -54,6 +54,7 @@ typedef struct _max_psPlayground
     void* m_outlet2;
     void* m_outlet3;
     void* m_outlet4;
+    void* m_outlet5;
     void* m_updateOutlet;
 	void* obex;
 } t_max_psPlayground;
@@ -175,6 +176,10 @@ void *max_psPlayground_new(t_symbol *s, long argc, t_atom *argv)
             x->m_outlet4 = outlet_new(x, NULL);
             superOutlet4 = x->m_outlet4;
 			max_jit_obex_dumpout_set(x, x->m_outlet4);
+            
+            x->m_outlet5 = outlet_new(x, NULL);
+            superOutlet5 = x->m_outlet5;
+			max_jit_obex_dumpout_set(x, x->m_outlet5);
 			
 			// process attribute arguments 
 			max_jit_attr_args(x, argc, argv);		

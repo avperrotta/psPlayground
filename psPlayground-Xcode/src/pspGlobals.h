@@ -49,6 +49,7 @@ extern void* superOutlet1;
 extern void* superOutlet2;
 extern void* superOutlet3;
 extern void* superOutlet4;
+extern void* superOutlet5;
 extern void* updateOutlet;
 
 extern bool masterLock;

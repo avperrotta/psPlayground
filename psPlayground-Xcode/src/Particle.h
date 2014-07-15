@@ -79,6 +79,8 @@ public:
     int status;
     int index;
     
+    bool play;
+    
     double minLife;
     double maxLife;
     double life;
@@ -95,7 +97,10 @@ public:
 	virtual void timedUpdate();
 	bool updateByTime;
 	virtual void triggerTrajectory(t_atom* argv);
-	
+    int trajectoryLoopType;
+    bool trajectoryFinished;
+	void setTrajectoryLoopType(t_atom* argv);
+    
     
     int trigger;
     
@@ -222,6 +227,8 @@ public:
     void outputRawRoutine();
     void outputEnvRoutine();
     void outputSpecificRoutine();
+    void outputTrajectoryTriggerTriggers();
+    //void outputSpecificTriggers();
     void createOutput();
     
     //recording trajectory
