@@ -233,6 +233,15 @@ t_jit_err psPlaygroundManager::addPSystem(long argc, t_atom* argv){
                 post("already has a system with name: %s", systemName.c_str());
                 
             }
+            else if(systemType == "cylindricalMovementSystem"){
+                if(pSystems.find(systemName) == pSystems.end()){
+                    post("inserting cylindricalMovementSystem: %s", systemName.c_str());
+                    pSystems.insert(std::pair<std::string, pSystem*>(systemName, new CylindricalMovementSystem(concertRoom, systemName, numParticles)));
+                    return JIT_ERR_NONE;
+                }
+                post("already has a system with name: %s", systemName.c_str());
+                
+            }
             else if(systemType == "farfalharSystem"){
                 if(pSystems.find(systemName) == pSystems.end()){
                     post("Farfalhar das Folhas software developed by Andre V. Perrotta");

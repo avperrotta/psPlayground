@@ -64,18 +64,6 @@ void RainSystem::customSetup(){
         particles->push_back(new RainParticle(this, i+1));
     }
     
-    if(!concertRoom->getBounds()){
-        lx = limits(-0.5*SOUND_LIMIT, 0.5*SOUND_LIMIT);
-        ly = limits(-0.5*SOUND_LIMIT, 0.5*SOUND_LIMIT);
-        lz = limits(-0.5*SOUND_LIMIT, 0.5*SOUND_LIMIT);
-    }
-    else{
-        lx = limits(-0.5*concertRoom->getBounds()[0], 0.5*concertRoom->getBounds()[0]);
-        ly = limits(-0.5*concertRoom->getBounds()[1], 0.5*concertRoom->getBounds()[1]);
-        lz = limits(-0.5*concertRoom->getBounds()[2], 0.5*concertRoom->getBounds()[2]);
-    }
-    
-    
 }
 
 void RainSystem::customUpdate(){

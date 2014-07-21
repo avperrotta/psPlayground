@@ -40,26 +40,24 @@
  along with psPlayground.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef __psPlayground__rainSytem__
-#define __psPlayground__rainSytem__
+#ifndef __psPlayground__cylindricalMovementSystem__
+#define __psPlayground__cylindricalMovementSystem__
 
 #include <iostream>
 #include "jit.common.h"
 #include "jit.gl.h"
 #include "pSystem.h"
+#include "cylindricalMovementParticle.h"
 #include "pspGlobals.h"
 #include "mathUtils.h"
-#include "ofVectorMath.h"
-#include "rainParticle.h"
 
 
-
-class RainSystem : public pSystem{
+class CylindricalMovementSystem : public pSystem{
 public:
     
-    RainSystem();
-    RainSystem(ConcertRoom* cr, std::string ns, int np);
-    ~RainSystem();
+    CylindricalMovementSystem();
+    CylindricalMovementSystem(ConcertRoom* cr, std::string ns, int np);
+    ~CylindricalMovementSystem();
     
     void customSetup();
     void customUpdate();
@@ -67,9 +65,7 @@ public:
     
     t_jit_err messageControl(long argc, t_atom* argv);
     
-    
-    
-    
 };
 
-#endif /* defined(__psPlayground__rainSytem__) */
+
+#endif /* defined(__psPlayground__cylindricalMovementSystem__) */

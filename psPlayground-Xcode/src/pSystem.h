@@ -108,7 +108,8 @@ public:
     limits lx;
     limits ly;
     limits lz;
-    void setLimits(long argc, t_atom* argv);
+    void setLimits(t_atom* argv);
+    void setLimits();
     void drawLimits();
     
     

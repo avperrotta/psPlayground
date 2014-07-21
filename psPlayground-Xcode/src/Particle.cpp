@@ -78,6 +78,9 @@ void Particle::setup(pSystem* sys, int ind){
     systemName = mySystem->getName();
     index = ind;
     
+    coordinateSystem = "cartesian";
+    
+    
 	updateByTime = false;
     trajectoryFinished = false;
     trajectoryLoopType = 2;
@@ -143,7 +146,62 @@ void Particle::customSetup(){
 
 void Particle::restart(){
     resetTime();
-	customRestart();
+    
+    if(updateByTime){
+        if(trajectoryFinished){
+            
+            ofVec3f aux;
+            
+            if(trajectoryLoopType == 0){
+                
+            }
+            else if(trajectoryLoopType == 1){
+                trajectoryFinished = false;
+                
+                if(coordinateSystem == "cartesian"){
+                    posCar = posCarIni;
+                }
+                else{
+                    posRad = posRadIni;
+                }
+                
+                posOffset = posOffsetIni;
+                
+            }
+            else if(trajectoryLoopType == 2){
+                trajectoryFinished = false;
+                
+                
+                if(coordinateSystem == "cartesian"){
+                    aux = posCarIni;
+                    posCarIni = posCarFinal;
+                    posCarFinal = aux;
+                    posCar = posCarIni;
+                }
+                else{
+                    aux = posRadIni;
+                    posRadIni = posRadFinal;
+                    posRadFinal = aux;
+                    posRad = posRadIni;
+                }
+                
+                aux = posOffsetIni;
+                posOffsetIni = posOffsetFinal;
+                posOffsetFinal = aux;
+                posOffset = posOffsetIni;
+                
+                
+            }
+        }
+    }
+    else{
+        customRestart();
+    }
+    
+    
+	
+    
+    
 }
 
 void Particle::customRestart(){
@@ -365,6 +423,10 @@ void Particle::setSizeLimits(t_atom* argv){
 		limits_z.max = atom_getfloat(argv + 5);
 	}
     
+    calculateLimits();
+}
+
+void Particle::calculateLimits(){
     
 }
 

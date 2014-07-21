@@ -59,6 +59,7 @@
 #include "manualMovementSystem.h"
 #include "sphericalMovementSystem.h"
 #include "farfalharSystem.h"
+#include "cylindricalMovementSystem.h"
 
 
 #include "pspGlobals.h"

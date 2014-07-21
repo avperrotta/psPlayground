@@ -40,36 +40,54 @@
  along with psPlayground.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef __psPlayground__rainSytem__
-#define __psPlayground__rainSytem__
+#include "cylindricalMovementSystem.h"
 
-#include <iostream>
-#include "jit.common.h"
-#include "jit.gl.h"
-#include "pSystem.h"
-#include "pspGlobals.h"
-#include "mathUtils.h"
-#include "ofVectorMath.h"
-#include "rainParticle.h"
+CylindricalMovementSystem::CylindricalMovementSystem(){
+	
+}
+CylindricalMovementSystem::CylindricalMovementSystem(ConcertRoom* cr, std::string ns, int np){
+	setup(cr, ns, np);
+}
+CylindricalMovementSystem::~CylindricalMovementSystem(){
+	
+}
+
+void CylindricalMovementSystem::customSetup(){
+	for(int i=0; i<numParticles; i++){
+        particles->push_back(new CylindricalMovementParticle(this, i+1));
+    }
+}
+void CylindricalMovementSystem::customUpdate(){
+	if(play){
+        for(int i=0; i<particles->size(); i++){
+            (*particles)[i]->update();
+        }
+    }
+    
+}
+void CylindricalMovementSystem::customDraw(){
+    drawLimits();
+}
 
 
-
-class RainSystem : public pSystem{
-public:
+t_jit_err CylindricalMovementSystem::messageControl(long argc, t_atom* argv){
+	std::string task;
+    task = jit_atom_getsym(argv)->s_name;
     
-    RainSystem();
-    RainSystem(ConcertRoom* cr, std::string ns, int np);
-    ~RainSystem();
+    if(task == "setDirection"){
+        if(argc == 2){
+            if(argv){
+                for(int i=0; i<numParticles; i++){
+                    static_cast<CylindricalMovementParticle*>((*particles)[i])->setDirection(argv + 1);
+                }
+                //post("direction set for %s system: %d", name.c_str(), atom_getlong(argv + 1));
+            }
+        }
+        
+        return JIT_ERR_NONE;
+    }
     
-    void customSetup();
-    void customUpdate();
-    void customDraw();
+    pSystem::messageControl(argc, argv);
     
-    t_jit_err messageControl(long argc, t_atom* argv);
-    
-    
-    
-    
-};
-
-#endif /* defined(__psPlayground__rainSytem__) */
+    return JIT_ERR_INVALID_INPUT;
+}

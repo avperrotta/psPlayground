@@ -97,6 +97,8 @@ void pSystem::setup(ConcertRoom* cr, std::string ns, int np){
         color = ofVec4f(0., 1., 0., 1.);
     }
     
+    setLimits();
+    
     play = true;
     
     recFilesPath = "/";
@@ -215,24 +217,12 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
     else if(task == "setLimits"){
         if(argc == 7){
             if(argv){
-                setLimits(argc - 1, argv + 1);
+                setLimits(argv + 1);
                 for(int i=0; i<numParticles; i++){
                     (*particles)[i]->setSizeLimits(argv + 1);
                 }
-                /*
-                post("size limits set for %s system:", name.c_str(), argv);
-                postatom(argv + 1);
-                postatom(argv + 2);
-                postatom(argv + 3);
-                postatom(argv + 4);
-                postatom(argv + 5);
-                postatom(argv + 6);
-                */
-                
             }
         }
-        
-        return JIT_ERR_NONE;
     }
 	else if(task == "setInitialPositionCartezian"){
 		if(argc == 4){
@@ -272,7 +262,7 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
 	}
     
     else if(task == "setSpeed"){
-        if(argc == 2){
+        if(argc == 2 || argc == 4){
             if(argv){
                 
                 for(int i=0; i<numParticles; i++){
@@ -281,13 +271,6 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
                 //post("setting speed for %s: %lf", name.c_str(), atom_getfloat(argv + 1));
             }
         }
-        else if(argc == 4){
-            for(int i=0; i<numParticles; i++){
-                (*particles)[i]->setSpeed(argc - 1, argv + 1);
-            }
-            //post("setting speed for %s: %lf %lf %lf", name.c_str(), atom_getfloat(argv + 1), atom_getfloat(argv + 2), atom_getfloat(argv + 3));
-        }
-        
         return JIT_ERR_NONE;
     }
     else if(task == "setInitialSpeed"){
@@ -438,16 +421,27 @@ void pSystem::restart(){
     }
 }
 
-void pSystem::setLimits(long argc, t_atom *argv){
-    if(argc == 6){
-        if(argv){
-            lx.min = atom_getfloat(argv + 0);
-            lx.max = atom_getfloat(argv + 1);
-            ly.min = atom_getfloat(argv + 2);
-            ly.max = atom_getfloat(argv + 3);
-            lz.min = atom_getfloat(argv + 4);
-            lz.max = atom_getfloat(argv + 5);
-        }
+void pSystem::setLimits(t_atom *argv){
+    if(argv){
+        lx.min = atom_getfloat(argv + 0);
+        lx.max = atom_getfloat(argv + 1);
+        ly.min = atom_getfloat(argv + 2);
+        ly.max = atom_getfloat(argv + 3);
+        lz.min = atom_getfloat(argv + 4);
+        lz.max = atom_getfloat(argv + 5);
+    }
+}
+
+void pSystem::setLimits(){
+    if(!concertRoom->getBounds()){
+        lx = limits(-0.5*SOUND_LIMIT, 0.5*SOUND_LIMIT);
+        ly = limits(-0.5*SOUND_LIMIT, 0.5*SOUND_LIMIT);
+        lz = limits(-0.5*SOUND_LIMIT, 0.5*SOUND_LIMIT);
+    }
+    else{
+        lx = limits(-0.5*concertRoom->getBounds()[0], 0.5*concertRoom->getBounds()[0]);
+        ly = limits(-0.5*concertRoom->getBounds()[1], 0.5*concertRoom->getBounds()[1]);
+        lz = limits(-0.5*concertRoom->getBounds()[2], 0.5*concertRoom->getBounds()[2]);
     }
 }
 

@@ -64,6 +64,10 @@
 		A7C33DDF19543CAA00BEEAFB /* rainSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = A7C33DDD19543CAA00BEEAFB /* rainSystem.h */; };
 		A7C33DE21954432C00BEEAFB /* rainParticle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7C33DE01954432C00BEEAFB /* rainParticle.cpp */; };
 		A7C33DE31954432C00BEEAFB /* rainParticle.h in Headers */ = {isa = PBXBuildFile; fileRef = A7C33DE11954432C00BEEAFB /* rainParticle.h */; };
+		A7E8A89E197D71F0009AD8C6 /* cylindricalMovementSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7E8A89C197D71F0009AD8C6 /* cylindricalMovementSystem.cpp */; };
+		A7E8A89F197D71F0009AD8C6 /* cylindricalMovementSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = A7E8A89D197D71F0009AD8C6 /* cylindricalMovementSystem.h */; };
+		A7E8A8A2197D7204009AD8C6 /* cylindricalMovementParticle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7E8A8A0197D7204009AD8C6 /* cylindricalMovementParticle.cpp */; };
+		A7E8A8A3197D7204009AD8C6 /* cylindricalMovementParticle.h in Headers */ = {isa = PBXBuildFile; fileRef = A7E8A8A1197D7204009AD8C6 /* cylindricalMovementParticle.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -125,6 +129,10 @@
 		A7C33DDD19543CAA00BEEAFB /* rainSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rainSystem.h; sourceTree = "<group>"; };
 		A7C33DE01954432C00BEEAFB /* rainParticle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rainParticle.cpp; sourceTree = "<group>"; };
 		A7C33DE11954432C00BEEAFB /* rainParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rainParticle.h; sourceTree = "<group>"; };
+		A7E8A89C197D71F0009AD8C6 /* cylindricalMovementSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cylindricalMovementSystem.cpp; sourceTree = "<group>"; };
+		A7E8A89D197D71F0009AD8C6 /* cylindricalMovementSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cylindricalMovementSystem.h; sourceTree = "<group>"; };
+		A7E8A8A0197D7204009AD8C6 /* cylindricalMovementParticle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cylindricalMovementParticle.cpp; sourceTree = "<group>"; };
+		A7E8A8A1197D7204009AD8C6 /* cylindricalMovementParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cylindricalMovementParticle.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,6 +258,10 @@
 				A7BCEE911961AA840003C5E3 /* farfalharSystem.h */,
 				A7BCEE941961AA920003C5E3 /* farfalharParticle.cpp */,
 				A7BCEE951961AA920003C5E3 /* farfalharParticle.h */,
+				A7E8A89C197D71F0009AD8C6 /* cylindricalMovementSystem.cpp */,
+				A7E8A89D197D71F0009AD8C6 /* cylindricalMovementSystem.h */,
+				A7E8A8A0197D7204009AD8C6 /* cylindricalMovementParticle.cpp */,
+				A7E8A8A1197D7204009AD8C6 /* cylindricalMovementParticle.h */,
 			);
 			path = pSystems;
 			sourceTree = "<group>";
@@ -265,6 +277,7 @@
 				A7B426AB1935F89F00E35E49 /* pSystem.h in Headers */,
 				A7C33DD7195326CD00BEEAFB /* spatCalibrationSystem.h in Headers */,
 				A7BCEE971961AA920003C5E3 /* farfalharParticle.h in Headers */,
+				A7E8A8A3197D7204009AD8C6 /* cylindricalMovementParticle.h in Headers */,
 				A7B426AD1935F89F00E35E49 /* Speaker.h in Headers */,
 				A74EBD601934BA27007508C9 /* ofConstants.h in Headers */,
 				A7B426A71935F89F00E35E49 /* Particle.h in Headers */,
@@ -284,6 +297,7 @@
 				A7B426AF1935F89F00E35E49 /* testClass.h in Headers */,
 				A74EBD621934BA27007508C9 /* ofVec2f.h in Headers */,
 				41D61BF819563DE1003BAF63 /* manualMovementParticle.h in Headers */,
+				A7E8A89F197D71F0009AD8C6 /* cylindricalMovementSystem.h in Headers */,
 				A7C33DE31954432C00BEEAFB /* rainParticle.h in Headers */,
 				416E56F61955885C006668FC /* manualMovementSystem.h in Headers */,
 				A7B426BB1936588D00E35E49 /* pspGlobals.h in Headers */,
@@ -363,6 +377,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7E8A89E197D71F0009AD8C6 /* cylindricalMovementSystem.cpp in Sources */,
 				A7BCEE921961AA840003C5E3 /* farfalharSystem.cpp in Sources */,
 				A7BCEE8B195ADC560003C5E3 /* sphericalMovementParticle.cpp in Sources */,
 				A7B426BE193760C100E35E49 /* dbap.cpp in Sources */,
@@ -379,6 +394,7 @@
 				A7C33DDA195327C500BEEAFB /* spatCalibrationParticle.cpp in Sources */,
 				A7B426B219360D1400E35E49 /* simpleRandomSystem.cpp in Sources */,
 				A7C33DE21954432C00BEEAFB /* rainParticle.cpp in Sources */,
+				A7E8A8A2197D7204009AD8C6 /* cylindricalMovementParticle.cpp in Sources */,
 				A7B4269E1935F89F00E35E49 /* ConcertRoom.cpp in Sources */,
 				A7B426A01935F89F00E35E49 /* pspObject.cpp in Sources */,
 				A74EBD641934BA27007508C9 /* ofVec4f.cpp in Sources */,

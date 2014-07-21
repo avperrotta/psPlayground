@@ -55,16 +55,15 @@ SphericalMovementParticle::~SphericalMovementParticle(){
 
 void SphericalMovementParticle::customSetup(){
     
+    
+    coordinateSystem = "spherical";
+    
 	posOffsetIni = generateRandomVec3f(randomness, ofVec3f(0., 0., 0.));
 	posRadIni = generateRandomVec3f(randomness, ofVec3f(0.25, 0., 0.));
 	posRadFinal = generateRandomVec3f(randomness, ofVec3f(0.75, 0., 0.));
 	
 	speedIni = generateRandomVec3f(randomness, ofVec3f(0., 0.1, 0.1));
 	
-	maxRadius = sqrt((limits_x.min - limits_x.max)*(limits_x.min - limits_x.max) +
-                     (limits_y.min - limits_y.max)*(limits_y.min - limits_y.max) +
-                     (limits_z.min - limits_z.max)*(limits_z.min - limits_z.max));
-    
 	
 	restart();
 }
@@ -75,25 +74,9 @@ void SphericalMovementParticle::customRestart(){
     posOffset = posOffsetIni;
 	posRad = posRadIni;
     speed = speedIni;
+    calculateLimits();
     
-    if(updateByTime){
-        if(trajectoryFinished){
-            if(trajectoryLoopType == 0){
-                
-            }
-            else if(trajectoryLoopType == 1){
-                trajectoryFinished = false;
-            }
-            else if(trajectoryLoopType == 2){
-                trajectoryFinished = false;
-                ofVec3f aux;
-                aux = posRadIni;
-                posRadIni = posRadFinal;
-                posRadFinal = aux;
-                posRad = posRadIni;
-            }
-        }
-    }
+    
     
     
 }
@@ -166,27 +149,18 @@ void SphericalMovementParticle::setPhiSpeed(t_atom* argv){
     speed.z = atom_getfloat(argv);
 }
 
-
-void SphericalMovementParticle::setSizeLimits(t_atom* argv){
+void SphericalMovementParticle::calculateLimits(){
     
-	if(argv){
-		limits_x.min = atom_getfloat(argv + 0);
-		limits_x.max = atom_getfloat(argv + 1);
-		limits_y.min = atom_getfloat(argv + 2);
-		limits_y.max = atom_getfloat(argv + 3);
-		limits_z.min = atom_getfloat(argv + 4);
-		limits_z.max = atom_getfloat(argv + 5);
-		
-		maxRadius = sqrt((limits_x.min - limits_x.max)*(limits_x.min - limits_x.max) +
-						 (limits_y.min - limits_y.max)*(limits_y.min - limits_y.max) +
-						 (limits_z.min - limits_z.max)*(limits_z.min - limits_z.max));
-	}
+    double auxMin;
     
+    auxMin = min(abs(limits_x.max - limits_x.min)*0.5, abs(limits_y.max - limits_y.min)*0.5);
     
+    maxRadius = min(auxMin, abs(limits_z.max - limits_z.min)*0.5);
+    
+    posOffset.x = (limits_x.min + limits_x.max)*0.5;
+    posOffset.y = (limits_y.min + limits_y.max)*0.5;
+    posOffset.z = (limits_z.min + limits_z.max)*0.5;
 }
-
-
-
 
 
 

@@ -68,9 +68,10 @@ public:
     void setRadiusSpeed(t_atom* argv);
     void setThetaSpeed(t_atom* argv);
     void setPhiSpeed(t_atom* argv);
-    void setSizeLimits(t_atom* argv);
     double maxRadius;
     
+    
+    void calculateLimits();
     void customRestart();
 	
 	void timedUpdate();

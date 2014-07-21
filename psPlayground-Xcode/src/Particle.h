@@ -110,6 +110,8 @@ public:
     double randomness;
     void setRandomness(double r);
     
+    std::string coordinateSystem;
+    
     ofVec3f posCarIniMin;
     ofVec3f posCarIniMax;
     ofVec3f posCarIni;
@@ -150,6 +152,7 @@ public:
      
     ofVec3f posOffset;
     ofVec3f posOffsetIni;
+    ofVec3f posOffsetFinal;
     ofVec3f posOffsetIniMin;
     ofVec3f posOffsetIniMax;
     ofVec3f posOffsetSpeed;
@@ -184,6 +187,7 @@ public:
     limits limits_z;
     virtual void setSizeLimits(double x1, double x2, double y1, double y2, double z1, double z2);
     virtual void setSizeLimits(t_atom* argv);
+    virtual void calculateLimits();
     
     
     limits limits_vx;

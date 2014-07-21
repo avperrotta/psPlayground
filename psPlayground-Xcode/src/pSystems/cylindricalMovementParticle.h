@@ -40,36 +40,44 @@
  along with psPlayground.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef __psPlayground__rainSytem__
-#define __psPlayground__rainSytem__
+#ifndef __psPlayground__cylindricalMovementParticle__
+#define __psPlayground__cylindricalMovementParticle__
 
 #include <iostream>
 #include "jit.common.h"
 #include "jit.gl.h"
-#include "pSystem.h"
-#include "pspGlobals.h"
-#include "mathUtils.h"
+#include "Particle.h"
 #include "ofVectorMath.h"
-#include "rainParticle.h"
+#include "mathUtils.h"
+#include "ConcertRoom.h"
 
 
-
-class RainSystem : public pSystem{
+class CylindricalMovementParticle : public Particle{
 public:
     
-    RainSystem();
-    RainSystem(ConcertRoom* cr, std::string ns, int np);
-    ~RainSystem();
+    CylindricalMovementParticle();
+    CylindricalMovementParticle(pSystem* sys, int ind);
+    ~CylindricalMovementParticle();
     
     void customSetup();
     void customUpdate();
-    void customDraw();
     
-    t_jit_err messageControl(long argc, t_atom* argv);
+    void setRadius(t_atom* argv);
+    void setTheta(t_atom* argv);
+    void setHeight(t_atom* argv);
+    void setRadiusSpeed(t_atom* argv);
+    void setThetaSpeed(t_atom* argv);
+    void setHeightSpeed(t_atom* argv);
+    void setDirection(t_atom* argv);
+    double maxRadius;
     
+    int direction;
+    void calculateLimits();
     
-    
+    void customRestart();
+	
+	void timedUpdate();
     
 };
 
-#endif /* defined(__psPlayground__rainSytem__) */
+#endif /* defined(__psPlayground__cylindricalMovementParticle__) */
