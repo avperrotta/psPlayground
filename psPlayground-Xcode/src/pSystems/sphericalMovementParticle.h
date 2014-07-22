@@ -62,12 +62,6 @@ public:
     void customSetup();
     void customUpdate();
     
-    void setRadius(t_atom* argv);
-    void setTheta(t_atom* argv);
-    void setPhi(t_atom* argv);
-    void setRadiusSpeed(t_atom* argv);
-    void setThetaSpeed(t_atom* argv);
-    void setPhiSpeed(t_atom* argv);
     double maxRadius;
     
     

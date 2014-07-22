@@ -143,7 +143,21 @@ ofVec3f generateRandomVec3f(double randomness, ofVec3f v){
 	return out;
 }
 
-
+ofVec3f generateRandomVec3f(t_atom* argv, double randomness, CubeLimits cub){
+    
+    if(argv){
+        ofVec3f out;
+        
+        out.x = rangedRandom(atom_getfloat(argv) - randomness*cub.dx, atom_getfloat(argv) + randomness*cub.dx);
+        out.y = rangedRandom(atom_getfloat(argv + 1) - randomness*cub.dx, atom_getfloat(argv + 1) + randomness*cub.dx);
+        out.z = rangedRandom(atom_getfloat(argv + 2) - randomness*cub.dx, atom_getfloat(argv + 2) + randomness*cub.dx);
+        
+        return out;
+    
+    }
+    
+    return ofVec3f(0, 0, 0);
+}
 
 
 

@@ -224,153 +224,283 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
             }
         }
     }
-	else if(task == "setInitialPositionCartezian"){
-		if(argc == 4){
-			if(argv){
-				for(int i=0; i<numParticles; i++){
-					(*particles)[i]->setPosCarIni(argv + 1);
-				}
-			}
-		}
-	}
-	else if(task == "setFinalPositionCartezian"){
-		if(argc == 4){
-			if(argv){
-				for(int i=0; i<numParticles; i++){
-					(*particles)[i]->setPosCarFinal(argv + 1);
-				}
-			}
-		}
-	}
-	else if(task == "setInitialPositionPolar"){
-		if(argc == 4){
-			if(argv){
-				for(int i=0; i<numParticles; i++){
-					(*particles)[i]->setPosRadIni(argv + 1);
-				}
-			}
-		}
-	}
-	else if(task == "setFinalPositionPolar"){
-		if(argc == 4){
-			if(argv){
-				for(int i=0; i<numParticles; i++){
-					(*particles)[i]->setPosRadFinal(argv + 1);
-				}
-			}
-		}
-	}
-    
-    else if(task == "setSpeed"){
-        if(argc == 2 || argc == 4){
+    else if(task == "setSpeedLimits"){
+        if(argc == 7){
             if(argv){
-                
+                setLimits(argv + 1);
                 for(int i=0; i<numParticles; i++){
-                    (*particles)[i]->setSpeed(argc - 1, argv + 1);
+                    (*particles)[i]->setSpeedLimits(argv + 1);
                 }
-                //post("setting speed for %s: %lf", name.c_str(), atom_getfloat(argv + 1));
+            }
+        }
+    }
+    else if(task == "setPosition"){
+        if(argv){
+            if(argc == 4){
+                for(int i=0; i<numParticles; i++){
+					(*particles)[i]->setPos(argv + 1);
+				}
+            }
+            else if(argc == 5){
+                (*particles)[atom_getlong(argv + 1)]->setPos(argv + 2);
+            }
+        }
+    }
+    else if(task == "setInitialPosition"){
+        if(argv){
+            if(argc == 4){
+                for(int i=0; i<numParticles; i++){
+                    (*particles)[i]->setPosIni(argv + 1);
+                }
+            }
+            else if(argc == 5){
+                (*particles)[atom_getlong(argv + 1)]->setPosIni(argv + 2);
+            }
+        }
+    }
+    else if(task == "setFinalPosition"){
+        if(argv){
+            if(argc == 4){
+                for(int i=0; i<numParticles; i++){
+                    (*particles)[i]->setPosFinal(argv + 1);
+                }
+            }
+            else if(argc == 5){
+                (*particles)[atom_getlong(argv + 1)]->setPosFinal(argv + 2);
+            }
+        }
+    }
+    else if(task == "setSpeed"){
+        if(argv){
+            if(argc == 4){
+                for(int i=0; i<numParticles; i++){
+                    (*particles)[i]->setSpeed(argv + 1);
+                }
+            }
+            else if(argc == 5){
+                (*particles)[atom_getlong(argv + 1)]->setSpeed(argv + 2);
             }
         }
         return JIT_ERR_NONE;
     }
     else if(task == "setInitialSpeed"){
-        if(argc == 2){
-            if(argv){
-                
+        if(argv){
+            if(argc == 4){
                 for(int i=0; i<numParticles; i++){
-                    (*particles)[i]->setInitialSpeed(argc - 1, argv + 1);
+                    (*particles)[i]->setSpeedIni(argv + 1);
                 }
-                //post("setting speed for %s: %lf", name.c_str(), atom_getfloat(argv + 1));
+            }
+            else if(argc == 5){
+                (*particles)[atom_getlong(argv + 1)]->setSpeedIni(argv + 2);
             }
         }
-        else if(argc == 4){
-            for(int i=0; i<numParticles; i++){
-                (*particles)[i]->setInitialSpeed(argc - 1, argv + 1);
+        return JIT_ERR_NONE;
+    }
+    else if(task == "setFinalSpeed"){
+        if(argv){
+            if(argc == 4){
+                for(int i=0; i<numParticles; i++){
+                    (*particles)[i]->setSpeedFinal(argv + 1);
+                }
             }
-            //post("setting speed for %s: %lf %lf %lf", name.c_str(), atom_getfloat(argv + 1), atom_getfloat(argv + 2), atom_getfloat(argv + 3));
+            else if(argc == 5){
+                (*particles)[atom_getlong(argv + 1)]->setSpeedFinal(argv + 2);
+            }
         }
-        
         return JIT_ERR_NONE;
     }
     else if(task == "setOffset"){
-        if(argc == 4){
-            if(argv){
+        if(argv){
+            if(argc == 4){
                 for(int i=0; i<numParticles; i++){
                     (*particles)[i]->setOffset(argv + 1);
                 }
-                //post("setting offset for %s", name.c_str());
+            }
+            else if(argc == 5){
+                (*particles)[atom_getlong(argv + 1)]->setOffset(argv + 2);
+            }
+        }
+        return JIT_ERR_NONE;
+    }
+    else if(task == "setInitialOffset"){
+        if(argv){
+            if(argc == 4){
+                for(int i=0; i<numParticles; i++){
+                    (*particles)[i]->setOffsetIni(argv + 1);
+                }
+            }
+            else if(argc == 5){
+                (*particles)[atom_getlong(argv + 1)]->setOffsetIni(argv + 2);
+            }
+        }
+        return JIT_ERR_NONE;
+    }
+    else if(task == "setFinalOffset"){
+        if(argv){
+            if(argc == 4){
+                for(int i=0; i<numParticles; i++){
+                    (*particles)[i]->setOffsetFinal(argv + 1);
+                }
+            }
+            else if(argc == 5){
+                (*particles)[atom_getlong(argv + 1)]->setOffsetFinal(argv + 2);
+            }
+        }
+        return JIT_ERR_NONE;
+    }
+    else if(task == "setX"){
+        if(argv){
+            if(argc == 2){
+                for(int i=0; i<numParticles; i++){
+                    (*particles)[i]->setX(argv + 1);
+                }
+            }
+            else if(argc == 3){
+                (*particles)[atom_getlong(argv + 1)]->setX(argv + 2);
+            }
+        }
+        return JIT_ERR_NONE;
+    }
+    else if(task == "setY"){
+        if(argv){
+            if(argc == 2){
+                for(int i=0; i<numParticles; i++){
+                    (*particles)[i]->setY(argv + 1);
+                }
+            }
+            else if(argc == 3){
+                (*particles)[atom_getlong(argv + 1)]->setY(argv + 2);
+            }
+        }
+        return JIT_ERR_NONE;
+    }
+    else if(task == "setZ"){
+        if(argv){
+            if(argc == 2){
+                for(int i=0; i<numParticles; i++){
+                    (*particles)[i]->setZ(argv + 1);
+                }
+            }
+            else if(argc == 3){
+                (*particles)[atom_getlong(argv + 1)]->setZ(argv + 2);
+            }
+        }
+        return JIT_ERR_NONE;
+    }
+    else if(task == "setVx"){
+        if(argv){
+            if(argc == 2){
+                for(int i=0; i<numParticles; i++){
+                    (*particles)[i]->setVx(argv + 1);
+                }
+            }
+            else if(argc == 3){
+                (*particles)[atom_getlong(argv + 1)]->setVx(argv + 2);
+            }
+        }
+        return JIT_ERR_NONE;
+    }
+    else if(task == "setVy"){
+        if(argv){
+            if(argc == 2){
+                for(int i=0; i<numParticles; i++){
+                    (*particles)[i]->setVy(argv + 1);
+                }
+            }
+            else if(argc == 3){
+                (*particles)[atom_getlong(argv + 1)]->setVy(argv + 2);
+            }
+        }
+        return JIT_ERR_NONE;
+    }
+    else if(task == "setVz"){
+        if(argv){
+            if(argc == 2){
+                for(int i=0; i<numParticles; i++){
+                    (*particles)[i]->setVz(argv + 1);
+                }
+            }
+            else if(argc == 3){
+                (*particles)[atom_getlong(argv + 1)]->setVz(argv + 2);
             }
         }
         return JIT_ERR_NONE;
     }
     else if(task == "setRadius"){
-        if(argc == 2){
-            if(argv){
-                
+        if(argv){
+            if(argc == 2){
                 for(int i=0; i<numParticles; i++){
                     (*particles)[i]->setRadius(argv + 1);
                 }
-                //post("setting radius for %s: %lf", name.c_str(), atom_getfloat(argv + 1));
+            }
+            else if(argc == 3){
+                (*particles)[atom_getlong(argv + 1)]->setRadius(argv + 2);
             }
         }
         return JIT_ERR_NONE;
     }
     else if(task == "setTheta"){
-        if(argc == 2){
-            if(argv){
-                
+        if(argv){
+            if(argc == 2){
+                post("entrei 1");
                 for(int i=0; i<numParticles; i++){
                     (*particles)[i]->setTheta(argv + 1);
                 }
-                //post("setting Theta for %s: %lf", name.c_str(), atom_getfloat(argv + 1));
+            }
+            else if(argc == 3){
+                (*particles)[atom_getlong(argv + 1)]->setTheta(argv + 2);
             }
         }
         return JIT_ERR_NONE;
     }
     else if(task == "setPhi"){
-        if(argc == 2){
-            if(argv){
-                
+        if(argv){
+            if(argc == 2){
                 for(int i=0; i<numParticles; i++){
                     (*particles)[i]->setPhi(argv + 1);
                 }
-                //post("setting Phi for %s: %lf", name.c_str(), atom_getfloat(argv + 1));
+            }
+            else if(argc == 3){
+                (*particles)[atom_getlong(argv + 1)]->setPhi(argv + 2);
             }
         }
         return JIT_ERR_NONE;
     }
     else if(task == "setRadiusSpeed"){
-        if(argc == 2){
-            if(argv){
-                
+        if(argv){
+            if(argc == 2){
                 for(int i=0; i<numParticles; i++){
                     (*particles)[i]->setRadiusSpeed(argv + 1);
                 }
-                //post("setting radius speed for %s: %lf", name.c_str(), atom_getfloat(argv + 1));
+            }
+            else if(argc == 3){
+                (*particles)[atom_getlong(argv + 1)]->setRadiusSpeed(argv + 2);
             }
         }
         return JIT_ERR_NONE;
     }
     else if(task == "setThetaSpeed"){
-        if(argc == 2){
-            if(argv){
-                
+        if(argv){
+            if(argc == 2){
                 for(int i=0; i<numParticles; i++){
                     (*particles)[i]->setThetaSpeed(argv + 1);
                 }
-                //post("setting Theta speed for %s: %lf", name.c_str(), atom_getfloat(argv + 1));
+            }
+            else if(argc == 3){
+                (*particles)[atom_getlong(argv + 1)]->setThetaSpeed(argv + 2);
             }
         }
         return JIT_ERR_NONE;
     }
     else if(task == "setPhiSpeed"){
-        if(argc == 2){
-            if(argv){
-                
+        if(argv){
+            if(argc == 2){
                 for(int i=0; i<numParticles; i++){
                     (*particles)[i]->setPhiSpeed(argv + 1);
                 }
-                //post("setting Phi speed for %s: %lf", name.c_str(), atom_getfloat(argv + 1));
+            }
+            else if(argc == 3){
+                (*particles)[atom_getlong(argv + 1)]->setPhiSpeed(argv + 2);
             }
         }
         return JIT_ERR_NONE;

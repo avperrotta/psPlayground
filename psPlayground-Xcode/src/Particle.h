@@ -86,6 +86,7 @@ public:
     double life;
     double avgLife;
     double age;
+    
     double currentTime;
     double previousTime;
     double initialTime;
@@ -96,10 +97,13 @@ public:
 	virtual void updateTime();
 	virtual void timedUpdate();
 	bool updateByTime;
-	virtual void triggerTrajectory(t_atom* argv);
+	
+    virtual void triggerTrajectory(t_atom* argv);
     int trajectoryLoopType;
     bool trajectoryFinished;
 	void setTrajectoryLoopType(t_atom* argv);
+    
+    
     
     
     int trigger;
@@ -127,7 +131,24 @@ public:
     ofVec3f speedIni;
 	ofVec3f speedFinal;
     ofVec3f speed;
-	
+    
+    
+	virtual void setPos(t_atom* argv);
+    virtual void setX(t_atom* argv);
+    virtual void setY(t_atom* argv);
+    virtual void setZ(t_atom* argv);
+    
+    virtual void setPosIni(t_atom* argv);
+    virtual void setPosFinal(t_atom* argv);
+    
+    virtual void setSpeed(t_atom* argv);
+    virtual void setSpeed(ofVec3f sp);
+    virtual void setSpeedIni(t_atom* argv);
+    virtual void setSpeedFinal(t_atom* argv);
+    virtual void setVx(t_atom* argv);
+    virtual void setVy(t_atom* argv);
+    virtual void setVz(t_atom* argv);
+    
     virtual void setPosCarIni(t_atom* argv);
 	virtual void setPosCar(t_atom* argv);
 	virtual void setPosCarFinal(t_atom* argv);
@@ -143,13 +164,6 @@ public:
     virtual void setPhiSpeed(t_atom* argv);
     
     
-    /*
-    virtual void setPosCar(t_atom* argv);
-    virtual void setPosCar(ofVec3f pos);
-    virtual void setPosRad(t_atom* argv);
-    virtual void setPosRad(ofVec3f pos);
-    */
-     
     ofVec3f posOffset;
     ofVec3f posOffsetIni;
     ofVec3f posOffsetFinal;
@@ -161,6 +175,8 @@ public:
     ofVec3f posOffsetSpeedIniMax;
     
     virtual void setOffset(t_atom* argv);
+    virtual void setOffsetIni(t_atom* argv);
+    virtual void setOffsetFinal(t_atom* argv);
     
     ofVec3f accelIniMin;
     ofVec3f accelIniMax;
@@ -185,24 +201,20 @@ public:
     limits limits_x;
     limits limits_y;
     limits limits_z;
+    CubeLimits bounds;
     virtual void setSizeLimits(double x1, double x2, double y1, double y2, double z1, double z2);
     virtual void setSizeLimits(t_atom* argv);
     virtual void calculateLimits();
-    
     
     limits limits_vx;
     limits limits_vy;
     limits limits_vz;
     virtual void setSpeedLimits(double x1, double x2, double y1, double y2, double z1, double z2);
     virtual void setSpeedLimits(t_atom* argv);
-    virtual void setSpeed(long argc, t_atom* argv);
-    virtual void setInitialSpeed(long argc, t_atom* argv);
     
     limits limits_ax;
     limits limits_ay;
     limits limits_az;
-    
-    
     
     double easing_x;
     double easing_y;

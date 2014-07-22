@@ -59,6 +59,7 @@ void SphericalMovementParticle::customSetup(){
     coordinateSystem = "spherical";
     
 	posOffsetIni = generateRandomVec3f(randomness, ofVec3f(0., 0., 0.));
+    posOffsetFinal = generateRandomVec3f(randomness, ofVec3f(0., 0., 0.));
 	posRadIni = generateRandomVec3f(randomness, ofVec3f(0.25, 0., 0.));
 	posRadFinal = generateRandomVec3f(randomness, ofVec3f(0.75, 0., 0.));
 	
@@ -105,9 +106,6 @@ void SphericalMovementParticle::customUpdate(){
 		posRad.x = 0.0;
 		speed.x *= -1.;
 	}
-	
-	
-    
 }
 
 void SphericalMovementParticle::timedUpdate(){
@@ -117,6 +115,11 @@ void SphericalMovementParticle::timedUpdate(){
     posRad.y = posRadIni.y + (posRadFinal.y - posRadIni.y)*lifeTime/timeToLive;
     posRad.z = posRadIni.z + (posRadFinal.z - posRadIni.z)*lifeTime/timeToLive;
     
+    posOffset.x = posOffsetIni.x + (posOffsetFinal.x - posOffsetIni.x)*lifeTime/timeToLive;
+    posOffset.y = posOffsetIni.y + (posOffsetFinal.y - posOffsetIni.y)*lifeTime/timeToLive;
+    posOffset.z = posOffsetIni.z + (posOffsetFinal.z - posOffsetIni.z)*lifeTime/timeToLive;
+    
+    
     posCar.z = posRad.x*sin(posRad.y)*cos(posRad.z) + posOffset.z;
     posCar.x = posRad.x*sin(posRad.y)*sin(posRad.z) + posOffset.x;
     posCar.y = posRad.x*cos(posRad.y) + posOffset.y;
@@ -124,30 +127,6 @@ void SphericalMovementParticle::timedUpdate(){
 	//post("posRad = %lf %lf %lf", posRad.x, posRad.y, posRad.z);
 }
 
-
-
-
-void SphericalMovementParticle::setRadius(t_atom* argv){
-    speed.x = 0.0;
-    posRad.x = crop(atom_getfloat(argv), 0.0, 1000000000.);
-}
-void SphericalMovementParticle::setTheta(t_atom* argv){
-    speed.y = 0.0;
-    posRad.y = atom_getfloat(argv);
-}
-void SphericalMovementParticle::setPhi(t_atom* argv){
-    speed.z = 0.0;
-    posRad.z = atom_getfloat(argv);
-}
-void SphericalMovementParticle::setRadiusSpeed(t_atom* argv){
-    speed.x = atom_getfloat(argv);
-}
-void SphericalMovementParticle::setThetaSpeed(t_atom* argv){
-    speed.y = atom_getfloat(argv);
-}
-void SphericalMovementParticle::setPhiSpeed(t_atom* argv){
-    speed.z = atom_getfloat(argv);
-}
 
 void SphericalMovementParticle::calculateLimits(){
     

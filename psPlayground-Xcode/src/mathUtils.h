@@ -55,18 +55,11 @@
 #include "ext_systhread.h"
 
 #define SIZE_NORMALIZATION 1.
-
-
-//math functions
-double rangedRandom(double x1, double x2);
-double dist3d(ofVec3f v1, ofVec3f v2);
-double getInterpolatedFromOfVec2fVector(vector<ofVec2f*>* v, double x);
-double interpolate(ofVec2f v0, ofVec2f v1, double x);
-double crop(double x, double x_min, double x_max);
-double getHannGain(double x, double ws);
-ofVec3f generateRandomVec3f(double randomness, ofVec3f v);
+#define POS_RANDOMNESS_BASE 0.01
+#define SPEED_RANDOMNESS_BASE 0.01
 
 //util classes
+
 class limits{
 public:
     
@@ -80,10 +73,34 @@ public:
 
     double min;
     double max;
+};
+
+class CubeLimits{
+public:
     
+    CubeLimits(){
+        
+    }
+    CubeLimits(limits lx, limits ly, limits lz){
+        limits_x = lx;
+        limits_y = ly;
+        limits_z = lz;
+        
+        dx = abs(limits_x.max - limits_x.min);
+        dy = abs(limits_y.max - limits_y.min);
+        dz = abs(limits_z.max - limits_z.min);
+    }
     
+    limits limits_x;
+    limits limits_y;
+    limits limits_z;
+    
+    double dx;
+    double dy;
+    double dz;
     
 };
+
 
 class timedPos{
 public:
@@ -137,6 +154,17 @@ std::string ofToString(const vector<T>& values) {
 	out << "}";
 	return out.str();
 }
+
+
+//math functions
+double rangedRandom(double x1, double x2);
+double dist3d(ofVec3f v1, ofVec3f v2);
+double getInterpolatedFromOfVec2fVector(vector<ofVec2f*>* v, double x);
+double interpolate(ofVec2f v0, ofVec2f v1, double x);
+double crop(double x, double x_min, double x_max);
+double getHannGain(double x, double ws);
+ofVec3f generateRandomVec3f(double randomness, ofVec3f v);
+ofVec3f generateRandomVec3f(t_atom* argv, double randomness, CubeLimits cub);
 
 
 #endif

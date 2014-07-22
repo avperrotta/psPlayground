@@ -58,6 +58,7 @@ void CylindricalMovementParticle::customSetup(){
     coordinateSystem = "cylindrical";
     
 	posOffsetIni = generateRandomVec3f(randomness, ofVec3f(0., 0., 0.));
+    posOffsetFinal = generateRandomVec3f(randomness, ofVec3f(0., 0., 0.));
 	posRadIni = generateRandomVec3f(randomness, ofVec3f(0.25, 0., 0.));
 	posRadFinal = generateRandomVec3f(randomness, ofVec3f(0.75, 0., 0.));
 	
@@ -146,6 +147,10 @@ void CylindricalMovementParticle::timedUpdate(){
     posRad.x = posRadIni.x + (posRadFinal.x - posRadIni.x)*lifeTime/timeToLive;
     posRad.y = posRadIni.y + (posRadFinal.y - posRadIni.y)*lifeTime/timeToLive;
     posRad.z = posRadIni.z + (posRadFinal.z - posRadIni.z)*lifeTime/timeToLive;
+    
+    posOffset.x = posOffsetIni.x + (posOffsetFinal.x - posOffsetIni.x)*lifeTime/timeToLive;
+    posOffset.y = posOffsetIni.y + (posOffsetFinal.y - posOffsetIni.y)*lifeTime/timeToLive;
+    posOffset.z = posOffsetIni.z + (posOffsetFinal.z - posOffsetIni.z)*lifeTime/timeToLive;
     
     if(direction == 1){
         posCar.x = posRad.x*cos(posRad.y) + posOffset.x;

@@ -112,6 +112,8 @@ void Particle::setup(pSystem* sys, int ind){
         limits_z = limits(-0.5*concertRoom->getBounds()[2], 0.5*concertRoom->getBounds()[2]);
     }
     
+    bounds = CubeLimits(limits_x, limits_y, limits_z);
+    
     
     easingLimits_x.min = 0.01;
     easingLimits_x.max = 0.2;
@@ -421,6 +423,8 @@ void Particle::setSizeLimits(t_atom* argv){
 		limits_y.max = atom_getfloat(argv + 3);
 		limits_z.min = atom_getfloat(argv + 4);
 		limits_z.max = atom_getfloat(argv + 5);
+        
+        bounds = CubeLimits(limits_x, limits_y, limits_z);
 	}
     
     calculateLimits();
@@ -430,134 +434,216 @@ void Particle::calculateLimits(){
     
 }
 
-void Particle::setSpeedLimits(double x1, double x2, double y1, double y2, double z1, double z2){
-    
-}
-void Particle::setSpeedLimits(t_atom* argv){
-    
-	if(argv){
-		limits_vx.min = atom_getfloat(argv + 0);
-		limits_vx.max = atom_getfloat(argv + 1);
-		limits_vy.min = atom_getfloat(argv + 2);
-		limits_vy.max = atom_getfloat(argv + 3);
-		limits_vz.min = atom_getfloat(argv + 4);
-		limits_vz.max = atom_getfloat(argv + 5);
-		
-		easingLimits_x.min = crop(atom_getfloat(argv + 0), 0.005, 0.9);
-		easingLimits_x.max = crop(atom_getfloat(argv + 1), 0.005, 0.9);
-		easingLimits_y.min = crop(atom_getfloat(argv + 2), 0.005, 0.9);
-		easingLimits_y.max = crop(atom_getfloat(argv + 3), 0.005, 0.9);
-		easingLimits_z.min = crop(atom_getfloat(argv + 4), 0.005, 0.9);
-		easingLimits_z.max = crop(atom_getfloat(argv + 5), 0.005, 0.9);
-	}
-    
-    
-    
-}
+
 
 void Particle::setColor(ofVec4f c){
     color = c;
 }
 
 
+void Particle::setPos(t_atom* argv){
+    
+    setSpeed(ofVec3f(0., 0., 0.));
+    
+    if(coordinateSystem == "cartesian"){
+        
+        setPosCar(argv);
+    }
+    else {
+        setPosRad(argv);
+    }
+}
+
+void Particle::setPosIni(t_atom* argv){
+    if(coordinateSystem == "cartesian"){
+        setPosCarIni(argv);
+    }
+    else {
+        setPosRadIni(argv);
+    }
+}
+
+
+void Particle::setPosFinal(t_atom* argv){
+    if(coordinateSystem == "cartesian"){
+        setPosCarFinal(argv);
+    }
+    else {
+        setPosRadFinal(argv);
+    }
+}
+
+
+
 void Particle::setPosCar(t_atom* argv){
 	
-	if(argv){
-		posCar = ofVec3f(atom_getfloat(argv), atom_getfloat(argv+1), atom_getfloat(argv+2));
-	}
+    posCar = ofVec3f(atom_getfloat(argv), atom_getfloat(argv+1), atom_getfloat(argv+2));
+    
+    //posCar = generateRandomVec3f(argv, randomness, bounds);
 }
 
 void Particle::setPosCarIni(t_atom* argv){
 	
-	if(argv){
-		posCarIni = generateRandomVec3f(randomness, ofVec3f(atom_getfloat(argv), atom_getfloat(argv+1), atom_getfloat(argv+2)));
-	}
+	
+    posCarIni = generateRandomVec3f(randomness, ofVec3f(atom_getfloat(argv), atom_getfloat(argv+1), atom_getfloat(argv+2)));
+	
 }
 
 void Particle::setPosCarFinal(t_atom* argv){
 	
-	if(argv){
-		posCarFinal = generateRandomVec3f(randomness, ofVec3f(atom_getfloat(argv), atom_getfloat(argv+1), atom_getfloat(argv+2)));
-	}
+	
+    posCarFinal = generateRandomVec3f(randomness, ofVec3f(atom_getfloat(argv), atom_getfloat(argv+1), atom_getfloat(argv+2)));
+	
 }
 
 void Particle::setPosRad(t_atom* argv){
 	
-	if(argv){
-		posRad = ofVec3f(atom_getfloat(argv), atom_getfloat(argv+1), atom_getfloat(argv+2));
-	}
+	
+    posRad = ofVec3f(atom_getfloat(argv), atom_getfloat(argv+1), atom_getfloat(argv+2));
+	
 	
 }
 
 void Particle::setPosRadIni(t_atom* argv){
 	
-	if(argv){
-		posRadIni = generateRandomVec3f(randomness, ofVec3f(atom_getfloat(argv), atom_getfloat(argv+1), atom_getfloat(argv+2)));
-		//post("posRadIni = %lf, %lf, %lf", posRadIni.x, posRadIni.y, posRadIni.z);
-	}
+	
+    posRadIni = generateRandomVec3f(randomness, ofVec3f(atom_getfloat(argv), atom_getfloat(argv+1), atom_getfloat(argv+2)));
+    //post("posRadIni = %lf, %lf, %lf", posRadIni.x, posRadIni.y, posRadIni.z);
+	
 	
 }
 
 void Particle::setPosRadFinal(t_atom* argv){
 	
-	if(argv){
-		posRadFinal = generateRandomVec3f(randomness, ofVec3f(atom_getfloat(argv), atom_getfloat(argv+1), atom_getfloat(argv+2)));
-		//post("posRadFinal = %lf, %lf, %lf", posRadFinal.x, posRadFinal.y, posRadFinal.z);
-	}
+	
+    posRadFinal = generateRandomVec3f(randomness, ofVec3f(atom_getfloat(argv), atom_getfloat(argv+1), atom_getfloat(argv+2)));
+    //post("posRadFinal = %lf, %lf, %lf", posRadFinal.x, posRadFinal.y, posRadFinal.z);
+	
 	
 }
 
-void Particle::setSpeed(long argc, t_atom* argv){
-    if(argc == 1){
-		if(argv){
-			speed = ofVec3f(atom_getfloat(argv), atom_getfloat(argv), atom_getfloat(argv));
-		}
-	}
-	else if(argc == 3){
-		speed = ofVec3f(atom_getfloat(argv), atom_getfloat(argv + 1), atom_getfloat(argv + 2));
-	}
+void Particle::setSpeed(t_atom *argv){
+    
+    speed = ofVec3f(atom_getfloat(argv), atom_getfloat(argv + 1), atom_getfloat(argv + 2));
+    
 }
 
-void Particle::setInitialSpeed(long argc, t_atom* argv){
-    if(argc == 1){
-		if(argv){
-			speed = ofVec3f(atom_getfloat(argv), atom_getfloat(argv), atom_getfloat(argv));
-		}
-	}
-	else if(argc == 3){
-		speed = ofVec3f(atom_getfloat(argv), atom_getfloat(argv + 1), atom_getfloat(argv + 2));
-	}
+void Particle::setSpeed(ofVec3f sp){
+    speed = sp;
 }
+
+void Particle::setSpeedIni(t_atom *argv){
+    
+    speedIni = ofVec3f(atom_getfloat(argv), atom_getfloat(argv + 1), atom_getfloat(argv + 2));
+    
+}
+
+void Particle::setSpeedFinal(t_atom *argv){
+    
+    speedFinal = ofVec3f(atom_getfloat(argv), atom_getfloat(argv + 1), atom_getfloat(argv + 2));
+    
+}
+
+void Particle::setSpeedLimits(double x1, double x2, double y1, double y2, double z1, double z2){
+    
+}
+void Particle::setSpeedLimits(t_atom* argv){
+    
+    limits_vx.min = atom_getfloat(argv + 0);
+    limits_vx.max = atom_getfloat(argv + 1);
+    limits_vy.min = atom_getfloat(argv + 2);
+    limits_vy.max = atom_getfloat(argv + 3);
+    limits_vz.min = atom_getfloat(argv + 4);
+    limits_vz.max = atom_getfloat(argv + 5);
+    
+    easingLimits_x.min = crop(atom_getfloat(argv + 0), 0.005, 0.9);
+    easingLimits_x.max = crop(atom_getfloat(argv + 1), 0.005, 0.9);
+    easingLimits_y.min = crop(atom_getfloat(argv + 2), 0.005, 0.9);
+    easingLimits_y.max = crop(atom_getfloat(argv + 3), 0.005, 0.9);
+    easingLimits_z.min = crop(atom_getfloat(argv + 4), 0.005, 0.9);
+    easingLimits_z.max = crop(atom_getfloat(argv + 5), 0.005, 0.9);
+	
+}
+
 
 void Particle::setRandomness(double r){
     randomness = crop(r, 0., 0.99);
+    
+    posCarIni = generateRandomVec3f(randomness, posCarIni);
+    posCarFinal = generateRandomVec3f(randomness, posCarFinal);
+    posRadIni = generateRandomVec3f(randomness, posRadIni);
+    posRadFinal = generateRandomVec3f(randomness, posRadFinal);
+    posOffsetIni = generateRandomVec3f(randomness, posOffsetIni);
+    posOffsetFinal = generateRandomVec3f(randomness, posOffsetFinal);
 }
+
+
+void Particle::setX(t_atom* argv){
+    posCar.x = atom_getfloat(argv);
+    speed.x = 0.0;
+}
+void Particle::setY(t_atom* argv){
+    posCar.y = atom_getfloat(argv);
+    speed.y = 0.0;
+}
+void Particle::setZ(t_atom* argv){
+    posCar.z = atom_getfloat(argv);
+    speed.z = 0.0;
+}
+void Particle::setVx(t_atom* argv){
+    speed.x = atom_getfloat(argv);
+}
+void Particle::setVy(t_atom* argv){
+    speed.y = atom_getfloat(argv);
+}
+void Particle::setVz(t_atom* argv){
+    speed.z = atom_getfloat(argv);
+}
+
 
 void Particle::setRadius(t_atom* argv){
-    
+    posRad.x = atom_getfloat(argv);
+    speed.x = 0.0;
 }
 void Particle::setTheta(t_atom* argv){
-    
+    post("entrei 2");
+    posRad.y = atom_getfloat(argv);
+    speed.y = 0.0;
 }
 void Particle::setPhi(t_atom* argv){
-    
+    posRad.z = atom_getfloat(argv);
+    speed.z = 0.0;
 }
 void Particle::setRadiusSpeed(t_atom* argv){
-    
+    speed.x = atom_getfloat(argv);
 }
 void Particle::setThetaSpeed(t_atom* argv){
-    
+    speed.y = atom_getfloat(argv);
 }
 void Particle::setPhiSpeed(t_atom* argv){
-    
+    speed.z = atom_getfloat(argv);
 }
 
+
+
 void Particle::setOffset(t_atom* argv){
-	if(argv){
-		posOffset = ofVec3f(atom_getfloat(argv), atom_getfloat(argv + 1), atom_getfloat(argv + 2));
-	}
-    
+	
+    posOffset = ofVec3f(atom_getfloat(argv), atom_getfloat(argv + 1), atom_getfloat(argv + 2));
 }
+
+void Particle::setOffsetIni(t_atom* argv){
+	
+    posOffsetIni = generateRandomVec3f(randomness, ofVec3f(atom_getfloat(argv), atom_getfloat(argv+1), atom_getfloat(argv+2)));
+	
+}
+
+void Particle::setOffsetFinal(t_atom* argv){
+	
+    posOffsetFinal = generateRandomVec3f(randomness, ofVec3f(atom_getfloat(argv), atom_getfloat(argv+1), atom_getfloat(argv+2)));
+	
+}
+
+
 
 void Particle::loadRec(std::string fn){
     
@@ -635,7 +721,8 @@ void Particle::setPlayRec(long argc, t_atom* argv){
 void Particle::recUpdate(){
 	
 	if(rec.size() > 0){
-		posCar.x = rec[playRecHead].x;
+		
+        posCar.x = rec[playRecHead].x;
 		posCar.y = rec[playRecHead].y;
 		posCar.z = rec[playRecHead].z;
 		
