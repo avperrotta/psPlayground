@@ -60,6 +60,7 @@
 #include "sphericalMovementSystem.h"
 #include "farfalharSystem.h"
 #include "cylindricalMovementSystem.h"
+#include "emitterSystem.h"
 
 
 #include "pspGlobals.h"

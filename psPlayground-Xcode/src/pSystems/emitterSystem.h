@@ -40,83 +40,39 @@
  along with psPlayground.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef __psPlayground__pSystem__
-#define __psPlayground__pSystem__
+#ifndef __psPlayground__emitterSytem__
+#define __psPlayground__emitterSytem__
 
 #include <iostream>
-#include <string>
-#include "Particle.h"
-#include "ConcertRoom.h"
 #include "jit.common.h"
 #include "jit.gl.h"
-#include "ext.h"
-#include "ext_obex.h"
-#include "ext_strings.h"
-#include "ext_common.h"
-#include "ext_systhread.h"
+#include "pSystem.h"
 #include "pspGlobals.h"
+#include "mathUtils.h"
 #include "ofVectorMath.h"
+#include "emitterParticle.h"
+#include "emitterSource.h"
 
-extern std::string absPath;
 
-class pSystem{
+
+class EmitterSystem : public pSystem{
 public:
     
-    pSystem();
-    pSystem(ConcertRoom* cr, std::string ns, int np);
-    virtual ~pSystem();
+    EmitterSystem();
+    EmitterSystem(ConcertRoom* cr, std::string ns, int np);
+    ~EmitterSystem();
     
-    virtual void setup();
-    virtual void setup(ConcertRoom* cr, std::string ns, int np);
-    virtual void customSetup();
-    virtual void update();
-    virtual void customUpdate();
-    virtual void draw();
-    virtual void customDraw();
-    virtual void addParticles(int num);
-    virtual void killParticles(int num);
+    void customSetup();
+    void customUpdate();
+    void customDraw();
+    void setLimits(t_atom* argv);
     
-    virtual t_jit_err messageControl(long argc, t_atom* argv);
+    t_jit_err messageControl(long argc, t_atom* argv);
     
-    virtual void createOutput();
+    EmitterSource* src;
+    EmitterSource* getSrc();
     
-    std::string name;
-    std::string getName();
-    
-    ConcertRoom* concertRoom;
-    ConcertRoom* getConcertRoom();
-    
-    vector<Particle*>* particles;
-    
-    int numParticles;
-    int maxNumParticles;
-    
-    bool outputRaw;
-    bool outputDbap;
-    
-    int currentTime;
-    int previousTime;
-    
-    ofVec4f color;
-    ofVec4f getColor();
-    
-    
-    void restart();
-    bool stop;
-    bool play;
-    
-    limits lx;
-    limits ly;
-    limits lz;
-    virtual void setLimits(t_atom* argv);
-    virtual void setLimits();
-    virtual void drawLimits();
-    
-    
-    //trajectory recording
-	std::string recFilesPath;
-	std::string getRecFilesPath();
     
 };
 
-#endif /* defined(__psPlayground__pSystem__) */
+#endif /* defined(__psPlayground__emitterSytem__) */

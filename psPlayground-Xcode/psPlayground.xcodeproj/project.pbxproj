@@ -47,6 +47,12 @@
 		A7B426BB1936588D00E35E49 /* pspGlobals.h in Headers */ = {isa = PBXBuildFile; fileRef = A7B426B91936588D00E35E49 /* pspGlobals.h */; };
 		A7B426BE193760C100E35E49 /* dbap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7B426BC193760C100E35E49 /* dbap.cpp */; };
 		A7B426BF193760C100E35E49 /* dbap.h in Headers */ = {isa = PBXBuildFile; fileRef = A7B426BD193760C100E35E49 /* dbap.h */; };
+		A7B54DAE197FEA410015D844 /* emitterSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7B54DAC197FEA410015D844 /* emitterSystem.cpp */; };
+		A7B54DAF197FEA410015D844 /* emitterSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = A7B54DAD197FEA410015D844 /* emitterSystem.h */; };
+		A7B54DB2197FEABA0015D844 /* emitterParticle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7B54DB0197FEABA0015D844 /* emitterParticle.cpp */; };
+		A7B54DB3197FEABA0015D844 /* emitterParticle.h in Headers */ = {isa = PBXBuildFile; fileRef = A7B54DB1197FEABA0015D844 /* emitterParticle.h */; };
+		A7B54DB6197FEB580015D844 /* emitterSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7B54DB4197FEB580015D844 /* emitterSource.cpp */; };
+		A7B54DB7197FEB580015D844 /* emitterSource.h in Headers */ = {isa = PBXBuildFile; fileRef = A7B54DB5197FEB580015D844 /* emitterSource.h */; };
 		A7BCEE87195ADC450003C5E3 /* sphericalMovementSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BCEE85195ADC450003C5E3 /* sphericalMovementSystem.cpp */; };
 		A7BCEE88195ADC450003C5E3 /* sphericalMovementSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = A7BCEE86195ADC450003C5E3 /* sphericalMovementSystem.h */; };
 		A7BCEE8B195ADC560003C5E3 /* sphericalMovementParticle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BCEE89195ADC560003C5E3 /* sphericalMovementParticle.cpp */; };
@@ -112,6 +118,12 @@
 		A7B426B91936588D00E35E49 /* pspGlobals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pspGlobals.h; sourceTree = "<group>"; };
 		A7B426BC193760C100E35E49 /* dbap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dbap.cpp; sourceTree = "<group>"; };
 		A7B426BD193760C100E35E49 /* dbap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dbap.h; sourceTree = "<group>"; };
+		A7B54DAC197FEA410015D844 /* emitterSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = emitterSystem.cpp; sourceTree = "<group>"; };
+		A7B54DAD197FEA410015D844 /* emitterSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = emitterSystem.h; sourceTree = "<group>"; };
+		A7B54DB0197FEABA0015D844 /* emitterParticle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = emitterParticle.cpp; sourceTree = "<group>"; };
+		A7B54DB1197FEABA0015D844 /* emitterParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = emitterParticle.h; sourceTree = "<group>"; };
+		A7B54DB4197FEB580015D844 /* emitterSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = emitterSource.cpp; sourceTree = "<group>"; };
+		A7B54DB5197FEB580015D844 /* emitterSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = emitterSource.h; sourceTree = "<group>"; };
 		A7BCEE85195ADC450003C5E3 /* sphericalMovementSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sphericalMovementSystem.cpp; sourceTree = "<group>"; };
 		A7BCEE86195ADC450003C5E3 /* sphericalMovementSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sphericalMovementSystem.h; sourceTree = "<group>"; };
 		A7BCEE89195ADC560003C5E3 /* sphericalMovementParticle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sphericalMovementParticle.cpp; sourceTree = "<group>"; };
@@ -262,6 +274,12 @@
 				A7E8A89D197D71F0009AD8C6 /* cylindricalMovementSystem.h */,
 				A7E8A8A0197D7204009AD8C6 /* cylindricalMovementParticle.cpp */,
 				A7E8A8A1197D7204009AD8C6 /* cylindricalMovementParticle.h */,
+				A7B54DAC197FEA410015D844 /* emitterSystem.cpp */,
+				A7B54DAD197FEA410015D844 /* emitterSystem.h */,
+				A7B54DB0197FEABA0015D844 /* emitterParticle.cpp */,
+				A7B54DB1197FEABA0015D844 /* emitterParticle.h */,
+				A7B54DB4197FEB580015D844 /* emitterSource.cpp */,
+				A7B54DB5197FEB580015D844 /* emitterSource.h */,
 			);
 			path = pSystems;
 			sourceTree = "<group>";
@@ -281,6 +299,7 @@
 				A7B426AD1935F89F00E35E49 /* Speaker.h in Headers */,
 				A74EBD601934BA27007508C9 /* ofConstants.h in Headers */,
 				A7B426A71935F89F00E35E49 /* Particle.h in Headers */,
+				A7B54DB3197FEABA0015D844 /* emitterParticle.h in Headers */,
 				A74EBD631934BA27007508C9 /* ofVec3f.h in Headers */,
 				A7BCEE931961AA840003C5E3 /* farfalharSystem.h in Headers */,
 				A74EBD651934BA27007508C9 /* ofVec4f.h in Headers */,
@@ -288,6 +307,7 @@
 				A7C33DDF19543CAA00BEEAFB /* rainSystem.h in Headers */,
 				A7BCEE88195ADC450003C5E3 /* sphericalMovementSystem.h in Headers */,
 				A7B426BF193760C100E35E49 /* dbap.h in Headers */,
+				A7B54DB7197FEB580015D844 /* emitterSource.h in Headers */,
 				A7B426A41935F89F00E35E49 /* mathUtils.h in Headers */,
 				A7B4269F1935F89F00E35E49 /* ConcertRoom.h in Headers */,
 				A7B426B719360F5E00E35E49 /* simpleRandomParticle.h in Headers */,
@@ -301,6 +321,7 @@
 				A7C33DE31954432C00BEEAFB /* rainParticle.h in Headers */,
 				416E56F61955885C006668FC /* manualMovementSystem.h in Headers */,
 				A7B426BB1936588D00E35E49 /* pspGlobals.h in Headers */,
+				A7B54DAF197FEA410015D844 /* emitterSystem.h in Headers */,
 				A7C33DDB195327C500BEEAFB /* spatCalibrationParticle.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,6 +398,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7B54DAE197FEA410015D844 /* emitterSystem.cpp in Sources */,
 				A7E8A89E197D71F0009AD8C6 /* cylindricalMovementSystem.cpp in Sources */,
 				A7BCEE921961AA840003C5E3 /* farfalharSystem.cpp in Sources */,
 				A7BCEE8B195ADC560003C5E3 /* sphericalMovementParticle.cpp in Sources */,
@@ -393,11 +415,13 @@
 				A7B426A11935F89F00E35E49 /* psPlaygroundManager.cpp in Sources */,
 				A7C33DDA195327C500BEEAFB /* spatCalibrationParticle.cpp in Sources */,
 				A7B426B219360D1400E35E49 /* simpleRandomSystem.cpp in Sources */,
+				A7B54DB6197FEB580015D844 /* emitterSource.cpp in Sources */,
 				A7C33DE21954432C00BEEAFB /* rainParticle.cpp in Sources */,
 				A7E8A8A2197D7204009AD8C6 /* cylindricalMovementParticle.cpp in Sources */,
 				A7B4269E1935F89F00E35E49 /* ConcertRoom.cpp in Sources */,
 				A7B426A01935F89F00E35E49 /* pspObject.cpp in Sources */,
 				A74EBD641934BA27007508C9 /* ofVec4f.cpp in Sources */,
+				A7B54DB2197FEABA0015D844 /* emitterParticle.cpp in Sources */,
 				A7B426A31935F89F00E35E49 /* mathUtils.cpp in Sources */,
 				416E56F51955885C006668FC /* manualMovementSystem.cpp in Sources */,
 				A7BCEE961961AA920003C5E3 /* farfalharParticle.cpp in Sources */,

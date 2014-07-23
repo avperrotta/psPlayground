@@ -40,49 +40,103 @@
  along with psPlayground.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "manualMovementSystem.h"
+#include "emitterSystem.h"
 
-ManualMovementSystem::ManualMovementSystem(){
+EmitterSystem::EmitterSystem(){
 	
 }
-ManualMovementSystem::ManualMovementSystem(ConcertRoom* cr, std::string ns, int np){
+EmitterSystem::EmitterSystem(ConcertRoom* cr, std::string ns, int np){
 	setup(cr, ns, np);
 }
-ManualMovementSystem::~ManualMovementSystem(){
-	
+EmitterSystem::~EmitterSystem(){
+	delete src;
 }
 
-void ManualMovementSystem::customSetup(){
+void EmitterSystem::customSetup(){
+    
+    src = new EmitterSource(this, 1);
+    src->setPos(ofVec3f((lx.min+lx.max)*0.5, (ly.min+ly.max)*0.5, (lz.min+lz.max)*0.5));
+    
+    particles->clear();
+    
+    /*
 	for(int i=0; i<numParticles; i++){
-        particles->push_back(new ManualMovementParticle(this, i+1));
+        particles->push_back(new EmitterParticle(this, i+1));
     }
+    */
 }
-void ManualMovementSystem::customUpdate(){
+void EmitterSystem::customUpdate(){
 	if(play){
+        
+        if(rangedRandom(0., 10.) > 5.){
+            particles->push_back(new EmitterParticle(this, particles->size()+1));
+        }
+        
+        
         for(int i=0; i<particles->size(); i++){
             (*particles)[i]->update();
+            if((*particles)[i]->status == 0){
+                delete (*particles)[i];
+                particles->erase(particles->begin() + i);
+            }
         }
     }
-
+    
 }
-void ManualMovementSystem::customDraw(){
-
+void EmitterSystem::customDraw(){
+    src->draw();
+    drawLimits();
 }
-t_jit_err ManualMovementSystem::messageControl(long argc, t_atom* argv){
+t_jit_err EmitterSystem::messageControl(long argc, t_atom* argv){
 	std::string task;
     task = jit_atom_getsym(argv)->s_name;
     
+    if(task == "setSourceHorizontalEmittingRange"){
+        if(argv){
+            if(argc == 3){
+                src->setHorizontalRange(argv + 1);
+            }
+        }
+        return JIT_ERR_NONE;
+    }
+    else if(task == "setSourceVerticalEmittingRange"){
+        if(argv){
+            if(argc == 3){
+                src->setVerticalRange(argv + 1);
+            }
+        }
+        return JIT_ERR_NONE;
+    }
+    else if(task == "setSourceSpeedRange"){
+        if(argv){
+            if(argc == 3){
+                src->setSpeedRange(argv + 1);
+            }
+        }
+        return JIT_ERR_NONE;
+    }
     
     pSystem::messageControl(argc, argv);
     
     return JIT_ERR_INVALID_INPUT;
 }
 
+EmitterSource* EmitterSystem::getSrc(){
+    return src;
+}
 
-
-
-
-
+void EmitterSystem::setLimits(t_atom *argv){
+    if(argv){
+        lx.min = atom_getfloat(argv + 0);
+        lx.max = atom_getfloat(argv + 1);
+        ly.min = atom_getfloat(argv + 2);
+        ly.max = atom_getfloat(argv + 3);
+        lz.min = atom_getfloat(argv + 4);
+        lz.max = atom_getfloat(argv + 5);
+    }
+    
+    src->setPos(ofVec3f((lx.min+lx.max)*0.5, (ly.min+ly.max)*0.5, (lz.min+lz.max)*0.5));
+}
 
 
 

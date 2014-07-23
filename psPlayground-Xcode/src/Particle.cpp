@@ -462,6 +462,19 @@ void Particle::setPos(t_atom* argv){
     }
 }
 
+void Particle::setPos(ofVec3f pos){
+    
+    setSpeed(ofVec3f(0., 0., 0.));
+    
+    if(coordinateSystem == "cartesian"){
+        
+        posCar = pos;
+    }
+    else {
+        posRad = pos;
+    }
+}
+
 void Particle::setPosIni(t_atom* argv){
     if(coordinateSystem == "cartesian"){
         setPosCarIni(argv);

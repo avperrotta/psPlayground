@@ -136,7 +136,7 @@ public:
 	ofVec3f speedFinal;
     ofVec3f speed;
     
-    
+    virtual void setPos(ofVec3f pos);
 	virtual void setPos(t_atom* argv);
     virtual void setX(t_atom* argv);
     virtual void setY(t_atom* argv);

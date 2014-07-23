@@ -159,7 +159,6 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
     }
     else if(task == "reset"){
         setLimits();
-        
         for(int i=0; i<particles->size(); i++){
             (*particles)[i]->reset();
         }

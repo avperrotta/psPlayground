@@ -255,6 +255,15 @@ t_jit_err psPlaygroundManager::addPSystem(long argc, t_atom* argv){
                 post("already has a system with name: %s", systemName.c_str());
                 
             }
+            else if(systemType == "emitterSystem"){
+                if(pSystems.find(systemName) == pSystems.end()){
+                    post("inserting farfalharSystem: %s", systemName.c_str());
+                    pSystems.insert(std::pair<std::string, pSystem*>(systemName, new EmitterSystem(concertRoom, systemName, numParticles)));
+                    return JIT_ERR_NONE;
+                }
+                post("already has a system with name: %s", systemName.c_str());
+                
+            }
         }
     }
     
