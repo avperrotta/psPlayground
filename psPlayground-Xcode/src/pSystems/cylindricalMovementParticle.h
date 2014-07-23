@@ -75,8 +75,9 @@ public:
     void calculateLimits();
     
     void customRestart();
+    void reset();
 	
-	void timedUpdate();
+	void trajectoryUpdate();
     
 };
 

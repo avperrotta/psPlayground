@@ -152,7 +152,18 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
         return JIT_ERR_NONE;
     }
     else if(task == "restart"){
-        restart();
+        for(int i=0; i<particles->size(); i++){
+            (*particles)[i]->restart();
+        }
+        return JIT_ERR_NONE;
+    }
+    else if(task == "reset"){
+        setLimits();
+        
+        for(int i=0; i<particles->size(); i++){
+            (*particles)[i]->reset();
+        }
+        
         return JIT_ERR_NONE;
     }
     else if(task == "recMode"){

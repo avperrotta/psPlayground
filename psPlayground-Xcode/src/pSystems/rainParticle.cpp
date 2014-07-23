@@ -57,29 +57,22 @@ RainParticle::~RainParticle(){
 
 void RainParticle::customSetup(){
     
-    if(!concertRoom->getBounds()){
-        limits_x = limits(-0.5*SOUND_LIMIT, 0.5*SOUND_LIMIT);
-        limits_y = limits(-0.5*SOUND_LIMIT, 0.5*SOUND_LIMIT);
-        limits_z = limits(-0.5*SOUND_LIMIT, 0.5*SOUND_LIMIT);
-    }
-    else{
-        limits_x = limits(-0.5*concertRoom->getBounds()[0], 0.5*concertRoom->getBounds()[0]);
-        limits_y = limits(-0.5*concertRoom->getBounds()[1], 0.5*concertRoom->getBounds()[1]);
-        limits_z = limits(-0.5*concertRoom->getBounds()[2], 0.5*concertRoom->getBounds()[2]);
-    }
-    
     randomness = 0.4;
+    reset();
+    
+}
+
+void RainParticle::reset(){
     direction = 1;
     lateralSpeed = 0.001;
     directionalSpeed = 0.01;
     avgLife = 200.;
     
     restart();
-    
 }
 
 
-void RainParticle::restart(){
+void RainParticle::customRestart(){
     
     
     

@@ -57,16 +57,7 @@ void CylindricalMovementParticle::customSetup(){
     
     coordinateSystem = "cylindrical";
     
-	posOffsetIni = generateRandomVec3f(randomness, ofVec3f(0., 0., 0.));
-    posOffsetFinal = generateRandomVec3f(randomness, ofVec3f(0., 0., 0.));
-	posRadIni = generateRandomVec3f(randomness, ofVec3f(0.25, 0., 0.));
-	posRadFinal = generateRandomVec3f(randomness, ofVec3f(0.75, 0., 0.));
-	
-	speedIni = generateRandomVec3f(randomness, ofVec3f(0., 0.1, 0.1));
-	
-    direction = 1;
-	
-	restart();
+	reset();
 }
 
 void CylindricalMovementParticle::customRestart(){
@@ -76,6 +67,21 @@ void CylindricalMovementParticle::customRestart(){
 	posRad = posRadIni;
     speed = speedIni;
     calculateLimits();
+}
+
+void CylindricalMovementParticle::reset(){
+    
+    resetLimits();
+    
+    posOffsetIni = generateRandomVec3f(randomness, ofVec3f(0., 0., 0.));
+    posOffsetFinal = generateRandomVec3f(randomness, ofVec3f(0., 0., 0.));
+	posRadIni = generateRandomVec3f(randomness, ofVec3f(0.25, 0., 0.));
+	posRadFinal = generateRandomVec3f(randomness, ofVec3f(0.75, 0., 0.));
+	speedIni = generateRandomVec3f(randomness, ofVec3f(0., 0.1, 0.1));
+	
+    direction = 1;
+	
+	restart();
 }
 
 
@@ -141,7 +147,7 @@ void CylindricalMovementParticle::customUpdate(){
     
 }
 
-void CylindricalMovementParticle::timedUpdate(){
+void CylindricalMovementParticle::trajectoryUpdate(){
     
     
     posRad.x = posRadIni.x + (posRadFinal.x - posRadIni.x)*lifeTime/timeToLive;

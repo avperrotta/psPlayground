@@ -82,6 +82,7 @@ void Particle::setup(pSystem* sys, int ind){
     
     
 	updateByTime = false;
+    onTrajectory = false;
     trajectoryFinished = false;
     trajectoryLoopType = 2;
     
@@ -99,21 +100,6 @@ void Particle::setup(pSystem* sys, int ind){
     gain = 1.;
     
     width = 0.02;
-    
-    
-    if(!concertRoom->getBounds()){
-        limits_x = limits(-0.5*SOUND_LIMIT, 0.5*SOUND_LIMIT);
-        limits_y = limits(-0.5*SOUND_LIMIT, 0.5*SOUND_LIMIT);
-        limits_z = limits(-0.5*SOUND_LIMIT, 0.5*SOUND_LIMIT);
-    }
-    else{
-        limits_x = limits(-0.5*concertRoom->getBounds()[0], 0.5*concertRoom->getBounds()[0]);
-        limits_y = limits(-0.5*concertRoom->getBounds()[1], 0.5*concertRoom->getBounds()[1]);
-        limits_z = limits(-0.5*concertRoom->getBounds()[2], 0.5*concertRoom->getBounds()[2]);
-    }
-    
-    bounds = CubeLimits(limits_x, limits_y, limits_z);
-    
     
     easingLimits_x.min = 0.01;
     easingLimits_x.max = 0.2;
@@ -146,65 +132,18 @@ void Particle::customSetup(){
     
 }
 
-void Particle::restart(){
-    resetTime();
-    
-    if(updateByTime){
-        if(trajectoryFinished){
-            
-            ofVec3f aux;
-            
-            if(trajectoryLoopType == 0){
-                
-            }
-            else if(trajectoryLoopType == 1){
-                trajectoryFinished = false;
-                
-                if(coordinateSystem == "cartesian"){
-                    posCar = posCarIni;
-                }
-                else{
-                    posRad = posRadIni;
-                }
-                
-                posOffset = posOffsetIni;
-                
-            }
-            else if(trajectoryLoopType == 2){
-                trajectoryFinished = false;
-                
-                
-                if(coordinateSystem == "cartesian"){
-                    aux = posCarIni;
-                    posCarIni = posCarFinal;
-                    posCarFinal = aux;
-                    posCar = posCarIni;
-                }
-                else{
-                    aux = posRadIni;
-                    posRadIni = posRadFinal;
-                    posRadFinal = aux;
-                    posRad = posRadIni;
-                }
-                
-                aux = posOffsetIni;
-                posOffsetIni = posOffsetFinal;
-                posOffsetFinal = aux;
-                posOffset = posOffsetIni;
-                
-                
-            }
-        }
-    }
-    else{
-        customRestart();
-    }
-    
-    
-	
-    
+void Particle::reset(){
     
 }
+
+void Particle::restart(){
+    resetTime();
+    onTrajectory = false;
+    recMode = false;
+	playRec = false;
+    customRestart();
+}
+
 
 void Particle::customRestart(){
 	
@@ -218,11 +157,6 @@ void Particle::resetTime(){
     lifeTime = 0;
 }
 
-void Particle::timedUpdate(){
-	
-}
-
-
 void Particle::update(){
     
     
@@ -232,20 +166,8 @@ void Particle::update(){
 		recUpdate();
 	}
 	else{
-		if(updateByTime){
-			if(lifeTime >= timeToLive){
-                if(!trajectoryFinished){
-                    outputTrajectoryTriggerTriggers();
-                }
-                trajectoryFinished = true;
-                if(trajectoryLoopType > 0){
-                    restart();
-                }
-				
-			}
-            if(!trajectoryFinished){
-                timedUpdate();
-            }
+		if(onTrajectory){
+			trajectoryControl();
 		}
 		else{
 			customUpdate();
@@ -394,21 +316,89 @@ void Particle::draw(){
 
 
 void Particle::triggerTrajectory(t_atom *argv){
-	if(argv){
-		timeToLive = atom_getfloat(argv);
-		updateByTime = true;
-        trajectoryFinished = false;
-		restart();
-	}
 	
+    timeToLive = atom_getfloat(argv);
+    onTrajectory = true;
+    trajectoryFinished = false;
+    resetTime();
+    customRestart();
+    
+}
+
+void Particle::triggerTrajectory(float ttl){
 	
+    timeToLive = ttl;
+    onTrajectory = true;
+    trajectoryFinished = false;
+    resetTime();
+    customRestart();
+}
+
+
+void Particle::trajectoryControl(){
+    if(lifeTime >= timeToLive){
+        if(!trajectoryFinished){
+            outputTrajectoryTriggerTriggers();
+        }
+        trajectoryFinished = true;
+        if(trajectoryLoopType > 0){
+            resetTime();
+            ofVec3f aux;
+            
+            if(trajectoryLoopType == 1){
+                trajectoryFinished = false;
+                
+                if(coordinateSystem == "cartesian"){
+                    posCar = posCarIni;
+                }
+                else{
+                    posRad = posRadIni;
+                }
+                
+                posOffset = posOffsetIni;
+                
+            }
+            else if(trajectoryLoopType == 2){
+                trajectoryFinished = false;
+                
+                
+                if(coordinateSystem == "cartesian"){
+                    aux = posCarIni;
+                    posCarIni = posCarFinal;
+                    posCarFinal = aux;
+                    posCar = posCarIni;
+                }
+                else{
+                    aux = posRadIni;
+                    posRadIni = posRadFinal;
+                    posRadFinal = aux;
+                    posRad = posRadIni;
+                }
+                
+                aux = posOffsetIni;
+                posOffsetIni = posOffsetFinal;
+                posOffsetFinal = aux;
+                posOffset = posOffsetIni;
+                
+            }
+        }
+    }
+    if(!trajectoryFinished){
+        trajectoryUpdate();
+    }
+}
+
+void Particle::trajectoryUpdate(){
+    
 }
 
 void Particle::setTrajectoryLoopType(t_atom *argv){
-    if(argv){
-        int tlt = (int)crop(atom_getfloat(argv), 0, 2);
-        trajectoryLoopType = tlt;
-    }
+    
+    int tlt = (int)crop(atom_getfloat(argv), 0, 2);
+    trajectoryLoopType = tlt;
+    
+    triggerTrajectory(timeToLive);
+    
 }
 
 void Particle::setSizeLimits(double x1, double x2, double y1, double y2, double z1, double z2){
@@ -426,6 +416,24 @@ void Particle::setSizeLimits(t_atom* argv){
         
         bounds = CubeLimits(limits_x, limits_y, limits_z);
 	}
+    
+    calculateLimits();
+}
+
+void Particle::resetLimits(){
+    if(!concertRoom->getBounds()){
+        limits_x = limits(-0.5*SOUND_LIMIT, 0.5*SOUND_LIMIT);
+        limits_y = limits(-0.5*SOUND_LIMIT, 0.5*SOUND_LIMIT);
+        limits_z = limits(-0.5*SOUND_LIMIT, 0.5*SOUND_LIMIT);
+    }
+    else{
+        limits_x = limits(-0.5*concertRoom->getBounds()[0], 0.5*concertRoom->getBounds()[0]);
+        limits_y = limits(-0.5*concertRoom->getBounds()[1], 0.5*concertRoom->getBounds()[1]);
+        limits_z = limits(-0.5*concertRoom->getBounds()[2], 0.5*concertRoom->getBounds()[2]);
+    }
+    
+    
+    bounds = CubeLimits(limits_x, limits_y, limits_z);
     
     calculateLimits();
 }

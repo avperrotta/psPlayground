@@ -56,16 +56,32 @@ ManualMovementParticle::~ManualMovementParticle(){
 }
 
 void ManualMovementParticle::customSetup(){
-	restart();
+	reset();
 }
 
 void ManualMovementParticle::customUpdate(){
 	
 }
 
-void ManualMovementParticle::restart(){
+void ManualMovementParticle::customRestart(){
 	
 	posRadIni = ofVec3f(0.25, index*360./mySystem->numParticles, 0.);
 	posCarIni = ofVec3f(posRadIni.x*cos(posRadIni.y*M_PI/180.0), 0., posRadIni.x*sin(posRadIni.y*M_PI/180.0));
 	posCar = posCarIni;
 }
+
+void ManualMovementParticle::reset(){
+    
+    resetLimits();
+    restart();
+}
+
+
+
+
+
+
+
+
+
+

@@ -64,7 +64,8 @@ public:
     void customSetup();
     void customUpdate();
     
-    void restart();
+    void customRestart();
+    void reset();
     
     
     ofVec3f posCarNext;

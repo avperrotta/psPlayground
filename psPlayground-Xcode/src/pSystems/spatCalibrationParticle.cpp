@@ -58,8 +58,6 @@ SpatCalibrationParticle::~SpatCalibrationParticle(){
 
 void SpatCalibrationParticle::customSetup(){
     
-    
-    
     speakers = concertRoom->getSpeakers();
     
     for(int i=0; i<speakers->size(); i++){
@@ -72,17 +70,20 @@ void SpatCalibrationParticle::customSetup(){
     positions.push_back(ofVec3f(-0.5*concertRoom->getSoundLimits()[0], -0.5*concertRoom->getSoundLimits()[1], 0.5*concertRoom->getSoundLimits()[2]));
     positions.push_back(ofVec3f(0.5*concertRoom->getSoundLimits()[0], -0.5*concertRoom->getSoundLimits()[1], 0.5*concertRoom->getSoundLimits()[2]));
     
+    reset();
+}
+
+void SpatCalibrationParticle::reset(){
+
+    
+    resetLimits();
     
     speedIni = ofVec3f(0.05, 0.05, 0.05);
     
     restart();
-    
-    
-    
-    
 }
 
-void SpatCalibrationParticle::restart(){
+void SpatCalibrationParticle::customRestart(){
     
     
     if(positions.size() > 0){

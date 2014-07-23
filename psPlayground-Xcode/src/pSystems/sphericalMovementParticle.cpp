@@ -58,15 +58,7 @@ void SphericalMovementParticle::customSetup(){
     
     coordinateSystem = "spherical";
     
-	posOffsetIni = generateRandomVec3f(randomness, ofVec3f(0., 0., 0.));
-    posOffsetFinal = generateRandomVec3f(randomness, ofVec3f(0., 0., 0.));
-	posRadIni = generateRandomVec3f(randomness, ofVec3f(0.25, 0., 0.));
-	posRadFinal = generateRandomVec3f(randomness, ofVec3f(0.75, 0., 0.));
-	
-	speedIni = generateRandomVec3f(randomness, ofVec3f(0., 0.1, 0.1));
-	
-	
-	restart();
+	reset();
 }
 
 void SphericalMovementParticle::customRestart(){
@@ -77,9 +69,21 @@ void SphericalMovementParticle::customRestart(){
     speed = speedIni;
     calculateLimits();
     
+}
+
+void SphericalMovementParticle::reset(){
     
+    resetLimits();
     
-    
+    posOffsetIni = generateRandomVec3f(randomness, ofVec3f(0., 0., 0.));
+    posOffsetFinal = generateRandomVec3f(randomness, ofVec3f(0., 0., 0.));
+	posRadIni = generateRandomVec3f(randomness, ofVec3f(0.25, 0., 0.));
+	posRadFinal = generateRandomVec3f(randomness, ofVec3f(0.75, 0., 0.));
+	
+	speedIni = generateRandomVec3f(randomness, ofVec3f(0., 0.1, 0.1));
+	
+	
+	restart();
 }
 
 
@@ -108,7 +112,7 @@ void SphericalMovementParticle::customUpdate(){
 	}
 }
 
-void SphericalMovementParticle::timedUpdate(){
+void SphericalMovementParticle::trajectoryUpdate(){
     
     
     posRad.x = posRadIni.x + (posRadFinal.x - posRadIni.x)*lifeTime/timeToLive;

@@ -58,6 +58,16 @@ SimpleRandomParticle::~SimpleRandomParticle(){
 void SimpleRandomParticle::customSetup(){
     
     
+    reset();
+    
+    
+}
+
+void SimpleRandomParticle::reset(){
+    
+    
+    resetLimits();
+    
     easing_x = rangedRandom(easingLimits_x.min, easingLimits_x.max);
     easing_y = rangedRandom(easingLimits_y.min, easingLimits_y.max);
     easing_z = rangedRandom(easingLimits_z.min, easingLimits_z.max);
@@ -66,13 +76,10 @@ void SimpleRandomParticle::customSetup(){
     posCar = posCarIni;
     posCarNext = ofVec3f(rangedRandom(limits_x.min, limits_x.max), rangedRandom(limits_y.min, limits_y.max), rangedRandom(limits_z.min, limits_z.max));
     
-    
+    restart();
 }
 
-void SimpleRandomParticle::restart(){
-    easing_x = rangedRandom(easingLimits_x.min, easingLimits_x.max);
-    easing_y = rangedRandom(easingLimits_y.min, easingLimits_y.max);
-    easing_z = rangedRandom(easingLimits_z.min, easingLimits_z.max);
+void SimpleRandomParticle::customRestart(){
     
     posCarIni = ofVec3f(0., 0., 0.);
     posCar = posCarIni;

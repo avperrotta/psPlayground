@@ -72,6 +72,7 @@ public:
     virtual void draw();
     virtual void restart();
 	virtual void customRestart();
+    virtual void reset();
 
     virtual void customUpdate();
     std::string systemName;
@@ -95,10 +96,13 @@ public:
     double timeToLive;
     void resetTime();
 	virtual void updateTime();
-	virtual void timedUpdate();
 	bool updateByTime;
 	
     virtual void triggerTrajectory(t_atom* argv);
+    virtual void triggerTrajectory(float ttl);
+    virtual void trajectoryControl();
+    virtual void trajectoryUpdate();
+    bool onTrajectory;
     int trajectoryLoopType;
     bool trajectoryFinished;
 	void setTrajectoryLoopType(t_atom* argv);
@@ -202,6 +206,7 @@ public:
     limits limits_y;
     limits limits_z;
     CubeLimits bounds;
+    virtual void resetLimits();
     virtual void setSizeLimits(double x1, double x2, double y1, double y2, double z1, double z2);
     virtual void setSizeLimits(t_atom* argv);
     virtual void calculateLimits();
