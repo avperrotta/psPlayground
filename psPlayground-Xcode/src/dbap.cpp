@@ -46,7 +46,7 @@
 #include "ConcertRoom.h"
 
 Dbap::Dbap(){
-    
+    dbap = NULL;
 }
 
 Dbap::Dbap(ConcertRoom* cr, Particle* p){

@@ -73,6 +73,7 @@ t_class *max_psPlayground_class;
 int C74_EXPORT main(void)
 {	
 	
+    
     post("psPlayground version 1.0.0");
     post("created by André V. Perrotta");
     post("@ Porto - Portugal, 2014");

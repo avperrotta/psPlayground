@@ -58,6 +58,11 @@ AttractorParticle::~AttractorParticle(){
 
 void AttractorParticle::customSetup(){
     
+    useDbap = false;
+    outputRaw = false;
+    outputEnv = false;
+    outputDbap = false;
+    outputSpecific = false;
     reset();
     
     
@@ -73,15 +78,15 @@ void AttractorParticle::customRestart(){
 
 void AttractorParticle::reset(){
     posCar = ofVec3f(0., 0., 0.);
-    intensity = 0.01;
-    width = 15.*intensity;
+    intensity = 0.001;
+    width = 50.*intensity;
     restart();
 }
 
 void AttractorParticle::setIntensity(t_atom *argv){
     intensity = crop(atom_getfloat(argv), 0., atom_getfloat(argv));
     
-    width = 15.*intensity;
+    width = 50.*intensity;
 }
 
 ofVec3f AttractorParticle::calculateAttraction(ofVec3f p){
@@ -96,6 +101,18 @@ ofVec3f AttractorParticle::calculateAttraction(ofVec3f p){
     acc.x = -1.*intensity*(p.x - posCar.x)/norm;
     acc.y = -1.*intensity*(p.y - posCar.y)/norm;
     acc.z = -1.*intensity*(p.z - posCar.z)/norm;
+    
+    
+    if(norm != 0.){
+        acc.x = -1.*intensity*(p.x - posCar.x)/norm;
+        acc.y = -1.*intensity*(p.y - posCar.y)/norm;
+        acc.z = -1.*intensity*(p.z - posCar.z)/norm;
+    }
+    else{
+        acc = ofVec3f(0., 0., 0.);
+    }
+    
+    
     
     return acc;
 }

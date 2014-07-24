@@ -55,9 +55,8 @@ EmitterSystem::~EmitterSystem(){
 void EmitterSystem::customSetup(){
     
     src = new EmitterSource(this, 1);
-    src->setPos(ofVec3f((lx.min+lx.max)*0.5, (ly.min+ly.max)*0.5, (lz.min+lz.max)*0.5));
     
-    autoEmitter = true;
+    autoEmitter = false;
     birthTrigger = 0.;
     birthRate = 100.;
     birthProbability = 1.;

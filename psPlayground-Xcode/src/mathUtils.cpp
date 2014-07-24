@@ -75,6 +75,7 @@ double interpolate(ofVec2f v0, ofVec2f v1, double x){
 
 double getInterpolatedFromOfVec2fVector(vector<ofVec2f*>* v, double x){
     
+    
     if(v){
         
         
@@ -102,7 +103,9 @@ double getInterpolatedFromOfVec2fVector(vector<ofVec2f*>* v, double x){
             }
         }
         
+        
         gain = interpolate(ofVec2f((*v)[index]->x, (*v)[index]->y), ofVec2f((*v)[index+1]->x, (*v)[index+1]->y), x);
+        
         
         return gain;
 

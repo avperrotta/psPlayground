@@ -56,6 +56,13 @@ EmitterSource::~EmitterSource(){
 }
 
 void EmitterSource::customSetup(){
+    
+    useDbap = false;
+    outputRaw = false;
+    outputEnv = false;
+    outputDbap = false;
+    outputSpecific = false;
+    
 	reset();
 }
 
@@ -255,7 +262,7 @@ void EmitterSource::setVerticalRange(t_atom* argv){
 void EmitterSource::setSpeedRange(t_atom* argv){
     speedRange = limits(atom_getfloat(argv), atom_getfloat(argv + 1));
     
-    calculateRangeDrawingCoordinates();
+    //calculateRangeDrawingCoordinates();
 }
 
 

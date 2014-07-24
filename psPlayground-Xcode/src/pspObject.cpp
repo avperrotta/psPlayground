@@ -165,7 +165,13 @@ t_psPlayground *psPlayground_new(t_symbol * dest_name)
         // create and attach ob3d
 		jit_ob3d_new(x, dest_name);
         
-        x->pspMng = new psPlaygroundManager();
+        try{
+            x->pspMng = new psPlaygroundManager();
+        }
+        catch(exception& e){
+            cout << "Standard exception: " << e.what() << endl;
+        }
+        
 	} 
 	else 
 	{
@@ -178,8 +184,13 @@ t_psPlayground *psPlayground_new(t_symbol * dest_name)
 void psPlayground_free(t_psPlayground *x)
 {
     
-    
-	delete x->pspMng;
+    try{
+        delete x->pspMng;
+    }
+    catch(exception& e){
+        cout << "Standard exception: " << e.what() << endl;
+    }
+	
     
 	jit_ob3d_free(x);
 }
@@ -210,9 +221,13 @@ t_jit_err psPlayground_update(t_psPlayground *x){
 t_jit_err psPlayground_draw(t_psPlayground *x)
 {
 
-    psPlayground_update(x);
-    x->pspMng->draw();
-    
+    try{
+        psPlayground_update(x);
+        x->pspMng->draw();
+    }
+    catch(exception& e){
+        cout << "Standard exception: " << e.what() << endl;
+    }
     
     
 	return JIT_ERR_NONE;

@@ -52,7 +52,6 @@ Particle::Particle(){
 }
 
 Particle::Particle(pSystem* sys, int ind){
-    
     setup(sys, ind);
 }
 
@@ -94,6 +93,9 @@ void Particle::setup(pSystem* sys, int ind){
         dbap = new Dbap(concertRoom, this);
         useDbap = true;
         outputDbap = true;
+    }
+    else{
+        dbap = new Dbap();
     }
     outputRaw = true;
     outputEnv = true;
@@ -398,9 +400,12 @@ void Particle::trajectoryUpdate(){
 }
 
 void Particle::updateAttractorInfluence(){
+    
     accel = ofVec3f(0., 0., 0.);
-    for(int i=0; i<attractors->size(); i++){
-        accel += (*attractors)[i]->calculateAttraction(posCar);
+    if(attractors){
+        for(int i=0; i<attractors->size(); i++){
+            accel += (*attractors)[i]->calculateAttraction(posCar);
+        }
     }
 }
 

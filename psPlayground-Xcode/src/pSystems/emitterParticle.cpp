@@ -71,20 +71,10 @@ void EmitterParticle::customSetup(){
 }
 
 void EmitterParticle::customUpdate(){
-    
     updateAttractorInfluence();
     
     speed += accel;
 	posCar += speed;
-    
-    /*
-    if(posCar.x < limits_x.min || posCar.x > limits_x.max
-       || posCar.y < limits_y.min || posCar.y > limits_y.max
-       || posCar.z < limits_z.min || posCar.z > limits_z.max){
-        
-        status = 0;
-    }
-    */
     
     age++;
     if(age > life){
@@ -95,6 +85,10 @@ void EmitterParticle::customUpdate(){
 
 void EmitterParticle::customRestart(){
 	
+    posCar = ofVec3f(0., 0., 0.);
+    speed = ofVec3f(0., 0., 0.);
+    accel = ofVec3f(0., 0., 0.);
+    life = 50.;
     posCar = src->posCar;
     
     double absSpeed = rangedRandom(src->speedRange.min, src->speedRange.max);
@@ -110,6 +104,7 @@ void EmitterParticle::customRestart(){
     aux += src->posCar;
     
     speed = (aux - posCar)*absSpeed;
+    accel = ofVec3f(0., 0., 0.);
     
     life = rangedRandom(src->lifeLimits.min, src->lifeLimits.max);
     
