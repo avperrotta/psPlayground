@@ -79,6 +79,8 @@ void EmitterSource::reset(){
     verticalRange = limits(0., M_PI);
     speedRange = limits(0.01, 0.1);
     
+    lifeLimits = limits(50, 100);
+    
     
     calculateRangeDrawingCoordinates();
     
@@ -129,6 +131,23 @@ void EmitterSource::draw(){
     
     glPopMatrix();
     
+    /*
+    glPushMatrix();
+    glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
+    glEnable(GL_BLEND);
+    glBlendEquation(GL_FUNC_ADD);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glColor4f(color.x, color.y, color.z, 0.02);
+    GLUquadricObj* Sphere;
+    glTranslatef(posCar.x, posCar.y, posCar.z);
+    Sphere = gluNewQuadric();
+    gluSphere(Sphere, speedRange.min, 16, 16);
+    gluSphere(Sphere, speedRange.max, 16, 16);
+    gluDeleteQuadric(Sphere);
+    glDisable(GL_BLEND);
+    glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
+    glPopMatrix();
+    */
     
 }
 

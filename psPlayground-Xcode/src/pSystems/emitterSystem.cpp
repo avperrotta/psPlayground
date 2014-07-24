@@ -57,21 +57,20 @@ void EmitterSystem::customSetup(){
     src = new EmitterSource(this, 1);
     src->setPos(ofVec3f((lx.min+lx.max)*0.5, (ly.min+ly.max)*0.5, (lz.min+lz.max)*0.5));
     
-    particles->clear();
+    autoEmitter = true;
+    birthTrigger = 0.;
+    birthRate = 100.;
+    birthProbability = 1.;
+    birthSize = 1;
     
-    /*
-	for(int i=0; i<numParticles; i++){
-        particles->push_back(new EmitterParticle(this, i+1));
-    }
-    */
+    particles->clear();
+    attractors->clear();
+    
 }
 void EmitterSystem::customUpdate(){
 	if(play){
         
-        if(rangedRandom(0., 10.) > 5.){
-            particles->push_back(new EmitterParticle(this, particles->size()+1));
-        }
-        
+        birthController();
         
         for(int i=0; i<particles->size(); i++){
             (*particles)[i]->update();
@@ -81,17 +80,87 @@ void EmitterSystem::customUpdate(){
             }
         }
     }
-    
 }
+
+void EmitterSystem::injectParticles(t_atom *argv){
+    int np = atom_getlong(argv);
+    injectParticles(np);
+}
+
+void EmitterSystem::injectParticles(int np){
+    
+    
+    for(int i=0; i<np; i++){
+        if(particles->size() < MAX_NUM_EMITTER_PARTICLES){
+            particles->push_back(new EmitterParticle(this, particles->size()+1));
+        }
+        else {
+            break;
+        }
+        
+    }
+}
+
+void EmitterSystem::birthController(){
+    if(autoEmitter){
+        if((currentTime - birthTrigger) >= birthRate){
+            birthTrigger = currentTime;
+            if(rangedRandom(0., 1.) <= birthProbability){
+                injectParticles(birthSize);
+            }
+        }
+    }
+}
+
 void EmitterSystem::customDraw(){
     src->draw();
-    drawLimits();
 }
+
+void EmitterSystem::setBirthRate(t_atom *argv){
+    birthRate = crop(atom_getfloat(argv), 0., atom_getfloat(argv));
+}
+
+void EmitterSystem::setBirthProbability(t_atom *argv){
+    birthProbability = crop(atom_getfloat(argv), 0., 1.);
+}
+
+void EmitterSystem::setBirthSize(t_atom *argv){
+    birthSize = (int)crop(atom_getfloat(argv), 1., 1000.);
+}
+
+
+
 t_jit_err EmitterSystem::messageControl(long argc, t_atom* argv){
 	std::string task;
     task = jit_atom_getsym(argv)->s_name;
     
-    if(task == "setSourceHorizontalEmittingRange"){
+    if(task == "setBirthRate"){
+        if(argv){
+            if(argc == 2){
+                setBirthRate(argv + 1);
+            }
+        }
+        return JIT_ERR_NONE;
+    }
+    else if(task == "setBirthProbability"){
+        if(argv){
+            if(argc == 2){
+                setBirthProbability(argv + 1);
+            }
+        }
+        return JIT_ERR_NONE;
+    }
+    else if(task == "setBirthSize"){
+        if(argv){
+            if(argc == 2){
+                setBirthSize(argv + 1);
+            }
+        }
+        return JIT_ERR_NONE;
+    }
+    
+    
+    else if(task == "setSourceHorizontalEmittingRange"){
         if(argv){
             if(argc == 3){
                 src->setHorizontalRange(argv + 1);
@@ -115,6 +184,37 @@ t_jit_err EmitterSystem::messageControl(long argc, t_atom* argv){
         }
         return JIT_ERR_NONE;
     }
+    else if(task == "setSourcePosition"){
+        if(argv){
+            if(argc == 4){
+                src->setPos(argv + 1);
+            }
+        }
+        return JIT_ERR_NONE;
+    }
+    else if(task == "setLifeLimits"){
+        if(argv){
+            if(argc == 3){
+                src->setLifeLimits(argv + 1);
+            }
+        }
+        return JIT_ERR_NONE;
+    }
+    else if(task == "setAutoEmitter"){
+        if(argv){
+            if(argc == 2){
+                autoEmitter = atom_getlong(argv + 1);
+            }
+        }
+    }
+    else if(task == "injectParticles"){
+        if(argv){
+            if(argc == 2){
+                int np = (int)crop(atom_getfloat(argv + 1), 1., atom_getfloat(argv + 1));
+                injectParticles(np);
+            }
+        }
+    }
     
     pSystem::messageControl(argc, argv);
     
@@ -125,18 +225,7 @@ EmitterSource* EmitterSystem::getSrc(){
     return src;
 }
 
-void EmitterSystem::setLimits(t_atom *argv){
-    if(argv){
-        lx.min = atom_getfloat(argv + 0);
-        lx.max = atom_getfloat(argv + 1);
-        ly.min = atom_getfloat(argv + 2);
-        ly.max = atom_getfloat(argv + 3);
-        lz.min = atom_getfloat(argv + 4);
-        lz.max = atom_getfloat(argv + 5);
-    }
-    
-    src->setPos(ofVec3f((lx.min+lx.max)*0.5, (ly.min+ly.max)*0.5, (lz.min+lz.max)*0.5));
-}
+
 
 
 

@@ -304,12 +304,16 @@ void Particle::customUpdate(){
 void Particle::draw(){
     //post("draw particle %lf %lf %lf", posCar.x, posCar.y, posCar.z);
     glPushMatrix();
+    glEnable(GL_BLEND);
+    glBlendEquation(GL_FUNC_ADD);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glColor4f(color.x, color.y, color.z, gain);
     GLUquadricObj* Sphere;
     glTranslatef(posCar.x, posCar.y, posCar.z);
     Sphere = gluNewQuadric();
     gluSphere(Sphere, width, 4, 4);
     gluDeleteQuadric(Sphere);
+    glDisable(GL_BLEND);
     glPopMatrix();
 }
 
@@ -443,11 +447,14 @@ void Particle::calculateLimits(){
 }
 
 
-
 void Particle::setColor(ofVec4f c){
     color = c;
 }
 
+void Particle::setLifeLimits(t_atom *argv){
+    lifeLimits.min = crop(atom_getfloat(argv), 0., atom_getfloat(argv));
+    lifeLimits.max = crop(atom_getfloat(argv + 1), 0., atom_getfloat(argv + 1));
+}
 
 void Particle::setPos(t_atom* argv){
     

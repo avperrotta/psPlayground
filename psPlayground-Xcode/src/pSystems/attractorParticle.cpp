@@ -40,92 +40,65 @@
  along with psPlayground.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef __psPlayground__pSystem__
-#define __psPlayground__pSystem__
-
-#include <iostream>
-#include <string>
-#include "Particle.h"
-#include "ConcertRoom.h"
-#include "jit.common.h"
-#include "jit.gl.h"
-#include "ext.h"
-#include "ext_obex.h"
-#include "ext_strings.h"
-#include "ext_common.h"
-#include "ext_systhread.h"
-#include "pspGlobals.h"
-#include "ofVectorMath.h"
 #include "attractorParticle.h"
+#include "pSystem.h"
+#include "emitterSystem.h"
 
-extern std::string absPath;
+AttractorParticle::AttractorParticle(){
+	
+}
 
-class pSystem{
-public:
-    
-    pSystem();
-    pSystem(ConcertRoom* cr, std::string ns, int np);
-    virtual ~pSystem();
-    
-    virtual void setup();
-    virtual void setup(ConcertRoom* cr, std::string ns, int np);
-    virtual void customSetup();
-    virtual void update();
-    virtual void customUpdate();
-    virtual void draw();
-    virtual void customDraw();
-    virtual void addParticles(int num);
-    virtual void killParticles(int num);
-    
-    virtual t_jit_err messageControl(long argc, t_atom* argv);
-    
-    virtual void createOutput();
-    
-    std::string name;
-    std::string getName();
-    
-    ConcertRoom* concertRoom;
-    ConcertRoom* getConcertRoom();
-    
-    vector<Particle*>* particles;
-    
-    int numParticles;
-    int maxNumParticles;
-    
-    bool outputRaw;
-    bool outputDbap;
-    
-    double currentTime;
-    double previousTime;
-    double dTime;
-    virtual void updateTime();
-    virtual void resetTime();
-    
-    ofVec4f color;
-    ofVec4f getColor();
-    
-    
-    void restart();
-    bool stop;
-    bool play;
-    
-    limits lx;
-    limits ly;
-    limits lz;
-    virtual void setLimits(t_atom* argv);
-    virtual void setLimits();
-    virtual void drawLimits();
-    
-    
-    //attractors
-    vector<AttractorParticle*>* attractors;
-    vector<AttractorParticle*>* getAttractors();
-    void drawAttractors();
-    
-    //trajectory recording
-	std::string recFilesPath;
-	std::string getRecFilesPath();
-    
-};
+AttractorParticle::AttractorParticle(pSystem* sys, int ind){
+	setup(sys, ind);
+}
 
-#endif /* defined(__psPlayground__pSystem__) */
+AttractorParticle::~AttractorParticle(){
+	
+}
+
+void AttractorParticle::customSetup(){
+    
+    posCar = ofVec3f(0., 0., 0.);
+    intensity = 0.1;
+    
+    
+}
+
+void AttractorParticle::customUpdate(){
+	
+}
+
+void AttractorParticle::customRestart(){
+	
+}
+
+void AttractorParticle::reset(){
+    posCar = ofVec3f(0., 0., 0.);
+    intensity = 0.1;
+    restart();
+}
+
+void AttractorParticle::setIntensity(t_atom *argv){
+    intensity = crop(atom_getfloat(argv), 0., atom_getfloat(argv));
+}
+
+void AttractorParticle::draw(){
+    
+     glPushMatrix();
+     glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
+     glEnable(GL_BLEND);
+     glBlendEquation(GL_FUNC_ADD);
+     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+     glColor4f(color.x, color.y, color.z, 0.015);
+     GLUquadricObj* Sphere;
+     glTranslatef(posCar.x, posCar.y, posCar.z);
+     Sphere = gluNewQuadric();
+     gluSphere(Sphere, intensity, 16, 16);
+     gluDeleteQuadric(Sphere);
+     glDisable(GL_BLEND);
+     glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
+     glPopMatrix();
+    
+
+}
+

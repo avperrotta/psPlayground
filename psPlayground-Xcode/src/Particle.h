@@ -85,8 +85,10 @@ public:
     double minLife;
     double maxLife;
     double life;
+    limits lifeLimits;
     double avgLife;
     double age;
+    virtual void setLifeLimits(t_atom* argv);
     
     double currentTime;
     double previousTime;

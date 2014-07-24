@@ -52,7 +52,9 @@
 #include "ofVectorMath.h"
 #include "emitterParticle.h"
 #include "emitterSource.h"
+#include "attractorParticle.h"
 
+#define MAX_NUM_EMITTER_PARTICLES 1000
 
 
 class EmitterSystem : public pSystem{
@@ -65,12 +67,27 @@ public:
     void customSetup();
     void customUpdate();
     void customDraw();
-    void setLimits(t_atom* argv);
     
     t_jit_err messageControl(long argc, t_atom* argv);
     
     EmitterSource* src;
     EmitterSource* getSrc();
+    
+    double birthRate;
+    double birthProbability;
+    int birthSize;
+    int birthTrigger;
+    
+    void injectParticles(t_atom* argv);
+    void injectParticles(int np);
+    
+    bool autoEmitter;
+    void birthController();
+    
+    void setBirthRate(t_atom* argv);
+    void setBirthProbability(t_atom* argv);
+    void setBirthSize(t_atom* argv);
+    
     
     
 };

@@ -89,6 +89,7 @@ void pSystem::setup(ConcertRoom* cr, std::string ns, int np){
     
     currentTime = gettime();
     previousTime = gettime();
+    dTime = 0.;
     
     if(concertRoom){
         color = concertRoom->getNextColor();
@@ -106,12 +107,25 @@ void pSystem::setup(ConcertRoom* cr, std::string ns, int np){
     customSetup();
 }
 
-void pSystem::update(){
+void pSystem::updateTime(){
+    
+    dTime = currentTime - previousTime;
     previousTime = currentTime;
     currentTime = gettime();
     
+}
+
+void pSystem::resetTime(){
+    
+}
+
+void pSystem::update(){
+    
+    updateTime();
     customUpdate();
 }
+
+
 
 void pSystem::customUpdate(){
     
@@ -651,9 +665,15 @@ void pSystem::drawLimits(){
 }
 
 
+void pSystem::drawAttractors(){
+    for(int i=0; i<attractors->size(); i++){
+        (*attractors)[i]->draw();
+    }
+}
 
-
-
+vector<AttractorParticle*>* pSystem::getAttractors(){
+    return attractors;
+}
 
 
 

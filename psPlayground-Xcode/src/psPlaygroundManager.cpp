@@ -180,13 +180,20 @@ t_jit_err psPlaygroundManager::addPSystem(long argc, t_atom* argv){
     
     
     if(argv){
-        if(argc == 4){
+        if(argc == 4 || argc == 3){
             std::string systemType;
             std::string systemName;
             
             systemType = jit_atom_getsym(argv + 1)->s_name;
             systemName = jit_atom_getsym(argv + 2)->s_name;
-            int numParticles = jit_atom_getlong(argv + 3);
+            int numParticles;
+            if(argc == 4){
+                numParticles = jit_atom_getlong(argv + 3);
+            }
+            else{
+                numParticles = 0;
+            }
+            
             
             if(systemType == "simpleRandomSystem"){
                 if(pSystems.find(systemName) == pSystems.end()){

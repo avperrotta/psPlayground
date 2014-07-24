@@ -59,6 +59,7 @@ EmitterParticle::~EmitterParticle(){
 void EmitterParticle::customSetup(){
     
     src = static_cast<EmitterSystem*>(mySystem)->getSrc();
+    width = 0.01;
     
     reset();
     
@@ -68,13 +69,20 @@ void EmitterParticle::customSetup(){
 void EmitterParticle::customUpdate(){
 	posCar += speed;
     
+    /*
     if(posCar.x < limits_x.min || posCar.x > limits_x.max
        || posCar.y < limits_y.min || posCar.y > limits_y.max
        || posCar.z < limits_z.min || posCar.z > limits_z.max){
         
         status = 0;
     }
+    */
     
+    age++;
+    if(age > life){
+        status = 0;
+    }
+    gain = 1. - (double)age/(double)life;
 }
 
 void EmitterParticle::customRestart(){
@@ -91,7 +99,14 @@ void EmitterParticle::customRestart(){
     aux.y = cos(theta);
     aux.z = sin(theta)*sin(phi);
     
+    aux += src->posCar;
+    
     speed = (aux - posCar)*absSpeed;
+    
+    life = rangedRandom(src->lifeLimits.min, src->lifeLimits.max);
+    
+    age = 0;
+    lifeTime = 0;
 	
 }
 

@@ -21,6 +21,8 @@
 		A74EBD641934BA27007508C9 /* ofVec4f.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A74EBD5E1934BA27007508C9 /* ofVec4f.cpp */; };
 		A74EBD651934BA27007508C9 /* ofVec4f.h in Headers */ = {isa = PBXBuildFile; fileRef = A74EBD5F1934BA27007508C9 /* ofVec4f.h */; };
 		A74EBD671934BB8F007508C9 /* ofVectorMath.h in Headers */ = {isa = PBXBuildFile; fileRef = A74EBD661934BB8F007508C9 /* ofVectorMath.h */; };
+		A779BE2019814D480071560C /* attractorParticle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A779BE1E19814D480071560C /* attractorParticle.cpp */; };
+		A779BE2119814D480071560C /* attractorParticle.h in Headers */ = {isa = PBXBuildFile; fileRef = A779BE1F19814D480071560C /* attractorParticle.h */; };
 		A7B4269E1935F89F00E35E49 /* ConcertRoom.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7B4268B1935F89F00E35E49 /* ConcertRoom.cpp */; };
 		A7B4269F1935F89F00E35E49 /* ConcertRoom.h in Headers */ = {isa = PBXBuildFile; fileRef = A7B4268C1935F89F00E35E49 /* ConcertRoom.h */; };
 		A7B426A01935F89F00E35E49 /* pspObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7B4268D1935F89F00E35E49 /* pspObject.cpp */; };
@@ -92,6 +94,8 @@
 		A74EBD5E1934BA27007508C9 /* ofVec4f.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofVec4f.cpp; sourceTree = "<group>"; };
 		A74EBD5F1934BA27007508C9 /* ofVec4f.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofVec4f.h; sourceTree = "<group>"; };
 		A74EBD661934BB8F007508C9 /* ofVectorMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofVectorMath.h; sourceTree = "<group>"; };
+		A779BE1E19814D480071560C /* attractorParticle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = attractorParticle.cpp; sourceTree = "<group>"; };
+		A779BE1F19814D480071560C /* attractorParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = attractorParticle.h; sourceTree = "<group>"; };
 		A7B4268B1935F89F00E35E49 /* ConcertRoom.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConcertRoom.cpp; sourceTree = "<group>"; };
 		A7B4268C1935F89F00E35E49 /* ConcertRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConcertRoom.h; sourceTree = "<group>"; };
 		A7B4268D1935F89F00E35E49 /* pspObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pspObject.cpp; sourceTree = "<group>"; };
@@ -280,6 +284,8 @@
 				A7B54DB1197FEABA0015D844 /* emitterParticle.h */,
 				A7B54DB4197FEB580015D844 /* emitterSource.cpp */,
 				A7B54DB5197FEB580015D844 /* emitterSource.h */,
+				A779BE1E19814D480071560C /* attractorParticle.cpp */,
+				A779BE1F19814D480071560C /* attractorParticle.h */,
 			);
 			path = pSystems;
 			sourceTree = "<group>";
@@ -293,6 +299,7 @@
 			files = (
 				A7B426A91935F89F00E35E49 /* psPlayground.h in Headers */,
 				A7B426AB1935F89F00E35E49 /* pSystem.h in Headers */,
+				A779BE2119814D480071560C /* attractorParticle.h in Headers */,
 				A7C33DD7195326CD00BEEAFB /* spatCalibrationSystem.h in Headers */,
 				A7BCEE971961AA920003C5E3 /* farfalharParticle.h in Headers */,
 				A7E8A8A3197D7204009AD8C6 /* cylindricalMovementParticle.h in Headers */,
@@ -412,6 +419,7 @@
 				A74EBD611934BA27007508C9 /* ofVec2f.cpp in Sources */,
 				A7B426BA1936588D00E35E49 /* pspGlobals.cpp in Sources */,
 				A7C33DDE19543CAA00BEEAFB /* rainSystem.cpp in Sources */,
+				A779BE2019814D480071560C /* attractorParticle.cpp in Sources */,
 				A7B426A11935F89F00E35E49 /* psPlaygroundManager.cpp in Sources */,
 				A7C33DDA195327C500BEEAFB /* spatCalibrationParticle.cpp in Sources */,
 				A7B426B219360D1400E35E49 /* simpleRandomSystem.cpp in Sources */,
