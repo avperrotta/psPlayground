@@ -57,6 +57,7 @@
 
 class pSystem;
 class ConcertRoom;
+class AttractorParticle;
 class Particle{
     
 public:
@@ -229,6 +230,11 @@ public:
     limits easingLimits_x;
     limits easingLimits_y;
     limits easingLimits_z;
+    
+    
+    //attractors
+    vector<AttractorParticle*>* attractors;
+    virtual void updateAttractorInfluence();
 
     //environment
     ConcertRoom* concertRoom;
@@ -266,6 +272,8 @@ public:
     void setRecMode(long argc, t_atom* argv);
 	void recUpdate();
 	void setPlayRec(long argc, t_atom* argv);
+    
+    
 };
 
 

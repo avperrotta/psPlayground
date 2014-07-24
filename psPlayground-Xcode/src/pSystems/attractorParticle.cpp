@@ -58,8 +58,7 @@ AttractorParticle::~AttractorParticle(){
 
 void AttractorParticle::customSetup(){
     
-    posCar = ofVec3f(0., 0., 0.);
-    intensity = 0.1;
+    reset();
     
     
 }
@@ -74,12 +73,31 @@ void AttractorParticle::customRestart(){
 
 void AttractorParticle::reset(){
     posCar = ofVec3f(0., 0., 0.);
-    intensity = 0.1;
+    intensity = 0.01;
+    width = 15.*intensity;
     restart();
 }
 
 void AttractorParticle::setIntensity(t_atom *argv){
     intensity = crop(atom_getfloat(argv), 0., atom_getfloat(argv));
+    
+    width = 15.*intensity;
+}
+
+ofVec3f AttractorParticle::calculateAttraction(ofVec3f p){
+    
+    ofVec3f acc;
+    ofVec3f dists;
+    double norm = dist3d(p, posCar);
+    dists.x = dist2d(p.x, posCar.x);
+    dists.y = dist2d(p.y, posCar.y);
+    dists.z = dist2d(p.z, posCar.z);
+    
+    acc.x = -1.*intensity*(p.x - posCar.x)/norm;
+    acc.y = -1.*intensity*(p.y - posCar.y)/norm;
+    acc.z = -1.*intensity*(p.z - posCar.z)/norm;
+    
+    return acc;
 }
 
 void AttractorParticle::draw(){
@@ -89,11 +107,11 @@ void AttractorParticle::draw(){
      glEnable(GL_BLEND);
      glBlendEquation(GL_FUNC_ADD);
      glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-     glColor4f(color.x, color.y, color.z, 0.015);
+     glColor4f(color.x, color.y, color.z, 0.05);
      GLUquadricObj* Sphere;
      glTranslatef(posCar.x, posCar.y, posCar.z);
      Sphere = gluNewQuadric();
-     gluSphere(Sphere, intensity, 16, 16);
+     gluSphere(Sphere, width, 16, 16);
      gluDeleteQuadric(Sphere);
      glDisable(GL_BLEND);
      glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);

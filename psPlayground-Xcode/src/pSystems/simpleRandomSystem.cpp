@@ -91,20 +91,6 @@ t_jit_err SimpleRandomSystem::messageControl(long argc, t_atom *argv){
     std::string task;
     task = jit_atom_getsym(argv)->s_name;
     
-    
-    if(task == "setSpeedLimits"){
-        if(argc == 7){
-            if(argv){
-                for(int i=0; i<numParticles; i++){
-                    (*particles)[i]->setSpeedLimits(argv + 1);
-                }
-            }
-        }
-        
-        return JIT_ERR_NONE;
-    }
-    
-    
     pSystem::messageControl(argc, argv);
     
     return JIT_ERR_INVALID_INPUT;

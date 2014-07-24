@@ -43,6 +43,7 @@
 #include "emitterParticle.h"
 #include "pSystem.h"
 #include "emitterSystem.h"
+#include "attractorParticle.h"
 
 EmitterParticle::EmitterParticle(){
 	
@@ -59,6 +60,9 @@ EmitterParticle::~EmitterParticle(){
 void EmitterParticle::customSetup(){
     
     src = static_cast<EmitterSystem*>(mySystem)->getSrc();
+    
+    attractors = mySystem->getAttractors();
+    
     width = 0.01;
     
     reset();
@@ -67,6 +71,10 @@ void EmitterParticle::customSetup(){
 }
 
 void EmitterParticle::customUpdate(){
+    
+    updateAttractorInfluence();
+    
+    speed += accel;
 	posCar += speed;
     
     /*

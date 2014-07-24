@@ -120,6 +120,11 @@ public:
     //attractors
     vector<AttractorParticle*>* attractors;
     vector<AttractorParticle*>* getAttractors();
+    void addAttractors(t_atom* argv);
+    void addAttractors(int na);
+    void deleteAttractor(t_atom* argv);
+    void deleteAttractor(int na);
+    void clearAttractors();
     void drawAttractors();
     
     //trajectory recording

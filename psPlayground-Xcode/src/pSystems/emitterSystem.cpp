@@ -62,10 +62,6 @@ void EmitterSystem::customSetup(){
     birthRate = 100.;
     birthProbability = 1.;
     birthSize = 1;
-    
-    particles->clear();
-    attractors->clear();
-    
 }
 void EmitterSystem::customUpdate(){
 	if(play){
@@ -114,6 +110,7 @@ void EmitterSystem::birthController(){
 
 void EmitterSystem::customDraw(){
     src->draw();
+    drawAttractors();
 }
 
 void EmitterSystem::setBirthRate(t_atom *argv){

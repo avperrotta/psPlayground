@@ -61,6 +61,10 @@ double dist3d(ofVec3f v1, ofVec3f v2){
     
 }
 
+double dist2d(double x1, double x2){
+    return sqrt((x1 - x2)*(x1 - x2));
+}
+
 double interpolate(ofVec2f v0, ofVec2f v1, double x){
     double y;
     

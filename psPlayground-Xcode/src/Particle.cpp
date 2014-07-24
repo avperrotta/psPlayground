@@ -44,6 +44,7 @@
 #include "pspGlobals.h"
 #include "ConcertRoom.h"
 #include "pSystem.h"
+#include "attractorParticle.h"
 
 Particle::Particle(){
     
@@ -394,6 +395,13 @@ void Particle::trajectoryControl(){
 
 void Particle::trajectoryUpdate(){
     
+}
+
+void Particle::updateAttractorInfluence(){
+    accel = ofVec3f(0., 0., 0.);
+    for(int i=0; i<attractors->size(); i++){
+        accel += (*attractors)[i]->calculateAttraction(posCar);
+    }
 }
 
 void Particle::setTrajectoryLoopType(t_atom *argv){

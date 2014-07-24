@@ -63,6 +63,14 @@ pSystem::~pSystem(){
         }
         delete particles;
     }
+    
+    if(attractors){
+        while(!attractors->empty()){
+            delete attractors->back();
+            attractors->pop_back();
+        }
+        delete attractors;
+    }
 }
 
 
@@ -77,6 +85,7 @@ void pSystem::customSetup(){
 void pSystem::setup(ConcertRoom* cr, std::string ns, int np){
     
     particles = new vector<Particle*>();
+    attractors = new vector<AttractorParticle*>();
     concertRoom = cr;
     
     maxNumParticles = 1000;
@@ -266,7 +275,10 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
 				}
             }
             else if(argc == 5){
-                (*particles)[atom_getlong(argv + 1)]->setPos(argv + 2);
+                int j = atom_getlong(argv + 1);
+                if(j > 0 && j <= particles->size()){
+                    (*particles)[j-1]->setPos(argv + 2);
+                }
             }
         }
     }
@@ -278,7 +290,10 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
                 }
             }
             else if(argc == 5){
-                (*particles)[atom_getlong(argv + 1)]->setPosIni(argv + 2);
+                int j = atom_getlong(argv + 1);
+                if(j > 0 && j <= particles->size()){
+                    (*particles)[j-1]->setPosIni(argv + 2);
+                }
             }
         }
     }
@@ -290,7 +305,10 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
                 }
             }
             else if(argc == 5){
-                (*particles)[atom_getlong(argv + 1)]->setPosFinal(argv + 2);
+                int j = atom_getlong(argv + 1);
+                if(j > 0 && j <= particles->size()){
+                    (*particles)[j-1]->setPosFinal(argv + 2);
+                }
             }
         }
     }
@@ -302,7 +320,10 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
                 }
             }
             else if(argc == 5){
-                (*particles)[atom_getlong(argv + 1)]->setSpeed(argv + 2);
+                int j = atom_getlong(argv + 1);
+                if(j > 0 && j <= particles->size()){
+                    (*particles)[j-1]->setSpeed(argv + 2);
+                }
             }
         }
         return JIT_ERR_NONE;
@@ -315,7 +336,10 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
                 }
             }
             else if(argc == 5){
-                (*particles)[atom_getlong(argv + 1)]->setSpeedIni(argv + 2);
+                int j = atom_getlong(argv + 1);
+                if(j > 0 && j <= particles->size()){
+                    (*particles)[j-1]->setSpeedIni(argv + 2);
+                }
             }
         }
         return JIT_ERR_NONE;
@@ -328,7 +352,10 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
                 }
             }
             else if(argc == 5){
-                (*particles)[atom_getlong(argv + 1)]->setSpeedFinal(argv + 2);
+                int j = atom_getlong(argv + 1);
+                if(j > 0 && j <= particles->size()){
+                    (*particles)[j-1]->setSpeedFinal(argv + 2);
+                }
             }
         }
         return JIT_ERR_NONE;
@@ -341,7 +368,10 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
                 }
             }
             else if(argc == 5){
-                (*particles)[atom_getlong(argv + 1)]->setOffset(argv + 2);
+                int j = atom_getlong(argv + 1);
+                if(j > 0 && j <= particles->size()){
+                    (*particles)[j-1]->setOffset(argv + 2);
+                }
             }
         }
         return JIT_ERR_NONE;
@@ -354,7 +384,10 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
                 }
             }
             else if(argc == 5){
-                (*particles)[atom_getlong(argv + 1)]->setOffsetIni(argv + 2);
+                int j = atom_getlong(argv + 1);
+                if(j > 0 && j <= particles->size()){
+                    (*particles)[j-1]->setOffsetIni(argv + 2);
+                }
             }
         }
         return JIT_ERR_NONE;
@@ -367,7 +400,10 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
                 }
             }
             else if(argc == 5){
-                (*particles)[atom_getlong(argv + 1)]->setOffsetFinal(argv + 2);
+                int j = atom_getlong(argv + 1);
+                if(j > 0 && j <= particles->size()){
+                    (*particles)[j-1]->setOffsetFinal(argv + 2);
+                }
             }
         }
         return JIT_ERR_NONE;
@@ -380,7 +416,10 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
                 }
             }
             else if(argc == 3){
-                (*particles)[atom_getlong(argv + 1)]->setX(argv + 2);
+                int j = atom_getlong(argv + 1);
+                if(j > 0 && j <= particles->size()){
+                    (*particles)[j-1]->setX(argv + 2);
+                }
             }
         }
         return JIT_ERR_NONE;
@@ -393,7 +432,10 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
                 }
             }
             else if(argc == 3){
-                (*particles)[atom_getlong(argv + 1)]->setY(argv + 2);
+                int j = atom_getlong(argv + 1);
+                if(j > 0 && j <= particles->size()){
+                    (*particles)[j-1]->setY(argv + 2);
+                }
             }
         }
         return JIT_ERR_NONE;
@@ -406,7 +448,10 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
                 }
             }
             else if(argc == 3){
-                (*particles)[atom_getlong(argv + 1)]->setZ(argv + 2);
+                int j = atom_getlong(argv + 1);
+                if(j > 0 && j <= particles->size()){
+                    (*particles)[j-1]->setZ(argv + 2);
+                }
             }
         }
         return JIT_ERR_NONE;
@@ -419,7 +464,10 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
                 }
             }
             else if(argc == 3){
-                (*particles)[atom_getlong(argv + 1)]->setVx(argv + 2);
+                int j = atom_getlong(argv + 1);
+                if(j > 0 && j <= particles->size()){
+                    (*particles)[j-1]->setVx(argv + 2);
+                }
             }
         }
         return JIT_ERR_NONE;
@@ -432,7 +480,10 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
                 }
             }
             else if(argc == 3){
-                (*particles)[atom_getlong(argv + 1)]->setVy(argv + 2);
+                int j = atom_getlong(argv + 1);
+                if(j > 0 && j <= particles->size()){
+                    (*particles)[j-1]->setVy(argv + 2);
+                }
             }
         }
         return JIT_ERR_NONE;
@@ -445,7 +496,10 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
                 }
             }
             else if(argc == 3){
-                (*particles)[atom_getlong(argv + 1)]->setVz(argv + 2);
+                int j = atom_getlong(argv + 1);
+                if(j > 0 && j <= particles->size()){
+                    (*particles)[j-1]->setVz(argv + 2);
+                }
             }
         }
         return JIT_ERR_NONE;
@@ -458,7 +512,10 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
                 }
             }
             else if(argc == 3){
-                (*particles)[atom_getlong(argv + 1)]->setRadius(argv + 2);
+                int j = atom_getlong(argv + 1);
+                if(j > 0 && j <= particles->size()){
+                    (*particles)[j-1]->setRadius(argv + 2);
+                }
             }
         }
         return JIT_ERR_NONE;
@@ -472,7 +529,10 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
                 }
             }
             else if(argc == 3){
-                (*particles)[atom_getlong(argv + 1)]->setTheta(argv + 2);
+                int j = atom_getlong(argv + 1);
+                if(j > 0 && j <= particles->size()){
+                    (*particles)[j-1]->setTheta(argv + 2);
+                }
             }
         }
         return JIT_ERR_NONE;
@@ -485,7 +545,10 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
                 }
             }
             else if(argc == 3){
-                (*particles)[atom_getlong(argv + 1)]->setPhi(argv + 2);
+                int j = atom_getlong(argv + 1);
+                if(j > 0 && j <= particles->size()){
+                    (*particles)[j-1]->setPhi(argv + 2);
+                }
             }
         }
         return JIT_ERR_NONE;
@@ -498,7 +561,10 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
                 }
             }
             else if(argc == 3){
-                (*particles)[atom_getlong(argv + 1)]->setRadiusSpeed(argv + 2);
+                int j = atom_getlong(argv + 1);
+                if(j > 0 && j <= particles->size()){
+                    (*particles)[j-1]->setRadiusSpeed(argv + 2);
+                }
             }
         }
         return JIT_ERR_NONE;
@@ -511,7 +577,10 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
                 }
             }
             else if(argc == 3){
-                (*particles)[atom_getlong(argv + 1)]->setThetaSpeed(argv + 2);
+                int j = atom_getlong(argv + 1);
+                if(j > 0 && j <= particles->size()){
+                    (*particles)[j-1]->setThetaSpeed(argv + 2);
+                }
             }
         }
         return JIT_ERR_NONE;
@@ -524,7 +593,11 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
                 }
             }
             else if(argc == 3){
-                (*particles)[atom_getlong(argv + 1)]->setPhiSpeed(argv + 2);
+                int j = atom_getlong(argv + 1);
+                if(j> 0 && j <= particles->size()){
+                    (*particles)[j-1]->setPhiSpeed(argv + 2);
+                }
+                
             }
         }
         return JIT_ERR_NONE;
@@ -541,6 +614,47 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
             }
         }
         return JIT_ERR_NONE;
+    }
+    else if(task == "addAttractor"){
+        if(argv){
+            if(argc == 2){
+                addAttractors(argv + 1);
+            }
+        }
+    }
+    else if(task == "deleAttractor"){
+        if(argv){
+            if(argc == 2){
+                deleteAttractor(argv + 1);
+            }
+        }
+    }
+    else if(task == "clearAttractors"){
+        if(argv){
+            if(argc == 1){
+                clearAttractors();
+            }
+        }
+    }
+    else if(task == "setAttractorPosition"){
+        if(argv){
+            if(argc == 5){
+                int j = atom_getlong(argv + 1);
+                if(j > 0 && j <= attractors->size()){
+                    (*attractors)[j-1]->setPos(argv + 2);
+                }
+            }
+        }
+    }
+    else if(task == "setAttractorIntensity"){
+        if(argv){
+            if(argc == 3){
+                int j = atom_getlong(argv + 1);
+                if(j > 0 && j <= attractors->size()){
+                    (*attractors)[j-1]->setIntensity(argv + 2);
+                }
+            }
+        }
     }
     
     return JIT_ERR_INVALID_INPUT;
@@ -662,6 +776,48 @@ void pSystem::drawLimits(){
     glEnd();
     
     glPopMatrix();
+}
+
+
+void pSystem::addAttractors(t_atom* argv){
+    addAttractors(atom_getlong(argv));
+}
+
+void pSystem::addAttractors(int na){
+    
+    na = (int)crop(na, 1, na);
+    
+    for(int i=0; i<na; i++){
+        attractors->push_back(new AttractorParticle(this, particles->size()+1));
+    }
+    
+}
+
+void pSystem::deleteAttractor(t_atom* argv){
+    deleteAttractor(atom_getlong(argv));
+}
+
+void pSystem::deleteAttractor(int na){
+    
+    na = (int)crop(na, 1, na);
+    
+    if(attractors->size() >= na){
+        na--;
+        attractors->erase(attractors->begin() + na);
+    }
+    
+    
+}
+
+void pSystem::clearAttractors(){
+    
+    if(attractors){
+        while(!attractors->empty()){
+            delete attractors->back();
+            attractors->pop_back();
+        }
+        attractors->clear();
+    }
 }
 
 

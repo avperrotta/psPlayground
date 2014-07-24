@@ -159,6 +159,7 @@ std::string ofToString(const vector<T>& values) {
 //math functions
 double rangedRandom(double x1, double x2);
 double dist3d(ofVec3f v1, ofVec3f v2);
+double dist2d(double x1, double x2);
 double getInterpolatedFromOfVec2fVector(vector<ofVec2f*>* v, double x);
 double interpolate(ofVec2f v0, ofVec2f v1, double x);
 double crop(double x, double x_min, double x_max);

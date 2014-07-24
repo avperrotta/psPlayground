@@ -68,6 +68,8 @@ public:
     double intensity;
     void setIntensity(t_atom* argv);
     
+    ofVec3f calculateAttraction(ofVec3f p);
+    
     
 };
 
