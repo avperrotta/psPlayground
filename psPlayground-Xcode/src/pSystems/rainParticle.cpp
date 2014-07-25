@@ -57,16 +57,19 @@ RainParticle::~RainParticle(){
 
 void RainParticle::customSetup(){
     
-    randomness = 0.4;
+    
     reset();
     
 }
 
 void RainParticle::reset(){
+    randomness = 0.4;
     direction = 1;
     lateralSpeed = 0.001;
     directionalSpeed = 0.01;
     avgLife = 200.;
+    
+    resetLimits();
     
     restart();
 }

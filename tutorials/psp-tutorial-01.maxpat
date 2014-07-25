@@ -30,6 +30,22 @@
 		"boxes" : [ 			{
 				"box" : 				{
 					"fontname" : "Arial",
+					"fontsize" : 16.0,
+					"frgb" : 0.0,
+					"id" : "obj-42",
+					"linecount" : 3,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 210.0, 645.0, 480.0, 60.0 ],
+					"text" : "Make sure the psPlayground folder is in your Max search path !\nIf you're not sure just check it out in:\nOptions -> File Preferences",
+					"textcolor" : [ 1.0, 0.0, 0.0, 1.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
 					"fontsize" : 14.0,
 					"frgb" : 0.0,
 					"id" : "obj-40",
@@ -838,10 +854,10 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-21", 0 ],
+									"destination" : [ "obj-21", 1 ],
 									"disabled" : 0,
 									"hidden" : 0,
-									"midpoints" : [ 714.5, 657.0, 549.5, 657.0 ],
+									"midpoints" : [ 714.5, 654.0, 922.5, 654.0 ],
 									"source" : [ "obj-19", 0 ]
 								}
 
@@ -895,10 +911,10 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-17", 0 ],
+									"destination" : [ "obj-17", 1 ],
 									"disabled" : 0,
 									"hidden" : 0,
-									"midpoints" : [ 115.0, 705.0, 70.0, 705.0 ],
+									"midpoints" : [ 115.0, 705.0, 297.0, 705.0, 297.0, 714.0, 419.0, 714.0 ],
 									"source" : [ "obj-29", 0 ]
 								}
 
@@ -1015,10 +1031,10 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-49", 0 ],
+									"destination" : [ "obj-49", 1 ],
 									"disabled" : 0,
 									"hidden" : 0,
-									"midpoints" : [ 339.5, 675.0, 309.5, 675.0 ],
+									"midpoints" : [ 339.5, 675.0, 537.0, 675.0, 537.0, 681.0, 658.5, 681.0 ],
 									"source" : [ "obj-48", 0 ]
 								}
 
@@ -2519,6 +2535,7 @@
 						"digest" : "",
 						"tags" : "",
 						"showontab" : 0,
+						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"fontname" : "Arial",
@@ -3772,18 +3789,18 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-11::obj-1::obj-128::obj-16::obj-7::obj-35" : [ "[9]", "Level", 0 ],
-			"obj-39::obj-10::obj-35" : [ "[11]", "Level", 0 ],
-			"obj-39::obj-9::obj-32" : [ "[8]", "[2]", 0 ],
-			"obj-39::obj-9::obj-21::obj-6" : [ "live.tab[3]", "live.tab[1]", 0 ],
-			"obj-39::obj-10::obj-32" : [ "[12]", "[2]", 0 ],
+			"obj-39::obj-9::obj-35" : [ "[5]", "Level", 0 ],
 			"obj-11::obj-1::obj-128::obj-16::obj-7::obj-32" : [ "[10]", "[2]", 0 ],
 			"obj-39::obj-18::obj-21::obj-6" : [ "live.tab[5]", "live.tab[1]", 0 ],
+			"obj-39::obj-9::obj-32" : [ "[8]", "[2]", 0 ],
+			"obj-39::obj-9::obj-21::obj-6" : [ "live.tab[3]", "live.tab[1]", 0 ],
 			"obj-39::obj-18::obj-32" : [ "[14]", "[2]", 0 ],
 			"obj-11::obj-1::obj-128::obj-16::obj-7::obj-21::obj-6" : [ "live.tab[1]", "live.tab[1]", 0 ],
 			"obj-39::obj-10::obj-21::obj-6" : [ "live.tab[4]", "live.tab[1]", 0 ],
-			"obj-39::obj-9::obj-35" : [ "[5]", "Level", 0 ],
-			"obj-39::obj-18::obj-35" : [ "[13]", "Level", 0 ]
+			"obj-39::obj-18::obj-35" : [ "[13]", "Level", 0 ],
+			"obj-11::obj-1::obj-128::obj-16::obj-7::obj-35" : [ "[9]", "Level", 0 ],
+			"obj-39::obj-10::obj-35" : [ "[11]", "Level", 0 ],
+			"obj-39::obj-10::obj-32" : [ "[12]", "[2]", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{
