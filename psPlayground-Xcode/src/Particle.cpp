@@ -60,6 +60,9 @@ Particle::~Particle(){
     gain = 0.0;
     outputEnvRoutine();
     
+    rawData.clear();
+    specificData.clear();
+    
     if(dbap){
         delete dbap;
     }
@@ -100,6 +103,10 @@ void Particle::setup(pSystem* sys, int ind){
     outputRaw = true;
     outputEnv = true;
     outputSpecific = false;
+    
+    rawData.clear();
+    specificData.clear();
+    
     gain = 1.;
     
     width = 0.02;
@@ -144,6 +151,10 @@ void Particle::restart(){
     onTrajectory = false;
     recMode = false;
 	playRec = false;
+    
+    rawData.clear();
+    specificData.clear();
+    
     customRestart();
 }
 
@@ -211,6 +222,18 @@ void Particle::createOutput(){
     outputSpecificRoutine();
 }
 
+void Particle::createRawOutputVector(){
+    rawData.clear();
+    rawData.push_back(posCar.x);
+    rawData.push_back(posCar.y);
+    rawData.push_back(posCar.z);
+}
+
+void Particle::createSpecificOutputVector(){
+    specificData.clear();
+    
+}
+
 void Particle::outputDbapRoutine(){
     if(outputDbap){
         if(dbap){
@@ -245,23 +268,20 @@ void Particle::outputDbapRoutine(){
 }
 void Particle::outputRawRoutine(){
     if(outputRaw){
-        
-        
-        t_atom* aux;
-        aux = new t_atom[5];
-        atom_setsym(aux, gensym(systemName.c_str()));
-        atom_setlong(aux + 1, index);
-        atom_setfloat(aux + 2, posCar.x);
-        atom_setfloat(aux + 3, posCar.y);
-        atom_setfloat(aux + 4, posCar.z);
-        
-        
-        if(superOutlet2 && aux){
-            outlet_list(superOutlet2, 0L, 5, aux);
+        createRawOutputVector();
+        if(rawData.size() > 0){
+            t_atom* aux;
+            aux = new t_atom[rawData.size() + 2];
+            atom_setsym(aux, gensym(systemName.c_str()));
+            atom_setlong(aux + 1, index);
+            for(int i=0; i<rawData.size(); i++){
+                atom_setfloat(aux + i + 2, rawData[i]);
+            }
+            if(superOutlet2 && aux){
+                outlet_list(superOutlet2, 0L, rawData.size() + 2, aux);
+            }
+            delete[] aux;
         }
-        
-        
-        delete[] aux;
     }
 }
 void Particle::outputEnvRoutine(){

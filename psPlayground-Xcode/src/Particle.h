@@ -259,6 +259,10 @@ public:
     void outputTrajectoryTriggerTriggers();
     //void outputSpecificTriggers();
     void createOutput();
+    vector<double> rawData;
+    vector<double> specificData;
+    virtual void createRawOutputVector();
+    virtual void createSpecificOutputVector();
     
     //recording trajectory
 	FILE* recFile;

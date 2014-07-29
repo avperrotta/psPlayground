@@ -61,6 +61,12 @@ void EmitterSystem::customSetup(){
     birthRate = 100.;
     birthProbability = 1.;
     birthSize = 1;
+    
+    for(int i=0; i<MAX_NUM_EMITTER_PARTICLES; i++){
+        freeIndex[i][0] = i+1;
+        freeIndex[i][1] = 0;
+    }
+    
 }
 void EmitterSystem::customUpdate(){
 	if(play){
@@ -70,6 +76,7 @@ void EmitterSystem::customUpdate(){
         for(int i=0; i<particles->size(); i++){
             (*particles)[i]->update();
             if((*particles)[i]->status == 0){
+                freeIndex[(*particles)[i]->index - 1][1] = 0;
                 delete (*particles)[i];
                 particles->erase(particles->begin() + i);
             }
@@ -87,7 +94,7 @@ void EmitterSystem::injectParticles(int np){
     
     for(int i=0; i<np; i++){
         if(particles->size() < MAX_NUM_EMITTER_PARTICLES){
-            particles->push_back(new EmitterParticle(this, particles->size()+1));
+            particles->push_back(new EmitterParticle(this, getFreeIndex()));
         }
         else {
             break;
@@ -156,7 +163,7 @@ t_jit_err EmitterSystem::messageControl(long argc, t_atom* argv){
     }
     
     
-    else if(task == "setSourceHorizontalEmittingRange"){
+    else if(task == "setHorizontalEmittingRange"){
         if(argv){
             if(argc == 3){
                 src->setHorizontalRange(argv + 1);
@@ -164,7 +171,7 @@ t_jit_err EmitterSystem::messageControl(long argc, t_atom* argv){
         }
         return JIT_ERR_NONE;
     }
-    else if(task == "setSourceVerticalEmittingRange"){
+    else if(task == "setVerticalEmittingRange"){
         if(argv){
             if(argc == 3){
                 src->setVerticalRange(argv + 1);
@@ -172,7 +179,7 @@ t_jit_err EmitterSystem::messageControl(long argc, t_atom* argv){
         }
         return JIT_ERR_NONE;
     }
-    else if(task == "setSourceSpeedRange"){
+    else if(task == "setSpeedRange"){
         if(argv){
             if(argc == 3){
                 src->setSpeedRange(argv + 1);
@@ -221,7 +228,14 @@ EmitterSource* EmitterSystem::getSrc(){
     return src;
 }
 
-
+int EmitterSystem::getFreeIndex(){
+    int i = 0;
+    while(freeIndex[i][1] == 1 && i<MAX_NUM_EMITTER_PARTICLES){
+        i++;
+    }
+    freeIndex[i][1] = 1;
+    return freeIndex[i][0];
+}
 
 
 

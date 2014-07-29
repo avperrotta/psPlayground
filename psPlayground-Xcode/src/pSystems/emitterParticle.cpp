@@ -124,7 +124,18 @@ void EmitterParticle::reset(){
     restart();
 }
 
-
+void EmitterParticle::createRawOutputVector(){
+    rawData.clear();
+    rawData.push_back(posCar.x);
+    rawData.push_back(posCar.y);
+    rawData.push_back(posCar.z);
+    rawData.push_back(speed.x);
+    rawData.push_back(speed.y);
+    rawData.push_back(speed.z);
+    rawData.push_back(accel.x);
+    rawData.push_back(accel.y);
+    rawData.push_back(accel.z);
+}
 
 
 

@@ -35,7 +35,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 51.833332, 540.0, 89.0, 20.0 ],
+					"patching_rect" : [ 51.833332, 540.0, 115.0, 20.0 ],
 					"text" : "s #1.triggers"
 				}
 

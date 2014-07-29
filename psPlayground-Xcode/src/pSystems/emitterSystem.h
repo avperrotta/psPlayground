@@ -88,7 +88,8 @@ public:
     void setBirthProbability(t_atom* argv);
     void setBirthSize(t_atom* argv);
     
-    
+    int freeIndex[MAX_NUM_EMITTER_PARTICLES][2];
+    int getFreeIndex();
     
 };
 

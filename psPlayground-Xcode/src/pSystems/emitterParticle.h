@@ -67,6 +67,8 @@ public:
     
     EmitterSource* src;
     
+    void createRawOutputVector();
+    
 };
 
 #endif /* defined(__psPlayground__emitterParticle__) */

@@ -622,7 +622,7 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
             }
         }
     }
-    else if(task == "deleAttractor"){
+    else if(task == "deleteAttractor"){
         if(argv){
             if(argc == 2){
                 deleteAttractor(argv + 1);
