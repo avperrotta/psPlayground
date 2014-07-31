@@ -987,8 +987,8 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 881.5, 435.0, 310.0, 22.0 ],
-					"text" : "poly~ pspFmSynth-voice 32 args ph-01 fmSynth"
+					"patching_rect" : [ 881.5, 435.0, 415.0, 22.0 ],
+					"text" : "poly~ probabilisticHarmony-fmSynthVoice 32 args ph-01 fmSynth"
 				}
 
 			}
@@ -1144,8 +1144,8 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 881.5, 345.0, 298.0, 22.0 ],
-					"text" : "poly~ addSynth-voice 32 args ph-01 addSynth"
+					"patching_rect" : [ 881.5, 345.0, 430.0, 22.0 ],
+					"text" : "poly~ probabilisticHarmony-addSynthVoice 32 args ph-01 addSynth"
 				}
 
 			}
@@ -1202,6 +1202,10 @@
 , 						{
 							"number" : 5,
 							"data" : [ 5, "obj-49", "flonum", "float", 30.0, 5, "obj-54", "flonum", "float", 31.466125, 5, "obj-9", "toggle", "int", 1, 5, "obj-16", "number", "int", 1, 5, "obj-24", "number", "int", 1, 5, "obj-28", "number", "int", 246, 5, "obj-35", "flonum", "float", 0.5, 5, "obj-40", "flonum", "float", -1.36, 5, "obj-42", "flonum", "float", 0.0, 5, "obj-45", "flonum", "float", -0.7, 5, "obj-60", "number", "int", 88, 5, "obj-62", "number", "int", 340, 5, "obj-66", "flonum", "float", 0.001, 5, "obj-25", "flonum", "float", 0.05, 5, "obj-69", "flonum", "float", 0.45, 5, "obj-67", "flonum", "float", 0.0, 5, "obj-73", "flonum", "float", 1.57, 5, "obj-63", "flonum", "float", 1.57, 5, "obj-112", "toggle", "int", 1, 5, "obj-109", "number", "int", 1, 5, "obj-106", "number", "int", 1, 5, "obj-104", "number", "int", 100, 5, "obj-102", "flonum", "float", 0.5, 5, "obj-99", "flonum", "float", 3.02, 5, "obj-98", "flonum", "float", 0.0, 5, "obj-97", "flonum", "float", -0.8, 5, "obj-91", "number", "int", 72, 5, "obj-90", "number", "int", 265, 5, "obj-87", "flonum", "float", 0.001, 5, "obj-86", "flonum", "float", 0.05, 5, "obj-83", "flonum", "float", 2.85, 5, "obj-82", "flonum", "float", 3.3, 5, "obj-79", "flonum", "float", 1.57, 5, "obj-77", "flonum", "float", 1.57, 12, "obj-3", "multislider", "list", 79, 36, 48, 60, 72, 46, 39, 70, 5, "<invalid>", "kslider", "int", 36, 5, "<invalid>", "number", "int", 0, 5, "obj-41", "toggle", "int", 1, 5, "obj-59", "toggle", "int", 1, 5, "obj-43", "toggle", "int", 0, 5, "obj-50", "toggle", "int", 0, 5, "obj-78", "flonum", "float", 0.5 ]
+						}
+, 						{
+							"number" : 6,
+							"data" : [ 5, "obj-49", "flonum", "float", 30.0, 5, "obj-54", "flonum", "float", 30.424051, 5, "obj-9", "toggle", "int", 1, 5, "obj-16", "number", "int", 1, 5, "obj-24", "number", "int", 1, 5, "obj-28", "number", "int", 246, 5, "obj-35", "flonum", "float", 0.2, 5, "obj-40", "flonum", "float", -3.01, 5, "obj-42", "flonum", "float", 0.0, 5, "obj-45", "flonum", "float", -1.03, 5, "obj-60", "number", "int", 88, 5, "obj-62", "number", "int", 340, 5, "obj-66", "flonum", "float", 0.001, 5, "obj-25", "flonum", "float", 0.05, 5, "obj-69", "flonum", "float", 0.45, 5, "obj-67", "flonum", "float", 0.0, 5, "obj-73", "flonum", "float", 1.57, 5, "obj-63", "flonum", "float", 1.57, 5, "obj-112", "toggle", "int", 1, 5, "obj-109", "number", "int", 1, 5, "obj-106", "number", "int", 1, 5, "obj-104", "number", "int", 100, 5, "obj-102", "flonum", "float", 0.2, 5, "obj-99", "flonum", "float", 3.02, 5, "obj-98", "flonum", "float", 0.0, 5, "obj-97", "flonum", "float", -1.0, 5, "obj-91", "number", "int", 72, 5, "obj-90", "number", "int", 265, 5, "obj-87", "flonum", "float", 0.001, 5, "obj-86", "flonum", "float", 0.05, 5, "obj-83", "flonum", "float", 2.85, 5, "obj-82", "flonum", "float", 3.3, 5, "obj-79", "flonum", "float", 1.57, 5, "obj-77", "flonum", "float", 1.57, 12, "obj-3", "multislider", "list", 79, 36, 48, 60, 72, 46, 39, 70, 5, "obj-41", "toggle", "int", 1, 5, "obj-59", "toggle", "int", 1, 5, "obj-43", "toggle", "int", 0, 5, "obj-50", "toggle", "int", 0, 5, "obj-78", "flonum", "float", 0.5, 5, "obj-29", "flonum", "float", 8.0 ]
 						}
  ]
 				}
@@ -3517,16 +3521,16 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "addSynth-voice.maxpat",
-				"bootpath" : "/Users/avperrotta/Dropbox/psPlayground/testPatches",
-				"patcherrelativepath" : "../../../../../Users/avperrotta/Dropbox/psPlayground/testPatches",
+				"name" : "probabilisticHarmony-addSynthVoice.maxpat",
+				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/examples",
+				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "pspFmSynth-voice.maxpat",
-				"bootpath" : "/Users/avperrotta/Dropbox/psPlayground/testPatches",
-				"patcherrelativepath" : "../../../../../Users/avperrotta/Dropbox/psPlayground/testPatches",
+				"name" : "probabilisticHarmony-fmSynthVoice.maxpat",
+				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/examples",
+				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
