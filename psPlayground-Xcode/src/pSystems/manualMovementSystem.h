@@ -50,6 +50,7 @@
 #include "manualMovementParticle.h"
 #include "pspGlobals.h"
 #include "mathUtils.h"
+#include <curl/curl.h>
 
 
 class ManualMovementSystem : public pSystem{

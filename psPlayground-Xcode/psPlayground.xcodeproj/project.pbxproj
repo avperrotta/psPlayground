@@ -461,6 +461,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A74EBD08192F9E1E007508C9 /* maxmspsdk.xcconfig */;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -470,6 +471,10 @@
 				);
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREFIX_HEADER = "$(C74SUPPORT)/max-includes/macho-gl-prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/curlcpp",
+				);
 				OTHER_LDFLAGS = "$(C74_SYM_LINKER_FLAGS)";
 				PRODUCT_NAME = psPlayground;
 			};
@@ -479,6 +484,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A74EBD08192F9E1E007508C9 /* maxmspsdk.xcconfig */;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -487,6 +493,10 @@
 					"$(SYSTEM_APPS_DIR)/Programming/MaxSDK-6.1.4/c74support/msp-includes",
 				);
 				GCC_PREFIX_HEADER = "$(C74SUPPORT)/max-includes/macho-gl-prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/curlcpp",
+				);
 				OTHER_LDFLAGS = "$(C74_SYM_LINKER_FLAGS)";
 				PRODUCT_NAME = psPlayground;
 			};
