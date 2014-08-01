@@ -281,6 +281,7 @@
 					"destination" : [ "obj-10", 1 ],
 					"disabled" : 0,
 					"hidden" : 0,
+					"midpoints" : [ 114.5, 465.0, 288.0, 465.0 ],
 					"source" : [ "obj-11", 0 ]
 				}
 
@@ -290,6 +291,7 @@
 					"destination" : [ "obj-10", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
+					"midpoints" : [ 114.5, 465.0, 250.0, 465.0 ],
 					"source" : [ "obj-11", 0 ]
 				}
 
@@ -455,8 +457,8 @@
  ],
 		"parameters" : 		{
 			"obj-16::obj-35" : [ "[5]", "Level", 0 ],
-			"obj-16::obj-32" : [ "[8]", "[2]", 0 ],
-			"obj-16::obj-21::obj-6" : [ "live.tab[3]", "live.tab[1]", 0 ]
+			"obj-16::obj-21::obj-6" : [ "live.tab[3]", "live.tab[1]", 0 ],
+			"obj-16::obj-32" : [ "[8]", "[2]", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{
