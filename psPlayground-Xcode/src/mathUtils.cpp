@@ -142,7 +142,8 @@ double crop(double x, double x_min, double x_max){
 
 ofVec3f generateRandomVec3f(double randomness, ofVec3f v){
 	ofVec3f out;
-	
+	randomness *= 2.;
+    
 	out.x = rangedRandom(v.x - randomness*v.x, v.x + randomness*v.x);
 	out.y = rangedRandom(v.y - randomness*v.y, v.y + randomness*v.y);
 	out.z = rangedRandom(v.z - randomness*v.z, v.z + randomness*v.z);
@@ -154,6 +155,7 @@ ofVec3f generateRandomVec3f(t_atom* argv, double randomness, CubeLimits cub){
     
     if(argv){
         ofVec3f out;
+        
         
         out.x = rangedRandom(atom_getfloat(argv) - randomness*cub.dx, atom_getfloat(argv) + randomness*cub.dx);
         out.y = rangedRandom(atom_getfloat(argv + 1) - randomness*cub.dx, atom_getfloat(argv + 1) + randomness*cub.dx);

@@ -66,7 +66,7 @@ void CylindricalMovementSystem::customUpdate(){
     
 }
 void CylindricalMovementSystem::customDraw(){
-    drawLimits();
+    //drawLimits();
 }
 
 

@@ -111,6 +111,8 @@ void Particle::setup(pSystem* sys, int ind){
     
     width = 0.02;
     
+    speedDirectionProbability = 0.5;
+    
     easingLimits_x.min = 0.01;
     easingLimits_x.max = 0.2;
     easingLimits_y.min = 0.01;
@@ -227,6 +229,9 @@ void Particle::createRawOutputVector(){
     rawData.push_back(posCar.x);
     rawData.push_back(posCar.y);
     rawData.push_back(posCar.z);
+    rawData.push_back(posRad.x);
+    rawData.push_back(posRad.y);
+    rawData.push_back(posRad.z);
 }
 
 void Particle::createSpecificOutputVector(){
@@ -610,12 +615,12 @@ void Particle::setSpeedLimits(double x1, double x2, double y1, double y2, double
 }
 void Particle::setSpeedLimits(t_atom* argv){
     
-    limits_vx.min = atom_getfloat(argv + 0);
-    limits_vx.max = atom_getfloat(argv + 1);
-    limits_vy.min = atom_getfloat(argv + 2);
-    limits_vy.max = atom_getfloat(argv + 3);
-    limits_vz.min = atom_getfloat(argv + 4);
-    limits_vz.max = atom_getfloat(argv + 5);
+    limits_vx.min = crop(atom_getfloat(argv + 0), 0.0, atom_getfloat(argv + 0));
+    limits_vx.max = crop(atom_getfloat(argv + 1), 0.0, atom_getfloat(argv + 1));
+    limits_vy.min = crop(atom_getfloat(argv + 2), 0.0, atom_getfloat(argv + 2));
+    limits_vy.max = crop(atom_getfloat(argv + 3), 0.0, atom_getfloat(argv + 3));
+    limits_vz.min = crop(atom_getfloat(argv + 4), 0.0, atom_getfloat(argv + 4));
+    limits_vz.max = crop(atom_getfloat(argv + 5), 0.0, atom_getfloat(argv + 5));
     
     easingLimits_x.min = crop(atom_getfloat(argv + 0), 0.005, 0.9);
     easingLimits_x.max = crop(atom_getfloat(argv + 1), 0.005, 0.9);
@@ -624,18 +629,49 @@ void Particle::setSpeedLimits(t_atom* argv){
     easingLimits_z.min = crop(atom_getfloat(argv + 4), 0.005, 0.9);
     easingLimits_z.max = crop(atom_getfloat(argv + 5), 0.005, 0.9);
 	
+    
+    
+    if(rangedRandom(0., 1.) > speedDirectionProbability){
+        speed.x = rangedRandom(limits_vx.min, limits_vx.max);
+    }
+    else{
+        speed.x = rangedRandom(-1.0*limits_vx.min, -1.0*limits_vx.max);
+    }
+    
+    if(rangedRandom(0., 1.) > speedDirectionProbability){
+        speed.y = rangedRandom(limits_vy.min, limits_vy.max);
+    }
+    else{
+        speed.y = rangedRandom(-1.0*limits_vy.min, -1.0*limits_vy.max);
+    }
+    
+    if(rangedRandom(0., 1.) > speedDirectionProbability){
+        speed.z = rangedRandom(limits_vz.min, limits_vz.max);
+    }
+    else{
+        speed.z = rangedRandom(-1.0*limits_vz.min, -1.0*limits_vz.max);
+    }
+    
+    easing_x = rangedRandom(easingLimits_x.min, easingLimits_x.max);
+    easing_y = rangedRandom(easingLimits_y.min, easingLimits_y.max);
+    easing_z = rangedRandom(easingLimits_z.min, easingLimits_z.max);
 }
 
+void Particle::setSpeedDirectionProbability(t_atom* argv){
+    speedDirectionProbability = atom_getfloat(argv);
+}
 
 void Particle::setRandomness(double r){
     randomness = crop(r, 0., 0.99);
     
+    /*
     posCarIni = generateRandomVec3f(randomness, posCarIni);
     posCarFinal = generateRandomVec3f(randomness, posCarFinal);
     posRadIni = generateRandomVec3f(randomness, posRadIni);
     posRadFinal = generateRandomVec3f(randomness, posRadFinal);
     posOffsetIni = generateRandomVec3f(randomness, posOffsetIni);
     posOffsetFinal = generateRandomVec3f(randomness, posOffsetFinal);
+    */
 }
 
 
@@ -667,7 +703,6 @@ void Particle::setRadius(t_atom* argv){
     speed.x = 0.0;
 }
 void Particle::setTheta(t_atom* argv){
-    post("entrei 2");
     posRad.y = atom_getfloat(argv);
     speed.y = 0.0;
 }
@@ -685,6 +720,43 @@ void Particle::setPhiSpeed(t_atom* argv){
     speed.z = atom_getfloat(argv);
 }
 
+void Particle::setLimitsX(t_atom* argv){
+    setLimitsX(limits(atom_getfloat(argv), atom_getfloat(argv + 1)));
+}
+void Particle::setLimitsY(t_atom* argv){
+    setLimitsY(limits(atom_getfloat(argv), atom_getfloat(argv + 1)));
+}
+void Particle::setLimitsZ(t_atom* argv){
+    setLimitsZ(limits(atom_getfloat(argv), atom_getfloat(argv + 1)));
+}
+void Particle::setLimitsX(limits lx){
+    limits_x = lx;
+    if(coordinateSystem == "cartesian"){
+        posCar.x = rangedRandom(limits_x.min, limits_x.max);
+    }
+    else {
+        posRad.x = rangedRandom(limits_x.min, limits_x.max);
+    }
+}
+void Particle::setLimitsY(limits ly){
+    limits_y = ly;
+    if(coordinateSystem == "cartesian"){
+        posCar.y = rangedRandom(limits_y.min, limits_y.max);
+    }
+    else {
+        posRad.y = rangedRandom(limits_y.min, limits_y.max);
+    }
+    
+}
+void Particle::setLimitsZ(limits lz){
+    limits_z = lz;
+    if(coordinateSystem == "cartesian"){
+        posCar.z = rangedRandom(limits_z.min, limits_z.max);
+    }
+    else {
+        posRad.z = rangedRandom(limits_z.min, limits_z.max);
+    }
+}
 
 
 void Particle::setOffset(t_atom* argv){

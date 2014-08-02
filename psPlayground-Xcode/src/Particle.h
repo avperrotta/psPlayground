@@ -208,17 +208,27 @@ public:
     limits limits_x;
     limits limits_y;
     limits limits_z;
+    
     CubeLimits bounds;
     virtual void resetLimits();
     virtual void setSizeLimits(double x1, double x2, double y1, double y2, double z1, double z2);
     virtual void setSizeLimits(t_atom* argv);
     virtual void calculateLimits();
     
+    virtual void setLimitsX(t_atom* argv);
+    virtual void setLimitsY(t_atom* argv);
+    virtual void setLimitsZ(t_atom* argv);
+    virtual void setLimitsX(limits lx);
+    virtual void setLimitsY(limits ly);
+    virtual void setLimitsZ(limits lz);
+    
     limits limits_vx;
     limits limits_vy;
     limits limits_vz;
     virtual void setSpeedLimits(double x1, double x2, double y1, double y2, double z1, double z2);
     virtual void setSpeedLimits(t_atom* argv);
+    double speedDirectionProbability;
+    virtual void setSpeedDirectionProbability(t_atom* argv);
     
     limits limits_ax;
     limits limits_ay;

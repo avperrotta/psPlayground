@@ -257,6 +257,15 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
             }
         }
     }
+    else if(task == "setLimitsX"){
+        if(argc == 3){
+            if(argv){
+                for(int i=0; i<numParticles; i++){
+                    (*particles)[i]->setLimitsX(argv + 1);
+                }
+            }
+        }
+    }
     else if(task == "setSpeedLimits"){
         if(argc == 7){
             if(argv){
@@ -615,6 +624,18 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
         }
         return JIT_ERR_NONE;
     }
+    else if(task == "setSpeedDirectionProbability"){
+        if(argc == 2){
+            if(argv){
+                for(int i=0; i<numParticles; i++){
+                    (*particles)[i]->setSpeedDirectionProbability(argv + 1);
+                }
+                //post("setting setSpeedDirectionProbability for %s: %lf", name.c_str(), atom_getfloat(argv + 1));
+            }
+        }
+        return JIT_ERR_NONE;
+    }
+    
     else if(task == "addAttractor"){
         if(argv){
             if(argc == 2){
