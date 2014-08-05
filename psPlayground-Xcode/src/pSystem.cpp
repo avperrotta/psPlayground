@@ -188,6 +188,27 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
         
         return JIT_ERR_NONE;
     }
+    else if(task == "setOutputRaw"){
+        if(argc == 2){
+            for(int i=0; i<particles->size(); i++){
+                (*particles)[i]->setOutputRaw(argv + 1);
+            }
+        }
+    }
+    else if(task == "setOutputSpecific"){
+        if(argc == 2){
+            for(int i=0; i<particles->size(); i++){
+                (*particles)[i]->setOutputSpecific(argv + 1);
+            }
+        }
+    }
+    else if(task == "setUseDbap"){
+        if(argc == 2){
+            for(int i=0; i<particles->size(); i++){
+                (*particles)[i]->setUseDbap(argv + 1);
+            }
+        }
+    }
     else if(task == "recMode"){
 		if(argc == 3){
 			if(argv){
@@ -244,6 +265,14 @@ t_jit_err pSystem::messageControl(long argc, t_atom *argv){
                 for(int i=0; i<numParticles; i++){
                     (*particles)[i]->setTrajectoryLoopType(argv + 1);
                 }
+            }
+        }
+    }
+    else if(task == "resetLimits"){
+        if(argc == 1){
+            setLimits();
+            for(int i=0; i<numParticles; i++){
+                (*particles)[i]->resetLimits();
             }
         }
     }

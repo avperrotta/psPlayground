@@ -310,6 +310,19 @@ void Particle::outputSpecificRoutine(){
     
 }
 
+
+void Particle::setOutputRaw(t_atom *argv){
+    outputRaw = atom_getlong(argv);
+}
+
+void Particle::setOutputSpecific(t_atom *argv){
+    outputSpecific = atom_getlong(argv);
+}
+
+void Particle::setUseDbap(t_atom *argv){
+    useDbap = atom_getlong(argv);
+}
+
 void Particle::outputTrajectoryTriggerTriggers(){
     t_atom* aux;
     aux = new t_atom[3];
@@ -434,6 +447,7 @@ void Particle::updateAttractorInfluence(){
     }
 }
 
+
 void Particle::setTrajectoryLoopType(t_atom *argv){
     
     int tlt = (int)crop(atom_getfloat(argv), 0, 2);
@@ -442,6 +456,7 @@ void Particle::setTrajectoryLoopType(t_atom *argv){
     triggerTrajectory(timeToLive);
     
 }
+
 
 void Particle::setSizeLimits(double x1, double x2, double y1, double y2, double z1, double z2){
     

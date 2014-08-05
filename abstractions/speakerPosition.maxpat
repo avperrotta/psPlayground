@@ -31,6 +31,48 @@
 				"box" : 				{
 					"fontname" : "Arial",
 					"fontsize" : 12.0,
+					"id" : "obj-19",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 1155.0, 180.0, 82.0, 20.0 ],
+					"text" : "prepend read"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-18",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 1155.0, 105.0, 127.0, 20.0 ],
+					"text" : "r #1.spatLoader"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"id" : "obj-46",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"patching_rect" : [ 1155.0, 150.0, 152.0, 20.0 ],
+					"text" : "route speakersPositionFile"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
 					"id" : "obj-81",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
@@ -143,7 +185,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 780.0, 585.0, 526.0, 18.0 ],
-					"text" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/tutorials/test-01.txt"
+					"text" : "/Users/avperrotta/Dropbox/psPlayground/Madrigal/madrigal-speakersPosition.txt"
 				}
 
 			}
@@ -210,7 +252,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 960.0, 345.0, 135.0, 18.0 ],
+					"patching_rect" : [ 960.0, 345.0, 167.0, 18.0 ],
 					"text" : "#1-speakersPosition.txt"
 				}
 
@@ -225,7 +267,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 855.0, 285.0, 540.0, 18.0 ],
-					"text" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions/"
+					"text" : "/Users/avperrotta/Dropbox/psPlayground/Madrigal/"
 				}
 
 			}
@@ -1057,6 +1099,25 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-46", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-18", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-29", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"midpoints" : [ 1164.5, 270.0, 672.0, 270.0, 672.0, 360.0, 282.0, 360.0, 282.0, 405.0, 189.5, 405.0 ],
+					"source" : [ "obj-19", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-97", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
@@ -1192,6 +1253,15 @@
 					"hidden" : 0,
 					"midpoints" : [ 456.5, 426.0, 456.5, 426.0 ],
 					"source" : [ "obj-44", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-19", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-46", 0 ]
 				}
 
 			}

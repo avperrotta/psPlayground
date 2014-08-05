@@ -255,6 +255,7 @@ public:
     bool useDbap;
     Dbap* dbap;
     vector<double>* dbapGains;
+    virtual void setUseDbap(t_atom* argv);
     
     
     //output parsing
@@ -273,6 +274,8 @@ public:
     vector<double> specificData;
     virtual void createRawOutputVector();
     virtual void createSpecificOutputVector();
+    virtual void setOutputRaw(t_atom* argv);
+    virtual void setOutputSpecific(t_atom* argv);
     
     //recording trajectory
 	FILE* recFile;

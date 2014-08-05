@@ -381,7 +381,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 0,
 					"patching_rect" : [ 75.0, 870.0, 679.0, 20.0 ],
-					"text" : "pspSingleTrajectoryParser #1 #2 0 2 100 @useReverb false"
+					"text" : "pspSingleTrajectoryParser madrigal freeze 0 2 100 @useReverb false"
 				}
 
 			}
@@ -769,7 +769,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 555.0, 405.0, 180.0, 18.0 ],
-					"text" : "freeze.8.pspPvocBuffer"
+					"text" : "freeze.12.pspPvocBuffer"
 				}
 
 			}
