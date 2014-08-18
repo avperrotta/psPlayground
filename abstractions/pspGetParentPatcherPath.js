@@ -1,16 +1,30 @@
 inlets = 1;
 outlets = 1;
-setinletassist(0, "Some message");
+setinletassist(0, "bang or path msg");
+
+var myOutsidePath;
 
 function bang(){
 	var p = this.patcher;
 	while (p.parentpatcher){
 		p = p.parentpatcher;
-	}
 		
-	var lastIndex = p.filepath.lastIndexOf("/");
-	var pathSize = p.filepath.length - (p.filepath.length - lastIndex) + 1;
-	var path = p.filepath.substr(0, pathSize);
+	}
+	
+	var pSize = p.filepath.length;
+	var mSize = myOutsidePath[1].length;
+	var aux;
+	if(pSize < mSize){
+		aux = myOutsidePath[1];
+	}
+	else{
+		aux = p.filepath;
+	}
+	
+	aux = myOutsidePath[1];
+	var lastIndex = aux.lastIndexOf("/");
+	var pathSize = aux.length - (aux.length - lastIndex) + 1;
+	var path = aux.substr(0, pathSize);
 	
 	/*
 	if (jsarguments.length == 3){
@@ -25,4 +39,10 @@ function bang(){
 	path = path + trajName + "-" + trajNum + ".txt";
 	*/
 	outlet(0, path);
+}
+
+function path()
+{
+	myOutsidePath = arrayfromargs(messagename, arguments);
+	bang();
 }
