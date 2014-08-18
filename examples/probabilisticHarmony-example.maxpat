@@ -988,7 +988,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 881.5, 435.0, 415.0, 22.0 ],
-					"text" : "poly~ probabilisticHarmony-fmSynthVoice 32 args ph-01 fmSynth"
+					"text" : "poly~ probabilisticHarmony-fmSynthVoice 12 args ph-01 fmSynth"
 				}
 
 			}
@@ -1145,7 +1145,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 881.5, 345.0, 430.0, 22.0 ],
-					"text" : "poly~ probabilisticHarmony-addSynthVoice 32 args ph-01 addSynth"
+					"text" : "poly~ probabilisticHarmony-addSynthVoice 12 args ph-01 addSynth"
 				}
 
 			}
@@ -3354,9 +3354,9 @@
 			}
  ],
 		"parameters" : 		{
+			"obj-1::obj-1::obj-128::obj-16::obj-7::obj-35" : [ "[5]", "Level", 0 ],
 			"obj-1::obj-1::obj-128::obj-16::obj-7::obj-32" : [ "[8]", "[2]", 0 ],
-			"obj-1::obj-1::obj-128::obj-16::obj-7::obj-21::obj-6" : [ "live.tab[3]", "live.tab[1]", 0 ],
-			"obj-1::obj-1::obj-128::obj-16::obj-7::obj-35" : [ "[5]", "Level", 0 ]
+			"obj-1::obj-1::obj-128::obj-16::obj-7::obj-21::obj-6" : [ "live.tab[3]", "live.tab[1]", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{
@@ -3392,13 +3392,6 @@
 				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
 				"patcherrelativepath" : "../abstractions",
 				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "pspGetParentPatcherPath.js",
-				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
-				"patcherrelativepath" : "../abstractions",
-				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
@@ -3536,8 +3529,8 @@
 			}
 , 			{
 				"name" : "simpleFM~.maxpat",
-				"bootpath" : "/Applications/Programming/Max 6.1/patches/docs/tutorial-patchers/msp-tut",
-				"patcherrelativepath" : "../../../Max 6.1/patches/docs/tutorial-patchers/msp-tut",
+				"bootpath" : "/Applications/Programming/Max 6.1/downloads/UBCToolbox_0.96/Modules/Players/fmPlayer/lib",
+				"patcherrelativepath" : "../../../Max 6.1/downloads/UBCToolbox_0.96/Modules/Players/fmPlayer/lib",
 				"type" : "JSON",
 				"implicit" : 1
 			}
