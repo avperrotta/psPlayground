@@ -8,7 +8,7 @@
 			"architecture" : "x86"
 		}
 ,
-		"rect" : [ 335.0, 136.0, 734.0, 481.0 ],
+		"rect" : [ 368.0, 138.0, 734.0, 481.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -130,7 +130,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 105.0, 210.0, 105.0, 20.0 ],
-									"text" : "scale 0. 0.1 0. 15."
+									"text" : "scale 0. 0.2 0. 15."
 								}
 
 							}
@@ -413,6 +413,10 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 435.0, 30.0, 30.0, 20.0 ],
+					"saved_object_attributes" : 					{
+						"attr_comment" : ""
+					}
+,
 					"text" : "in 1"
 				}
 
@@ -714,7 +718,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
 					"patching_rect" : [ 90.0, 255.0, 174.0, 19.0 ],
-					"text" : "simpleFM~"
+					"text" : "simpleFM~ 1. 1."
 				}
 
 			}

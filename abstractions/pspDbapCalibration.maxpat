@@ -8,7 +8,7 @@
 			"architecture" : "x86"
 		}
 ,
-		"rect" : [ 17.0, 44.0, 1225.0, 882.0 ],
+		"rect" : [ 98.0, 90.0, 1229.0, 885.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -28,6 +28,33 @@
 		"digest" : "",
 		"tags" : "",
 		"boxes" : [ 			{
+				"box" : 				{
+					"hidden" : 1,
+					"id" : "obj-46",
+					"maxclass" : "button",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"patching_rect" : [ 1200.5, 245.0, 20.0, 20.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"hidden" : 1,
+					"id" : "obj-43",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 2,
+					"outlettype" : [ "bang", "" ],
+					"patching_rect" : [ 1200.5, 210.0, 172.0, 20.0 ],
+					"text" : "sel loadDefaultSpatCalibration"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"fontname" : "Arial",
 					"fontsize" : 12.0,
@@ -1827,6 +1854,16 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-43", 0 ],
+					"disabled" : 0,
+					"hidden" : 1,
+					"midpoints" : [ 1089.5, 156.0, 1212.0, 156.0, 1212.0, 207.0, 1210.0, 207.0 ],
+					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-2", 0 ],
 					"disabled" : 0,
 					"hidden" : 1,
@@ -2131,6 +2168,25 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-46", 0 ],
+					"disabled" : 0,
+					"hidden" : 1,
+					"source" : [ "obj-43", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-21", 0 ],
+					"disabled" : 0,
+					"hidden" : 1,
+					"midpoints" : [ 1210.0, 276.0, 1032.0, 276.0, 1032.0, 15.0, 309.5, 15.0 ],
+					"source" : [ "obj-46", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-16", 0 ],
 					"disabled" : 0,
 					"hidden" : 1,
@@ -2386,6 +2442,108 @@
 					"source" : [ "obj-93", 0 ]
 				}
 
+			}
+ ],
+		"parameters" : 		{
+			"obj-16::obj-7::obj-35" : [ "[5]", "Level", 0 ],
+			"obj-16::obj-7::obj-32" : [ "[8]", "[2]", 0 ],
+			"obj-16::obj-7::obj-21::obj-6" : [ "live.tab[3]", "live.tab[1]", 0 ]
+		}
+,
+		"dependency_cache" : [ 			{
+				"name" : "pspDbapCalibrationTestAudio.maxpat",
+				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
+				"patcherrelativepath" : ".",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "demosound.maxpat",
+				"bootpath" : "/Applications/Programming/Max 6.1/Cycling '74/msp-help",
+				"patcherrelativepath" : "../../../Max 6.1/Cycling '74/msp-help",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "sine.svg",
+				"bootpath" : "/Applications/Programming/Max 6.1/patches/picts/m4l-picts",
+				"patcherrelativepath" : "../../../Max 6.1/patches/picts/m4l-picts",
+				"type" : "svg ",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "saw.svg",
+				"bootpath" : "/Applications/Programming/Max 6.1/patches/picts/m4l-picts",
+				"patcherrelativepath" : "../../../Max 6.1/patches/picts/m4l-picts",
+				"type" : "svg ",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "square.svg",
+				"bootpath" : "/Applications/Programming/Max 6.1/patches/picts/m4l-picts",
+				"patcherrelativepath" : "../../../Max 6.1/patches/picts/m4l-picts",
+				"type" : "svg ",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "random.svg",
+				"bootpath" : "/Applications/Programming/Max 6.1/patches/picts/m4l-picts",
+				"patcherrelativepath" : "../../../Max 6.1/patches/picts/m4l-picts",
+				"type" : "svg ",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "pspSingleTrajectoryParser.maxpat",
+				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
+				"patcherrelativepath" : ".",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "trajectoryVoice.maxpat",
+				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
+				"patcherrelativepath" : ".",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "dbap-reverb.maxpat",
+				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
+				"patcherrelativepath" : ".",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "pfft.spectraldelay.maxpat",
+				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
+				"patcherrelativepath" : ".",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "pspSpectralDelay.gendsp",
+				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
+				"patcherrelativepath" : ".",
+				"type" : "gDSP",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "pspDynamicDacGui.maxpat",
+				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
+				"patcherrelativepath" : ".",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "pspDynamicDac~.maxpat",
+				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
+				"patcherrelativepath" : ".",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "freeverb~.mxo",
+				"type" : "iLaX"
 			}
  ]
 	}
