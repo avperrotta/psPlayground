@@ -91,3 +91,15 @@ t_jit_err CylindricalMovementSystem::messageControl(long argc, t_atom* argv){
     
     return JIT_ERR_INVALID_INPUT;
 }
+
+void CylindricalMovementSystem::addParticles(t_atom* argv){
+    int np = atom_getlong(argv);
+    
+    for(int i=0; i<np; i++){
+        if(particles->size() < maxNumParticles){
+            particles->push_back(new CylindricalMovementParticle(this, particles->size() + i+1));
+        }
+    }
+    
+    numParticles = particles->size();
+}

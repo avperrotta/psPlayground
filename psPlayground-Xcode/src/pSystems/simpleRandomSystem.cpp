@@ -102,6 +102,16 @@ void SimpleRandomSystem::customDraw(){
     
 }
 
-
+void SimpleRandomSystem::addParticles(t_atom* argv){
+    int np = atom_getlong(argv);
+    
+    for(int i=0; i<np; i++){
+        if(particles->size() < maxNumParticles){
+            particles->push_back(new SimpleRandomParticle(this, particles->size() + i+1));
+        }
+    }
+    
+    numParticles = particles->size();
+}
 
 

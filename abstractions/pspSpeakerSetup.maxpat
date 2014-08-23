@@ -8,7 +8,7 @@
 			"architecture" : "x86"
 		}
 ,
-		"rect" : [ 233.0, 233.0, 667.0, 508.0 ],
+		"rect" : [ 233.0, 233.0, 657.0, 506.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -97,7 +97,7 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 900.0, 105.0, 127.0, 20.0 ],
+					"patching_rect" : [ 900.0, 105.0, 133.0, 20.0 ],
 					"text" : "r #1.spatLoader"
 				}
 
@@ -868,7 +868,7 @@
 					"fontsize" : 12.0,
 					"id" : "obj-16",
 					"maxclass" : "number",
-					"maximum" : 4,
+					"maximum" : 2,
 					"minimum" : 1,
 					"numinlets" : 1,
 					"numoutlets" : 2,

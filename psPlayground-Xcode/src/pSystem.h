@@ -74,8 +74,8 @@ public:
     virtual void customUpdate();
     virtual void draw();
     virtual void customDraw();
-    virtual void addParticles(int num);
-    virtual void killParticles(int num);
+    virtual void addParticles(t_atom* argv);
+    virtual void deleteParticles(t_atom* argv);
     
     virtual t_jit_err messageControl(long argc, t_atom* argv);
     

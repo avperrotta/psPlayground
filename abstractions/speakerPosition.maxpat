@@ -50,7 +50,7 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 885.0, 105.0, 127.0, 20.0 ],
+					"patching_rect" : [ 885.0, 105.0, 133.0, 20.0 ],
 					"text" : "r #1.spatLoader"
 				}
 
@@ -170,8 +170,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 780.0, 585.0, 526.0, 18.0 ],
-					"text" : "/Users/avperrotta/Dropbox/psPlayground/Madrigal/madrigal-speakersPosition-stereo22.txt"
+					"patching_rect" : [ 780.0, 585.0, 526.0, 18.0 ]
 				}
 
 			}

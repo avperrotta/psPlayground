@@ -90,85 +90,92 @@ void psPlaygroundManager::draw(){
 t_jit_err psPlaygroundManager::messageControl(long argc, t_atom *argv){
     
     std::string task;
-    task = jit_atom_getsym(argv)->s_name;
     
-    
-    /*
-    if(task == "updateSystems"){
-        update();
-    }
-    */
-    
-    
-    if(task == "setAbsPath"){
-        if(argc == 2){
-            if(argv){
-                concertRoom->setFilesPath(atom_getsym(argv + 1)->s_name);
-                post("absolute path = %s", atom_getsym(argv + 1)->s_name);
+    if(argv){
+        task = jit_atom_getsym(argv)->s_name;
+        
+        
+        /*
+         if(task == "updateSystems"){
+         update();
+         }
+         */
+        
+        
+        if(task == "setAbsPath"){
+            if(argc == 2){
+                if(argv){
+                    concertRoom->setFilesPath(atom_getsym(argv + 1)->s_name);
+                    post("absolute path = %s", atom_getsym(argv + 1)->s_name);
+                    return JIT_ERR_NONE;
+                }
+            }
+        }
+        
+        else if(task == "setRoomSize"){
+            concertRoom->setBounds(argc, argv);
+            return JIT_ERR_NONE;
+        }
+        
+        else if(task == "setNumSpeakers"){
+            concertRoom->setNumSpeakers(argc, argv);
+            return JIT_ERR_NONE;
+        }
+        
+        else if(task == "setSpeakerPosition"){
+            concertRoom->setSpeakerPosition(argc, argv);
+            return JIT_ERR_NONE;
+        }
+        
+        else if(task == "setSpeakerCalibration"){
+            concertRoom->setSpeakerCalibration(argc, argv);
+            return JIT_ERR_NONE;
+        }
+        
+        else if(task == "setReverbGain"){
+            concertRoom->setReverbGain(argc, argv);
+            return JIT_ERR_NONE;
+        }
+        
+        else if(task == "setReverbSize"){
+            concertRoom->setReverbSize(argc, argv);
+            return JIT_ERR_NONE;
+        }
+        
+        else if(task == "addParticleSystem"){
+            addPSystem(argc, argv);
+            return JIT_ERR_NONE;
+        }
+        
+        else if(task == "deleteParticleSystem"){
+            deletePSystem(argc, argv);
+            return JIT_ERR_NONE;
+        }
+        
+        else if(task == "pSystemAccess"){
+            std::string systemName;
+            systemName = jit_atom_getsym(argv + 1)->s_name;
+            if(pSystems.find(systemName) != pSystems.end()){
+                pSystems[systemName]->messageControl(argc - 2, argv + 2);
                 return JIT_ERR_NONE;
             }
         }
+        
+        /*
+         else if(task == "particleAccess"){
+         std::string systemName;
+         systemName = jit_atom_getsym(argv + 1)->s_name;
+         if(pSystems.find(systemName) != pSystems.end()){
+         pSystems[systemName]->messageControl(argc - 2, argv + 2);
+         return JIT_ERR_NONE;
+         }
+         }
+         */
     }
     
-    else if(task == "setRoomSize"){
-        concertRoom->setBounds(argc, argv);
-        return JIT_ERR_NONE;
-    }
     
-    else if(task == "setNumSpeakers"){
-        concertRoom->setNumSpeakers(argc, argv);
-        return JIT_ERR_NONE;
-    }
     
-    else if(task == "setSpeakerPosition"){
-        concertRoom->setSpeakerPosition(argc, argv);
-        return JIT_ERR_NONE;
-    }
     
-    else if(task == "setSpeakerCalibration"){
-        concertRoom->setSpeakerCalibration(argc, argv);
-        return JIT_ERR_NONE;
-    }
-    
-    else if(task == "setReverbGain"){
-        concertRoom->setReverbGain(argc, argv);
-        return JIT_ERR_NONE;
-    }
-    
-    else if(task == "setReverbSize"){
-        concertRoom->setReverbSize(argc, argv);
-        return JIT_ERR_NONE;
-    }
-    
-    else if(task == "addParticleSystem"){
-        addPSystem(argc, argv);
-        return JIT_ERR_NONE;
-    }
-    
-    else if(task == "deleteParticleSystem"){
-        deletePSystem(argc, argv);
-        return JIT_ERR_NONE;
-    }
-    
-    else if(task == "pSystemAccess"){
-        std::string systemName;
-        systemName = jit_atom_getsym(argv + 1)->s_name;
-        if(pSystems.find(systemName) != pSystems.end()){
-            pSystems[systemName]->messageControl(argc - 2, argv + 2);
-            return JIT_ERR_NONE;
-        }
-    }
-    
-    /*
-    else if(task == "particleAccess"){
-        std::string systemName;
-        systemName = jit_atom_getsym(argv + 1)->s_name;
-        if(pSystems.find(systemName) != pSystems.end()){
-            pSystems[systemName]->messageControl(argc - 2, argv + 2);
-            return JIT_ERR_NONE;
-        }
-    }
-    */
     
     return JIT_ERR_INVALID_INPUT;
 }

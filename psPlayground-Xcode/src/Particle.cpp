@@ -87,7 +87,7 @@ void Particle::setup(pSystem* sys, int ind){
 	updateByTime = false;
     onTrajectory = false;
     trajectoryFinished = false;
-    trajectoryLoopType = 2;
+    trajectoryLoopType = 0;
     
     useDbap = false;
     outputDbap = false;

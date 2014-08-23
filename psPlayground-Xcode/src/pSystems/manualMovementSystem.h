@@ -64,6 +64,8 @@ public:
     void customUpdate();
     void customDraw();
     
+    void addParticles(t_atom* argv);
+    
     t_jit_err messageControl(long argc, t_atom* argv);
     
 };

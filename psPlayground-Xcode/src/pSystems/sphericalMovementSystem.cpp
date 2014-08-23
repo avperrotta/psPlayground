@@ -79,3 +79,16 @@ t_jit_err SphericalMovementSystem::messageControl(long argc, t_atom* argv){
     
     return JIT_ERR_INVALID_INPUT;
 }
+
+void SphericalMovementSystem::addParticles(t_atom* argv){
+    int np = atom_getlong(argv);
+    
+    for(int i=0; i<np; i++){
+        if(particles->size() < maxNumParticles){
+            particles->push_back(new SphericalMovementParticle(this, particles->size() + i+1));
+        }
+    }
+    
+    numParticles = particles->size();
+}
+
