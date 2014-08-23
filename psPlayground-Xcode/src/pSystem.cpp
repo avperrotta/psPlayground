@@ -165,6 +165,8 @@ void pSystem::deleteParticles(t_atom* argv){
             particles->pop_back();
         }
     }
+    
+    numParticles = particles->size();
 }
 
 t_jit_err pSystem::messageControl(long argc, t_atom *argv){

@@ -66,7 +66,7 @@ void CylindricalMovementSystem::customUpdate(){
     
 }
 void CylindricalMovementSystem::customDraw(){
-    //drawLimits();
+    drawLimits();
 }
 
 
@@ -76,16 +76,47 @@ t_jit_err CylindricalMovementSystem::messageControl(long argc, t_atom* argv){
     
     if(task == "setDirection"){
         if(argc == 2){
-            if(argv){
-                for(int i=0; i<numParticles; i++){
-                    static_cast<CylindricalMovementParticle*>((*particles)[i])->setDirection(argv + 1);
-                }
-                //post("direction set for %s system: %d", name.c_str(), atom_getlong(argv + 1));
+            for(int i=0; i<numParticles; i++){
+                static_cast<CylindricalMovementParticle*>((*particles)[i])->setDirection(argv + 1);
+            }
+            //post("direction set for %s system: %d", name.c_str(), atom_getlong(argv + 1));
+        }
+        else if(argc == 3){
+            int j = atom_getlong(argv + 1);
+            if(j > 0 && j <= particles->size()){
+                static_cast<CylindricalMovementParticle*>((*particles)[j-1])->setDirection(argv + 2);
             }
         }
         
-        return JIT_ERR_NONE;
+        
     }
+    else if(task == "setHeight"){
+        if(argc == 2){
+            for(int i=0; i<numParticles; i++){
+                static_cast<CylindricalMovementParticle*>((*particles)[i])->setHeight(argv + 1);
+            }
+        }
+        else if(argc == 3){
+            int j = atom_getlong(argv + 1);
+            if(j > 0 && j <= particles->size()){
+                static_cast<CylindricalMovementParticle*>((*particles)[j-1])->setHeight(argv + 2);
+            }
+        }
+    }
+    else if(task == "setHeightSpeed"){
+        if(argc == 2){
+            for(int i=0; i<numParticles; i++){
+                static_cast<CylindricalMovementParticle*>((*particles)[i])->setHeightSpeed(argv + 1);
+            }
+        }
+        else if(argc == 3){
+            int j = atom_getlong(argv + 1);
+            if(j > 0 && j <= particles->size()){
+                static_cast<CylindricalMovementParticle*>((*particles)[j-1])->setHeightSpeed(argv + 2);
+            }
+        }
+    }
+    
     
     pSystem::messageControl(argc, argv);
     

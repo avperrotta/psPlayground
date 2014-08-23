@@ -62,13 +62,6 @@ void CylindricalMovementParticle::customSetup(){
 
 void CylindricalMovementParticle::customRestart(){
 	
-    
-    posOffsetIni = generateRandomVec3f(randomness, ofVec3f(0., 0., 0.));
-    posOffsetFinal = generateRandomVec3f(randomness, ofVec3f(0., 0., 0.));
-	posRadIni = generateRandomVec3f(randomness, ofVec3f(0.25, 0., 0.));
-	posRadFinal = generateRandomVec3f(randomness, ofVec3f(0.75, 0., 0.));
-    speedIni = generateRandomVec3f(randomness, ofVec3f(0.001, 0.1, 0.001));
-	
     posOffset = posOffsetIni;
 	posRad = posRadIni;
     speed = speedIni;
@@ -78,6 +71,12 @@ void CylindricalMovementParticle::customRestart(){
 void CylindricalMovementParticle::reset(){
     
     resetLimits();
+    
+    posOffsetIni = generateRandomVec3f(randomness, ofVec3f(0., 0., 0.));
+    posOffsetFinal = generateRandomVec3f(randomness, ofVec3f(0., 0., 0.));
+	posRadIni = generateRandomVec3f(randomness, ofVec3f(0.25, 0., 0.));
+	posRadFinal = generateRandomVec3f(randomness, ofVec3f(0.75, 0., 0.));
+    speedIni = generateRandomVec3f(randomness, ofVec3f(0.001, 0.1, 0.001));
     
     randomness = 1.;
     
