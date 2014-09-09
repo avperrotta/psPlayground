@@ -61,9 +61,12 @@ public:
     
     void customSetup();
     void customUpdate();
+    void draw();
     void outputSpecificRoutine();
     
-    void restart();
+    
+    //void
+    void customRestart();
     void setBaseNotes();
     void setupNotes();
     float notes[40];

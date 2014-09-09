@@ -2083,6 +2083,7 @@
 						"description" : "",
 						"digest" : "",
 						"tags" : "",
+						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"fontname" : "Arial",
@@ -2131,12 +2132,12 @@
 									"fontsize" : 18.0,
 									"frgb" : 0.0,
 									"id" : "obj-20",
-									"linecount" : 6,
+									"linecount" : 8,
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 435.0, 255.0, 315.0, 127.0 ],
-									"text" : "spatCalibrationSystem\nsimpleRandomSystem\nrainSystem\nfarfalharSystem\nmanualMovementSystem\nsphericalMovementSystem"
+									"patching_rect" : [ 435.0, 255.0, 315.0, 167.0 ],
+									"text" : "spatCalibrationSystem\nsimpleRandomSystem\nrainSystem\nfarfalharSystem\nmanualMovementSystem\nsphericalMovementSystem\ncylindricalMovementSystem\nemitterSystem"
 								}
 
 							}
@@ -3789,18 +3790,18 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-39::obj-9::obj-32" : [ "[8]", "[2]", 0 ],
+			"obj-39::obj-10::obj-32" : [ "[12]", "[2]", 0 ],
+			"obj-11::obj-1::obj-128::obj-16::obj-7::obj-32" : [ "[10]", "[2]", 0 ],
+			"obj-39::obj-18::obj-21::obj-6" : [ "live.tab[5]", "live.tab[1]", 0 ],
+			"obj-39::obj-18::obj-35" : [ "[13]", "Level", 0 ],
+			"obj-11::obj-1::obj-128::obj-16::obj-7::obj-21::obj-6" : [ "live.tab[1]", "live.tab[1]", 0 ],
+			"obj-39::obj-10::obj-35" : [ "[11]", "Level", 0 ],
+			"obj-39::obj-18::obj-32" : [ "[14]", "[2]", 0 ],
 			"obj-39::obj-10::obj-21::obj-6" : [ "live.tab[4]", "live.tab[1]", 0 ],
 			"obj-39::obj-9::obj-21::obj-6" : [ "live.tab[3]", "live.tab[1]", 0 ],
-			"obj-39::obj-10::obj-32" : [ "[12]", "[2]", 0 ],
-			"obj-39::obj-18::obj-21::obj-6" : [ "live.tab[5]", "live.tab[1]", 0 ],
-			"obj-11::obj-1::obj-128::obj-16::obj-7::obj-32" : [ "[10]", "[2]", 0 ],
-			"obj-11::obj-1::obj-128::obj-16::obj-7::obj-21::obj-6" : [ "live.tab[1]", "live.tab[1]", 0 ],
-			"obj-39::obj-18::obj-32" : [ "[14]", "[2]", 0 ],
 			"obj-11::obj-1::obj-128::obj-16::obj-7::obj-35" : [ "[9]", "Level", 0 ],
 			"obj-39::obj-9::obj-35" : [ "[5]", "Level", 0 ],
-			"obj-39::obj-10::obj-35" : [ "[11]", "Level", 0 ],
-			"obj-39::obj-18::obj-35" : [ "[13]", "Level", 0 ]
+			"obj-39::obj-9::obj-32" : [ "[8]", "[2]", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{
@@ -3906,20 +3907,6 @@
 				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
 				"patcherrelativepath" : "../abstractions",
 				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "octo-speakerSetup.txt",
-				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/presets",
-				"patcherrelativepath" : "../presets",
-				"type" : "TEXT",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "pspGetParentPatcherPath.js",
-				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
-				"patcherrelativepath" : "../abstractions",
-				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{

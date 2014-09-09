@@ -29,6 +29,32 @@
 		"tags" : "",
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-128",
+					"maxclass" : "toggle",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "int" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 1095.0, 10.0, 20.0, 20.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 14.0,
+					"id" : "obj-125",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 1095.0, 45.0, 125.0, 20.0 ],
+					"text" : "floatingWindow $1"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"fontname" : "Arial",
 					"fontsize" : 14.0,
 					"frgb" : 0.0,
@@ -1076,6 +1102,10 @@
 							"number" : 6,
 							"data" : [ 12, "obj-3", "multislider", "list", 127, 42, 16, 97, 56, 12, 27, 45 ]
 						}
+, 						{
+							"number" : 7,
+							"data" : [ 12, "obj-3", "multislider", "list", 79, 43, 48, 60, 72, 46, 42, 70 ]
+						}
  ]
 				}
 
@@ -1118,7 +1148,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 881.5, 255.0, 273.5, 20.0 ],
-					"text" : "79 36 48 60 72 46 39 70"
+					"text" : "79 43 48 60 72 46 42 70"
 				}
 
 			}
@@ -1175,7 +1205,7 @@
 					"name" : "pspDynamicDacGui.maxpat",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 225.0, 187.0, 570.0, 255.0 ]
+					"patching_rect" : [ 225.0, 180.0, 570.0, 255.0 ]
 				}
 
 			}
@@ -2649,6 +2679,25 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-47", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"midpoints" : [ 1104.5, 66.0, 867.0, 66.0, 867.0, 72.0, 15.0, 72.0, 15.0, 177.0, 38.5, 177.0 ],
+					"source" : [ "obj-125", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-125", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-128", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-17", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
@@ -3400,6 +3449,13 @@
 				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/abstractions",
 				"patcherrelativepath" : "../abstractions",
 				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "quad-speakerSetup.txt",
+				"bootpath" : "/Applications/Programming/MaxSDK-6.1.4/psPlayground/presets",
+				"patcherrelativepath" : "../presets",
+				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{

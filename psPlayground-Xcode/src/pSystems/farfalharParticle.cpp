@@ -141,8 +141,8 @@ void FarfalharParticle::customUpdate(){
 	}
 	else if(status == 5){
 		gain = gain - gain/25.0;
-		if(gain < 0.0005){
-			gain = 0.0005;
+		if(gain < 0.005){
+			gain = 0.005;
 			status = 6;
 		}
 	}
@@ -177,9 +177,8 @@ void FarfalharParticle::customUpdate(){
     
 }
 
-void FarfalharParticle::restart(){
+void FarfalharParticle::customRestart(){
 	customSetup();
-	
 }
 
 void FarfalharParticle::outputSpecificRoutine(){
@@ -199,6 +198,22 @@ void FarfalharParticle::outputSpecificRoutine(){
         
         delete[] aux;
     }
+}
+
+void FarfalharParticle::draw(){
+    //post("draw particle %lf %lf %lf", posCar.x, posCar.y, posCar.z);
+    glPushMatrix();
+    glEnable(GL_BLEND);
+    glBlendEquation(GL_FUNC_ADD);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glColor4f(color.x, color.y, color.z, 1.);
+    GLUquadricObj* Sphere;
+    glTranslatef(posCar.x, posCar.y, posCar.z);
+    Sphere = gluNewQuadric();
+    gluSphere(Sphere, width, 4, 4);
+    gluDeleteQuadric(Sphere);
+    glDisable(GL_BLEND);
+    glPopMatrix();
 }
 
 void FarfalharParticle::rollDice(){
