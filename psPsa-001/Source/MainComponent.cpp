@@ -10,6 +10,8 @@
 
 MainContentComponent::MainContentComponent(){
     
+    
+    
     //psp
     pspManager = new pspParticleSystemsManager();
     
@@ -34,21 +36,20 @@ void MainContentComponent::shutdown(){
 void MainContentComponent::render(){
     
     pspManager->update();
-    pspManager->draw();
+    
+    
+    OpenGLHelpers::clear (Colour::greyLevel(0.9));
+    glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glClear (GL_COLOR_BUFFER_BIT);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluPerspective (1., (float)getWidth()/(float)getHeight(), 10., -10.);
+    
+    
     
     glEnable (GL_BLEND);
-    glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glClearColor(0.f, 0.f, 0.f, 1.f);
-    glLineWidth(2.5);
-    glColor3f(1.0, 0.0, 0.0);
-    glPushMatrix();
-    glBegin(GL_LINES);
-    glVertex3f(0.0, 0.0, 0.0);
-    glVertex3f(0.5, 0, 0);
-    glEnd();
-    glPopMatrix();
-    
+    pspManager->draw();
+    glDisable(GL_BLEND);
     
     
     

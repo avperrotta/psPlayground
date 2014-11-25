@@ -12,6 +12,8 @@
 #include <iostream>
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "pspParticleSystem.h"
+#include "pspConcertRoom.h"
+
 
 using namespace  std;
 
@@ -37,13 +39,14 @@ public:
     String getSystemName(int s);
     String getSystemType(int s);
     
-    
+    int getNumSpeakers();
     
     void debug();
     
 private:
     
     vector<pspParticleSystem*>* pSystems;
+    ConcertRoom* concertRoom;
     
 };
 

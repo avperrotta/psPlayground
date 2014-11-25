@@ -24,7 +24,7 @@ pspParticleSystem::pspParticleSystem(String n){
 
 
 pspParticleSystem::~pspParticleSystem(){
-    if(particles){
+    if(particles != nullptr){
         while(!particles->empty()){
             delete particles->back();
             particles->pop_back();

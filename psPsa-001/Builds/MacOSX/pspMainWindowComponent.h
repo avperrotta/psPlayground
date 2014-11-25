@@ -15,7 +15,7 @@
 
 class MainContentComponent;
 
-class pspMainWindowComponent : public Component, public MenuBarModel, private Button::Listener, public ListBoxModel
+class pspMainWindowComponent : public Component, public MenuBarModel, private Button::Listener, public ListBoxModel, public ComboBox::Listener
 {
     
 public:
@@ -56,6 +56,10 @@ public:
     MouseCursor getMouseCursorForRow(int row) override;
     */
     
+    //ComboBox stuff
+    void comboBoxChanged (ComboBox* comboBoxThatHasChanged) override;
+    
+    
     pspParticleSystemsManager* getPspManager();
 
 private:
@@ -63,11 +67,19 @@ private:
     
     MainContentComponent& mainGLcomponent;
     
-    //main menu bar
-    ScopedPointer<MenuBarComponent> menuBar;
+    //misc
+    LookAndFeel_V1 lookAndFeelV1;
+    LookAndFeel_V2 lookAndFeelV2;
+    LookAndFeel_V3 lookAndFeelV3;
     
+    int activeView;
+    
+    //main menu bar
+    
+    ScopedPointer<MenuBarComponent> menuBar;
     //editor view
-    ScopedPointer<TextButton> quitButton;
+    ComboBox addPSystemMenu;
+    void populateAddPSystemsMenu();
     static void psItemDeleted(int result, pspMainWindowComponent* p);
     
     

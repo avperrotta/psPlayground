@@ -27,6 +27,8 @@
 		A73DBCDA1A24C61D0099761D /* ofVec2f.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A73DBCD01A24C61D0099761D /* ofVec2f.cpp */; };
 		A73DBCDB1A24C61D0099761D /* ofVec4f.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A73DBCD31A24C61D0099761D /* ofVec4f.cpp */; };
 		A73DBCDE1A24C6730099761D /* pspMathUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A73DBCDC1A24C6730099761D /* pspMathUtils.cpp */; };
+		A73DBCE11A24CA480099761D /* pspConcertRoom.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A73DBCDF1A24CA480099761D /* pspConcertRoom.cpp */; };
+		A73DBCE41A24CA850099761D /* pspSpeaker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A73DBCE21A24CA850099761D /* pspSpeaker.cpp */; };
 		A758E3C71A23A2A300BC2EB4 /* teapot.obj in Resources */ = {isa = PBXBuildFile; fileRef = A758E3C51A23A2A300BC2EB4 /* teapot.obj */; };
 		A758E3CA1A23A37F00BC2EB4 /* BinaryData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A758E3C81A23A37F00BC2EB4 /* BinaryData.cpp */; };
 		A787EAB61A1F792F00517F18 /* pspMainWindowComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A787EAB41A1F792F00517F18 /* pspMainWindowComponent.cpp */; };
@@ -653,6 +655,10 @@
 		A73DBCD51A24C61D0099761D /* ofVectorMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofVectorMath.h; sourceTree = "<group>"; };
 		A73DBCDC1A24C6730099761D /* pspMathUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pspMathUtils.cpp; sourceTree = "<group>"; };
 		A73DBCDD1A24C6730099761D /* pspMathUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pspMathUtils.h; sourceTree = "<group>"; };
+		A73DBCDF1A24CA480099761D /* pspConcertRoom.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pspConcertRoom.cpp; sourceTree = "<group>"; };
+		A73DBCE01A24CA480099761D /* pspConcertRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pspConcertRoom.h; sourceTree = "<group>"; };
+		A73DBCE21A24CA850099761D /* pspSpeaker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pspSpeaker.cpp; sourceTree = "<group>"; };
+		A73DBCE31A24CA850099761D /* pspSpeaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pspSpeaker.h; sourceTree = "<group>"; };
 		A758E3C51A23A2A300BC2EB4 /* teapot.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = teapot.obj; sourceTree = "<group>"; };
 		A758E3C61A23A2A300BC2EB4 /* WavefrontObjParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WavefrontObjParser.h; sourceTree = "<group>"; };
 		A758E3C81A23A37F00BC2EB4 /* BinaryData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BinaryData.cpp; sourceTree = "<group>"; };
@@ -1363,6 +1369,10 @@
 		30AB6908779273DC893E7375 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				A73DBCE21A24CA850099761D /* pspSpeaker.cpp */,
+				A73DBCE31A24CA850099761D /* pspSpeaker.h */,
+				A73DBCDF1A24CA480099761D /* pspConcertRoom.cpp */,
+				A73DBCE01A24CA480099761D /* pspConcertRoom.h */,
 				A73DBCDC1A24C6730099761D /* pspMathUtils.cpp */,
 				A73DBCDD1A24C6730099761D /* pspMathUtils.h */,
 				A73DBCC61A24C61D0099761D /* ofExtras */,
@@ -2876,6 +2886,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F40CF872F06121386D8E7C66 /* MainComponent.cpp in Sources */,
+				A73DBCE41A24CA850099761D /* pspSpeaker.cpp in Sources */,
 				A7F925971A234CFB006E766C /* UdpSocketWin.cpp in Sources */,
 				A7C85CE01A20F07500633279 /* pspParticle.cpp in Sources */,
 				A7F925951A234CFB006E766C /* UdpSocket.cpp in Sources */,
@@ -2885,6 +2896,7 @@
 				DEE58FD5B1509DC74C40DC47 /* juce_audio_basics.mm in Sources */,
 				A7F9259B1A234CFB006E766C /* OscTypes.cpp in Sources */,
 				A7F925991A234CFB006E766C /* OscPrintReceivedElements.cpp in Sources */,
+				A73DBCE11A24CA480099761D /* pspConcertRoom.cpp in Sources */,
 				A7F925981A234CFB006E766C /* OscOutboundPacketStream.cpp in Sources */,
 				A7F9259A1A234CFB006E766C /* OscReceivedElements.cpp in Sources */,
 				A73DBCDE1A24C6730099761D /* pspMathUtils.cpp in Sources */,

@@ -23,10 +23,15 @@ pspParticleSystemsManager::~pspParticleSystemsManager(){
         delete pSystems;
     }
     
+    if(concertRoom){
+        delete concertRoom;
+    }
+    
 }
 
 void pspParticleSystemsManager::setup(){
     pSystems = new vector<pspParticleSystem*>();
+    concertRoom = new ConcertRoom();
     
     
     for(int i=0; i<10; i++){
@@ -48,6 +53,8 @@ void pspParticleSystemsManager::draw(){
             (*pSystems)[i]->draw();
         }
     }
+    
+    concertRoom->draw();
 }
 
 
@@ -121,5 +128,10 @@ pspParticleSystem* pspParticleSystemsManager::getSystem(int s){
     return (*pSystems->begin());
 }
 
-
+int pspParticleSystemsManager::getNumSpeakers(){
+    if(concertRoom != nullptr){
+        return concertRoom->getNumSpeakers();
+    }
+    return 0;
+}
 

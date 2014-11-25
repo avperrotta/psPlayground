@@ -11,20 +11,25 @@
 
 pspMainWindowComponent::pspMainWindowComponent(MainContentComponent& mcc, pspParticleSystemsManager* pm) : mainGLcomponent(mcc)
 {
+    activeView = 0;
+    lookAndFeelV3.setColour (Label::textColourId, Colours::white);
+    lookAndFeelV3.setColour (Label::textColourId, Colours::white);
+    lookAndFeelV3.setColour (ToggleButton::textColourId, Colours::white);
+    LookAndFeel::setDefaultLookAndFeel (&lookAndFeelV3);
     
-    
-    addAndMakeVisible (quitButton = new TextButton (String::empty));
-    quitButton->setButtonText ("Quit");
-    quitButton->addListener (this);
     
     //main menu bar
     addAndMakeVisible (menuBar = new MenuBarComponent (this));
     
     
     //editor view stuff
+    addChildComponent(addPSystemMenu);
+    addPSystemMenu.addListener (this);
+    populateAddPSystemsMenu();
+    
+    
     systemsList.setModel (this);
     systemsList.setColour (ListBox::backgroundColourId, Colour::greyLevel (0.3f));
-    systemsList.selectRow (0);
     addChildComponent(systemsList);
     deletedSystem = false;
     
@@ -41,7 +46,6 @@ pspMainWindowComponent::~pspMainWindowComponent()
 {
     //[Destructor_pre]. You can add your own custom destruction code here..
     //[/Destructor_pre]
-    quitButton = nullptr;
     pspManager = nullptr;
     
     #if JUCE_MAC
@@ -67,40 +71,50 @@ void pspMainWindowComponent::resized()
     Rectangle<int> area (getLocalBounds());
     
     
-    menuBar->setBounds (area.removeFromTop(LookAndFeel::getDefaultLookAndFeel().getDefaultMenuBarHeight()));
+    menuBar->setBounds(area.removeFromTop(LookAndFeel::getDefaultLookAndFeel().getDefaultMenuBarHeight()));
     
-    quitButton->setBounds (getWidth() - 176, getHeight() - 60, 120, 32);
-    
+    addPSystemMenu.setBounds(0, menuBar->getBottom(), systemsList.getWidth(), 20);
     if (area.getWidth() > 600){
         systemsList.setBounds (area.removeFromLeft(150));
+        systemsList.setTopLeftPosition(0, addPSystemMenu.getBottom());
         systemsList.setRowHeight (20);
+        
     }
     else{
         systemsList.setBounds (area.removeFromLeft(130));
+        systemsList.setTopLeftPosition(0, addPSystemMenu.getBottom());
         systemsList.setRowHeight (30);
     }
-    
+    addPSystemMenu.setSize(systemsList.getWidth(), 20);
     
     
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
 
+void pspMainWindowComponent::comboBoxChanged (ComboBox* comboBoxThatHasChanged){
+    if (comboBoxThatHasChanged == &addPSystemMenu){
+        cout<<endl<<addPSystemMenu.getSelectedItemIndex();
+        addPSystemMenu.setSelectedItemIndex(0);
+    }
+}
 
 void pspMainWindowComponent::buttonClicked (Button* buttonThatWasClicked)
 {
     //[UserbuttonClicked_Pre]
     //[/UserbuttonClicked_Pre]
     
-    if (buttonThatWasClicked == quitButton)
+    if (buttonThatWasClicked == nullptr)
     {
+        
+        
         //[UserButtonCode_quitButton] -- add your button handler code here..
         
-        JUCEApplication::quit();
+        //JUCEApplication::quit();
         
         //[/UserButtonCode_quitButton]
     }
-    
+        
     //[UserbuttonClicked_Post]
     //[/UserbuttonClicked_Post]
 }
@@ -127,7 +141,6 @@ PopupMenu pspMainWindowComponent::getMenuForIndex (int menuIndex, const String& 
         menu.addItem(3, "Editor");
         menu.addItem(4, "Room config");
         menu.addItem(5, "Spatialization config");
-        
     }
     
     
@@ -138,14 +151,24 @@ void pspMainWindowComponent::menuItemSelected (int menuItemID, int /*topLevelMen
     std::cout<<std::endl<<menuItemID;
     
     if(menuItemID == 3){
-        quitButton->setVisible(false);
+        activeView = 3;
+        addPSystemMenu.setVisible(true);
         getNumRows();
+        systemsList.updateContent();
         systemsList.setVisible(true);
         
     }
-    else{
+    else if(menuItemID == 4){
+        activeView = 4;
+        getNumRows();
+        systemsList.updateContent();
+        systemsList.setVisible(true);
+        addPSystemMenu.setVisible(false);
+    }
+    else if(menuItemID < 100){
+        activeView = 0;
         systemsList.setVisible(false);
-        quitButton->setVisible(true);
+        addPSystemMenu.setVisible(false);
     }
 }
 //================================================
@@ -154,17 +177,31 @@ void pspMainWindowComponent::menuItemSelected (int menuItemID, int /*topLevelMen
 //ListBoxModel methods
 int pspMainWindowComponent::getNumRows(){
     
-    if(pspManager != nullptr){
-        return pspManager->getNumSystems();
+    if(activeView == 3){
+        if(pspManager != nullptr){
+            return pspManager->getNumSystems();
+        }
+        else{
+            return 0;
+        }
     }
-    else{
-        return 0;
+    else if(activeView == 4){
+        if(pspManager != nullptr){
+            return pspManager->getNumSpeakers();
+        }
+        else{
+            return 0;
+        }
     }
+    return 0;
+    
 }
 void pspMainWindowComponent::paintListBoxItem(int rowNumber, Graphics &g, int width, int height, bool rowIsSelected){
     if (rowIsSelected){
         g.fillAll (Colours::deepskyblue);
     }
+    
+    
     
     String name;
     String type;
@@ -173,8 +210,16 @@ void pspMainWindowComponent::paintListBoxItem(int rowNumber, Graphics &g, int wi
     AttributedString a;
     a.setJustification (Justification::centredLeft);
     
-    name = pspManager->getSystemName(rowNumber);
-    type = pspManager->getSystemType(rowNumber);
+    if(activeView == 3){
+        name = pspManager->getSystemName(rowNumber);
+        type = pspManager->getSystemType(rowNumber);
+    }
+    else if(activeView == 4){
+        name = to_string(rowNumber);
+        type = "Speaker";
+    }
+    
+    
     
     a.append (type, Font (12.0f), Colour::greyLevel (0.5f));
     a.append(separator, Font (12.0f), Colour::greyLevel (0.5f));
@@ -220,9 +265,20 @@ void pspMainWindowComponent::psItemDeleted(int result, pspMainWindowComponent* p
         p->systemsList.deselectAllRows();
     }
 }
+//================================================================
+//editor stuff
+void pspMainWindowComponent::populateAddPSystemsMenu(){
+    addPSystemMenu.addItem("Add System", 100);
+    addPSystemMenu.addItem("Linear movement", 101);
+    addPSystemMenu.addItem("Random movement", 102);
+    addPSystemMenu.addItem("Spherical movement", 103);
+    addPSystemMenu.addItem("Cylindrical movement", 104);
+    addPSystemMenu.addItem("Spiral movement", 105);
+    addPSystemMenu.addItem("Lissajou movement", 106);
+}
 
 
-
+//=================================================================
 
 /*
 Component* pspMainWindowComponent::refreshComponentForRow(int rowNumber, bool isRowSelected, Component *existingComponentToUpdate){
@@ -268,9 +324,11 @@ pspParticleSystemsManager* pspMainWindowComponent::getPspManager(){
     return pspManager;
 }
 
-//================================================
-//[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
-//[/MiscUserCode]
+
+
+
+
+
 
 
 //==============================================================================

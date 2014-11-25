@@ -62,7 +62,7 @@ private:
     //psp
     pspParticleSystemsManager* pspManager;
     
-        
+    bool firstSetting;
     
 };
 

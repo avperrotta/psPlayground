@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>70D040CB-8D9E-4B21-B894-0912E93510AA</string>
+	<key>IDESourceControlProjectName</key>
+	<string>psPsa-001</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F51D78C7-28B5-4096-A4B4-232CAA4CFAC5</key>
+		<string>https://github.com/avperrotta/psPlayground.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>psPsa-001/Builds/MacOSX/psPsa-001.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F51D78C7-28B5-4096-A4B4-232CAA4CFAC5</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/avperrotta/psPlayground.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F51D78C7-28B5-4096-A4B4-232CAA4CFAC5</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F51D78C7-28B5-4096-A4B4-232CAA4CFAC5</string>
+			<key>IDESourceControlWCCName</key>
+			<string>psPlayground</string>
+		</dict>
+	</array>
+</dict>
+</plist>
