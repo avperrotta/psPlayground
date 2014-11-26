@@ -45,8 +45,10 @@ public:
     
     
     //openGl
-    
-    
+    Matrix3D<float> getProjectionMatrix() const;
+    Matrix3D<float> getViewMatrix() const;
+    float angle;
+    //ScopedPointer<Uniforms> uniforms;
     
 private:
     //==============================================================================

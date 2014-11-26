@@ -18,6 +18,8 @@ MainContentComponent::MainContentComponent(){
     
     addAndMakeVisible (mainWidgets = new pspMainWindowComponent(*this, pspManager));
     setSize (800, 600);
+    
+    angle = -10.;
 }
 
 MainContentComponent::~MainContentComponent(){
@@ -36,22 +38,45 @@ void MainContentComponent::shutdown(){
 void MainContentComponent::render(){
     
     pspManager->update();
-    
-    
+    jassert (OpenGLHelpers::isContextActive());
     OpenGLHelpers::clear (Colour::greyLevel(0.9));
+    
+    const float desktopScale = (float) openGLContext.getRenderingScale();
     glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    glClear (GL_COLOR_BUFFER_BIT);
+    glEnable(GL_DEPTH);
+    glEnable(GL_DEPTH_SCALE);
+    glEnable(GL_DEPTH_TEST);
+    
+    glViewport (0, 0, roundToInt (desktopScale * getWidth()), roundToInt (desktopScale * getHeight()));
+    
+    
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluPerspective (1., (float)getWidth()/(float)getHeight(), 10., -10.);
+    gluPerspective(30., 1.0, 3.0, 70.0);
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+    gluLookAt(0.0, 0.0, 10.,
+              0.0, 0.0, 0.0,
+              0.0, 1.0, 0.0);
     
     
+    
+    
+    //glMatrixMode (GL_MODELVIEW);
     
     glEnable (GL_BLEND);
+    glPushMatrix();
+    glTranslated(0., 0., 0.);
+    glRotated(0., 0, 1, 0);
+    glRotated(0, 1, 0, 0);
     pspManager->draw();
+    glPopMatrix();
     glDisable(GL_BLEND);
     
     
+    
+    angle += 0.01;
+    cout<<endl<<angle;
     
     UdpTransmitSocket transmitSocket( IpEndpointName( "127.0.0.1", 7000 ) );
     
@@ -94,6 +119,21 @@ pspParticleSystemsManager* MainContentComponent::getPspManager(){
     return pspManager;
     
 }
+//==================================================
+//==================================================
+//openGl
+Matrix3D<float> MainContentComponent::getProjectionMatrix() const
+{
+    float w = 1.0f / (0.5 + 0.1f);
+    float h = w * getLocalBounds().toFloat().getAspectRatio (false);
+    return Matrix3D<float>::fromFrustum (-w, w, -h, h, 4.0f, 30.0f);
+}
 
-
+Matrix3D<float> MainContentComponent::getViewMatrix() const
+{
+    Matrix3D<float> viewMatrix (Vector3D<float> (0.0f, 0.0f, -10.0f));
+    Matrix3D<float> rotationMatrix = viewMatrix.rotated (Vector3D<float> (-0.3f, 5.0f*sin(getFrameCounter()*0.01f), 0.0f));
+    
+    return viewMatrix * rotationMatrix;
+}
 
