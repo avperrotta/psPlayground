@@ -78,6 +78,7 @@ public:
     std::string getFilesPath();
     
     void setBounds(ofVec3f b);
+    void setBounds(int c, double val);
     
     
     
@@ -88,6 +89,7 @@ public:
     vector<Speaker*>* speakers;
     vector<Speaker*>* getSpeakers();
     void setSpeakerPosition(int sp, ofVec3f pos);
+    void setSpeakerPosition(int sp, int c, float val);
     void setSpeakerCalibration(int sp);
     void setReverbGain(int sp);
     void setReverbSize(int sp);

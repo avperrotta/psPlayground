@@ -194,6 +194,18 @@ void Speaker::setPosition(double x_, double y_, double z_){
     
 }
 
+void Speaker::setPosition(int c, double val){
+    if(c == 1){
+        x = val;
+    }
+    else if(c == 2){
+        y = val;
+    }
+    else if(c == 3){
+        z = val;
+    }
+    pos = ofVec3f(x, y, z);
+}
 
 void Speaker::setSize(double w, double h){
     width = w;
@@ -201,6 +213,7 @@ void Speaker::setSize(double w, double h){
     
     
 }
+
 
 
 void Speaker::setSpeakerCalibration(int sp){

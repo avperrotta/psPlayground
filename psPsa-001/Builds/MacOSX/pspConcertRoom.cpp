@@ -158,6 +158,19 @@ void ConcertRoom::setBounds(ofVec3f b){
     }
 }
 
+void ConcertRoom::setBounds(int c, double val){
+    if(c == 1){
+        setBounds(ofVec3f(val, roomBounds[1], roomBounds[2]));
+    }
+    else if(c == 2){
+        setBounds(ofVec3f(roomBounds[0], val, roomBounds[2]));
+    }
+    else if(c == 3){
+        setBounds(ofVec3f(roomBounds[0], roomBounds[1], val));
+    }
+}
+
+
 double* ConcertRoom::getBounds(){
     if(roomBounds){
         return roomBounds;
@@ -218,6 +231,16 @@ void ConcertRoom::setSpeakerPosition(int sp, ofVec3f pos){
     }
 }
 
+void ConcertRoom::setSpeakerPosition(int sp, int c, float val){
+    if(speakers->size() > 0){
+        if(sp >= 1 && sp <= numSpeakers){
+            (*speakers)[sp - 1]->setPosition(c, val);
+            (*speakers)[sp - 1]->scalePosition(getBounds());
+        }
+    }
+
+}
+
 void ConcertRoom::setSpeakerCalibration(int sp){
     
     
@@ -250,18 +273,18 @@ void ConcertRoom::draw(){
     
     glLineWidth(2.);
     glPushMatrix();
-    glColor3f(0.1, 0.1, 0.1);
+    glColor3f(0.5, 0.5, 0.5);
     glBegin(GL_QUADS);
-    glVertex3f(-0.5*roomBounds[0], -0.5*roomBounds[1], 0.5*roomBounds[2]);
-    glVertex3f(0.5*roomBounds[0], -0.5*roomBounds[1], 0.5*roomBounds[2]);
-    glVertex3f(0.5*roomBounds[0], -0.5*roomBounds[1], -0.5*roomBounds[2]);
-    glVertex3f(-0.5*roomBounds[0], -0.5*roomBounds[1], -0.5*roomBounds[2]);
+    glVertex3f(-2.*roomBounds[0], -0.5*roomBounds[1], 2.*roomBounds[2]);
+    glVertex3f(2.*roomBounds[0], -0.5*roomBounds[1], 2.*roomBounds[2]);
+    glVertex3f(2.*roomBounds[0], -0.5*roomBounds[1], -2.*roomBounds[2]);
+    glVertex3f(-2.*roomBounds[0], -0.5*roomBounds[1], -2.*roomBounds[2]);
     glEnd();
     glPopMatrix();
     
     glPushMatrix();
     glLineWidth(2.);
-    glColor3f(0.5, 0., 0.);
+    glColor3f(0., 0., 0.);
     
     //floor
     glBegin(GL_LINES);
@@ -323,6 +346,7 @@ void ConcertRoom::draw(){
     
     glPopMatrix();
     
+    /*
     glPushMatrix();
     glLineWidth(2.);
     glColor3f(1., 1., 0.);
@@ -343,6 +367,7 @@ void ConcertRoom::draw(){
     glVertex3f(-0.5*soundLimits[0], -0.5*soundLimits[1], 0.5*soundLimits[2]);
     glEnd();
     glPopMatrix();
+    */
     
 }
 

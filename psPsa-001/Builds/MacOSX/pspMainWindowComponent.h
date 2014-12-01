@@ -12,6 +12,7 @@
 #include <iostream>
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "pspParticleSystemsManager.h"
+#include "pspRoomConfigGUI.h"
 
 class MainContentComponent;
 
@@ -20,7 +21,7 @@ class pspMainWindowComponent : public Component, public MenuBarModel, private Bu
     
 public:
     
-    pspMainWindowComponent(MainContentComponent& mcc, pspParticleSystemsManager* pm);
+    pspMainWindowComponent(MainContentComponent* mcc, pspParticleSystemsManager* pm);
     ~pspMainWindowComponent();
     
     void paint (Graphics& g) override;
@@ -61,11 +62,15 @@ public:
     
     
     pspParticleSystemsManager* getPspManager();
+    
+    //openGL conexion
+    double xOffset;
+    
 
 private:
     //==============================================================================
     
-    MainContentComponent& mainGLcomponent;
+    MainContentComponent* mainGLcomponent;
     
     //misc
     LookAndFeel_V1 lookAndFeelV1;
@@ -82,6 +87,9 @@ private:
     void populateAddPSystemsMenu();
     static void psItemDeleted(int result, pspMainWindowComponent* p);
     
+    //room config
+    pspRoomConfigGUI* roomConfigGui;
+    Array<PropertyComponent*> comps;
     
     
     //psp
@@ -92,6 +100,25 @@ private:
     
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (pspMainWindowComponent)
+};
+
+
+class newSlider : public SliderPropertyComponent
+{
+public:
+    newSlider (const String& propertyName)
+    : SliderPropertyComponent (propertyName, 0.0, 100.0, 0.001)
+    {
+        setValue (Random::getSystemRandom().nextDouble() * 42.0);
+    }
+    
+    void setValue (double newValue) override
+    {
+        slider.setValue (newValue);
+    }
+    
+private:
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (newSlider)
 };
 
 

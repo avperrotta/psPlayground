@@ -9,8 +9,14 @@
 
 #include "pspMainWindowComponent.h"
 
-pspMainWindowComponent::pspMainWindowComponent(MainContentComponent& mcc, pspParticleSystemsManager* pm) : mainGLcomponent(mcc)
+
+pspMainWindowComponent::pspMainWindowComponent(MainContentComponent* mcc, pspParticleSystemsManager* pm)
 {
+    
+    //psp
+    pspManager = pm;
+    mainGLcomponent = mcc;
+    
     activeView = 0;
     lookAndFeelV3.setColour (Label::textColourId, Colours::white);
     lookAndFeelV3.setColour (Label::textColourId, Colours::white);
@@ -34,9 +40,11 @@ pspMainWindowComponent::pspMainWindowComponent(MainContentComponent& mcc, pspPar
     deletedSystem = false;
     
     
+    //room config
+    addChildComponent(roomConfigGui = new pspRoomConfigGUI(pspManager));
     
-    //psp
-    pspManager = pm;
+    //addChildComponent(roomConfigGui);
+    
     
     setSize (800, 600);
     
@@ -47,6 +55,7 @@ pspMainWindowComponent::~pspMainWindowComponent()
     //[Destructor_pre]. You can add your own custom destruction code here..
     //[/Destructor_pre]
     pspManager = nullptr;
+    delete roomConfigGui;
     
     #if JUCE_MAC
         MenuBarModel::setMacMainMenu (nullptr);
@@ -63,6 +72,8 @@ void pspMainWindowComponent::paint (Graphics& g)
     //[/UserPrePaint]
     //[UserPaint] Add your own custom painting code here..
     //[/UserPaint]
+    //roomConfigGui->paint(g);
+    
 }
 
 void pspMainWindowComponent::resized()
@@ -72,20 +83,24 @@ void pspMainWindowComponent::resized()
     
     
     menuBar->setBounds(area.removeFromTop(LookAndFeel::getDefaultLookAndFeel().getDefaultMenuBarHeight()));
-    
     addPSystemMenu.setBounds(0, menuBar->getBottom(), systemsList.getWidth(), 20);
     if (area.getWidth() > 600){
         systemsList.setBounds (area.removeFromLeft(150));
         systemsList.setTopLeftPosition(0, addPSystemMenu.getBottom());
         systemsList.setRowHeight (20);
-        
+        roomConfigGui->setBounds(area.removeFromLeft(200));
+        roomConfigGui->setTopLeftPosition(0, menuBar->getBottom());
     }
     else{
         systemsList.setBounds (area.removeFromLeft(130));
         systemsList.setTopLeftPosition(0, addPSystemMenu.getBottom());
         systemsList.setRowHeight (30);
+        roomConfigGui->setBounds(area.removeFromLeft(170));
+        roomConfigGui->setTopLeftPosition(0, menuBar->getBottom());
     }
     addPSystemMenu.setSize(systemsList.getWidth(), 20);
+    
+    
     
     
     //[UserResized] Add your own custom resize handling here..
@@ -156,20 +171,27 @@ void pspMainWindowComponent::menuItemSelected (int menuItemID, int /*topLevelMen
         getNumRows();
         systemsList.updateContent();
         systemsList.setVisible(true);
-        
+        roomConfigGui->setVisible(false);
+        xOffset = systemsList.getWidth();
     }
     else if(menuItemID == 4){
         activeView = 4;
-        getNumRows();
-        systemsList.updateContent();
-        systemsList.setVisible(true);
+        roomConfigGui->setVisible(true);
+        systemsList.setVisible(false);
         addPSystemMenu.setVisible(false);
+        xOffset = roomConfigGui->getWidth();
+        //mainGLcomponent->setXOffset(roomConfigGui->getWidth());
     }
+    
     else if(menuItemID < 100){
         activeView = 0;
         systemsList.setVisible(false);
         addPSystemMenu.setVisible(false);
+        roomConfigGui->setVisible(false);
+        xOffset = 0;
+        
     }
+    
 }
 //================================================
 

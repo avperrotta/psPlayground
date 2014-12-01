@@ -39,6 +39,7 @@ public:
     String getSystemName(int s);
     String getSystemType(int s);
     
+    ConcertRoom* getConcertRoom();
     int getNumSpeakers();
     
     void debug();

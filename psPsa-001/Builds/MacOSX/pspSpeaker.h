@@ -63,6 +63,7 @@ public:
     
     void setPosition(double x_, double y_, double z_);
     void setPosition(ofVec3f pos_);
+    void setPosition(int c, double val);
     
     void scalePosition(double* rs);
     

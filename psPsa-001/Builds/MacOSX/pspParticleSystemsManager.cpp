@@ -128,6 +128,10 @@ pspParticleSystem* pspParticleSystemsManager::getSystem(int s){
     return (*pSystems->begin());
 }
 
+ConcertRoom* pspParticleSystemsManager::getConcertRoom(){
+    return concertRoom;
+}
+
 int pspParticleSystemsManager::getNumSpeakers(){
     if(concertRoom != nullptr){
         return concertRoom->getNumSpeakers();

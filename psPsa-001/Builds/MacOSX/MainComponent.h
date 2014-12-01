@@ -20,12 +20,14 @@
 #include "BinaryData.h"
 
 
+
+
 //==============================================================================
 /*
  This component lives inside our window, and this is where you should put all
  your controls and content.
  */
-class MainContentComponent   : public OpenGLAppComponent
+class MainContentComponent : public OpenGLAppComponent
 {
 public:
     //==============================================================================
@@ -45,8 +47,11 @@ public:
     
     
     //openGl
-    Matrix3D<float> getProjectionMatrix() const;
-    Matrix3D<float> getViewMatrix() const;
+    double zoom;
+    double xOffset;
+    void setXOffset(double xo);
+    
+    
     float angle;
     //ScopedPointer<Uniforms> uniforms;
     
