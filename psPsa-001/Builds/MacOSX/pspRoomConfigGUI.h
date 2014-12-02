@@ -69,7 +69,7 @@ public:
     void setValue (double newValue) override
     {
         slider.setValue (newValue);
-        cout<<endl<<"slider value = "<<newValue;
+        //cout<<endl<<"slider value = "<<newValue;
     }
     
     void sliderValueChanged(Slider* slider) override{

@@ -33,7 +33,6 @@ public:
     void selectedRowsChanged(int lastRowSelected) override;
     void deleteKeyPressed(int lastRowSelected) override;
     
-    
     pspParticleSystemsManager* getPsManager();
     
 private:
@@ -55,7 +54,6 @@ private:
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (pspSystemEditorGUI);
 };
-
 
 
 #endif /* defined(__psPsa_001__pspSystemEditorGUI__) */

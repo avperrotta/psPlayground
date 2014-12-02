@@ -14,6 +14,9 @@
 #include "pspParticleSystem.h"
 #include "pspConcertRoom.h"
 
+#include "pspRandomSystem.h"
+
+#define MAX_NUM_PARTICLES 1000
 
 using namespace  std;
 
@@ -33,7 +36,8 @@ public:
     int getNumSystems();
     vector<pspParticleSystem*>* getSystems();
     pspParticleSystem* getSystem(int s);
-    void addSystem(String type, String name);
+    void addSystem(String type, int np);
+    void showPsystemGui(int ps);
     void deleteSystem(int s);
     
     String getSystemName(int s);
@@ -49,6 +53,10 @@ private:
     vector<pspParticleSystem*>* pSystems;
     ConcertRoom* concertRoom;
     
+    vector<Colour> colors;
+    int colorIndex;
+    void createColorVector();
+    void incrementColorIndex();
 };
 
 #endif /* defined(__psPsa_001__pspParticleSystemsManager__) */

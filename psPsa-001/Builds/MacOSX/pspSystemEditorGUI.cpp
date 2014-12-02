@@ -93,7 +93,7 @@ void pspSystemEditorGUI::listBoxItemClicked(int row, const MouseEvent &mevent){
         
     }
     else if(nclick == 2){
-        //show config window for system
+        psManager->showPsystemGui(row);
     }
     
 }
@@ -154,5 +154,11 @@ void pspSystemEditorGUI::populateAddSystemsMenu(){
 }
 
 void pspSystemEditorGUI::addSystemsMenuItemSelected(int result, pspSystemEditorGUI* p){
-    //cout<<endl<<result;
+    switch(result){
+        case 101:
+            p->getPsManager()->addSystem("random", 1);
+            p->systemsList.updateContent();
+            p->systemsList.deselectAllRows();
+            break;
+    }
 }
