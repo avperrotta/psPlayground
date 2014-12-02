@@ -24,6 +24,7 @@
 		95F008C1637D77EFC7D47642 /* juce_audio_devices.mm in Sources */ = {isa = PBXBuildFile; fileRef = 81ECE9FA5C0675D02471D7CD /* juce_audio_devices.mm */; };
 		995B83932825DF65F8750C71 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31EEB0F672CE3180DF92F8FF /* QTKit.framework */; };
 		A42BBE6E03DC8B73BC6CCE90 /* juce_core.mm in Sources */ = {isa = PBXBuildFile; fileRef = A967707DDCF54620023DBBEC /* juce_core.mm */; };
+		A7275A2D1A2DD9EE00FD63F9 /* pspSystemEditorGUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7275A2B1A2DD9EE00FD63F9 /* pspSystemEditorGUI.cpp */; };
 		A73DBCDA1A24C61D0099761D /* ofVec2f.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A73DBCD01A24C61D0099761D /* ofVec2f.cpp */; };
 		A73DBCDB1A24C61D0099761D /* ofVec4f.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A73DBCD31A24C61D0099761D /* ofVec4f.cpp */; };
 		A73DBCDE1A24C6730099761D /* pspMathUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A73DBCDC1A24C6730099761D /* pspMathUtils.cpp */; };
@@ -647,6 +648,8 @@
 		A6F10837A021AF7B6A3E5E69 /* juce_Slider.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_Slider.cpp; path = "../../../../../../../../Applications/Programming/JUCE-OSX/modules/juce_gui_basics/widgets/juce_Slider.cpp"; sourceTree = SOURCE_ROOT; };
 		A6FE7DC01330E18D58320904 /* juce_AudioFormatReader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_AudioFormatReader.h; path = "../../../../../../../../Applications/Programming/JUCE-OSX/modules/juce_audio_formats/format/juce_AudioFormatReader.h"; sourceTree = SOURCE_ROOT; };
 		A70F8096031B57590D51BCBD /* juce_win32_DirectWriteTypeLayout.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_win32_DirectWriteTypeLayout.cpp; path = "../../../../../../../../Applications/Programming/JUCE-OSX/modules/juce_graphics/native/juce_win32_DirectWriteTypeLayout.cpp"; sourceTree = SOURCE_ROOT; };
+		A7275A2B1A2DD9EE00FD63F9 /* pspSystemEditorGUI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pspSystemEditorGUI.cpp; sourceTree = "<group>"; };
+		A7275A2C1A2DD9EE00FD63F9 /* pspSystemEditorGUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pspSystemEditorGUI.h; sourceTree = "<group>"; };
 		A73DBCC71A24C61D0099761D /* ofConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofConstants.h; sourceTree = "<group>"; };
 		A73DBCD01A24C61D0099761D /* ofVec2f.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofVec2f.cpp; sourceTree = "<group>"; };
 		A73DBCD11A24C61D0099761D /* ofVec2f.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofVec2f.h; sourceTree = "<group>"; };
@@ -1393,6 +1396,8 @@
 				A7C85CE21A20F5CE00633279 /* pspParticleSystem.h */,
 				A7680C8B1A2CA681001E6C4A /* pspRoomConfigGUI.cpp */,
 				A7680C8C1A2CA681001E6C4A /* pspRoomConfigGUI.h */,
+				A7275A2B1A2DD9EE00FD63F9 /* pspSystemEditorGUI.cpp */,
+				A7275A2C1A2DD9EE00FD63F9 /* pspSystemEditorGUI.h */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -2917,6 +2922,7 @@
 				A7C85CE31A20F5CE00633279 /* pspParticleSystem.cpp in Sources */,
 				2F5B0D2FC6709DF96D1E40E3 /* juce_graphics.mm in Sources */,
 				A7680C8D1A2CA681001E6C4A /* pspRoomConfigGUI.cpp in Sources */,
+				A7275A2D1A2DD9EE00FD63F9 /* pspSystemEditorGUI.cpp in Sources */,
 				F4510D1782C58898A411114E /* juce_gui_basics.mm in Sources */,
 				1B6AD9C0D4762D156F8FBDF4 /* juce_gui_extra.mm in Sources */,
 				4B58D53E9A33D35A0A271F5A /* juce_opengl.mm in Sources */,

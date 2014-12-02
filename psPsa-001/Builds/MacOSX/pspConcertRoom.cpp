@@ -271,9 +271,9 @@ void ConcertRoom::draw(){
     }
     
     
-    glLineWidth(2.);
+    glLineWidth(1.);
     glPushMatrix();
-    glColor3f(0.5, 0.5, 0.5);
+    glColor4f(0.5, 0.5, 0.5, 0.3);
     glBegin(GL_QUADS);
     glVertex3f(-2.*roomBounds[0], -0.5*roomBounds[1], 2.*roomBounds[2]);
     glVertex3f(2.*roomBounds[0], -0.5*roomBounds[1], 2.*roomBounds[2]);
@@ -283,7 +283,7 @@ void ConcertRoom::draw(){
     glPopMatrix();
     
     glPushMatrix();
-    glLineWidth(2.);
+    glLineWidth(1.5);
     glColor3f(0., 0., 0.);
     
     //floor

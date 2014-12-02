@@ -14,6 +14,7 @@
 #include "pspParticleSystemsManager.h"
 #include "pspRoomConfigGUI.h"
 
+
 class MainContentComponent;
 
 class pspMainWindowComponent : public Component, public MenuBarModel, private Button::Listener, public ListBoxModel, public ComboBox::Listener
