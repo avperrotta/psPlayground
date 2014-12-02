@@ -44,7 +44,7 @@ void pspRoomConfigGUI::setup(){
 
 void pspRoomConfigGUI::paint (Graphics& g){
     
-    g.fillAll (Colour::greyLevel (0.7f));
+    g.fillAll (Colour::greyLevel (0.8f));
 
 }
 

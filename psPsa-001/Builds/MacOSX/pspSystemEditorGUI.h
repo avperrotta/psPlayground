@@ -29,7 +29,7 @@ public:
     void buttonClicked(Button* buttonThatWasClicked) override;
     int getNumRows() override;
     void paintListBoxItem(int rowNumber, Graphics &g, int width, int height, bool rowIsSelected) override;
-    void listBoxItemClicked(int row, const MouseEvent &) override;
+    void listBoxItemClicked(int row, const MouseEvent &mevent) override;
     void selectedRowsChanged(int lastRowSelected) override;
     void deleteKeyPressed(int lastRowSelected) override;
     
@@ -39,6 +39,7 @@ public:
 private:
     
     
+    
     pspParticleSystemsManager* psManager;
     //static void psItemDeleted(int result, pspSystemEditorGUI* p);
     
@@ -46,6 +47,11 @@ private:
     int lastSelectedPSystem;
     bool deletedSystem;
     static void psItemDeleted(int result, pspSystemEditorGUI* p);
+    
+    ScopedPointer<TextButton> addSystemsMenuButton;
+    ScopedPointer<PopupMenu> addSystemsMenu;
+    void populateAddSystemsMenu();
+    static void addSystemsMenuItemSelected(int result, pspSystemEditorGUI* p);
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (pspSystemEditorGUI);
 };
