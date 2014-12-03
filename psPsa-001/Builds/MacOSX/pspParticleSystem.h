@@ -45,6 +45,8 @@ public:
     pspParticleSystemsManager* getManager();
     
     void addParticles(int np);
+    void changeNumParticles(int np);
+    void removeParticles(int np);
     
     void setColor(Colour c);
     

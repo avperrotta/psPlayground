@@ -49,8 +49,9 @@ void MainContentComponent::render(){
     
     pspManager->update();
     jassert (OpenGLHelpers::isContextActive());
-    OpenGLHelpers::clear (Colour::greyLevel(0.9));
-    
+    //OpenGLHelpers::clear(Colour::greyLevel(0.9));
+    OpenGLHelpers::clear(Colour::fromFloatRGBA(0.9, 0.9, 0.9, 0.1));
+
     const float desktopScale = (float) openGLContext.getRenderingScale();
     glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_DEPTH);

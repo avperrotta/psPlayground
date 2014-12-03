@@ -52,16 +52,17 @@ void pspRandomParticle::update(){
     if(reach){
         vel = ofVec3f(rangedRandom(0.01, 0.3), rangedRandom(0.01, 0.3), rangedRandom(0.01, 0.3));
         
-        /*
+        
         if(bounds != nullptr){
-        posNext = ofVec3f(rangedRandom(bounds->limits_x.min, bounds->limits_x.max), rangedRandom(bounds->limits_y.min, bounds->limits_y.max), rangedRandom(bounds->limits_z.min, bounds->limits_z.max));
+            cout<<endl<<bounds->limits_x.min;
+            posNext = ofVec3f(rangedRandom(bounds->limits_x.min, bounds->limits_x.max), rangedRandom(bounds->limits_y.min, bounds->limits_y.max), rangedRandom(bounds->limits_z.min, bounds->limits_z.max));
         }
         
         else{
             posNext = ofVec3f(rangedRandom(-0.5, 0.5), rangedRandom(-0.5, 0.5), rangedRandom(-0.5, 0.5));
         }
-        */
-        posNext = ofVec3f(rangedRandom(-0.5, 0.5), rangedRandom(-0.5, 0.5), rangedRandom(-0.5, 0.5));
+        
+        //posNext = ofVec3f(rangedRandom(-0.5, 0.5), rangedRandom(-0.5, 0.5), rangedRandom(-0.5, 0.5));
         //post("%lf %lf %lf", posCarNext.x, posCarNext.y, posCarNext.z);
     }
 }
@@ -76,5 +77,12 @@ void pspRandomParticle::draw(){
 }
 
 void pspRandomParticle::setBounds(CubeLimits *b){
-    bounds = b;
+    
+    if(b != nullptr){
+        bounds = b;
+        pos = ofVec3f(rangedRandom(bounds->limits_x.min, bounds->limits_x.max), rangedRandom(bounds->limits_y.min, bounds->limits_y.max), rangedRandom(bounds->limits_z.min, bounds->limits_z.max));
+        posNext = ofVec3f(rangedRandom(bounds->limits_x.min, bounds->limits_x.max), rangedRandom(bounds->limits_y.min, bounds->limits_y.max), rangedRandom(bounds->limits_z.min, bounds->limits_z.max));
+    }
+    
+    
 }

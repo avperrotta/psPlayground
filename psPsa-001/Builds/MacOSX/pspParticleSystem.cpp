@@ -116,6 +116,32 @@ void pspParticleSystem::addParticleSpecific(int np){
     }
 }
 
+void pspParticleSystem::changeNumParticles(int np){
+    if(np >= 0){
+        if(particles != nullptr){
+            if(np > particles->size()){
+                addParticles(np - particles->size());
+            }
+            else if(np < particles->size()){
+                removeParticles(particles->size() - np);
+            }
+        }
+    }
+}
+void pspParticleSystem::removeParticles(int np){
+    if(particles != nullptr){
+        if(np > 0){
+            int rm = np;
+            while(rm > 0 && !particles->empty()){
+                delete particles->back();
+                particles->pop_back();
+                rm--;
+            }
+        }
+    }
+}
+
+
 pspParticleSystemsManager* pspParticleSystem::getManager(){
     return systemsManager;
 }

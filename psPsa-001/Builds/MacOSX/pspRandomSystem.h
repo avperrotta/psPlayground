@@ -33,6 +33,9 @@ public:
     
     void showGui();
     
+    void setBounds(CubeLimits cl);
+    CubeLimits* getBounds();
+    
 protected:
     
     CubeLimits* bounds;
@@ -43,10 +46,10 @@ protected:
 };
 
 
-class pspRandomSystemWGCC : public Component, public Slider::Listener, public ButtonListener{
+class pspRandomSystemWGCC : public Component, public Slider::Listener, public ButtonListener, public TextEditor::Listener{
 public:
     
-    pspRandomSystemWGCC();
+    pspRandomSystemWGCC(pspRandomSystem* ms);
     ~pspRandomSystemWGCC();
     
     void paint(Graphics& g)override;
@@ -58,18 +61,41 @@ public:
     
     void buttonClicked (Button* buttonThatWasClicked);
     
+    virtual void textEditorTextChanged(TextEditor& t) override;
+    virtual void textEditorReturnKeyPressed(TextEditor& t) override;
+    virtual void textEditorEscapeKeyPressed(TextEditor& t) override;
+    virtual void textEditorFocusLost(TextEditor& t) override;
+    
 private:
     
     ScopedPointer<Slider> numParticles;
-    ScopedPointer<TextButton> tester;
     ScopedPointer<Label> numParticlesLabel;
+    
+    ScopedPointer<Slider> limitsX;
+    ScopedPointer<Label> limitsXLabel;
+    ScopedPointer<TextEditor>lxmin;
+    ScopedPointer<TextEditor>lxmax;
+    
+    ScopedPointer<Slider> limitsY;
+    ScopedPointer<Label> limitsYLabel;
+    ScopedPointer<TextEditor>lymin;
+    ScopedPointer<TextEditor>lymax;
+    
+    ScopedPointer<Slider> limitsZ;
+    ScopedPointer<Label> limitsZLabel;
+    ScopedPointer<TextEditor>lzmin;
+    ScopedPointer<TextEditor>lzmax;
+    
+    
+    
+    pspRandomSystem* mySystem;
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (pspRandomSystemWGCC)
     
 };
 
 
-class pspRandomSystemWindowGui : public DocumentWindow, public ChangeListener{
+class pspRandomSystemWindowGui : public DocumentWindow{
     
 public:
     
