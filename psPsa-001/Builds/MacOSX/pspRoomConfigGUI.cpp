@@ -107,8 +107,6 @@ void pspRoomConfigGUI::setNumSpeakers(int n){
     else if(n < currentNumSpeakers){
         panel.removeLast(currentNumSpeakers - n);
     }
-    
-    //cout<<endl<<"panel size = "<<panel.getNumSections();
 }
 
 void pspRoomConfigGUI::setSpeakerPosition(Slider* s){
@@ -176,12 +174,14 @@ bool pspRoomConfigGUI::loadXmlRoomConfig(File xmlFile){
                 int ns = speakers->getNumChildElements();
                 setNumSpeakers(ns);
                 nss->setValue(ns);
-                
+                cout<<endl<<speakersPosition.size();
+                /*
                 for(int i=0; i<ns; i++){
                     static_cast<speakerPositionSlider*>(speakersPosition[3*i+0])->setValue(speakers->getChildElement(i)->getDoubleAttribute("x"));
                     static_cast<speakerPositionSlider*>(speakersPosition[3*i+1])->setValue(speakers->getChildElement(i)->getDoubleAttribute("y"));
                     static_cast<speakerPositionSlider*>(speakersPosition[3*i+2])->setValue(speakers->getChildElement(i)->getDoubleAttribute("z"));
                 }
+                */
                 
             }
             
