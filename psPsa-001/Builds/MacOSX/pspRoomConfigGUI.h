@@ -16,7 +16,7 @@
 
 
 
-
+class numSpeakersSlider;
 
 class pspRoomConfigGUI : public Component{
     
@@ -35,12 +35,18 @@ public:
     void setSpeakerPosition(Slider* s);
     void setRoomSize(Slider* s);
     
+    
+    bool loadXmlRoomConfig(File xmlFile);
+    
 private:
     
     pspParticleSystemsManager* myPsm;
     ConcertRoom* myCr;
     PropertyPanel panel;
+    numSpeakersSlider* nss;
     Array<PropertyComponent*> comps;
+    Array<PropertyComponent*> roomDimensions;
+    Array<PropertyComponent*> speakersPosition;
     
     int numSpeakers;
     
@@ -172,7 +178,15 @@ public:
     }
     
     void buttonClicked() override{
-        cout<<endl<<"load speakers clicked";
+        
+        FileChooser fc("Choose a file to open...", File::getCurrentWorkingDirectory(), "*.xml", true);
+        
+        if (fc.browseForFileToOpen())
+        {
+            myPsprc->loadXmlRoomConfig(fc.getResult());
+        }
+        
+        //cout<<endl<<"load speakers clicked";
     }
     
     String getButtonText() const override

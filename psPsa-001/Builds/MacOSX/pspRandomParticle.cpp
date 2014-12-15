@@ -28,7 +28,7 @@ void pspRandomParticle::specificSetup(){
     posNext = ofVec3f(rangedRandom(-0.5, 0.5), rangedRandom(-0.5, 0.5), rangedRandom(-0.5, 0.5));
 }
 
-void pspRandomParticle::update(){
+void pspRandomParticle::specificUpdate(){
     bool reach = true;
     
     float dx = posNext.x - pos.x;
@@ -54,7 +54,7 @@ void pspRandomParticle::update(){
         
         
         if(bounds != nullptr){
-            cout<<endl<<bounds->limits_x.min;
+            //cout<<endl<<bounds->limits_x.min;
             posNext = ofVec3f(rangedRandom(bounds->limits_x.min, bounds->limits_x.max), rangedRandom(bounds->limits_y.min, bounds->limits_y.max), rangedRandom(bounds->limits_z.min, bounds->limits_z.max));
         }
         
@@ -66,7 +66,7 @@ void pspRandomParticle::update(){
         //post("%lf %lf %lf", posCarNext.x, posCarNext.y, posCarNext.z);
     }
 }
-void pspRandomParticle::draw(){
+void pspRandomParticle::specificDraw(){
     glPushMatrix();
     GLUquadricObj* Sphere;
     glTranslatef(pos.x, pos.y, pos.z);

@@ -77,6 +77,7 @@ private:
     double currentFrameTime;
     double previousFrameTime;
     double frameRate;
+    double previousFrameRate;
     ScopedPointer<Label> frameRateLabel;
     ScopedPointer<Slider> zoomSlider;
     ScopedPointer<Slider> rollSlider;

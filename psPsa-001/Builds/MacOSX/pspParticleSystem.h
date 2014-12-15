@@ -11,10 +11,16 @@
 
 #include <iostream>
 #include "../JuceLibraryCode/JuceHeader.h"
+
 #include "pspParticle.h"
+#include "pspMathUtils.h"
+#include "pspGlobalVariables.h"
+
 #include <OpenGL/OpenGL.h>
 #include <OpenGl/gl.h>
 #include <OpenGL/glu.h>
+#include "OscOutboundPacketStream.h"
+#include "UdpSocket.h"
 
 using namespace std;
 
@@ -27,9 +33,13 @@ public:
     pspParticleSystem(pspParticleSystemsManager* sm, String n, int np);
     virtual ~pspParticleSystem();
     
+    void setDeleteFlag(bool f);
+    bool getDeleteFlag();
+    
     void setup(pspParticleSystemsManager* sm, String n, int np);
     virtual void specificSetup();
-    virtual void update();
+    void update();
+    virtual void specificUpdate();
     void draw();
     virtual void drawParticles();
     virtual void drawSystem();
@@ -49,7 +59,11 @@ public:
     void removeParticles(int np);
     
     void setColor(Colour c);
+    int getNumParticles();
     
+    
+    //child methods
+    virtual void setBounds(CubeLimits cl);
     
     
 protected:
@@ -63,11 +77,20 @@ protected:
     vector<pspParticle*>* particles;
     virtual void addParticleSpecific(int np);
     
-    DocumentWindow* myGuiWindow;
-    Array< Component::SafePointer<Component> > myGuiWindowRef;
+    Component::SafePointer<DocumentWindow> myGuiWindow;
+    //Array< Component::SafePointer<Component> > myGuiWindowRef;
     
     Colour myColour;
     double alpha;
+    
+    bool threadLock;
+    
+    bool deleteFlag;
+    
+    UdpTransmitSocket* oscSender;
+    bool sendOscFlag;
+    void createOscMessage();
+    
     
 };
 

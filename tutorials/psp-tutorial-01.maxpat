@@ -8,7 +8,7 @@
 			"architecture" : "x86"
 		}
 ,
-		"rect" : [ 110.0, 44.0, 1029.0, 944.0 ],
+		"rect" : [ 245.0, 44.0, 1029.0, 944.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -156,7 +156,6 @@
 						"description" : "",
 						"digest" : "",
 						"tags" : "",
-						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"fontname" : "Arial",
@@ -2083,7 +2082,6 @@
 						"description" : "",
 						"digest" : "",
 						"tags" : "",
-						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"fontname" : "Arial",
@@ -3790,18 +3788,18 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-39::obj-10::obj-32" : [ "[12]", "[2]", 0 ],
-			"obj-11::obj-1::obj-128::obj-16::obj-7::obj-32" : [ "[10]", "[2]", 0 ],
-			"obj-39::obj-18::obj-21::obj-6" : [ "live.tab[5]", "live.tab[1]", 0 ],
-			"obj-39::obj-18::obj-35" : [ "[13]", "Level", 0 ],
-			"obj-11::obj-1::obj-128::obj-16::obj-7::obj-21::obj-6" : [ "live.tab[1]", "live.tab[1]", 0 ],
 			"obj-39::obj-10::obj-35" : [ "[11]", "Level", 0 ],
-			"obj-39::obj-18::obj-32" : [ "[14]", "[2]", 0 ],
-			"obj-39::obj-10::obj-21::obj-6" : [ "live.tab[4]", "live.tab[1]", 0 ],
-			"obj-39::obj-9::obj-21::obj-6" : [ "live.tab[3]", "live.tab[1]", 0 ],
-			"obj-11::obj-1::obj-128::obj-16::obj-7::obj-35" : [ "[9]", "Level", 0 ],
 			"obj-39::obj-9::obj-35" : [ "[5]", "Level", 0 ],
-			"obj-39::obj-9::obj-32" : [ "[8]", "[2]", 0 ]
+			"obj-39::obj-18::obj-32" : [ "[14]", "[2]", 0 ],
+			"obj-39::obj-9::obj-21::obj-6" : [ "live.tab[3]", "live.tab[1]", 0 ],
+			"obj-39::obj-10::obj-21::obj-6" : [ "live.tab[4]", "live.tab[1]", 0 ],
+			"obj-11::obj-1::obj-128::obj-16::obj-7::obj-32" : [ "[10]", "[2]", 0 ],
+			"obj-39::obj-10::obj-32" : [ "[12]", "[2]", 0 ],
+			"obj-11::obj-1::obj-128::obj-16::obj-7::obj-35" : [ "[9]", "Level", 0 ],
+			"obj-39::obj-18::obj-21::obj-6" : [ "live.tab[5]", "live.tab[1]", 0 ],
+			"obj-11::obj-1::obj-128::obj-16::obj-7::obj-21::obj-6" : [ "live.tab[1]", "live.tab[1]", 0 ],
+			"obj-39::obj-9::obj-32" : [ "[8]", "[2]", 0 ],
+			"obj-39::obj-18::obj-35" : [ "[13]", "Level", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{

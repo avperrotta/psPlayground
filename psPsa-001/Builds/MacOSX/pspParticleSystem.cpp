@@ -17,6 +17,8 @@ pspParticleSystem::pspParticleSystem(){
     systemsManager = nullptr;
     myGuiWindow = nullptr;
     particles = nullptr;
+    
+    deleteFlag = false;
 }
 
 pspParticleSystem::pspParticleSystem(pspParticleSystemsManager* sm, String n, int np){
@@ -26,6 +28,9 @@ pspParticleSystem::pspParticleSystem(pspParticleSystemsManager* sm, String n, in
 
 
 pspParticleSystem::~pspParticleSystem(){
+    
+    //delete myGuiWindow;
+    
     if(particles != nullptr){
         while(!particles->empty()){
             delete particles->back();
@@ -33,8 +38,16 @@ pspParticleSystem::~pspParticleSystem(){
         }
         delete particles;
     }
+    
 }
 
+void pspParticleSystem::setDeleteFlag(bool f){
+    deleteFlag = f;
+}
+
+bool pspParticleSystem::getDeleteFlag(){
+    return deleteFlag;
+}
 
 void pspParticleSystem::setup(pspParticleSystemsManager* sm, String n, int np){
     systemsManager = sm;
@@ -51,6 +64,10 @@ void pspParticleSystem::setup(pspParticleSystemsManager* sm, String n, int np){
     specificSetup();
     
     setFocus(true);
+    
+    oscSender = systemsManager->getOscSender();
+    
+    sendOscFlag = true;
 }
 
 void pspParticleSystem::specificSetup(){
@@ -58,19 +75,51 @@ void pspParticleSystem::specificSetup(){
 }
 
 void pspParticleSystem::update(){
+    
+    threadLock = true;
+    
     if(particles != nullptr){
         for(int i=0; i<particles->size(); i++){
             (*particles)[i]->update();
         }
+        
+        if(sendOscFlag){
+            if(particles->size() > 0){
+                char buffer[OSC_MSG_BUFFER_SIZE * particles->size()];
+                osc::OutboundPacketStream p(buffer, OSC_MSG_BUFFER_SIZE * particles->size());
+                p << osc::BeginBundleImmediate;
+                juce::String path = "/" + type + ":" + name;
+                for(int i=0; i<particles->size(); i++){
+                    p << osc::BeginMessage(path.getCharPointer());
+                    p << i + 1;
+                    for(int j=0; j<(*particles)[i]->getRawOscMsg().size(); j++){
+                        p << (float)(*particles)[i]->getRawOscMsg()[j];
+                    }
+                    p << osc::EndMessage;
+                }
+                p << osc::EndBundle;
+                oscSender->Send(p.Data(), p.Size());
+            }
+        }
     }
+    
+    specificUpdate();
+    
+    threadLock = false;
+}
+
+void pspParticleSystem::specificUpdate(){
+    
 }
 
 void pspParticleSystem::draw(){
+    threadLock = true;
     glPushMatrix();
     glColor4f(myColour.getFloatRed(), myColour.getFloatGreen(), myColour.getFloatBlue(), alpha);
     drawParticles();
     drawSystem();
     glPopMatrix();
+    threadLock = false;
 }
 
 void pspParticleSystem::drawParticles(){
@@ -141,6 +190,12 @@ void pspParticleSystem::removeParticles(int np){
     }
 }
 
+int pspParticleSystem::getNumParticles(){
+    if(particles != nullptr){
+        return particles->size();
+    }
+    return 0;
+}
 
 pspParticleSystemsManager* pspParticleSystem::getManager(){
     return systemsManager;
@@ -170,6 +225,13 @@ void pspParticleSystem::setColor(Colour c){
     myColour = c;
 }
 
+
 void pspParticleSystem::showGui(){
     
 }
+
+//child virtual methods
+void pspParticleSystem::setBounds(CubeLimits cl){
+    
+}
+

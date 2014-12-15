@@ -57,22 +57,27 @@ void pspRoomConfigGUI::createWidgets(){
     comps.clear();
     comps.add(new loadSpeakersSetupButton("speakers setup", this));
     comps.add(new saveSpeakersSetupButton("speakers setup", this));
-    comps.add(new numSpeakersSlider("num speakers ", this));
-    comps.add(new roomConfigSlider("width", this));
-    comps.add(new roomConfigSlider("lenght", this));
-    comps.add(new roomConfigSlider("height", this));
+    nss = new numSpeakersSlider("num speakers ", this);
+    comps.add(nss);
     panel.addSection("Config", comps);
     
     
+    roomDimensions.clear();
+    roomDimensions.add(new roomConfigSlider("width", this));
+    roomDimensions.add(new roomConfigSlider("lenght", this));
+    roomDimensions.add(new roomConfigSlider("height", this));
+    panel.addSection("Room size", roomDimensions);
+    
+    
     for(int i=0; i<myCr->getNumSpeakers(); i++){
-        comps.clear();
-        comps.add(new speakerPositionSlider("x", this));
-        comps[0]->setComponentID("xSpeaker:" + String(i+1));
-        comps.add(new speakerPositionSlider("y", this));
-        comps[1]->setComponentID("ySpeaker:" + String(i+1));
-        comps.add(new speakerPositionSlider("z", this));
-        comps[1]->setComponentID("zSpeaker:" + String(i+1));
-        panel.addSection("Speaker: " + String(i + 1), comps);
+        speakersPosition.clear();
+        speakersPosition.add(new speakerPositionSlider("x", this));
+        speakersPosition[0]->setComponentID("xSpeaker:" + String(i+1));
+        speakersPosition.add(new speakerPositionSlider("y", this));
+        speakersPosition[1]->setComponentID("ySpeaker:" + String(i+1));
+        speakersPosition.add(new speakerPositionSlider("z", this));
+        speakersPosition[2]->setComponentID("zSpeaker:" + String(i+1));
+        panel.addSection("Speaker: " + String(i + 1), speakersPosition);
     }
     //cout<<endl<<"panel size = "<<panel.getNumSections();
 }
@@ -87,28 +92,20 @@ void pspRoomConfigGUI::setNumSpeakers(int n){
     
     myCr->setNumSpeakers(n);
     
-    
-    if(n != currentNumSpeakers){
-        //panel.clear();
-        //createWidgets();
-    }
-    
-    
     if(n > currentNumSpeakers){
         for(int i=currentNumSpeakers; i<n; i++){
-            comps.clear();
-            comps.add(new speakerPositionSlider("x", this));
-            comps[0]->setComponentID("xSpeaker:" + String(i+1));
-            comps.add(new speakerPositionSlider("y", this));
-            comps[1]->setComponentID("ySpeaker:" + String(i+1));
-            comps.add(new speakerPositionSlider("z", this));
-            comps[1]->setComponentID("zSpeaker:" + String(i+1));
-            panel.addSection("Speaker: " + String(i + 1), comps);
+            speakersPosition.clear();
+            speakersPosition.add(new speakerPositionSlider("x", this));
+            speakersPosition[0]->setComponentID("xSpeaker:" + String(i+1));
+            speakersPosition.add(new speakerPositionSlider("y", this));
+            speakersPosition[1]->setComponentID("ySpeaker:" + String(i+1));
+            speakersPosition.add(new speakerPositionSlider("z", this));
+            speakersPosition[2]->setComponentID("zSpeaker:" + String(i+1));
+            panel.addSection("Speaker: " + String(i + 1), speakersPosition);
         }
     }
     else if(n < currentNumSpeakers){
         panel.removeLast(currentNumSpeakers - n);
-        
     }
     
     //cout<<endl<<"panel size = "<<panel.getNumSections();
@@ -151,6 +148,51 @@ void pspRoomConfigGUI::setRoomSize(Slider* s){
     }
     
     myCr->setBounds(coor, s->getValue());
+}
+
+bool pspRoomConfigGUI::loadXmlRoomConfig(File xmlFile){
+    XmlDocument myDocument (xmlFile);
+    XmlElement* mainElement = myDocument.getDocumentElement();
+    if (mainElement == nullptr)
+    {
+        AlertWindow::showMessageBoxAsync (AlertWindow::WarningIcon, "error loading room config xml file !", "", "OK");
+        delete mainElement;
+        return false;
+    }
+    else{
+        if(!mainElement->hasTagName("RoomConfig")){
+            AlertWindow::showMessageBoxAsync (AlertWindow::WarningIcon, "xml file doesn't contain room config data", "", "OK");
+            delete mainElement;
+            return false;
+        }
+        else{
+            XmlElement* roomSize = mainElement->getChildByName("roomSize");
+            if(roomSize){
+                static_cast<roomConfigSlider*>(roomDimensions[0])->setValue(roomSize->getDoubleAttribute("width"));
+            }
+            
+            XmlElement* speakers = mainElement->getChildByName("speakers");
+            if(speakers != nullptr){
+                int ns = speakers->getNumChildElements();
+                setNumSpeakers(ns);
+                nss->setValue(ns);
+                
+                for(int i=0; i<ns; i++){
+                    static_cast<speakerPositionSlider*>(speakersPosition[3*i+0])->setValue(speakers->getChildElement(i)->getDoubleAttribute("x"));
+                    static_cast<speakerPositionSlider*>(speakersPosition[3*i+1])->setValue(speakers->getChildElement(i)->getDoubleAttribute("y"));
+                    static_cast<speakerPositionSlider*>(speakersPosition[3*i+2])->setValue(speakers->getChildElement(i)->getDoubleAttribute("z"));
+                }
+                
+            }
+            
+            
+            //delete speakers;
+        }
+        
+    }
+    
+    delete mainElement;
+    return true;
 }
 
 //=============================================

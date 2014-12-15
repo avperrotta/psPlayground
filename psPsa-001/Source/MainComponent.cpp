@@ -21,7 +21,7 @@ MainContentComponent::MainContentComponent(){
     setSize (800, 600);
     
     currentFrameTime = juce::Time::currentTimeMillis();
-    
+    previousFrameRate = 0.;
    
 }
 
@@ -44,6 +44,8 @@ void MainContentComponent::render(){
     previousFrameTime = currentFrameTime;
     currentFrameTime = juce::Time::currentTimeMillis();
     frameRate = 1000.0/(currentFrameTime - previousFrameTime);
+    frameRate = 0.1*frameRate + 0.9*previousFrameRate;
+    previousFrameRate = frameRate;
     frameRateLabel->setText(String(frameRate) + " fps", dontSendNotification);
     
     
@@ -86,21 +88,21 @@ void MainContentComponent::render(){
     
     
     
-    
+    /*
     UdpTransmitSocket transmitSocket( IpEndpointName( "127.0.0.1", 7000 ) );
     
     char buffer[1024];
     osc::OutboundPacketStream p( buffer, 1024 );
     
-    p << osc::BeginBundleImmediate
-    << osc::BeginMessage( "/test1" )
+    p << osc::BeginBundleImmediate;
+    p << osc::BeginMessage( "/test1" )
     << true << 23 << (float)3.1415 << "hello" << osc::EndMessage
     << osc::BeginMessage( "/test2" )
     << true << 24 << (float)10.8 << "world" << osc::EndMessage
     << osc::EndBundle;
     transmitSocket.Send( p.Data(), p.Size() );
-    
-    juce::Thread::sleep(1000/60);
+    */
+    juce::Thread::sleep(1000/30);
 }
 
 void MainContentComponent::paint (Graphics& g){

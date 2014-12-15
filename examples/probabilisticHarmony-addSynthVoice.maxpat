@@ -97,7 +97,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
 					"patching_rect" : [ 358.0, 75.0, 38.0, 20.0 ],
-					"text" : "% 10"
+					"text" : "% 12"
 				}
 
 			}
@@ -463,7 +463,7 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 240.0, 165.0, 73.0, 20.0 ],
+					"patching_rect" : [ 240.0, 165.0, 103.0, 20.0 ],
 					"text" : "r #1.gain"
 				}
 
@@ -547,7 +547,7 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 75.0, 15.0, 70.0, 20.0 ],
+					"patching_rect" : [ 75.0, 15.0, 100.0, 20.0 ],
 					"text" : "r #1.raw"
 				}
 
@@ -561,8 +561,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 271.0, 285.0, 32.5, 18.0 ],
-					"text" : "200"
+					"patching_rect" : [ 271.0, 285.0, 37.0, 18.0 ],
+					"text" : "2000"
 				}
 
 			}
@@ -630,7 +630,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 2,
 					"numoutlets" : 0,
-					"patching_rect" : [ 75.0, 405.0, 380.0, 20.0 ],
+					"patching_rect" : [ 75.0, 405.0, 408.0, 20.0 ],
 					"text" : "pspSingleTrajectoryParser #1 #2 0 2 200 @useReverb true"
 				}
 
@@ -681,7 +681,7 @@
 					"destination" : [ "obj-1", 1 ],
 					"disabled" : 0,
 					"hidden" : 0,
-					"midpoints" : [ 391.5, 390.0, 445.5, 390.0 ],
+					"midpoints" : [ 391.5, 390.0, 473.5, 390.0 ],
 					"source" : [ "obj-15", 0 ]
 				}
 
@@ -801,7 +801,7 @@
 					"destination" : [ "obj-1", 1 ],
 					"disabled" : 0,
 					"hidden" : 0,
-					"midpoints" : [ 534.5, 390.0, 445.5, 390.0 ],
+					"midpoints" : [ 534.5, 390.0, 473.5, 390.0 ],
 					"source" : [ "obj-22", 0 ]
 				}
 

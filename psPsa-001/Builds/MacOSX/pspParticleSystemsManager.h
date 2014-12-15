@@ -11,6 +11,10 @@
 
 #include <iostream>
 #include "../JuceLibraryCode/JuceHeader.h"
+
+#include "UdpSocket.h"
+
+#include "pspGlobalVariables.h"
 #include "pspParticleSystem.h"
 #include "pspConcertRoom.h"
 
@@ -34,6 +38,7 @@ public:
     
     
     int getNumSystems();
+    int getNumActiveSystems();
     vector<pspParticleSystem*>* getSystems();
     pspParticleSystem* getSystem(int s);
     void addSystem(String type, int np);
@@ -46,17 +51,25 @@ public:
     ConcertRoom* getConcertRoom();
     int getNumSpeakers();
     
+    
+    UdpTransmitSocket* getOscSender();
+    
     void debug();
     
 private:
     
     vector<pspParticleSystem*>* pSystems;
+    vector<pspParticleSystem*>* pSystemsToDelete;
+    void moveSystemToDeleteQ();
+    void clearDeleteQ();
     ConcertRoom* concertRoom;
     
     vector<Colour> colors;
     int colorIndex;
     void createColorVector();
     void incrementColorIndex();
+    
+    UdpTransmitSocket* oscSender;
 };
 
 #endif /* defined(__psPsa_001__pspParticleSystemsManager__) */

@@ -8,11 +8,12 @@
 
 #ifndef __psPsa_001__pspRandomSystem__
 #define __psPsa_001__pspRandomSystem__
-
+#include "../JuceLibraryCode/JuceHeader.h"
 #include <iostream>
 #include "pspParticleSystem.h"
 #include "pspMathUtils.h"
 #include "pspRandomParticle.h"
+#include "pspSystemsProperties.h"
 
 
 using namespace std;
@@ -27,13 +28,13 @@ public:
     ~pspRandomSystem();
     
     void specificSetup();
-    void update();
+    void specificUpdate();
     void drawParticles();
     void drawSystem();
     
     void showGui();
     
-    void setBounds(CubeLimits cl);
+    void setBounds(CubeLimits cl) override;
     CubeLimits* getBounds();
     
 protected:
@@ -46,51 +47,32 @@ protected:
 };
 
 
-class pspRandomSystemWGCC : public Component, public Slider::Listener, public ButtonListener, public TextEditor::Listener{
+class pspRandomSystemPropertiesComponent : public pspSystemsPropertiesComponent{
 public:
     
-    pspRandomSystemWGCC(pspRandomSystem* ms);
-    ~pspRandomSystemWGCC();
+    pspRandomSystemPropertiesComponent(pspRandomSystem* ms);
+    ~pspRandomSystemPropertiesComponent();
     
-    void paint(Graphics& g)override;
-    void resized()override;
+    void createSpecificWidgets();
+    void sliderChanged(Slider* s);
     
-    void sliderValueChanged(Slider* slider) override;
-    void sliderDragStarted(Slider*) override;
-    void sliderDragEnded(Slider*) override;
+protected:
     
-    void buttonClicked (Button* buttonThatWasClicked);
     
-    virtual void textEditorTextChanged(TextEditor& t) override;
-    virtual void textEditorReturnKeyPressed(TextEditor& t) override;
-    virtual void textEditorEscapeKeyPressed(TextEditor& t) override;
-    virtual void textEditorFocusLost(TextEditor& t) override;
+    //pspRandomSystem* mySystem;
     
-private:
+    pspLimitSlider* minlx;
+    pspLimitSlider* minly;
+    pspLimitSlider* minlz;
     
-    ScopedPointer<Slider> numParticles;
-    ScopedPointer<Label> numParticlesLabel;
-    
-    ScopedPointer<Slider> limitsX;
-    ScopedPointer<Label> limitsXLabel;
-    ScopedPointer<TextEditor>lxmin;
-    ScopedPointer<TextEditor>lxmax;
-    
-    ScopedPointer<Slider> limitsY;
-    ScopedPointer<Label> limitsYLabel;
-    ScopedPointer<TextEditor>lymin;
-    ScopedPointer<TextEditor>lymax;
-    
-    ScopedPointer<Slider> limitsZ;
-    ScopedPointer<Label> limitsZLabel;
-    ScopedPointer<TextEditor>lzmin;
-    ScopedPointer<TextEditor>lzmax;
+    pspLimitSlider* maxlx;
+    pspLimitSlider* maxly;
+    pspLimitSlider* maxlz;
     
     
     
-    pspRandomSystem* mySystem;
     
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (pspRandomSystemWGCC)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (pspRandomSystemPropertiesComponent);
     
 };
 
@@ -109,15 +91,15 @@ public:
     
     void closeButtonPressed();
     
-private:
+protected:
     
-    ScopedPointer<pspRandomSystemWGCC> myContent;
+    ScopedPointer<pspRandomSystemPropertiesComponent> myContent;
     
     pspRandomSystem* mySystem;
     
     void changeListenerCallback(ChangeBroadcaster* source);
     
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (pspRandomSystemWindowGui)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (pspRandomSystemWindowGui);
     
 };
 

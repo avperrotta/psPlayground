@@ -23,26 +23,40 @@ pspParticleSystemsManager::~pspParticleSystemsManager(){
         delete pSystems;
     }
     
+    if(pSystemsToDelete){
+        clearDeleteQ();
+        delete pSystemsToDelete;
+    }
+    
+    
     if(concertRoom){
         delete concertRoom;
     }
     
+    
+    
+    
 }
 
 void pspParticleSystemsManager::setup(){
+    
+    oscSender = new UdpTransmitSocket(IpEndpointName(DEFAULT_OSC_SENDER_IP, DEFAULT_OSC_SENDER_PORT));
+    
+    
     pSystems = new vector<pspParticleSystem*>();
+    pSystemsToDelete = new vector<pspParticleSystem*>();
     concertRoom = new ConcertRoom();
     
     createColorVector();
     
     /*
-    for(int i=0; i<1; i++){
-        addSystem("generic", 1);
-    }
-    for(int i=0; i<1; i++){
-        addSystem("random", 1);
-    }
-    */
+     for(int i=0; i<1; i++){
+     addSystem("generic", 1);
+     }
+     for(int i=0; i<1; i++){
+     addSystem("random", 1);
+     }
+     */
     
     //cout<<pSystems->size();
 }
@@ -52,6 +66,8 @@ void pspParticleSystemsManager::update(){
             (*pSystems)[i]->update();
         }
     }
+    moveSystemToDeleteQ();
+    clearDeleteQ();
 }
 void pspParticleSystemsManager::draw(){
     if(pSystems){
@@ -67,6 +83,19 @@ void pspParticleSystemsManager::draw(){
 int pspParticleSystemsManager::getNumSystems(){
     if(pSystems != NULL){
         return pSystems->size();
+    }
+    return 0;
+}
+
+int pspParticleSystemsManager::getNumActiveSystems(){
+    if(pSystems != NULL){
+        int counter = 0;
+        for(int i=0; i<pSystems->size(); i++){
+            if(!(*pSystems)[i]->getDeleteFlag()){
+                counter++;
+            }
+        }
+        return counter;
     }
     return 0;
 }
@@ -90,7 +119,7 @@ String pspParticleSystemsManager::getSystemName(int s){
             return (*pSystems)[s]->getName();
         }
     }
-    return "no system to call";
+    return "nosystemtocall";
 }
 String pspParticleSystemsManager::getSystemType(int s){
     if(pSystems != nullptr){
@@ -98,7 +127,7 @@ String pspParticleSystemsManager::getSystemType(int s){
             return (*pSystems)[s]->getType();
         }
     }
-    return "no system to call";
+    return "nosystemtocall";
 }
 
 
@@ -126,14 +155,31 @@ void pspParticleSystemsManager::addSystem(juce::String type, int np){
 
 void pspParticleSystemsManager::deleteSystem(int s){
     if(pSystems != nullptr){
-        if(pSystems->size() > s){
-            delete (*pSystems)[s];
-            pSystems->erase(pSystems->begin() + s);
-            cout<<endl<<"system deleted";
-            cout<<endl<<"new size = "<<pSystems->size();
+        if(s >= 0 && s < pSystems->size()){
+            (*pSystems)[s]->setDeleteFlag(true);
         }
     }
-    
+}
+
+void pspParticleSystemsManager::moveSystemToDeleteQ(){
+    if(pSystems){
+        for(int i=0; i<pSystems->size(); i++){
+            if((*pSystems)[i]->getDeleteFlag()){
+                pSystemsToDelete->push_back((*pSystems)[i]);
+                pSystems->erase(pSystems->begin() + i);
+            }
+        }
+    }
+}
+
+void pspParticleSystemsManager::clearDeleteQ(){
+    if(pSystemsToDelete){
+        while(!pSystemsToDelete->empty()){
+            delete pSystemsToDelete->back();
+            pSystemsToDelete->pop_back();
+        }
+        //delete pSystemsToDelete;
+    }
 }
 
 pspParticleSystem* pspParticleSystemsManager::getSystem(int s){
@@ -197,4 +243,12 @@ void pspParticleSystemsManager::showPsystemGui(int ps){
             (*pSystems)[ps]->showGui();
         }
     }
+}
+
+UdpTransmitSocket* pspParticleSystemsManager::getOscSender(){
+    if(oscSender != nullptr){
+        return oscSender;
+    }
+    
+    return new UdpTransmitSocket(IpEndpointName(DEFAULT_OSC_SENDER_IP, DEFAULT_OSC_SENDER_PORT));
 }

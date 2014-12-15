@@ -30,12 +30,14 @@
 		A73DBCDE1A24C6730099761D /* pspMathUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A73DBCDC1A24C6730099761D /* pspMathUtils.cpp */; };
 		A73DBCE11A24CA480099761D /* pspConcertRoom.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A73DBCDF1A24CA480099761D /* pspConcertRoom.cpp */; };
 		A73DBCE41A24CA850099761D /* pspSpeaker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A73DBCE21A24CA850099761D /* pspSpeaker.cpp */; };
+		A74C11421A3209DB00676EF1 /* pspSystemsProperties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A74C11401A3209DB00676EF1 /* pspSystemsProperties.cpp */; };
 		A758E3C71A23A2A300BC2EB4 /* teapot.obj in Resources */ = {isa = PBXBuildFile; fileRef = A758E3C51A23A2A300BC2EB4 /* teapot.obj */; };
 		A758E3CA1A23A37F00BC2EB4 /* BinaryData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A758E3C81A23A37F00BC2EB4 /* BinaryData.cpp */; };
 		A7680C8D1A2CA681001E6C4A /* pspRoomConfigGUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7680C8B1A2CA681001E6C4A /* pspRoomConfigGUI.cpp */; };
 		A787EAB61A1F792F00517F18 /* pspMainWindowComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A787EAB41A1F792F00517F18 /* pspMainWindowComponent.cpp */; };
 		A7AAD2131A2E1E7800E3D8EB /* pspRandomSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7AAD2111A2E1E7800E3D8EB /* pspRandomSystem.cpp */; };
 		A7AAD2161A2E2D8700E3D8EB /* pspRandomParticle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7AAD2141A2E2D8700E3D8EB /* pspRandomParticle.cpp */; };
+		A7C47A511A39FA5E002ADE5B /* pspGlobalVariables.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7C47A4F1A39FA5E002ADE5B /* pspGlobalVariables.cpp */; };
 		A7C85CDC1A20E7D200633279 /* pspParticleSystemsManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7C85CDA1A20E7D200633279 /* pspParticleSystemsManager.cpp */; };
 		A7C85CE01A20F07500633279 /* pspParticle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7C85CDE1A20F07500633279 /* pspParticle.cpp */; };
 		A7C85CE31A20F5CE00633279 /* pspParticleSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7C85CE11A20F5CE00633279 /* pspParticleSystem.cpp */; };
@@ -665,6 +667,8 @@
 		A73DBCE01A24CA480099761D /* pspConcertRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pspConcertRoom.h; sourceTree = "<group>"; };
 		A73DBCE21A24CA850099761D /* pspSpeaker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pspSpeaker.cpp; sourceTree = "<group>"; };
 		A73DBCE31A24CA850099761D /* pspSpeaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pspSpeaker.h; sourceTree = "<group>"; };
+		A74C11401A3209DB00676EF1 /* pspSystemsProperties.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pspSystemsProperties.cpp; sourceTree = "<group>"; };
+		A74C11411A3209DB00676EF1 /* pspSystemsProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pspSystemsProperties.h; sourceTree = "<group>"; };
 		A758E3C51A23A2A300BC2EB4 /* teapot.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = teapot.obj; sourceTree = "<group>"; };
 		A758E3C61A23A2A300BC2EB4 /* WavefrontObjParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WavefrontObjParser.h; sourceTree = "<group>"; };
 		A758E3C81A23A37F00BC2EB4 /* BinaryData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BinaryData.cpp; sourceTree = "<group>"; };
@@ -677,6 +681,8 @@
 		A7AAD2121A2E1E7800E3D8EB /* pspRandomSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pspRandomSystem.h; sourceTree = "<group>"; };
 		A7AAD2141A2E2D8700E3D8EB /* pspRandomParticle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pspRandomParticle.cpp; sourceTree = "<group>"; };
 		A7AAD2151A2E2D8700E3D8EB /* pspRandomParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pspRandomParticle.h; sourceTree = "<group>"; };
+		A7C47A4F1A39FA5E002ADE5B /* pspGlobalVariables.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pspGlobalVariables.cpp; sourceTree = "<group>"; };
+		A7C47A501A39FA5E002ADE5B /* pspGlobalVariables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pspGlobalVariables.h; sourceTree = "<group>"; };
 		A7C85CDA1A20E7D200633279 /* pspParticleSystemsManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pspParticleSystemsManager.cpp; sourceTree = "<group>"; };
 		A7C85CDB1A20E7D200633279 /* pspParticleSystemsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pspParticleSystemsManager.h; sourceTree = "<group>"; };
 		A7C85CDD1A20EC6900633279 /* MainComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainComponent.h; sourceTree = "<group>"; };
@@ -1408,6 +1414,10 @@
 				A7AAD2121A2E1E7800E3D8EB /* pspRandomSystem.h */,
 				A7AAD2141A2E2D8700E3D8EB /* pspRandomParticle.cpp */,
 				A7AAD2151A2E2D8700E3D8EB /* pspRandomParticle.h */,
+				A74C11401A3209DB00676EF1 /* pspSystemsProperties.cpp */,
+				A74C11411A3209DB00676EF1 /* pspSystemsProperties.h */,
+				A7C47A4F1A39FA5E002ADE5B /* pspGlobalVariables.cpp */,
+				A7C47A501A39FA5E002ADE5B /* pspGlobalVariables.h */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -2927,6 +2937,7 @@
 				3D858ABD886D93F94F99BF50 /* juce_audio_processors.mm in Sources */,
 				A42BBE6E03DC8B73BC6CCE90 /* juce_core.mm in Sources */,
 				3A450C822F8CE80D0F86643F /* juce_cryptography.mm in Sources */,
+				A74C11421A3209DB00676EF1 /* pspSystemsProperties.cpp in Sources */,
 				ACA48887F259B6CF73BD739E /* juce_data_structures.mm in Sources */,
 				5AB5BA30FBCE6C5CAF25C4C0 /* juce_events.mm in Sources */,
 				A7C85CE31A20F5CE00633279 /* pspParticleSystem.cpp in Sources */,
@@ -2940,6 +2951,7 @@
 				A73DBCDB1A24C61D0099761D /* ofVec4f.cpp in Sources */,
 				A787EAB61A1F792F00517F18 /* pspMainWindowComponent.cpp in Sources */,
 				A7AAD2161A2E2D8700E3D8EB /* pspRandomParticle.cpp in Sources */,
+				A7C47A511A39FA5E002ADE5B /* pspGlobalVariables.cpp in Sources */,
 				A758E3CA1A23A37F00BC2EB4 /* BinaryData.cpp in Sources */,
 				A7F925931A234CFB006E766C /* IpEndpointName.cpp in Sources */,
 				4E544D77FB2B3D3D1BCF090D /* juce_video.mm in Sources */,

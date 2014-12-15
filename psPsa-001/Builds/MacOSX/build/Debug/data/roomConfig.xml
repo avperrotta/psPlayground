@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes"?>
+
+<RoomConfig>
+	<roomSize width = "1.0" height = "1.0" length = "1.0"/>
+	<speakers>
+		<speaker number = "1" x = "-0.5" y = "0.0" z = "-0.5"/>
+		<speaker number = "2" x = "0.5" y = "0.0" z = "-0.5"/>
+		<speaker number = "3" x = "-0.5" y = "0.0" z = "0.5"/>
+		<speaker number = "4" x = "-0.5" y = "0.0" z = "0.5"/>
+	</speakers>	
+</RoomConfig>
+

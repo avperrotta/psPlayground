@@ -21,8 +21,8 @@ public:
     ~pspRandomParticle();
     
     void specificSetup();
-    void update();
-    void draw();
+    void specificUpdate();
+    void specificDraw();
     
     void setBounds(CubeLimits* b);
     

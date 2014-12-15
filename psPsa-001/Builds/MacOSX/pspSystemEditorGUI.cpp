@@ -49,7 +49,7 @@ void pspSystemEditorGUI::buttonClicked (Button* buttonThatWasClicked){
 }
 int pspSystemEditorGUI::getNumRows(){
     if(psManager != nullptr){
-        return psManager->getNumSystems();
+        return psManager->getNumActiveSystems();
     }
     else{
         return 0;
@@ -69,7 +69,11 @@ void pspSystemEditorGUI::paintListBoxItem(int rowNumber, Graphics &g, int width,
     a.setJustification (Justification::centredLeft);
     
     name = psManager->getSystemName(rowNumber);
+    if(name == "nosystemtocall"){
+        return;
+    }
     type = psManager->getSystemType(rowNumber);
+    
 
     a.append (type, Font (12.0f), Colour::greyLevel (0.7f));
     a.append(separator, Font (12.0f), Colour::greyLevel (0.7f));
@@ -122,8 +126,8 @@ void pspSystemEditorGUI::psItemDeleted(int result, pspSystemEditorGUI* p)
 {
     if(result == 1){
         p->deletedSystem = true;
-        p->getPsManager()->deleteSystem(p->lastSelectedPSystem);
         p->systemsList.removeChildComponent(p->systemsList.getComponentForRowNumber(p->lastSelectedPSystem));
+        p->getPsManager()->deleteSystem(p->lastSelectedPSystem);
         p->systemsList.updateContent();
         p->systemsList.deselectAllRows();
     }

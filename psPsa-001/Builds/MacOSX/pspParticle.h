@@ -15,6 +15,9 @@
 #include <OpenGL/OpenGL.h>
 #include <OpenGl/gl.h>
 #include <OpenGL/glu.h>
+#include "OscOutboundPacketStream.h"
+#include "pspGlobalVariables.h"
+
 
 class pspParticleSystem;
 class pspParticleSystemsManager;
@@ -28,12 +31,19 @@ public:
     virtual ~pspParticle();
     
     void setup(pspParticleSystem* ms, int ind);
+    void update();
+    void draw();
+    
     virtual void specificSetup();
-    virtual void update();
-    virtual void draw();
+    virtual void specificUpdate();
+    virtual void specificDraw();
     
     void setVel(ofVec3f);
     void setVariance(double v);
+    
+    void setOscTag(bool ot);
+    osc::OutboundPacketStream* getOscMsg();
+    vector<double> getRawOscMsg();
     
 protected:
     
@@ -50,6 +60,14 @@ protected:
     
     double variance;
     
+    vector<double> rawOscMsg;
+    bool sendOsc;
+    void createOscMessage();
+    char buffer[OSC_MSG_BUFFER_SIZE];
+    osc::OutboundPacketStream* oscMsg;
+    
+    
+    void debug();
 };
 
 
