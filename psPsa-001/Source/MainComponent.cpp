@@ -12,7 +12,6 @@
 MainContentComponent::MainContentComponent(){
     
     
-    
     //psp
     pspManager = new pspParticleSystemsManager();
     
